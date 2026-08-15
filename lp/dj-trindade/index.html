@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Esquina Av. Dom Joaquim — Terreno 956 m² | Maysonnave Imóveis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F5F0E8;
+    --accent:#9B7B5A;
+    --accent-light:#CBA982;
+    --text:#2C2416;
+    --text-deep:#1C1610;
+    --card:#EDE8DF;
+    --cream:#F5EDE0;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; line-height:1.6;}
+  .serif{font-family:'Playfair Display',serif;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 32px;}
+
+  .eyebrow{
+    font-size:12.5px; letter-spacing:0.18em; text-transform:uppercase; font-weight:700;
+    display:flex; align-items:center; gap:14px;
+  }
+  .eyebrow::before{content:''; width:28px; height:2px; background:var(--accent-light); display:inline-block;}
+
+  header{position:absolute; top:0; left:0; right:0; z-index:10; padding:32px 0; display:flex; justify-content:center;}
+  header img{height:38px; filter:brightness(0) invert(1);}
+
+  /* HERO */
+  .hero{
+    position:relative; min-height:92vh; display:flex; align-items:center;
+    background:
+      radial-gradient(ellipse 80% 60% at 75% 15%, rgba(155,123,90,0.35), transparent 60%),
+      linear-gradient(155deg, var(--text-deep) 0%, #2C2416 45%, #4A3826 100%);
+    overflow:hidden;
+  }
+  .hero-content{position:relative; z-index:2; max-width:760px; padding:120px 0 80px;}
+  .hero .eyebrow{color:var(--accent-light); margin-bottom:28px;}
+  .hero h1{color:#fff; font-family:'Playfair Display',serif; font-weight:600; font-size:54px; line-height:1.12; letter-spacing:-0.01em; margin-bottom:26px;}
+  .hero h1 em{font-style:italic; color:var(--accent-light);}
+  .hero p{color:#D9CDB8; font-size:18px; max-width:540px; font-weight:400;}
+  .scroll-cue{position:absolute; bottom:36px; left:32px; display:flex; align-items:center; gap:10px; color:#A6967D; font-size:12px; letter-spacing:0.1em; text-transform:uppercase;}
+  .scroll-cue .line{width:1px; height:36px; background:#A6967D;}
+
+  section{padding:96px 0;}
+  .section-title{font-family:'Playfair Display',serif; font-weight:600; font-size:34px; margin:18px 0 14px; max-width:620px;}
+  .section-sub{color:#5C5340; font-size:16px; margin-bottom:44px; max-width:600px;}
+
+  /* PROPOSTA DE VALOR (visual + texto editorial) */
+  .visual-frame{display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center;}
+  .img-card{position:relative; border-radius:18px; overflow:hidden; aspect-ratio:4/5; box-shadow:0 24px 60px rgba(44,36,22,0.22);}
+  .img-card img{width:100%; height:100%; object-fit:cover; filter:grayscale(0.45) contrast(1.08) brightness(0.96);}
+  .img-card .tint{position:absolute; inset:0; background:linear-gradient(150deg, rgba(44,36,22,0.78) 0%, rgba(155,123,90,0.42) 100%); mix-blend-mode:multiply;}
+  .img-card .tag{position:absolute; bottom:20px; left:20px; right:20px; color:#fff; font-size:13px; letter-spacing:0.04em; background:rgba(28,22,16,0.55); backdrop-filter:blur(4px); padding:10px 14px; border-radius:8px;}
+  .visual-copy p{font-size:16.5px; margin-bottom:16px; color:#3A3120;}
+  .visual-copy strong{color:var(--accent);}
+  .visual-copy .closing{font-family:'Playfair Display',serif; font-style:italic; font-size:18px; color:var(--text); margin-top:24px;}
+
+  /* NÚMERO PROVADOR */
+  .stats-band{background:var(--text-deep);}
+  .stats{display:grid; grid-template-columns:repeat(4, 1fr);}
+  .stat-item{padding:16px 24px; border-left:1px solid rgba(245,237,224,0.14); text-align:left;}
+  .stat-item:first-child{border-left:none; padding-left:0;}
+  .stat-item .num{font-family:'Montserrat',sans-serif; font-weight:800; font-size:46px; color:var(--accent-light); display:block; line-height:1; margin-bottom:12px; letter-spacing:-0.01em;}
+  .stat-item .label{font-size:13px; color:#A6967D; text-transform:uppercase; letter-spacing:0.05em; font-weight:600;}
+  .stats-note{color:#8A7D68; font-size:13px; margin-top:32px; max-width:640px;}
+
+  /* QUEBRA DE OBJEÇÕES */
+  .obj-grid{display:flex; flex-direction:column; gap:0; margin-top:8px;}
+  .obj-item{padding:32px 0; border-bottom:1px solid rgba(44,36,22,0.12);}
+  .obj-item:first-child{padding-top:0;}
+  .obj-item h3{font-family:'Montserrat',sans-serif; font-size:18px; font-weight:700; margin-bottom:10px;}
+  .obj-item p{font-size:15.5px; color:#3A3120; max-width:680px;}
+  .quote-section{background:var(--accent); padding:96px 0; margin-top:24px;}
+  .quote-block{max-width:760px; margin:0 auto; text-align:center;}
+  .quote-block .mark{font-family:'Playfair Display',serif; font-size:64px; color:rgba(255,255,255,0.45); line-height:0.5; display:block; margin-bottom:8px;}
+  .quote-block p{color:#fff; font-family:'Playfair Display',serif; font-style:italic; font-size:25px; font-weight:600; line-height:1.45;}
+  .quote-block .by{margin-top:28px; color:rgba(255,255,255,0.75); font-family:'Inter',sans-serif; font-style:normal; font-size:13.5px; letter-spacing:0.08em; text-transform:uppercase;}
+
+  /* OFERTA */
+  .oferta-wrap{display:grid; grid-template-columns:1fr 1fr; gap:0; background:var(--text-deep); border-radius:20px; overflow:hidden;}
+  .oferta-left{padding:56px; color:#fff;}
+  .oferta-left .label{font-size:12.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent-light); margin-bottom:18px; font-weight:700;}
+  .price-range{font-family:'Playfair Display',serif; font-weight:700; font-size:42px; color:#fff; line-height:1.15;}
+  .price-note{font-size:13.5px; color:#A6967D; margin-top:10px;}
+  .oferta-right{padding:56px; background:var(--card);}
+  .oferta-right ul{list-style:none;}
+  .oferta-right li{padding:16px 0; border-bottom:1px solid rgba(44,36,22,0.12); font-size:15px; display:flex; gap:12px;}
+  .oferta-right li:last-child{border-bottom:none;}
+  .oferta-right li::before{content:'—'; color:var(--accent); font-weight:700; flex-shrink:0;}
+
+  /* CTA FINAL */
+  .cta-section{background:linear-gradient(155deg, var(--text-deep) 0%, #3A2E1F 100%); border-radius:20px; padding:72px 56px; text-align:center;}
+  .cta-section .eyebrow{justify-content:center; color:var(--accent-light); margin-bottom:20px;}
+  .cta-section h2{color:#fff; font-family:'Playfair Display',serif; font-weight:600; font-size:34px; margin-bottom:14px;}
+  .cta-section > p{color:#C9BBA3; font-size:15.5px; margin-bottom:36px; max-width:480px; margin-left:auto; margin-right:auto;}
+  .lead-form{max-width:420px; margin:0 auto; text-align:left;}
+  .lead-form .field{margin-bottom:14px;}
+  .lead-form label{display:block; color:#D9CDB8; font-size:13px; font-weight:600; margin-bottom:6px;}
+  .lead-form input{width:100%; padding:14px 16px; border-radius:8px; border:1px solid transparent; font-family:'Inter',sans-serif; font-size:15px; background:rgba(245,237,224,0.95); color:var(--text);}
+  .lead-form input::placeholder{color:#9A8F7A;}
+  .lead-form input:focus{outline:none; border-color:var(--accent-light);}
+  .btn{display:inline-block; width:100%; border:none; cursor:pointer; background:var(--accent-light); color:var(--text-deep); font-family:'Montserrat',sans-serif; font-weight:800; font-size:15px; padding:16px 36px; border-radius:8px; text-decoration:none; margin-top:8px; transition:transform .15s ease, background .15s ease;}
+  .btn:hover{transform:translateY(-2px); background:#fff;}
+  .cta-phone{margin-top:24px; color:#A6967D; font-size:13.5px;}
+  .ps{max-width:640px; margin:36px auto 0; font-size:14px; color:#7A6F5C; font-style:italic; text-align:center;}
+
+  footer{background:var(--text-deep); padding:48px 24px 56px; text-align:center;}
+  footer .name{color:#fff; font-weight:700; font-size:14px; margin-bottom:6px; font-family:'Montserrat',sans-serif;}
+  footer .info{font-size:12.5px; color:#8A7D68; line-height:1.8;}
+
+  @media (max-width:780px){
+    .hero h1{font-size:36px;}
+    .hero-content{padding:140px 0 64px;}
+    .visual-frame{grid-template-columns:1fr; gap:32px;}
+    .stats{grid-template-columns:repeat(2,1fr); row-gap:32px;}
+    .stat-item:nth-child(3){border-left:none;}
+    .oferta-wrap{grid-template-columns:1fr;}
+    .quote-block p{font-size:20px;}
+    section{padding:64px 0;}
+    .cta-section{padding:48px 28px;}
+  }
+</style>
+<link rel="canonical" href="https://maysimoveis.com/lp/dj-trindade/"><meta name="google-site-verification" content="verificacao-teste-123"></head>
+<body>
+
+<header>
+  <img src="img/logo.png" alt="Maysonnave Imóveis">
+</header>
+
+<!-- 1. HERO (Schwartz) -->
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-content">
+      <div class="eyebrow">Esquina Dom Joaquim · Pelotas/RS</div>
+      <h1>Hoje, não existe <em>nenhum outro</em> terreno como esse à venda na Avenida Dom Joaquim.</h1>
+      <p>956,40 m² em esquina, 35 metros de testada pela avenida mais comercial da Zona Norte de Pelotas. Sem restrição patrimonial. Para quem constrói para si — não para revender.</p>
+    </div>
+  </div>
+  <div class="scroll-cue"><span class="line"></span>Role para ver o terreno</div>
+</div>
+
+<!-- 2. PROPOSTA DE VALOR & ANCORAGEM TÉCNICA (Ogilvy) -->
+<div class="wrap">
+  <section class="visual-frame">
+    <div class="img-card">
+      <img src="img/fachada.png" alt="Vista aérea do terreno na esquina da Av. Dom Joaquim">
+      <div class="tint"></div>
+      <div class="tag">Vista aérea — esquina Av. Dom Joaquim Ferreira de Mello / Rua Gonçalves Chaves</div>
+    </div>
+    <div class="visual-copy">
+      <div class="eyebrow" style="color:var(--accent); margin-bottom:24px;">Proposta de valor</div>
+      <p>Um terreno não se avalia pelo que parece — se avalia pelo que a documentação, a lei e o mercado comprovam.</p>
+      <p>Os dois lotes que formam essa esquina somam <strong>956,40 m²</strong> segundo certidão municipal, com <strong>35 metros de testada combinada</strong> pela Avenida Dom Joaquim — mais que o dobro da frente de qualquer imóvel vendido recentemente na via. Pelo Plano Diretor de Pelotas (Lei 5.502/2008), a área comporta até 70% de ocupação por pavimento — o equivalente a 669 m² de projeção — com altura estimada de até 13 metros. Nenhum dos dois endereços consta no Inventário do Patrimônio Cultural de Pelotas.</p>
+      <p>Traduzindo: visibilidade nas duas frentes para acessos independentes, espaço para uma sede própria ou um edifício de uso misto com comércio no térreo, e liberdade construtiva plena — sem o ônus burocrático que normalmente acompanha terrenos de valor histórico em Pelotas.</p>
+      <p class="closing">Essa é a diferença entre comprar um endereço e comprar um relatório técnico que sustenta esse endereço.</p>
+    </div>
+  </section>
+</div>
+
+<!-- 3. O NÚMERO PROVADOR (Schwartz) -->
+<div class="stats-band">
+  <div class="wrap" style="padding-top:96px; padding-bottom:96px;">
+    <div class="stats">
+      <div class="stat-item"><span class="num">956,40</span><span class="label">m² de área total</span></div>
+      <div class="stat-item"><span class="num">35 m</span><span class="label">Testada pela Av. Dom Joaquim</span></div>
+      <div class="stat-item"><span class="num">70%</span><span class="label">Ocupação por pavimento</span></div>
+      <div class="stat-item"><span class="num">Zero</span><span class="label">Restrições patrimoniais</span></div>
+    </div>
+    <p class="stats-note">Mediana de mercado bruta: R$ 3.140/m² (2 comparáveis diretos vendidos na própria avenida). Ajustada para R$ 3,3 a 3,75 milhões pelo fator testada/esquina, conforme metodologia de homogeneização da NBR 14.653-2.</p>
+  </div>
+</div>
+
+<!-- 4. QUEBRA DE OBJEÇÕES INVISÍVEIS (Ogilvy) -->
+<div class="wrap">
+  <section>
+    <div class="eyebrow" style="color:var(--accent);">Antes de decidir</div>
+    <h2 class="section-title">O que normalmente preocupa — e o que já está resolvido aqui</h2>
+
+    <div class="obj-grid">
+      <div class="obj-item">
+        <h3>Situação documental e de processo</h3>
+        <p>Diferente de boa parte dos terrenos de esquina ainda disponíveis na região, este já está com a documentação municipal regularizada — certidões de característica atualizadas para os dois lotes, sem pendência junto à Prefeitura. A edificação existente no lote secundário não impõe processo de inventário, tombamento ou qualquer trâmite sucessório: é uma decisão de demolição simples, sujeita apenas ao alvará ordinário de obra.</p>
+      </div>
+      <div class="obj-item">
+        <h3>Fundamentação técnica, não opinião comercial</h3>
+        <p>A análise que sustenta essa oportunidade não nasceu de um anúncio — nasceu de uma avaliação pericial, com metodologia de homogeneização de valor prevista na NBR 14.653-2, a mesma norma técnica usada em laudos judiciais e bancários. Rodrigo Maysonnave Fernandes, CRECI-RS 61.580, é perito avaliador certificado: cada número apresentado aqui pode ser auditado no relatório completo.</p>
+      </div>
+      <div class="obj-item">
+        <h3>O custo de esperar</h3>
+        <p>Resta a pergunta mais cara de todas: esperar por outra esquina equivalente. A resposta, levantada junto a cada portal e imobiliária da cidade, é direta — não existe outro terreno vago anunciado diretamente na própria avenida hoje. Esperar não é uma estratégia neutra; é decidir competir pelo próximo terreno desse porte sem saber quando ele vai aparecer.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="quote-section">
+  <div class="wrap">
+    <div class="quote-block">
+      <span class="mark">"</span>
+      <p>Quem decide por uso próprio entende isso de forma diferente de quem decide por ROI: não é sobre o que esse terreno rende. É sobre o que ele representa ter o seu nome, naquela esquina, com aquela visibilidade — pelos próximos 20 anos.</p>
+      <div class="by">Rodrigo Maysonnave Fernandes</div>
+    </div>
+  </div>
+</div>
+
+<!-- OFERTA + 5. CTA FINAL & ESCASSEZ REAL (Schwartz) -->
+<div class="wrap">
+  <section>
+    <div class="eyebrow" style="color:var(--accent);">O que você recebe</div>
+    <h2 class="section-title">Tudo o que é preciso para decidir</h2>
+    <div class="oferta-wrap">
+      <div class="oferta-left">
+        <div class="label">Faixa de valor</div>
+        <div class="price-range">R$ 3,3 a 3,75 milhões</div>
+        <div class="price-note">Com fundamentação técnica apresentada na reunião</div>
+      </div>
+      <div class="oferta-right">
+        <ul>
+          <li>Terreno de esquina, 956,40 m² (certidão municipal), 35 m de testada pela Av. Dom Joaquim</li>
+          <li>Documentação municipal regularizada, sem pendência patrimonial</li>
+          <li>Relatório técnico de viabilidade completo — parâmetros construtivos, análise de mercado e estudo de valorização por testada/esquina</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="cta-section">
+      <div class="eyebrow">Próximo passo</div>
+      <h2>Agende uma visita ao terreno</h2>
+      <p>Poucos compradores chegam a ver esse tipo de oportunidade antes que ela já tenha dono. Deixe seu contato e receba o relatório completo de viabilidade antes da visita.</p>
+
+      <form class="lead-form" id="leadForm">
+        <div class="field">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+        </div>
+        <div class="field">
+          <label for="telefone">WhatsApp</label>
+          <input type="tel" id="telefone" name="telefone" placeholder="(53) 9 9999-9999" required>
+        </div>
+        <button type="submit" class="btn">Acessar relatório técnico de viabilidade</button>
+      </form>
+
+      <div class="cta-phone">(53) 98104-1499 · Rodrigo Maysonnave Fernandes · CRECI-RS 61.580</div>
+    </div>
+    <p class="ps">P.S. — O relatório inclui o estudo que comprovou, com dados de mercado e fundamentação na NBR 14.653-2, por que esse terreno vale mais por metro quadrado do que qualquer comparável recente na região. Não é opinião — é cálculo. Vale a leitura antes de decidir.</p>
+  </section>
+</div>
+
+<footer>
+  <div class="name">MAYSONNAVE IMÓVEIS</div>
+  <div class="info">
+    Rodrigo Maysonnave Fernandes · CRECI-RS 61.580<br>
+    Rua XV de Novembro, 666 · Loja 67 · Galeria Zabaleta · Pelotas/RS<br>
+    maysimoveis.com
+  </div>
+</footer>
+
+<script>
+  document.getElementById('leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var nome = document.getElementById('nome').value.trim();
+    var telefone = document.getElementById('telefone').value.trim();
+    var numeroRodrigo = '5553981041499';
+    var mensagem = 'Olá Rodrigo, meu nome é ' + nome +
+      '. Vi a página do terreno de esquina na Av. Dom Joaquim (956 m², 35m de testada) e quero receber o relatório completo de viabilidade. Meu WhatsApp: ' + telefone;
+    var url = 'https://wa.me/' + numeroRodrigo + '?text=' + encodeURIComponent(mensagem);
+    window.open(url, '_blank');
+  });
+</script>
+
+</body>
+</html>

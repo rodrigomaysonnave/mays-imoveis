@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Parque Tênis — Apresentação Privada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;700;900&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #EEE9DD;
+    --ink: #2C2416;
+    --ink-soft: rgba(44,36,22,0.62);
+    --ink-faint: rgba(44,36,22,0.34);
+    --caramelo: #9B7B5A;
+    --line: rgba(44,36,22,0.16);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  .wrap { position: relative; z-index: 2; }
+
+  /* ── SVG filter de lápis (compartilhado) ── */
+  svg.defs { position: absolute; width: 0; height: 0; }
+
+  /* ── faixa superior discreta (confidencial) ── */
+  .confidencial-bar { text-align: center; padding: 14px 20px; font-family: 'Montserrat'; font-size: 10px; letter-spacing: 0.18em; color: var(--ink-faint); border-bottom: 1px solid var(--line); }
+
+  /* ── logo da construtora: final da LP ── */
+  .logo-final-wrap { display: flex; flex-direction: column; align-items: center; padding: 60px 24px 20px; }
+  .realizacao-label { font-family: 'Montserrat'; font-weight: 700; font-size: 20px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 30px; }
+  .logo-final { width: 348px; height: auto; max-width: 80vw; opacity: 0.9; }
+
+  @keyframes pulseline { 0%,100% { opacity: .3; } 50% { opacity: 1; } }
+
+  /* ── hero solo: abertura antes da trilha de andares ── */
+  .hero-intro { min-height: 62vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 24px; }
+  .hero-intro h1 {
+    font-family: 'Playfair Display'; font-weight: 600; font-style: italic;
+    font-size: clamp(28px, 4.6vw, 50px); line-height: 1.25; max-width: 780px; color: var(--ink);
+    opacity: 0; transform: translateY(22px); transition: opacity .9s ease, transform .9s ease;
+  }
+  .hero-intro.in-view h1 { opacity: 1; transform: translateY(0); }
+  .scroll-cue-inline {
+    margin-top: 34px; font-family: 'Montserrat'; font-size: 10px; letter-spacing: 0.16em; color: var(--ink-faint);
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    opacity: 0; transform: translateY(16px); transition: opacity .7s ease .4s, transform .7s ease .4s;
+  }
+  .hero-intro.in-view .scroll-cue-inline { opacity: 1; transform: translateY(0); }
+  .scroll-cue-inline .linha { width: 1px; height: 26px; background: linear-gradient(var(--ink-faint), transparent); animation: pulseline 2.2s ease-in-out infinite; }
+
+  /* ── trilha de andares: elevação contínua a lápis, todos os pavimentos do mesmo tamanho ── */
+  .pilar-track { display: flex; flex-direction: column; align-items: center; padding: 0 6vw; }
+
+  .andar-box {
+    position: relative; width: min(960px, 90vw); aspect-ratio: 12 / 7; padding: 0 58px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  }
+
+  .palavra-poster {
+    font-family: 'Montserrat'; font-weight: 900; font-size: clamp(32px, 5.5vw, 80px);
+    letter-spacing: 0.02em; color: var(--ink); line-height: 1.05; text-align: center;
+    opacity: 0; transform: translateY(24px); transition: opacity .8s ease .1s, transform .8s ease .1s;
+  }
+  .linha-apoio {
+    font-family: 'Playfair Display'; font-style: italic; font-size: clamp(15px, 1.8vw, 20px);
+    color: var(--ink-soft); margin-top: 20px; max-width: 480px; text-align: center;
+    opacity: 0; transform: translateY(18px); transition: opacity .8s ease .24s, transform .8s ease .24s;
+  }
+  .reveal-group.in-view .palavra-poster,
+  .reveal-group.in-view .linha-apoio { opacity: 1; transform: translateY(0); }
+
+  /* bordas contínuas do prédio + linha de laje: divs simples com filtro de lápis aplicado via CSS */
+  .borda-linha {
+    position: absolute; top: 0; bottom: 0; width: 1.6px; background: var(--ink); opacity: 0; pointer-events: none;
+    filter: url(#lapisBox); transition: opacity .55s ease;
+  }
+  .borda-linha.esq { left: 22px; }
+  .borda-linha.dir { right: 22px; }
+  .laje-linha {
+    position: absolute; left: 22px; right: 22px; top: 0; height: 2.2px; background: var(--ink); opacity: 0; pointer-events: none;
+    filter: url(#lapisBox); transition: opacity .55s ease .05s;
+  }
+  .andar-box.in-view .borda-linha,
+  .andar-box.in-view .laje-linha { opacity: 0.46; }
+
+  .ritmo-linha-a, .ritmo-linha-b { position: absolute; top: 16%; bottom: 16%; width: 1px; background: var(--ink); opacity: 0.08; }
+  .ritmo-linha-a { left: 12%; }
+  .ritmo-linha-b { left: 88%; }
+
+  .marca-svg-crown { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: -2px; }
+  .marca-svg-base  { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: -2px; }
+
+  .pavimento-rodape {
+    position: absolute; bottom: 16px; left: 0; right: 0; text-align: center;
+    font-family: 'Montserrat'; font-weight: 700; font-size: 10.5px; color: var(--ink-faint); letter-spacing: 0.16em;
+    opacity: 0; transition: opacity .5s ease .3s;
+  }
+  .andar-box.in-view .pavimento-rodape { opacity: 1; }
+
+  .andar-box-inner { text-align: center; display: flex; flex-direction: column; align-items: center; }
+
+  /* ── seção escura: foto simulada ── */
+  .pleno-apresenta { background: var(--ink); color: var(--paper); padding: 44px 24px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .foto-simulada-wrap { width: min(1100px, 92vw); }
+  .foto-simulada-wrap img { width: 100%; height: auto; display: block; border-radius: 2px; }
+  .foto-legenda { font-family: 'Inter'; font-size: 11.5px; color: rgba(238,233,221,0.5); margin-top: 16px; letter-spacing: 0.03em; }
+  .foto-placeholder {
+    aspect-ratio: 16 / 9; border: 1px dashed rgba(238,233,221,0.35); border-radius: 4px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+    font-family: 'Montserrat'; font-size: 11px; letter-spacing: 0.14em; color: rgba(238,233,221,0.55);
+  }
+  .foto-placeholder span { font-size: 10px; opacity: 0.75; letter-spacing: 0.1em; }
+
+  /* ── seção técnica: specs consolidadas ── */
+  .secao-tecnica { padding: 96px 24px 100px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .tecnica-transicao { font-family: 'Playfair Display'; font-style: italic; font-size: clamp(19px, 2.4vw, 26px); max-width: 640px; margin-bottom: 36px; color: var(--ink); }
+  .tecnica-label { font-family: 'Montserrat'; font-size: 10.5px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--caramelo); margin-bottom: 14px; }
+  .tecnica-headline { font-family: 'Playfair Display'; font-weight: 600; font-size: clamp(26px, 3.6vw, 40px); max-width: 760px; margin-bottom: 54px; color: var(--ink); }
+  .specs-grid { display: grid; grid-template-columns: repeat(2, minmax(260px, 1fr)); gap: 34px 64px; max-width: 900px; text-align: left; }
+  .spec-item b { display: block; font-family: 'Montserrat'; font-weight: 700; font-size: 15.5px; color: var(--ink); margin-bottom: 6px; }
+  .spec-item span { font-family: 'Inter'; font-size: 13.5px; color: var(--ink-soft); line-height: 1.6; }
+
+  /* fechamento */
+  .fechamento { min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 90px 24px 100px; border-top: 1px solid var(--line); }
+  .escassez { font-family: 'Playfair Display'; font-style: italic; font-size: clamp(18px,2.4vw,24px); color: var(--ink); margin: 0 0 36px; max-width: 560px; line-height: 1.5; }
+  .contato-final {
+    border: 1px solid var(--line); border-radius: 4px; padding: 30px 40px; background: rgba(255,255,255,0.18);
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+  }
+  .contato-final .nome { font-family: 'Playfair Display'; font-size: 19px; font-weight: 600; }
+  .contato-final .creci { font-family: 'Inter'; font-size: 11.5px; color: var(--ink-soft); }
+  .contato-final .tel { font-family: 'Montserrat'; font-size: 14px; letter-spacing: .04em; color: var(--caramelo); margin-top: 8px; }
+  .endereco-final { margin-top: 26px; text-align: center; }
+  .endereco-label { font-family: 'Montserrat'; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--caramelo); margin-bottom: 8px; }
+  .endereco-texto { font-family: 'Inter'; font-size: 13px; color: var(--ink-soft); max-width: 420px; line-height: 1.6; margin: 0 auto; }
+
+  .rodape { text-align: center; padding: 30px 24px 50px; font-family: 'Montserrat'; font-size: 9.5px; letter-spacing: 0.1em; color: var(--ink-faint); }
+
+  @media (max-width: 720px) {
+    .pilar-track { padding: 0 5vw; }
+    .andar-box { width: 94vw; padding: 0 22px; }
+    .borda-linha.esq { left: 10px; }
+    .borda-linha.dir { right: 10px; }
+    .laje-linha { left: 10px; right: 10px; }
+    .ritmo-linha-a { left: 6%; }
+    .ritmo-linha-b { left: 94%; }
+    .marca-svg-crown, .marca-svg-base { transform: translateX(-50%) scale(0.8); }
+    .specs-grid { grid-template-columns: 1fr; gap: 26px; }
+    .pleno-apresenta { padding: 32px 18px; }
+  }
+</style>
+<link rel="canonical" href="https://maysimoveis.com/lp/parque-tenis/"><meta name="google-site-verification" content="verificacao-teste-123"></head>
+<body>
+
+<svg class="defs"><defs>
+  <filter id="lapis" filterUnits="userSpaceOnUse" x="-15" y="-15" width="70" height="160">
+    <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed="7" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="2.6"/>
+  </filter>
+  <filter id="lapis2" filterUnits="userSpaceOnUse" x="-15" y="-15" width="70" height="160">
+    <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="23" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="3.4"/>
+  </filter>
+  <filter id="lapisBox" x="-6%" y="-12%" width="112%" height="124%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.012 0.028" numOctaves="2" seed="11" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="6"/>
+  </filter>
+  <filter id="lapisBox2" x="-6%" y="-12%" width="112%" height="124%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.014 0.034" numOctaves="2" seed="29" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="8"/>
+  </filter>
+</defs></svg>
+
+<div class="wrap">
+
+  <div class="confidencial-bar">PARQUE TÊNIS · APRESENTAÇÃO PRIVADA · NÃO DIVULGAR</div>
+
+  <!-- ═══ HERO SOLO — ABERTURA ═══ -->
+  <section class="hero-intro reveal-group" id="heroIntro">
+    <h1>Um endereço desenhado para poucos.</h1>
+    <div class="scroll-cue-inline"><span>DESÇA A TORRE</span><div class="linha"></div></div>
+  </section>
+
+  <!-- ═══ TRILHA DE ANDARES (caixas geradas via JS, 16 → 1) ═══ -->
+  <div class="pilar-track" id="pilarTrack">
+    <!-- as caixas são inseridas via JS a partir de FLOORS -->
+  </div>
+
+  <!-- ═══ SEÇÃO ESCURA COM FOTO SIMULADA ═══ -->
+  <section class="pleno-apresenta">
+    <div class="foto-simulada-wrap">
+      <img src="foto-aerea.jpeg" alt="Vista aérea da localização do Parque Tênis">
+    </div>
+    <div class="foto-legenda">Vista aérea da localização</div>
+  </section>
+
+  <!-- ═══ SEÇÃO TÉCNICA — SPECS CONSOLIDADAS ═══ -->
+  <section class="secao-tecnica">
+    <p class="tecnica-transicao">Conheça a arquitetura por trás dessa experiência.</p>
+    <div class="tecnica-label">Sessão Técnica</div>
+    <h2 class="tecnica-headline">Mansões suspensas com privacidade máxima</h2>
+    <div class="specs-grid">
+      <div class="spec-item"><b>14 residências exclusivas</b><span>Uma única unidade por pavimento.</span></div>
+      <div class="spec-item"><b>270m² privativos</b><span>Amplitudes pensadas para uma nova forma de viver.</span></div>
+      <div class="spec-item"><b>3 suítes</b><span>Privacidade e conforto para toda a família.</span></div>
+      <div class="spec-item"><b>3 vagas por apartamento</b><span>Comodidade desde a chegada.</span></div>
+      <div class="spec-item"><b>Piscina privativa integrada à sacada</b><span>Um espaço de lazer dentro da própria residência.</span></div>
+      <div class="spec-item"><b>Cozinha independente</b><span>Ambientes planejados para receber e viver.</span></div>
+      <div class="spec-item"><b>Clube como extensão da sua casa</b><span>Acesso ao Parque Tênis Clube e toda sua estrutura revitalizada.</span></div>
+    </div>
+  </section>
+
+  <!-- ═══ FECHAMENTO ═══ -->
+  <section class="fechamento reveal-group" id="fechamentoSection">
+    <p class="escassez">"Quatorze residências. Uma em cada andar. Quando a última for reservada, essa página deixa de existir."</p>
+    <div class="contato-final">
+      <div class="nome">Rodrigo Maysonnave Fernandes</div>
+      <div class="creci">CRECI-RS 61.580 · Maysonnave Imóveis</div>
+      <div class="tel">(53) 98104-1499</div>
+    </div>
+    <div class="endereco-final">
+      <div class="endereco-label">Localização</div>
+      <div class="endereco-texto">Clube Parque Tênis — Av. República do Líbano, 31, Zona Norte, Pelotas - RS, CEP 96055-710</div>
+    </div>
+  </section>
+
+  <!-- ═══ LOGO DA CONSTRUTORA — FINAL DA LP ═══ -->
+  <div class="logo-final-wrap">
+    <div class="realizacao-label">Um empreendimento</div>
+    <img src="logo-pleno.png" alt="Pleno" class="logo-final">
+  </div>
+
+  <div class="rodape">PARQUE TÊNIS — APRESENTAÇÃO EXCLUSIVA · MAYSONNAVE IMÓVEIS</div>
+
+</div>
+
+<script>
+  // 16 → 1: a torre inteira. Cada andar = uma palavra-conceito + linha de apoio.
+  const FLOORS = [
+    { n: 16, palavra: 'HORIZONTE', linha: 'Onde o céu encontra a exclusividade.' },
+    { n: 15, palavra: 'ÚNICO', linha: 'Uma história por andar.' },
+    { n: 14, palavra: 'AMPLITUDE', linha: 'Espaços pensados para viver.' },
+    { n: 13, palavra: 'IDENTIDADE', linha: 'Cada residência, uma expressão.' },
+    { n: 12, palavra: 'PRIVACIDADE', linha: 'Poucos vizinhos. Muito mais liberdade.' },
+    { n: 11, palavra: 'CONFORTO', linha: 'Ambientes feitos para permanecer.' },
+    { n: 10, palavra: 'EXCLUSIVIDADE', linha: 'Um novo padrão de morar.' },
+    { n: 9,  palavra: 'LOCALIZAÇÃO', linha: 'Um clube, vida e esporte.' },
+    { n: 8,  palavra: 'PERTENCIMENTO', linha: 'Um endereço com tradição.' },
+    { n: 7,  palavra: 'CONEXÃO', linha: 'Sua casa além da porta.' },
+    { n: 6,  palavra: 'CONVÍVIO', linha: 'Momentos que aproximam.' },
+    { n: 5,  palavra: 'MOVIMENTO', linha: 'Esporte e bem-estar todos os dias.' },
+    { n: 4,  palavra: 'NATUREZA', linha: 'O verde como vizinho.' },
+    { n: 3,  palavra: 'MORAR', linha: 'Residências que não se repetem.' },
+    { n: 2,  palavra: 'EXPERIÊNCIA', linha: 'Lazer pensado para viver.' },
+    { n: 1,  palavra: 'CHEGADA', linha: 'A porta de entrada para algo extraordinário.' },
+  ];
+
+  const track = document.getElementById('pilarTrack');
+
+  // ritmo sutil de fachada (dois traços internos), só em caixas com conteúdo
+  function ritmo() {
+    return `<div class="ritmo-linha-a"></div><div class="ritmo-linha-b"></div>`;
+  }
+  // coroa: pergolado/jardim suspenso, ancorada acima da primeira caixa
+  function coroa() {
+    return `<svg class="marca-svg-crown" width="48" height="30" viewBox="0 0 48 30" style="overflow:visible">
+      <line x1="10" y1="26" x2="10" y2="4" stroke="var(--ink)" stroke-opacity="0.42" stroke-width="1.1" stroke-linecap="round" filter="url(#lapis2)"/>
+      <line x1="34" y1="26" x2="34" y2="4" stroke="var(--ink)" stroke-opacity="0.42" stroke-width="1.1" stroke-linecap="round" filter="url(#lapis2)"/>
+      <line x1="6" y1="4" x2="38" y2="3" stroke="var(--ink)" stroke-opacity="0.5" stroke-width="1.3" stroke-linecap="round" filter="url(#lapis)"/>
+      <line x1="0" y1="27" x2="46" y2="26.5" stroke="var(--ink)" stroke-opacity="0.5" stroke-width="1.3" stroke-linecap="round" filter="url(#lapis)"/>
+    </svg>`;
+  }
+  // base: jardim/térreo ajardinado, ancorada abaixo da última caixa
+  function baseJardim() {
+    return `<svg class="marca-svg-base" width="48" height="22" viewBox="0 0 48 22" style="overflow:visible">
+      <path d="M0,4 Q12,-2 22,3 T48,2" stroke="var(--ink)" stroke-opacity="0.4" stroke-width="1.1" fill="none" stroke-linecap="round" filter="url(#lapis2)"/>
+      <line x1="10" y1="3" x2="10" y2="15" stroke="var(--ink)" stroke-opacity="0.3" stroke-width="1" stroke-linecap="round" filter="url(#lapis2)"/>
+      <line x1="34" y1="2" x2="34" y2="13" stroke="var(--ink)" stroke-opacity="0.3" stroke-width="1" stroke-linecap="round" filter="url(#lapis2)"/>
+    </svg>`;
+  }
+
+  // constrói uma caixa de andar completa: moldura contínua + número no rodapé + palavra-pôster centralizada
+  function buildBox(f, isFirst, isLast) {
+    const label = f.n === 1 ? 'TÉRREO' : `PAVIMENTO ${String(f.n).padStart(2,'0')}`;
+    return `<div class="andar-box reveal-group" data-floor="${f.n}">
+      <div class="borda-linha esq"></div>
+      <div class="borda-linha dir"></div>
+      <div class="laje-linha"></div>
+      ${isFirst ? coroa() : ''}
+      ${ritmo()}
+      <div class="andar-box-inner">
+        <div class="palavra-poster">${f.palavra}</div>
+        <div class="linha-apoio">${f.linha}</div>
+      </div>
+      <div class="pavimento-rodape">${label}</div>
+      ${isLast ? baseJardim() : ''}
+    </div>`;
+  }
+
+  track.innerHTML = FLOORS.map((f, i) => buildBox(f, i === 0, i === FLOORS.length - 1)).join('');
+
+  // reveal ao rolar: caixa desenha primeiro, conteúdo aparece dentro em seguida (delays escalonados no CSS)
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+  }, { threshold: 0.2, rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('.reveal-group').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
