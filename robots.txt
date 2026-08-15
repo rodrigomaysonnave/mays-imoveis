@@ -1,12 +1,4 @@
-# AMBIENTE DE TESTE — indexação bloqueada de propósito.
-#
-# Este endereço (github.io) é provisório. Se o Google indexasse esta cópia,
-# ela viraria concorrente do site definitivo quando o domínio próprio entrar:
-# mesmo texto, mesmas fichas, endereço diferente.
-#
-# ATENÇÃO: o gerador reescreve este arquivo com "Allow: /" toda vez que roda.
-# Depois de gerar o site, é preciso repor este bloqueio enquanto o endereço
-# for provisório. Quando o domínio definitivo entrar, deixe o que o gerador
-# escreveu e apague esta observação.
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://maysimoveis.com/sitemap.xml
