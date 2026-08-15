@@ -1,4 +1,11 @@
+# AMBIENTE DE TESTE — indexação bloqueada de propósito.
+#
+# Este endereço (github.io) é provisório. Se o Google indexasse esta cópia,
+# ela viraria concorrente do site definitivo em maysimoveis.com: mesmo texto,
+# mesmas fichas, endereço diferente. Isso divide a autoridade e às vezes o
+# Google escolhe justamente a cópia errada para mostrar.
+#
+# QUANDO O DOMÍNIO DEFINITIVO ENTRAR: apagar este arquivo. O gerador produz
+# a versão correta sozinho, com Allow e o sitemap apontando para o domínio real.
 User-agent: *
-Allow: /
-
-Sitemap: https://maysimoveis.com/sitemap.xml
+Disallow: /
