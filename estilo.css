@@ -315,6 +315,10 @@ a{color:var(--marca)}
   font-weight:600;cursor:pointer;font-family:inherit}
 .btn-site:hover{filter:brightness(1.08)}
 .btn-site-vazado{background:transparent;color:var(--tinta-2);border-color:var(--linha)}
+.btn-limpar{margin-left:auto;background:none;border:1px solid rgba(255,255,255,.3);
+  color:#fff;padding:5px 13px;border-radius:3px;font-size:12px;cursor:pointer;
+  font-family:inherit;font-weight:600}
+.btn-limpar:hover{background:rgba(255,255,255,.12)}
 .btn-site-vazado:hover{filter:none;border-color:var(--tinta-3);color:var(--tinta)}
 
 .reel-cartao{text-decoration:none;color:inherit}
