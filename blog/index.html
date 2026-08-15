@@ -20,10 +20,12 @@
 <body>
 <div class="topo-fino"><div class="env">
   <span>CRECI/RS 61580</span>
-  <span>Pelotas · RS</span>
+  <span class="topo-some">Pelotas · RS</span>
+  <a class="topo-zap" href="https://wa.me/5553981041499?text=Ol%C3%A1%20Rodrigo%2C%20cheguei%20pelo%20site%20e%20gostaria%20de%20falar%20sobre%20im%C3%B3veis." target="_blank" rel="noopener"><span class="topo-zap-ico" aria-hidden="true">✆</span>(53) 9 8104-1499</a>
   <span class="topo-espaco"></span>
-  <a href="https://wa.me/5553981041499?text=Ol%C3%A1%20Rodrigo%2C%20cheguei%20pelo%20site%20e%20gostaria%20de%20falar%20sobre%20im%C3%B3veis." target="_blank" rel="noopener">WhatsApp</a>
-  
+  <a class="topo-fav" href="../favoritos.html">
+    <span aria-hidden="true">★</span> favoritos <b id="favConta">0</b></a>
+  <a class="topo-rede" href="https://www.instagram.com/rodrigomaysonnave/" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">◙</a>
 </div></div>
 <header class="cabeca"><div class="env">
   <a class="marca" href="../">
@@ -31,10 +33,13 @@
     <span>Corretor e perito avaliador</span>
   </a>
   <nav class="nav">
-    <a href="../#imoveis">Imóveis</a>
+    <div class="nav-mm">
+      <a href="../#imoveis" class="nav-mm-alvo">Imóveis <span class="nav-seta" aria-hidden="true">⌄</span></a>
+      <div class="mm-caixa"><div class="mm-env"><div class="mm-grade"><div class="mm-col"><h4>Comprar</h4><a class="mm-todos" href="../?fin=venda#imoveis">Ver todos <b>16</b></a><a href="../?tipo=Apartamento#imoveis">Apartamento <b>9</b></a><a href="../?tipo=Casa#imoveis">Casa <b>5</b></a><a href="../?tipo=Terreno#imoveis">Terreno <b>2</b></a></div><div class="mm-col"><h4>Alugar</h4><a class="mm-todos" href="../?fin=aluguel#imoveis">Ver todos <b>2</b></a><a href="../?tipo=Apartamento#imoveis">Apartamento <b>2</b></a></div><div class="mm-col"><h4>Por bairro</h4><a href="../?bairro=Centro#imoveis">Centro <b>7</b></a><a href="../?bairro=S%C3%A3o%20Gon%C3%A7alo#imoveis">São Gonçalo <b>5</b></a><a href="../?bairro=Laranjal#imoveis">Laranjal <b>4</b></a><a href="../?bairro=Areal#imoveis">Areal <b>2</b></a></div><div class="mm-col"><h4>Por dormitórios</h4><a href="../?dorm=1#imoveis">1 ou mais <b>15</b></a><a href="../?dorm=2#imoveis">2 ou mais <b>12</b></a><a href="../?dorm=3#imoveis">3 ou mais <b>6</b></a><a href="../?dorm=4#imoveis">4 ou mais <b>1</b></a></div></div></div></div>
+    </div>
     <a href="../#destaques">Destaques</a>
     <a href="../blog/">Blog</a>
-    <a href="https://wa.me/5553981041499?text=Ol%C3%A1%20Rodrigo%2C%20cheguei%20pelo%20site%20e%20gostaria%20de%20falar%20sobre%20im%C3%B3veis." target="_blank" rel="noopener">Contato</a>
+    <a class="nav-zap" href="https://wa.me/5553981041499?text=Ol%C3%A1%20Rodrigo%2C%20cheguei%20pelo%20site%20e%20gostaria%20de%20falar%20sobre%20im%C3%B3veis." target="_blank" rel="noopener">Falar agora</a>
   </nav>
 </div></header>
 
@@ -64,7 +69,7 @@
 <footer class="rodape"><div class="env">
   <div>
     <strong>Maysonnave Imóveis</strong>
-    CRECI/RS 61580<br>Pelotas, Rio Grande do Sul
+    CRECI/RS 61580<br>Rua XV de Novembro, 666 · loja 67<br>Pelotas, Rio Grande do Sul
   </div>
   <div>
     <strong>Contato</strong>
@@ -80,4 +85,44 @@
 </div>
 <div class="rodape-fim env">© 2026 Maysonnave Imóveis · CRECI/RS 61580</div>
 </footer>
+
+<script>
+(function () {
+  var CHAVE = 'mays_favoritos';
+  function ler() {
+    try { var v = JSON.parse(localStorage.getItem(CHAVE) || '[]'); return Array.isArray(v) ? v : []; }
+    catch (e) { return []; }
+  }
+  function gravar(v) {
+    try { localStorage.setItem(CHAVE, JSON.stringify(v)); } catch (e) {}
+  }
+  function pintar() {
+    var favs = ler();
+    var conta = document.getElementById('favConta');
+    if (conta) conta.textContent = favs.length;
+    var topo = document.querySelector('.topo-fav');
+    if (topo) topo.classList.toggle('tem', favs.length > 0);
+    document.querySelectorAll('[data-fav]').forEach(function (b) {
+      var on = favs.indexOf(b.dataset.fav) >= 0;
+      b.classList.toggle('on', on);
+      b.title = on ? 'Tirar dos favoritos' : 'Guardar nos favoritos';
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    document.dispatchEvent(new CustomEvent('favoritos', { detail: favs }));
+  }
+  document.addEventListener('click', function (ev) {
+    var b = ev.target.closest('[data-fav]');
+    if (!b) return;
+    // O coração costuma ficar sobre o cartão, que é um link inteiro.
+    ev.preventDefault(); ev.stopPropagation();
+    var favs = ler(), i = favs.indexOf(b.dataset.fav);
+    if (i >= 0) favs.splice(i, 1); else favs.push(b.dataset.fav);
+    gravar(favs); pintar();
+  });
+  // Duas abas abertas: favoritar numa atualiza a outra sem recarregar.
+  window.addEventListener('storage', function (ev) { if (ev.key === CHAVE) pintar(); });
+  document.addEventListener('DOMContentLoaded', pintar);
+  window.MaysFavoritos = { ler: ler, pintar: pintar };
+})();
+</script>
 </body></html>
