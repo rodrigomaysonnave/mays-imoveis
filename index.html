@@ -856,13 +856,24 @@
   });
 })();
 </script>
+
+  
+<section class="secao buscas-pop">
+  <div class="buscas-pop-barra"><h2>Buscas populares</h2></div>
+  <div class="buscas-pop-grade"><a href="?tipo=Apartamento&amp;bairro=Centro#imoveis"><span>»</span>Apartamentos em Centro<b>5</b></a><a href="?tipo=Casa&amp;bairro=Laranjal#imoveis"><span>»</span>Casas em Laranjal<b>3</b></a><a href="?tipo=Apartamento&amp;bairro=S%C3%A3o%20Gon%C3%A7alo#imoveis"><span>»</span>Apartamentos em São Gonçalo<b>2</b></a><a href="?tipo=Casa&amp;bairro=Centro#imoveis"><span>»</span>Casas em Centro<b>2</b></a><a href="?tipo=Apartamento&amp;bairro=Areal#imoveis"><span>»</span>Apartamentos em Areal<b>2</b></a><a href="?tipo=Terreno&amp;bairro=S%C3%A3o%20Gon%C3%A7alo#imoveis"><span>»</span>Terrenos em São Gonçalo<b>1</b></a><a href="?tipo=Terreno&amp;bairro=Laranjal#imoveis"><span>»</span>Terrenos em Laranjal<b>1</b></a></div>
+</section>
+  
+<section class="secao atalhos-grade">
+  <a class="atalho atalho-vender" href="https://wa.me/5553981041499?text=Ol%C3%A1%20Rodrigo%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20meu%20im%C3%B3vel." target="_blank" rel="noopener"><strong>Quer vender seu imóvel?</strong><span>Peça uma avaliação com laudo de perito</span></a><a class="atalho atalho-contato" href="https://wa.me/5553981041499?text=Ol%C3%A1%20Rodrigo%2C%20cheguei%20pelo%20site%20e%20gostaria%20de%20falar%20sobre%20im%C3%B3veis." target="_blank" rel="noopener"><strong>Não encontrou o que procurava?</strong><span>Fale direto comigo</span></a><a class="atalho atalho-favoritos" href="favoritos.html"><strong>Meus imóveis favoritos</strong><span>Veja a lista que você separou</span></a>
+</section>
 </div>
 
 <script>
 // Filtro no próprio HTML: os dados já estão na página, então não há requisição
 // nenhuma. É o que permite a busca funcionar num site estático.
-const dados = [{"slug": "casa-a-venda-no-laranjal-pelotas-rs-mi-103", "tipo": "Casa", "bairro": "Laranjal", "valor": 1690000.0, "fin": "venda", "dorm": 3, "txt": "mi-103 casa térrea no alphaville pelotas laranjal pelotas avenida adolfo fetter casa"}, {"slug": "apartamento-a-venda-no-sao-goncalo-pelotas-rs-mi-107", "tipo": "Apartamento", "bairro": "São Gonçalo", "valor": 260000.0, "fin": "venda", "dorm": 2, "txt": "mi-107 apartamento em são gonçalo, pelotas/rs são gonçalo pelotas avenida bento gonçalves apartamento"}, {"slug": "casa-a-venda-no-centro-pelotas-rs-mi-101", "tipo": "Casa", "bairro": "Centro", "valor": 954000.0, "fin": "venda", "dorm": 3, "txt": "mi-101 casa térea no colina do sol centro pelotas rua comendador joaquim dias casa"}, {"slug": "terreno-a-venda-no-sao-goncalo-pelotas-rs-mi-102", "tipo": "Terreno", "bairro": "São Gonçalo", "valor": 1100000.0, "fin": "venda", "dorm": 0, "txt": "mi-102 lote fundo lago no lagos são gonçalo são gonçalo pelotas travessa leonel de moura brizola terreno"}, {"slug": "casa-a-venda-no-laranjal-pelotas-rs-mi-104", "tipo": "Casa", "bairro": "Laranjal", "valor": 2000000.0, "fin": "venda", "dorm": 3, "txt": "mi-104 sobrado fundo lago no alphaville 2 laranjal pelotas avenida adolfo fetter casa"}, {"slug": "casa-a-venda-no-centro-pelotas-rs-mi-105", "tipo": "Casa", "bairro": "Centro", "valor": 1090000.0, "fin": "venda", "dorm": 3, "txt": "mi-105 sobrado impecável no colina do sol centro pelotas rua professor carlos henrique nogueira casa"}, {"slug": "casa-a-venda-no-laranjal-pelotas-rs-mi-106", "tipo": "Casa", "bairro": "Laranjal", "valor": 2300000.0, "fin": "venda", "dorm": 4, "txt": "mi-106 sobrado no veredas laranjal pelotas avenida adolfo fetter casa"}, {"slug": "apartamento-a-venda-no-areal-pelotas-rs-mi-108", "tipo": "Apartamento", "bairro": "Areal", "valor": 350000.0, "fin": "venda", "dorm": 2, "txt": "mi-108 apartamento de 2 dormitórios no smart connection areal pelotas avenida ferreira viana apartamento"}, {"slug": "apartamento-para-alugar-no-sao-goncalo-pelotas-rs-mi-109", "tipo": "Apartamento", "bairro": "São Gonçalo", "valor": 2300.0, "fin": "aluguel", "dorm": 2, "txt": "mi-109 apartamento em são gonçalo, pelotas/rs são gonçalo pelotas avenida bento gonçalves apartamento"}, {"slug": "apartamento-para-alugar-no-sao-goncalo-pelotas-rs-mi-110", "tipo": "Apartamento", "bairro": "São Gonçalo", "valor": 2000.0, "fin": "aluguel", "dorm": 2, "txt": "mi-110 apartamento em são gonçalo, pelotas/rs são gonçalo pelotas avenida bento gonçalves apartamento"}, {"slug": "apartamento-a-venda-no-sao-goncalo-pelotas-rs-mi-111", "tipo": "Apartamento", "bairro": "São Gonçalo", "valor": 250000.0, "fin": "venda", "dorm": 2, "txt": "mi-111 apartamento em são gonçalo, pelotas/rs são gonçalo pelotas avenida bento gonçalves apartamento"}, {"slug": "apartamento-a-venda-no-areal-pelotas-rs-mi-112", "tipo": "Apartamento", "bairro": "Areal", "valor": 359000.0, "fin": "venda", "dorm": 2, "txt": "mi-112 apartamento em areal, pelotas/rs areal pelotas avenida ferreira viana apartamento"}, {"slug": "apartamento-a-venda-no-centro-pelotas-rs-mi-113", "tipo": "Apartamento", "bairro": "Centro", "valor": 240000.0, "fin": "venda", "dorm": 3, "txt": "mi-113 apartamento em centro, pelotas/rs centro pelotas rua quinze de novembro apartamento"}, {"slug": "apartamento-a-venda-no-centro-pelotas-rs-mi-114", "tipo": "Apartamento", "bairro": "Centro", "valor": 180000.0, "fin": "venda", "dorm": 0, "txt": "mi-114 apartamento em centro, pelotas/rs centro pelotas rua andrade neves apartamento"}, {"slug": "apartamento-a-venda-no-centro-pelotas-rs-mi-115", "tipo": "Apartamento", "bairro": "Centro", "valor": 290000.0, "fin": "venda", "dorm": 1, "txt": "mi-115 apartamento em centro, pelotas/rs centro pelotas rua almirante barroso apartamento"}, {"slug": "apartamento-a-venda-no-centro-pelotas-rs-mi-116", "tipo": "Apartamento", "bairro": "Centro", "valor": 260000.0, "fin": "venda", "dorm": 1, "txt": "mi-116 apartamento em centro, pelotas/rs centro pelotas rua almirante barroso apartamento"}, {"slug": "apartamento-a-venda-no-centro-pelotas-rs-mi-117", "tipo": "Apartamento", "bairro": "Centro", "valor": 159000.0, "fin": "venda", "dorm": 1, "txt": "mi-117 apartamento loft em centro, pelotas/rs centro pelotas rua félix xavier da cunha apartamento"}, {"slug": "terreno-a-venda-no-laranjal-pelotas-rs-mi-120", "tipo": "Terreno", "bairro": "Laranjal", "valor": 150000.0, "fin": "venda", "dorm": 0, "txt": "mi-120 terreno em loteamento em laranjal, pelotas/rs laranjal pelotas rua dois terreno"}];
+const dados = [{"slug": "casa-a-venda-no-laranjal-pelotas-rs-mi-103", "tipo": "Casa", "bairro": "Laranjal", "valor": 1690000.0, "fin": "venda", "dorm": 3, "cidade": "Pelotas", "txt": "mi-103 casa térrea no alphaville pelotas laranjal pelotas avenida adolfo fetter casa"}, {"slug": "apartamento-a-venda-no-sao-goncalo-pelotas-rs-mi-107", "tipo": "Apartamento", "bairro": "São Gonçalo", "valor": 260000.0, "fin": "venda", "dorm": 2, "cidade": "Pelotas", "txt": "mi-107 apartamento em são gonçalo, pelotas/rs são gonçalo pelotas avenida bento gonçalves apartamento"}, {"slug": "casa-a-venda-no-centro-pelotas-rs-mi-101", "tipo": "Casa", "bairro": "Centro", "valor": 954000.0, "fin": "venda", "dorm": 3, "cidade": "Pelotas", "txt": "mi-101 casa térea no colina do sol centro pelotas rua comendador joaquim dias casa"}, {"slug": "terreno-a-venda-no-sao-goncalo-pelotas-rs-mi-102", "tipo": "Terreno", "bairro": "São Gonçalo", "valor": 1100000.0, "fin": "venda", "dorm": 0, "cidade": "Pelotas", "txt": "mi-102 lote fundo lago no lagos são gonçalo são gonçalo pelotas travessa leonel de moura brizola terreno"}, {"slug": "casa-a-venda-no-laranjal-pelotas-rs-mi-104", "tipo": "Casa", "bairro": "Laranjal", "valor": 2000000.0, "fin": "venda", "dorm": 3, "cidade": "Pelotas", "txt": "mi-104 sobrado fundo lago no alphaville 2 laranjal pelotas avenida adolfo fetter casa"}, {"slug": "casa-a-venda-no-centro-pelotas-rs-mi-105", "tipo": "Casa", "bairro": "Centro", "valor": 1090000.0, "fin": "venda", "dorm": 3, "cidade": "Pelotas", "txt": "mi-105 sobrado impecável no colina do sol centro pelotas rua professor carlos henrique nogueira casa"}, {"slug": "casa-a-venda-no-laranjal-pelotas-rs-mi-106", "tipo": "Casa", "bairro": "Laranjal", "valor": 2300000.0, "fin": "venda", "dorm": 4, "cidade": "Pelotas", "txt": "mi-106 sobrado no veredas laranjal pelotas avenida adolfo fetter casa"}, {"slug": "apartamento-a-venda-no-areal-pelotas-rs-mi-108", "tipo": "Apartamento", "bairro": "Areal", "valor": 350000.0, "fin": "venda", "dorm": 2, "cidade": "Pelotas", "txt": "mi-108 apartamento de 2 dormitórios no smart connection areal pelotas avenida ferreira viana apartamento"}, {"slug": "apartamento-para-alugar-no-sao-goncalo-pelotas-rs-mi-109", "tipo": "Apartamento", "bairro": "São Gonçalo", "valor": 2300.0, "fin": "aluguel", "dorm": 2, "cidade": "Pelotas", "txt": "mi-109 apartamento em são gonçalo, pelotas/rs são gonçalo pelotas avenida bento gonçalves apartamento"}, {"slug": "apartamento-para-alugar-no-sao-goncalo-pelotas-rs-mi-110", "tipo": "Apartamento", "bairro": "São Gonçalo", "valor": 2000.0, "fin": "aluguel", "dorm": 2, "cidade": "Pelotas", "txt": "mi-110 apartamento em são gonçalo, pelotas/rs são gonçalo pelotas avenida bento gonçalves apartamento"}, {"slug": "apartamento-a-venda-no-sao-goncalo-pelotas-rs-mi-111", "tipo": "Apartamento", "bairro": "São Gonçalo", "valor": 250000.0, "fin": "venda", "dorm": 2, "cidade": "Pelotas", "txt": "mi-111 apartamento em são gonçalo, pelotas/rs são gonçalo pelotas avenida bento gonçalves apartamento"}, {"slug": "apartamento-a-venda-no-areal-pelotas-rs-mi-112", "tipo": "Apartamento", "bairro": "Areal", "valor": 359000.0, "fin": "venda", "dorm": 2, "cidade": "Pelotas", "txt": "mi-112 apartamento em areal, pelotas/rs areal pelotas avenida ferreira viana apartamento"}, {"slug": "apartamento-a-venda-no-centro-pelotas-rs-mi-113", "tipo": "Apartamento", "bairro": "Centro", "valor": 240000.0, "fin": "venda", "dorm": 3, "cidade": "Pelotas", "txt": "mi-113 apartamento em centro, pelotas/rs centro pelotas rua quinze de novembro apartamento"}, {"slug": "apartamento-a-venda-no-centro-pelotas-rs-mi-114", "tipo": "Apartamento", "bairro": "Centro", "valor": 180000.0, "fin": "venda", "dorm": 0, "cidade": "Pelotas", "txt": "mi-114 apartamento em centro, pelotas/rs centro pelotas rua andrade neves apartamento"}, {"slug": "apartamento-a-venda-no-centro-pelotas-rs-mi-115", "tipo": "Apartamento", "bairro": "Centro", "valor": 290000.0, "fin": "venda", "dorm": 1, "cidade": "Pelotas", "txt": "mi-115 apartamento em centro, pelotas/rs centro pelotas rua almirante barroso apartamento"}, {"slug": "apartamento-a-venda-no-centro-pelotas-rs-mi-116", "tipo": "Apartamento", "bairro": "Centro", "valor": 260000.0, "fin": "venda", "dorm": 1, "cidade": "Pelotas", "txt": "mi-116 apartamento em centro, pelotas/rs centro pelotas rua almirante barroso apartamento"}, {"slug": "apartamento-a-venda-no-centro-pelotas-rs-mi-117", "tipo": "Apartamento", "bairro": "Centro", "valor": 159000.0, "fin": "venda", "dorm": 1, "cidade": "Pelotas", "txt": "mi-117 apartamento loft em centro, pelotas/rs centro pelotas rua félix xavier da cunha apartamento"}, {"slug": "terreno-a-venda-no-laranjal-pelotas-rs-mi-120", "tipo": "Terreno", "bairro": "Laranjal", "valor": 150000.0, "fin": "venda", "dorm": 0, "cidade": "Pelotas", "txt": "mi-120 terreno em loteamento em laranjal, pelotas/rs laranjal pelotas rua dois terreno"}];
 let termoBusca = '';
+let cidadeAtiva = '';
 function filtrar(ev) {
   if (ev) ev.preventDefault();
   const t = fTipo.value, b = fBairro.value, m = Number(fMax.value||0),
@@ -877,6 +888,7 @@ function filtrar(ev) {
     const x = dados[idx];
     const ok = (!t || x.tipo===t) && (!b || x.bairro===b) && (!f || x.fin===f) &&
                (!m || (x.valor && x.valor<=m)) && (!d || x.dorm>=d) &&
+               (!cidadeAtiva || x.cidade===cidadeAtiva) &&
                palavras.every(w => x.txt.includes(w));
     el.hidden = !ok; if (ok) visiveis++;
   });
@@ -886,7 +898,7 @@ function filtrar(ev) {
   // Buscando, a home vira lista de resultado. Sem busca, ela volta a ser a
   // seleção. Mostrar as duas coisas ao mesmo tempo faria a pessoa rolar por
   // vitrines que não têm nada a ver com o que ela acabou de pedir.
-  const buscando = !!(t || b || m || d || f || palavras.length);
+  const buscando = !!(t || b || m || d || f || cidadeAtiva || palavras.length);
   document.getElementById('vitrines').hidden = buscando;
   document.getElementById('destaques').hidden = !buscando;
   return false;
@@ -895,6 +907,7 @@ function filtrar(ev) {
 function limparBusca() {
   ['fTipo','fBairro','fMax','fDorm','fFin'].forEach(i => document.getElementById(i).value = '');
   termoBusca = '';
+  cidadeAtiva = '';
   const campo = document.getElementById('qTexto');
   if (campo) campo.value = '';
   history.replaceState(null, '', location.pathname);
@@ -920,6 +933,9 @@ document.getElementById('btnLimpar').addEventListener('click', limparBusca);
     // deixar a busca num estado que a tela não sabe mostrar.
     if ([...el.options].some(o => o.value === v)) { el.value = v; mudou = true; }
   }
+  const cid = q.get('cidade');
+  if (cid) { cidadeAtiva = cid; mudou = true; }
+
   const termo = q.get('q');
   if (termo) {
     termoBusca = termo.toLowerCase();
@@ -969,7 +985,7 @@ document.querySelectorAll('.cartao-foto').forEach(moldura => {
     <strong>Maysonnave Imóveis</strong>
     CRECI/RS 61580<br>Rua XV de Novembro, 666 · loja 67<br>Pelotas, Rio Grande do Sul
   </div>
-  <div>
+  <div id="contato">
     <strong>Contato</strong>
     <a href="https://wa.me/5553981041499?text=Ol%C3%A1%20Rodrigo%2C%20cheguei%20pelo%20site%20e%20gostaria%20de%20falar%20sobre%20im%C3%B3veis." target="_blank" rel="noopener">Falar no WhatsApp</a><br>
     

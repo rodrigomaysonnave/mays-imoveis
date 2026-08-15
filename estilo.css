@@ -319,6 +319,33 @@ a{color:var(--marca)}
   color:#fff;padding:5px 13px;border-radius:3px;font-size:12px;cursor:pointer;
   font-family:inherit;font-weight:600}
 .btn-limpar:hover{background:rgba(255,255,255,.12)}
+
+/* ── Buscas populares ────────────────────────────────────────────── */
+.buscas-pop-barra{background:var(--escuro);padding:14px 24px;border-radius:3px 3px 0 0}
+.buscas-pop-barra h2{color:#fff;font-family:inherit;font-size:15px;font-weight:700;
+  letter-spacing:.02em;margin:0}
+.buscas-pop-grade{border:1px solid var(--linha);border-top:0;
+  columns:2;column-gap:0;padding:6px 24px}
+@media(max-width:760px){.buscas-pop-grade{columns:1}}
+.buscas-pop-grade a{display:flex;align-items:center;gap:8px;padding:9px 0;
+  color:var(--tinta-2);text-decoration:none;font-size:13.5px;
+  border-bottom:1px solid rgba(0,0,0,.05);break-inside:avoid}
+.buscas-pop-grade a:hover{color:var(--marca)}
+.buscas-pop-grade a span{color:var(--tinta-3);font-size:11px}
+.buscas-pop-grade a b{margin-left:auto;font-size:11px;font-weight:600;color:var(--tinta-3);
+  background:var(--superficie-2);border-radius:9px;padding:1px 8px}
+
+/* ── Três atalhos de saída ───────────────────────────────────────── */
+.atalhos-grade{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--linha);border:1px solid var(--linha)}
+@media(max-width:760px){.atalhos-grade{grid-template-columns:1fr}}
+.atalho{display:flex;flex-direction:column;justify-content:center;gap:5px;
+  background:var(--escuro);color:#fff;text-decoration:none;padding:22px 26px;
+  min-height:78px;transition:background .15s}
+.atalho:hover{background:#000}
+.atalho strong{font-size:14.5px;font-weight:700}
+.atalho span{font-size:12.5px;color:rgba(255,255,255,.65)}
+
 .btn-site-vazado:hover{filter:none;border-color:var(--tinta-3);color:var(--tinta)}
 
 .reel-cartao{text-decoration:none;color:inherit}
