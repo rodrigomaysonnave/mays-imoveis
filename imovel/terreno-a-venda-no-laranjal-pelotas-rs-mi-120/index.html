@@ -244,7 +244,7 @@
           nome, telefone: tel, email: lEmail.value.trim() || null,
           mensagem: lMsg.value.trim() || null,
           imovel_id: '726a4417-10b2-4612-b5a3-05acda1652ae', imovel_ref: 'MI-120',
-          pagina: location.pathname
+          pagina: location.pathname, origem: 'Ficha do imóvel'
         })
       });
       if (!r.ok) throw new Error(r.status);

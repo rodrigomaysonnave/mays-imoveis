@@ -244,7 +244,7 @@
           nome, telefone: tel, email: lEmail.value.trim() || null,
           mensagem: lMsg.value.trim() || null,
           imovel_id: '35a4b8d2-10fc-4f5e-9b42-bb317583f528', imovel_ref: 'MI-109',
-          pagina: location.pathname
+          pagina: location.pathname, origem: 'Ficha do imóvel'
         })
       });
       if (!r.ok) throw new Error(r.status);
