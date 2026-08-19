@@ -120,11 +120,18 @@ a{color:var(--marca)}
 .lateral-ref{font-size:12px;color:var(--tinta-3);margin-top:4px}
 .lateral-empreendimento{font-size:12.5px;color:var(--tinta-3);margin-top:10px}
 .lateral-empreendimento a{color:var(--marca);font-weight:600;text-decoration:underline}
-.cond-fotos{margin-top:36px}
-.cond-fotos h2{font-family:Georgia,serif;font-weight:400;font-size:19px;margin-bottom:12px}
-.cond-fotos-grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}
-.cond-fotos-grade img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:5px}
+.cond-resumo{margin-top:36px;padding-top:28px;border-top:1px solid var(--linha)}
+.cond-resumo h2{font-family:Georgia,serif;font-weight:400;font-size:19px;margin-bottom:12px}
 .cond-fotos-link{display:inline-block;margin-top:10px;font-size:13.5px;font-weight:600;color:var(--marca)}
+.lateral-agenciador{display:flex;gap:12px;align-items:flex-start;margin-top:20px;padding-top:18px;border-top:1px solid var(--linha)}
+.ag-foto img,.ag-iniciais{width:52px;height:52px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.ag-iniciais{display:flex;align-items:center;justify-content:center;background:var(--superficie-2);
+  color:var(--marca);font-family:Georgia,serif;font-size:19px}
+.ag-corpo{min-width:0}
+.ag-rot{display:block;font-size:11px;color:var(--tinta-3);text-transform:uppercase;letter-spacing:.04em}
+.ag-corpo strong{display:block;font-size:14.5px;margin-top:2px}
+.ag-creci{display:block;font-size:12px;color:var(--tinta-3);margin-top:1px}
+.ag-bio{font-size:12.5px;color:var(--tinta-2);line-height:1.55;margin-top:6px}
 .botao{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;
   padding:13px 18px;border-radius:5px;font-size:14.5px;font-weight:700;text-decoration:none;
   margin-top:12px;border:1px solid var(--marca);color:var(--marca);background:transparent}
