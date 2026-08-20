@@ -73,6 +73,7 @@
 
       <dl class="dados"><div><dt>Dormitórios</dt><dd>2</dd></div><div><dt>Banheiros</dt><dd>1</dd></div><div><dt>Vagas</dt><dd>1</dd></div><div><dt>Área útil</dt><dd>50 m²</dd></div><div><dt>Área total</dt><dd>50 m²</dd></div><div><dt>IPTU</dt><dd>R$ 220</dd></div><div><dt>Condomínio</dt><dd>R$ 275</dd></div></dl>
       <div class="ficha-desc"><p>**Apartamento para Locação no Bairro São Gonçalo em Pelotas-RS**Descubra a sua nova moradia em um aconchegante apartamento com 2 dormitórios e 1 banheiro, ideal para quem busca conforto e praticidade. Com uma área privativa de 50m² e moderna fechadura digital, este imóvel oferece segurança e comodidade. Localizado em um condomínio completo, você terá acesso a diversas opções de lazer, como brinquedoteca, churrasqueira, playground, quadras de areia, tênis e poliesportiva, além de uma sala de jogos e um salão de festas. A portaria 24 horas e a ronda motorizada garantem tranquilidade para você e sua família.</p><p>A localização é um diferencial à parte. Situado no bairro São Gonçalo, o apartamento está próximo a bancos, escolas, farmácias, igrejas, padarias, praças, shopping e supermercados. A facilidade de transporte público nas proximidades torna o dia a dia ainda mais prático.</p><p>Se você procura alugar apartamento no bairro São Gonçalo em Pelotas-RS, não perca a oportunidade de conhecer este espaço que pode ser o lar que você sempre desejou. Entre em contato conosco através do formulário de contato em nosso site e agende uma visita. Venha fazer parte de uma comunidade que oferece qualidade de vida e facilidade de acesso aos melhores serviços da região. Sua nova história começa aqui!</p></div>
+      
       <div class="extras"><span class="extra">Cozinha americana</span><span class="extra">Espaço Pet</span><span class="extra">Fechadura digital</span><span class="extra">Internet</span><span class="extra">Lavanderia</span><span class="extra">Portaria</span><span class="extra">Ronda/Vigilância</span></div>
       
     </div>
@@ -287,5 +288,19 @@
   document.addEventListener('DOMContentLoaded', pintar);
   window.MaysFavoritos = { ler: ler, pintar: pintar };
 })();
+</script>
+
+<script>
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-youtube]');
+  if (!b) return;
+  var id = b.dataset.youtube;
+  if (!id) return;
+  var capa = b.querySelector('.video-capa') || b.closest('.video-capa');
+  if (!capa) return;
+  capa.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
+    '?autoplay=1&rel=0" title="Vídeo" allow="autoplay; encrypted-media; picture-in-picture" ' +
+    'allowfullscreen></iframe>';
+});
 </script>
 </body></html>

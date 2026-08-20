@@ -129,4 +129,18 @@
   window.MaysFavoritos = { ler: ler, pintar: pintar };
 })();
 </script>
+
+<script>
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-youtube]');
+  if (!b) return;
+  var id = b.dataset.youtube;
+  if (!id) return;
+  var capa = b.querySelector('.video-capa') || b.closest('.video-capa');
+  if (!capa) return;
+  capa.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
+    '?autoplay=1&rel=0" title="Vídeo" allow="autoplay; encrypted-media; picture-in-picture" ' +
+    'allowfullscreen></iframe>';
+});
+</script>
 </body></html>

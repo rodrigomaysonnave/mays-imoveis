@@ -73,6 +73,7 @@
 
       <dl class="dados"><div><dt>Área total</dt><dd>475,6 m²</dd></div><div><dt>Testada</dt><dd>15 m</dd></div><div><dt>Condomínio</dt><dd>R$ 895</dd></div></dl>
       <div class="ficha-desc"><p>Um lote fundo lago muito bem localizado com frente norte muito próximo ao clube.</p><p>As informações estão sujeitas a alterações. Consulte o corretor responsável.</p></div>
+      
       <div class="extras"><span class="extra">Aceita financiamento</span><span class="extra">Coleta seletiva de lixo</span><span class="extra">Fundo Lago</span><span class="extra">Grama</span></div>
       <div class="cond-resumo"><h2>Sobre o Lagos de São Gonçalo</h2><div class="ficha-desc"><p>Lagos de São Gonçalo: Tranquilidade, Natureza e Alto Padrão em Pelotas</p><p>Descubra o Lagos de São Gonçalo, o endereço de alto padrão que se tornou o preferido de quem busca exclusividade e qualidade de vida em Pelotas. Aqui, a natureza se encontra com a modernidade, oferecendo um verdadeiro refúgio sem abrir mão da conveniência.</p><p>Viva a experiência de um lugar onde lazer e segurança se unem. O Lagos de São Gonçalo oferece uma infraestrutura completa com piscinas, quadras esportivas, academia, trilhas para caminhada e espaços de convivência. É a sua microcidade particular, onde você pode relaxar, praticar esportes e aproveitar a vida ao ar livre com a tranquilidade de um ambiente seguro.</p><p>Aqui, as crianças podem voltar a brincar livremente, e você pode desfrutar de momentos inesquecíveis em família.</p></div><a class="cond-fotos-link" href="../../condominio/lagos-de-sao-goncalo/">Ver a ficha completa de Lagos de São Gonçalo →</a></div>
     </div>
@@ -287,5 +288,19 @@
   document.addEventListener('DOMContentLoaded', pintar);
   window.MaysFavoritos = { ler: ler, pintar: pintar };
 })();
+</script>
+
+<script>
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-youtube]');
+  if (!b) return;
+  var id = b.dataset.youtube;
+  if (!id) return;
+  var capa = b.querySelector('.video-capa') || b.closest('.video-capa');
+  if (!capa) return;
+  capa.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
+    '?autoplay=1&rel=0" title="Vídeo" allow="autoplay; encrypted-media; picture-in-picture" ' +
+    'allowfullscreen></iframe>';
+});
 </script>
 </body></html>

@@ -73,6 +73,7 @@
 
       <dl class="dados"><div><dt>Dormitórios</dt><dd>2</dd></div><div><dt>Suítes</dt><dd>1</dd></div><div><dt>Banheiros</dt><dd>2</dd></div><div><dt>Vagas</dt><dd>1</dd></div><div><dt>Ano</dt><dd>2025</dd></div><div><dt>Condomínio</dt><dd>R$ 450</dd></div></dl>
       <div class="ficha-desc"><p>🌅 Onde o Futuro Encontra a Melhor Vista de Pelotas</p><p>Se você busca um refúgio que une tecnologia de ponta e uma contemplação única da natureza, este apartamento no Smart Connection é o seu próximo endereço. Localizado no 9º andar, ele oferece uma experiência visual rara em Pelotas: uma vista livre e permanente que abraça desde a área verde preservada e o curso do Arroio Pelotas até o horizonte pulsante do centro da cidade.</p><p>Destaques do Imóvel:Andar Alto (9º): Mais privacidade, silêncio e uma ventilação privilegiada.</p><p>Pôr do Sol Exclusivo: A posição solar garante finais de tarde cinematográficos diretamente da sua janela.</p><p>Casa Inteligente (Smart Home): Equipado com central de automação completa. Controle iluminação, dispositivos e segurança através do painel de comando intuitivo ou na palma da sua mão pelo celular.</p><p>Acabamento Premium: Já conta com piso laminado de alta qualidade, trazendo conforto térmico e sofisticação imediata para os 2 dormitórios e áreas sociais.</p><p>Conectividade e Conforto</p><p>Viver no Smart Connection é estar no centro de tudo, com a conveniência de um condomínio pensado para o estilo de vida moderno. O layout de 2 dormitórios foi planejado para otimizar cada metro quadrado, ideal para quem não abre mão de praticidade sem perder o contato com a beleza natural da nossa região.</p><p>Por que este é o investimento certo?</p><p>Valorização Garantida: Imóveis em andares altos com vista permanente são os mais procurados e valorizados no mercado imobiliário de Pelotas.</p><p>Tecnologia: A automação residencial já instalada economiza tempo e adiciona uma camada extra de segurança e modernidade ao seu dia a dia.</p><p>Pronto para Morar: Com o piso laminado já colocado, o caminho entre a assinatura do contrato e a mudança ficou muito mais curto.📍 Localização: Próximo às principais conveniências, mas com a paz de olhar para o verde.</p><p>Agende uma visita e venha descobrir como é ver o sol se pôr sobre o Arroio Pelotas do seu novo living.</p><p>As informações estão sujeitas a alterações. Consulte o corretor responsável.</p></div>
+      
       <div class="extras"><span class="extra">Cozinha americana</span><span class="extra">Gás central</span><span class="extra">Gás individual</span><span class="extra">Infraestrutura p/ ar-condicionado</span><span class="extra">Interfone</span><span class="extra">Portaria</span><span class="extra">Rua asfaltada</span><span class="extra">Varanda gourmet</span><span class="extra">Vista exterior</span><span class="extra">Zelador</span></div>
       
     </div>
@@ -341,5 +342,19 @@
   document.addEventListener('DOMContentLoaded', pintar);
   window.MaysFavoritos = { ler: ler, pintar: pintar };
 })();
+</script>
+
+<script>
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-youtube]');
+  if (!b) return;
+  var id = b.dataset.youtube;
+  if (!id) return;
+  var capa = b.querySelector('.video-capa') || b.closest('.video-capa');
+  if (!capa) return;
+  capa.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
+    '?autoplay=1&rel=0" title="Vídeo" allow="autoplay; encrypted-media; picture-in-picture" ' +
+    'allowfullscreen></iframe>';
+});
 </script>
 </body></html>

@@ -73,6 +73,7 @@
 
       <dl class="dados"><div><dt>Dormitórios</dt><dd>1</dd></div><div><dt>Banheiros</dt><dd>1</dd></div><div><dt>Área total</dt><dd>38 m²</dd></div><div><dt>Ano</dt><dd>2020</dd></div><div><dt>Condomínio</dt><dd>R$ 500</dd></div></dl>
       <div class="ficha-desc"><p>**Oportunidade Imperdível: Apartamento à Venda no Centro de Pelotas-RS**Apresentamos um excelente apartamento disponível para compra no bairro Centro em Pelotas-RS. Com 38m² de área total, este imóvel possui 1 dormitório e 1 banheiro, proporcionando um espaço aconchegante e funcional para quem busca conforto e praticidade.</p><p>Localizado em uma região privilegiada, o apartamento está próximo a diversos serviços e comodidades, como bancos, escolas, farmácias, hospitais e padarias. A proximidade de transporte público facilita ainda mais o acesso a outras áreas da cidade, tornando este imóvel uma opção ideal para quem valoriza a conveniência do dia a dia.</p><p>Este apartamento é perfeito para jovens profissionais, estudantes ou casais que desejam viver em uma das áreas mais dinâmicas de Pelotas. A infraestrutura do bairro Centro garante que você tenha tudo o que precisa ao seu alcance, contribuindo para uma vida urbanizada e funcional.</p><p>Não perca a oportunidade de adquirir este imóvel que une localização estratégica e praticidade. Para obter mais informações ou agendar uma visita, convidamos você a preencher o formulário de contato em nosso site. Estamos à disposição para ajudar você a encontrar o seu novo lar.</p><p>Se você está interessado em comprar apartamento no bairro Centro em Pelotas-RS, entre em contato e venha conhecer esta excelente opção.</p></div>
+      
       <div class="extras"><span class="extra">Aceita financiamento</span><span class="extra">Acessibilidade</span><span class="extra">Ar condicionado</span><span class="extra">Armário na cozinha</span><span class="extra">Circuito de segurança</span><span class="extra">Gás individual</span><span class="extra">Interfone</span><span class="extra">Lavanderia</span><span class="extra">Portaria</span><span class="extra">Rua asfaltada</span><span class="extra">Zelador</span></div>
       
     </div>
@@ -341,5 +342,19 @@
   document.addEventListener('DOMContentLoaded', pintar);
   window.MaysFavoritos = { ler: ler, pintar: pintar };
 })();
+</script>
+
+<script>
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-youtube]');
+  if (!b) return;
+  var id = b.dataset.youtube;
+  if (!id) return;
+  var capa = b.querySelector('.video-capa') || b.closest('.video-capa');
+  if (!capa) return;
+  capa.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
+    '?autoplay=1&rel=0" title="Vídeo" allow="autoplay; encrypted-media; picture-in-picture" ' +
+    'allowfullscreen></iframe>';
+});
 </script>
 </body></html>

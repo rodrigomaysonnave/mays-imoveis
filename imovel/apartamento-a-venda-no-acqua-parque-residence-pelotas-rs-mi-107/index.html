@@ -73,6 +73,7 @@
 
       <dl class="dados"><div><dt>Dormitórios</dt><dd>2</dd></div><div><dt>Banheiros</dt><dd>1</dd></div><div><dt>Vagas</dt><dd>1</dd></div><div><dt>Área útil</dt><dd>50 m²</dd></div><div><dt>IPTU</dt><dd>R$ 250</dd></div><div><dt>Condomínio</dt><dd>R$ 250</dd></div></dl>
       <div class="ficha-desc"><p>Quer morar num lugar aconchegante e cheio de opções de lazer? Esse apartamento de 2 Dormitórios tem tudo o que você precisa! Com uma área privativa de 50m², é perfeito para quem busca praticidade e conforto.</p><p>O condomínio é completo, com brinquedoteca, churrasqueira, playground, portaria 24 horas, quadra de areia, quadra de tênis, quadra poliesportiva, ronda motorizada, sala de jogos e salão de festas. Ou seja, diversão garantida para toda a família!</p><p>Além disso, a localização é super conveniente, com fácil acesso a banco, escola, farmácia, igreja, padaria, praça, shopping, supermercado e transporte público. E o melhor de tudo: está no bairro São Gonçalo, em Pelotas-RS, uma região tranquila e familiar.</p><p>Se bateu aquela vontade de conhecer de pertinho esse cantinho dos sonhos, não perca tempo e entre em contato conosco! Estamos aqui para te ajudar a encontrar o seu novo lar. Comprar um apartamento no bairro São Gonçalo em Pelotas-RS nunca foi tão fácil. Vem com a gente! 😉🏡 #comprarapartamento #São</p><p>Gonçalo #PelotasRS #lar</p><p>Doce</p><p>Lar</p><p>As informações estão sujeitas a alterações. Consulte o corretor responsável.</p></div>
+      
       <div class="extras"><span class="extra">Aceita financiamento</span></div>
       
     </div>
@@ -341,5 +342,19 @@
   document.addEventListener('DOMContentLoaded', pintar);
   window.MaysFavoritos = { ler: ler, pintar: pintar };
 })();
+</script>
+
+<script>
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-youtube]');
+  if (!b) return;
+  var id = b.dataset.youtube;
+  if (!id) return;
+  var capa = b.querySelector('.video-capa') || b.closest('.video-capa');
+  if (!capa) return;
+  capa.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
+    '?autoplay=1&rel=0" title="Vídeo" allow="autoplay; encrypted-media; picture-in-picture" ' +
+    'allowfullscreen></iframe>';
+});
 </script>
 </body></html>

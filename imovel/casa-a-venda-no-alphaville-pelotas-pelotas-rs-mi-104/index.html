@@ -73,6 +73,7 @@
 
       <dl class="dados"><div><dt>Dormitórios</dt><dd>3</dd></div><div><dt>Suítes</dt><dd>1</dd></div><div><dt>Banheiros</dt><dd>3</dd></div><div><dt>Vagas</dt><dd>2</dd></div><div><dt>Área útil</dt><dd>284 m²</dd></div><div><dt>Área total</dt><dd>420 m²</dd></div><div><dt>Testada</dt><dd>14 m</dd></div></dl>
       <div class="ficha-desc"><p>Casa de Alto Padrão com Vista para o Lago no Alphaville</p><p>Viva a experiência de morar em um sobrado de altíssimo padrão construtivo, com uma localização privilegiada e vista deslumbrante para o lago. Com 284m² de área construída, este imóvel foi projetado para quem busca conforto, sofisticação e momentos inesquecíveis.</p><p>No térreo, a área social é o grande destaque, com uma sala ampla integrada à cozinha e uma lareira que cria um ambiente acolhedor e perfeito para receber amigos e familiares. A privacidade é garantida com três suítes, sendo duas demi-suítes.</p><p>O segundo andar é o seu refúgio de lazer particular. A sala de jogos é o espaço ideal para diversão, equipada com uma estrutura gourmet completa, incluindo churrasqueira e forno para pão e pizza. Tudo isso com acesso a uma ampla varanda com vista para o lago, o cenário perfeito para relaxar e apreciar a paisagem.</p><p>A casa ainda conta com lavanderia, lavabo, garagem para dois veículos e espera para ar-condicionado split em todos os cômodos. Uma oportunidade única de viver com requinte e tranquilidade no Alphaville.</p></div>
+      
       <div class="extras"><span class="extra">Aceita financiamento</span><span class="extra">Aceita permuta</span><span class="extra">Churrasqueira</span><span class="extra">Cozinha americana</span><span class="extra">Cozinha gourmet</span><span class="extra">Edícula</span><span class="extra">Espaço Gourmet</span><span class="extra">Espaço verde</span><span class="extra">Forno à lenha</span><span class="extra">Forro de gesso</span><span class="extra">Grama</span><span class="extra">Gramado</span><span class="extra">Gás central</span><span class="extra">Jardim</span><span class="extra">Lareira</span><span class="extra">Mezanino</span><span class="extra">Rua asfaltada</span><span class="extra">Sacada</span><span class="extra">Varanda gourmet</span><span class="extra">Vista para o lago</span></div>
       <div class="cond-resumo"><h2>Sobre o Alphaville Pelotas</h2><div class="ficha-desc"><p>Bem-vindo ao Alphaville Pelotas: Viva o Melhor da Vida em Condomínio</p><p>Você busca mais do que uma casa; busca um lugar onde a segurança, o lazer e a natureza se unem para criar um estilo de vida incomparável. Esse lugar é o Alphaville Pelotas.</p><p>Localizado em uma área nobre do Altos do Laranjal, o Alphaville Pelotas não é apenas um empreendimento, mas um verdadeiro clube residencial com um projeto urbanístico de alto padrão. Aqui, cada detalhe foi pensado para proporcionar a você e sua família a tranquilidade de viver em total segurança, sem abrir mão do conforto e das facilidades de estar próximo aos principais pontos da cidade.</p><p>Um Clube Completo para Toda a FamíliaO grande diferencial do Alphaville é seu clube social privativo, que oferece uma infraestrutura completa e diversificada para todas as idades. Com ele, o lazer se torna parte do seu dia a dia:Esportes: Desfrute de quadras de tênis, paddle, vôlei de praia e futebol society, além de um moderno fitness center.</p><p>Lazer e Relaxamento: Mergulhe nas piscinas, relaxe no SPA com hidromassagem ou aproveite os espaços de convivência.</p><p>Eventos e Confraternizações: O salão de festas com espaço gourmet é perfeito para celebrar momentos especiais com amigos e familiares.</p><p>Com mais de 64 mil metros quadrados de área verde, o residencial integra a natureza de forma sublime, criando trilhas para caminhada, parques e um paisagismo que convida ao bem-estar e ao contato com o meio ambiente.</p><p>A Segurança e a Qualidade de Vida que Você MereceA segurança é levada a sério no Alphaville. Com portaria 24 horas, controle de acesso rigoroso e vigilância constante, você terá a tranquilidade de saber que sua família está protegida, permitindo que as crianças brinquem livremente e que todos aproveitem a vida com total serenidade.</p><p>Seja para construir a casa dos seus sonhos em um de nossos lotes a partir de 400 m² ou para adquirir um imóvel pronto, o Alphaville Pelotas é a sua oportunidade de começar um novo capítulo, unindo o melhor da vida em comunidade com a exclusividade que você merece.</p><p>Venha descobrir por que o Alphaville Pelotas é a escolha perfeita para a sua família.</p></div><a class="cond-fotos-link" href="../../condominio/alphaville-pelotas/">Ver a ficha completa de Alphaville Pelotas →</a></div>
     </div>
@@ -341,5 +342,19 @@
   document.addEventListener('DOMContentLoaded', pintar);
   window.MaysFavoritos = { ler: ler, pintar: pintar };
 })();
+</script>
+
+<script>
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-youtube]');
+  if (!b) return;
+  var id = b.dataset.youtube;
+  if (!id) return;
+  var capa = b.querySelector('.video-capa') || b.closest('.video-capa');
+  if (!capa) return;
+  capa.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
+    '?autoplay=1&rel=0" title="Vídeo" allow="autoplay; encrypted-media; picture-in-picture" ' +
+    'allowfullscreen></iframe>';
+});
 </script>
 </body></html>

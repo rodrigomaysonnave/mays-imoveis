@@ -73,6 +73,7 @@
 
       <dl class="dados"><div><dt>Dormitórios</dt><dd>2</dd></div><div><dt>Suítes</dt><dd>1</dd></div><div><dt>Banheiros</dt><dd>2</dd></div><div><dt>Vagas</dt><dd>1</dd></div><div><dt>Área total</dt><dd>61,8 m²</dd></div><div><dt>Ano</dt><dd>2015</dd></div><div><dt>Condomínio</dt><dd>R$ 350</dd></div></dl>
       <div class="ficha-desc"><p>**Excelente Oportunidade: Apartamento à Venda no Bairro Areal, Pelotas-RS**Apresentamos um apartamento à venda, ideal para quem busca conforto e praticidade. Com uma área privativa de 61,79 m², este imóvel dispõe de 2 dormitórios, sendo 1 suíte, e 2 banheiros, oferecendo um espaço bem distribuído para o seu dia a dia.</p><p>Situado em um condomínio completo, o apartamento conta com uma varanda gourmet que proporciona momentos de lazer e convivência. O condomínio é equipado com diversas opções de entretenimento, incluindo brinquedoteca, churrasqueira, playground, quadra de areia, quadra de tênis, quadra poliesportiva e salão de festas. Além de contar com portaria 24 horas, que garante segurança e tranquilidade para os moradores.</p><p>A localização é um dos grandes atrativos deste imóvel. Situado no bairro Areal, em Pelotas-RS, o apartamento está próximo a uma variedade de serviços e comodidades, como bancos, escolas, farmácias, hospitais, padarias, praças, shoppings e supermercados. A proximidade ao transporte público facilita ainda mais a mobilidade na região.</p><p>Se você está interessado em comprar apartamento no bairro Areal em Pelotas-RS, não perca esta oportunidade. Entre em contato por meio do nosso formulário e descubra mais sobre este imóvel que pode ser o seu novo lar. Aguarde seu contato!</p></div>
+      
       <div class="extras"><span class="extra">Aceita financiamento</span><span class="extra">Acessibilidade</span><span class="extra">Circuito de segurança</span><span class="extra">Cozinha americana</span><span class="extra">Espaço Pet</span><span class="extra">Espaço verde</span><span class="extra">Gás individual</span><span class="extra">Infraestrutura p/ ar-condicionado</span><span class="extra">Interfone</span><span class="extra">Portaria</span><span class="extra">Rua asfaltada</span><span class="extra">Sistema de alarme</span><span class="extra">Varanda</span><span class="extra">Varanda gourmet</span><span class="extra">Zelador</span><span class="extra">Área esportiva</span></div>
       
     </div>
@@ -341,5 +342,19 @@
   document.addEventListener('DOMContentLoaded', pintar);
   window.MaysFavoritos = { ler: ler, pintar: pintar };
 })();
+</script>
+
+<script>
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-youtube]');
+  if (!b) return;
+  var id = b.dataset.youtube;
+  if (!id) return;
+  var capa = b.querySelector('.video-capa') || b.closest('.video-capa');
+  if (!capa) return;
+  capa.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
+    '?autoplay=1&rel=0" title="Vídeo" allow="autoplay; encrypted-media; picture-in-picture" ' +
+    'allowfullscreen></iframe>';
+});
 </script>
 </body></html>

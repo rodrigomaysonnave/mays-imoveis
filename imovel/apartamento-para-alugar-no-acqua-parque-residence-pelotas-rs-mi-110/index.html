@@ -75,6 +75,7 @@
       <div class="ficha-desc"><p>**Aluguel de Apartamento no Bairro São Gonçalo em Pelotas-RS**Apresentamos uma excelente oportunidade para quem busca um apartamento para alugar no bairro São Gonçalo em Pelotas-RS. Este imóvel conta com 2 dormitórios, 1 banheiro e uma área privativa de 50m², ideal para proporcionar conforto e praticidade no seu dia a dia.</p><p>Localizado em um condomínio completo, você terá acesso a diversas comodidades que tornam a rotina mais agradável. As áreas de lazer são um destaque: aproveite a brinquedoteca para os pequenos, relacione-se com amigos na churrasqueira, ou desfrute de momentos de descontração no salão de festas. Ainda há opções de entretenimento, como sala de jogos e quadras para praticar esportes, incluindo quadra de tênis e quadra poliesportiva, além de uma quadra de areia.</p><p>A segurança é uma prioridade. O condomínio possui portaria 24 horas e ronda motorizada, garantindo tranquilidade para você e sua família. A localização é estratégica, com fácil acesso a banco, escola, farmácia, igreja, padaria, praça, shopping e supermercado, além de opções de transporte público nas proximidades.</p><p>Se você está em busca de um apartamento prático e bem localizado, não perca essa chance. Entre em contato através do formulário de contato do nosso site e saiba mais sobre essa oportunidade incrível de alugar apartamento no bairro São Gonçalo em Pelotas-RS. Estamos à disposição para ajudar você a encontrar o lar perfeito!</p></div>
       
       
+      
     </div>
 
     <aside class="lateral">
@@ -287,5 +288,19 @@
   document.addEventListener('DOMContentLoaded', pintar);
   window.MaysFavoritos = { ler: ler, pintar: pintar };
 })();
+</script>
+
+<script>
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-youtube]');
+  if (!b) return;
+  var id = b.dataset.youtube;
+  if (!id) return;
+  var capa = b.querySelector('.video-capa') || b.closest('.video-capa');
+  if (!capa) return;
+  capa.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
+    '?autoplay=1&rel=0" title="Vídeo" allow="autoplay; encrypted-media; picture-in-picture" ' +
+    'allowfullscreen></iframe>';
+});
 </script>
 </body></html>

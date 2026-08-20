@@ -73,6 +73,7 @@
 
       <dl class="dados"><div><dt>Dormitórios</dt><dd>1</dd></div><div><dt>Banheiros</dt><dd>1</dd></div><div><dt>Condomínio</dt><dd>R$ 200</dd></div></dl>
       <div class="ficha-desc"><p>**Oportunidade de Compra: Apartamento Loft no Centro de Pelotas-RS**Apresentamos um elegante apartamento loft à venda, ideal para quem busca um espaço moderno e funcional no coração de Pelotas. Com 1 dormitório e 1 banheiro, esta unidade conta com uma área privativa de 40m², perfeita para atender suas necessidades diárias.</p><p>Localizado no bairro Centro, este imóvel oferece a conveniência de estar próximo a diversas opções de serviços. Nas proximidades, você encontrará bancos, escolas, faculdades, farmácias e hospitais, facilitando sua rotina. Além disso, a presença de uma padaria, supermercado e áreas de lazer, como praças, agrega ainda mais valor à sua experiência de moradia.</p><p>O acesso ao transporte público é um ponto forte desta localização, proporcionando agilidade e conforto para se deslocar pela cidade. Este apartamento loft é uma excelente oportunidade para quem deseja comprar um imóvel no bairro Centro em Pelotas-RS, seja para moradia própria ou investimento.</p><p>Não perca a chance de adquirir este apartamento que une praticidade e estilo em um só lugar. Para mais informações e agendar uma visita, convidamos você a preencher o formulário de contato em nosso site. Esta pode ser a sua oportunidade de viver em um espaço que proporciona qualidade de vida e facilidade de acesso a tudo o que você precisa.</p><p>Entre em contato agora mesmo e descubra mais sobre esta oferta imperdível. Tornar-se proprietário de um apartamento loft no Centro de Pelotas-RS nunca foi tão acessível!</p></div>
+      
       <div class="extras"><span class="extra">Aceita financiamento</span><span class="extra">Ar condicionado</span><span class="extra">Interfone</span><span class="extra">Rua asfaltada</span></div>
       
     </div>
@@ -341,5 +342,19 @@
   document.addEventListener('DOMContentLoaded', pintar);
   window.MaysFavoritos = { ler: ler, pintar: pintar };
 })();
+</script>
+
+<script>
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-youtube]');
+  if (!b) return;
+  var id = b.dataset.youtube;
+  if (!id) return;
+  var capa = b.querySelector('.video-capa') || b.closest('.video-capa');
+  if (!capa) return;
+  capa.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
+    '?autoplay=1&rel=0" title="Vídeo" allow="autoplay; encrypted-media; picture-in-picture" ' +
+    'allowfullscreen></iframe>';
+});
 </script>
 </body></html>

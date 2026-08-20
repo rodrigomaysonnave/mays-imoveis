@@ -73,6 +73,7 @@
 
       <dl class="dados"><div><dt>Dormitórios</dt><dd>3</dd></div><div><dt>Suítes</dt><dd>1</dd></div><div><dt>Banheiros</dt><dd>3</dd></div><div><dt>Vagas</dt><dd>2</dd></div><div><dt>Área útil</dt><dd>225 m²</dd></div><div><dt>Área total</dt><dd>396 m²</dd></div><div><dt>Testada</dt><dd>11 m</dd></div></dl>
       <div class="ficha-desc"><p>Excelente oportunidade de adquirir uma belíssima casa térrea no Colina do Sol em Pelotas-RS. Com 3 dormitórios, sendo 1 suíte, e 3 banheiros para atender confortavelmente toda a família, esta residência possui uma área construída de 190m², garantindo amplo espaço e conforto.</p><p>Além disso, o imóvel conta com aquecimento solar, gás central, hidromassagem e lareira, proporcionando praticidade e conforto em todas as estações do ano. Sua localização privilegiada permite fácil acesso a diversos serviços essenciais, como bancos, escolas, farmácias, hospitais, igrejas, padarias, praças, supermercados e transporte público, tornando o dia a dia muito mais prático e funcional.</p><p>Se você busca uma casa para comprar na região central de Pelotas-RS, esta é a oportunidade perfeita para você. Não perca mais tempo e entre em contato conosco através do formulário disponível no site para obter mais informações e agendar uma visita. Esta pode ser a sua chance de encontrar o imóvel dos seus sonhos! Compre já a sua casa no bairro Centro em Pelotas-RS e garanta conforto, praticidade e qualidade de vida para você e sua família.</p><p>As informações estão sujeitas a alterações. Consulte o corretor responsável.</p></div>
+      
       <div class="extras"><span class="extra">Aceita financiamento</span><span class="extra">Aquecimento solar</span><span class="extra">Cozinha americana</span><span class="extra">Espaço verde</span><span class="extra">Forro de gesso</span><span class="extra">Gás central</span><span class="extra">Hidromassagem</span><span class="extra">Lareira</span><span class="extra">Rua asfaltada</span><span class="extra">Sistema de alarme</span></div>
       
     </div>
@@ -341,5 +342,19 @@
   document.addEventListener('DOMContentLoaded', pintar);
   window.MaysFavoritos = { ler: ler, pintar: pintar };
 })();
+</script>
+
+<script>
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-youtube]');
+  if (!b) return;
+  var id = b.dataset.youtube;
+  if (!id) return;
+  var capa = b.querySelector('.video-capa') || b.closest('.video-capa');
+  if (!capa) return;
+  capa.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
+    '?autoplay=1&rel=0" title="Vídeo" allow="autoplay; encrypted-media; picture-in-picture" ' +
+    'allowfullscreen></iframe>';
+});
 </script>
 </body></html>

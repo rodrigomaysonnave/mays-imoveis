@@ -73,6 +73,7 @@
 
       <dl class="dados"><div><dt>Dormitórios</dt><dd>1</dd></div><div><dt>Banheiros</dt><dd>1</dd></div><div><dt>Área total</dt><dd>37 m²</dd></div><div><dt>Ano</dt><dd>2020</dd></div><div><dt>Condomínio</dt><dd>R$ 450</dd></div></dl>
       <div class="ficha-desc"><p>**Oportunidade de Compra: Apartamento no Centro de Pelotas-RS**Apresentamos um apartamento à venda, ideal para aqueles que buscam praticidade e conforto na cidade de Pelotas-RS. Com 1 dormitório e 1 banheiro, este imóvel possui uma área total de 68 m², proporcionando espaço suficiente para atender às suas necessidades.</p><p>Localizado no coração do bairro Centro, o apartamento oferece fácil acesso a diversas comodidades. Nas proximidades, é possível encontrar bancos, escolas, escolas de idiomas, faculdades, farmácias, hospitais, igrejas, padarias, praças e supermercados. Essa localização privilegiada garante que você esteja sempre perto de tudo que precisa, facilitando seu dia a dia.</p><p>O ambiente do apartamento foi projetado para otimizar o uso dos espaços e proporcionar um lar acolhedor. A iluminação natural é um ponto forte, criando uma atmosfera agradável e convidativa. Seja para morar ou investir, este imóvel é uma excelente opção no mercado imobiliário.</p><p>Se você busca comprar apartamento no bairro Centro em Pelotas-RS, não perca esta oportunidade. Entre em contato conosco por meio do formulário de contato disponível em nosso site e agende uma visita. Nossa equipe estará à disposição para fornecer mais informações e auxiliar em cada etapa do processo de aquisição.</p><p>Não deixe a chance passar; seu novo lar pode estar mais perto do que imagina. Aproveite esta oferta e venha conhecer seu futuro apartamento!</p></div>
+      
       <div class="extras"><span class="extra">Aceita financiamento</span><span class="extra">Ar condicionado</span><span class="extra">Gás individual</span><span class="extra">Interfone</span><span class="extra">Lavanderia</span><span class="extra">Portaria</span><span class="extra">Rua asfaltada</span><span class="extra">Zelador</span></div>
       
     </div>
@@ -341,5 +342,19 @@
   document.addEventListener('DOMContentLoaded', pintar);
   window.MaysFavoritos = { ler: ler, pintar: pintar };
 })();
+</script>
+
+<script>
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-youtube]');
+  if (!b) return;
+  var id = b.dataset.youtube;
+  if (!id) return;
+  var capa = b.querySelector('.video-capa') || b.closest('.video-capa');
+  if (!capa) return;
+  capa.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
+    '?autoplay=1&rel=0" title="Vídeo" allow="autoplay; encrypted-media; picture-in-picture" ' +
+    'allowfullscreen></iframe>';
+});
 </script>
 </body></html>
