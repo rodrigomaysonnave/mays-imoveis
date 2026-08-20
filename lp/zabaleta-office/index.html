@@ -46,7 +46,7 @@
   header .btn{padding:11px 22px;font-size:0.78rem;white-space:nowrap;}
 
   .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;background:#181310;overflow:hidden;}
-  .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 8%;}
+  .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%;}
   .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top, rgba(10,8,6,0.96) 0%, rgba(10,8,6,0.82) 20%, rgba(10,8,6,0.4) 46%, rgba(10,8,6,0.12) 70%, rgba(10,8,6,0.05) 100%);}
   .hero-content{position:relative;z-index:2;color:#F5F0E8;padding:0 32px 34px;max-width:1160px;margin:0 auto;width:100%;}
   .campaign-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(245,240,232,0.1);border:1px solid rgba(183,147,95,0.55);border-radius:30px;padding:8px 18px 8px 8px;margin-bottom:22px;}
@@ -110,11 +110,11 @@
   .gallery-item img{width:100%;height:100%;object-fit:cover;}
   .gallery-item .cap{position:absolute;left:0;right:0;bottom:0;padding:14px 16px 12px;background:linear-gradient(to top, rgba(15,12,9,0.82), transparent);color:#F5F0E8;font-size:0.76rem;letter-spacing:0.02em;}
 
-  .broker{display:flex;align-items:center;gap:36px;}
-  .broker-photo{width:132px;height:168px;object-fit:cover;object-position:center 15%;border-radius:10px;flex-shrink:0;box-shadow:0 8px 24px rgba(44,36,22,0.14);}
+  .broker{display:flex;align-items:flex-start;gap:36px;}
+  .broker-photo{width:160px;height:auto;border-radius:10px;flex-shrink:0;box-shadow:0 8px 24px rgba(44,36,22,0.14);}
   .broker h3{font-size:1.2rem;margin:8px 0 8px;}
   .broker p{font-size:0.9rem;opacity:0.78;max-width:560px;}
-  @media (max-width:600px){.broker{flex-direction:column;text-align:center;gap:18px;}.broker p{max-width:100%;}}
+  @media (max-width:600px){.broker{flex-direction:column;align-items:center;text-align:center;gap:18px;}.broker p{max-width:100%;}}
 
   .cta-final{background:linear-gradient(135deg, #211B12 0%, #2C2416 100%);color:#F5F0E8;}
   .cta-final .wrap{display:grid;grid-template-columns:1.05fr 0.95fr;gap:70px;align-items:start;}
