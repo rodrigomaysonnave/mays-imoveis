@@ -185,4 +185,28 @@ document.addEventListener('click', function (ev) {
     'allowfullscreen></iframe>';
 });
 </script>
+
+<script>
+document.querySelectorAll('.cartao-foto').forEach(moldura => {
+  const img = moldura.querySelector('img');
+  if (!img || !img.dataset.fotos) return;
+  const fotos = [img.getAttribute('src')].concat(img.dataset.fotos.split('|'));
+  const pontos = moldura.querySelectorAll('.cartao-pontos i');
+  let i = 0;
+  const ir = passo => {
+    i = (i + passo + fotos.length) % fotos.length;
+    img.src = fotos[i];
+    moldura.dataset.indiceAtual = i;
+    pontos.forEach((p, k) => p.classList.toggle('on', k === i));
+  };
+  moldura.dataset.indiceAtual = 0;
+  pontos.forEach((p, k) => p.classList.toggle('on', k === 0));
+  const ant = moldura.querySelector('.cartao-ant'), prox = moldura.querySelector('.cartao-prox');
+  // A seta vive DENTRO do link do cartão (ou do clique-pra-abrir-visor da
+  // ficha) — sem parar a propagação, o clique navegava/abria em vez de só
+  // trocar a foto.
+  if (ant) ant.addEventListener('click', ev => { ev.preventDefault(); ev.stopPropagation(); ir(-1); });
+  if (prox) prox.addEventListener('click', ev => { ev.preventDefault(); ev.stopPropagation(); ir(1); });
+});
+</script>
 </body></html>

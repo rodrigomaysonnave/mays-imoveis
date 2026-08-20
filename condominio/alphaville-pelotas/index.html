@@ -62,7 +62,7 @@
 <div class="env">
   <nav class="trilha-site" aria-label="Você está em">
     <a href="../../">Início</a> <i>›</i> <span>Alphaville Pelotas</span></nav>
-  <div class="cond-capa"><img src="../../fotos/emp-734ada01-emp-734ada01-0.jpg" alt="Alphaville Pelotas" loading="eager" width="1400" height="700"></div>
+  <div class="cond-capa cartao-foto"><img src="../../fotos/emp-734ada01-emp-734ada01-0.jpg" data-fotos="../../fotos/emp-734ada01-emp-734ada01-1.jpg|../../fotos/emp-734ada01-emp-734ada01-2.jpg" alt="Alphaville Pelotas" loading="eager" width="1400" height="700"><button type="button" class="cartao-seta cartao-ant" aria-label="Foto anterior">&#8249;</button><button type="button" class="cartao-seta cartao-prox" aria-label="Próxima foto">&#8250;</button><span class="cartao-pontos" aria-hidden="true"><i></i><i></i><i></i></span></div>
   <h1 style="margin-top:22px">Alphaville Pelotas</h1>
   <div class="ficha-local">Laranjal · Avenida Adolfo Fetter, 4831 · Pelotas/RS</div>
   <div class="cond-galeria"><img src="../../fotos/emp-734ada01-emp-734ada01-1.jpg" alt="" loading="lazy" width="360" height="240"><img src="../../fotos/emp-734ada01-emp-734ada01-2.jpg" alt="" loading="lazy" width="360" height="240"></div>
@@ -183,6 +183,30 @@ document.addEventListener('click', function (ev) {
   capa.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
     '?autoplay=1&rel=0" title="Vídeo" allow="autoplay; encrypted-media; picture-in-picture" ' +
     'allowfullscreen></iframe>';
+});
+</script>
+
+<script>
+document.querySelectorAll('.cartao-foto').forEach(moldura => {
+  const img = moldura.querySelector('img');
+  if (!img || !img.dataset.fotos) return;
+  const fotos = [img.getAttribute('src')].concat(img.dataset.fotos.split('|'));
+  const pontos = moldura.querySelectorAll('.cartao-pontos i');
+  let i = 0;
+  const ir = passo => {
+    i = (i + passo + fotos.length) % fotos.length;
+    img.src = fotos[i];
+    moldura.dataset.indiceAtual = i;
+    pontos.forEach((p, k) => p.classList.toggle('on', k === i));
+  };
+  moldura.dataset.indiceAtual = 0;
+  pontos.forEach((p, k) => p.classList.toggle('on', k === 0));
+  const ant = moldura.querySelector('.cartao-ant'), prox = moldura.querySelector('.cartao-prox');
+  // A seta vive DENTRO do link do cartão (ou do clique-pra-abrir-visor da
+  // ficha) — sem parar a propagação, o clique navegava/abria em vez de só
+  // trocar a foto.
+  if (ant) ant.addEventListener('click', ev => { ev.preventDefault(); ev.stopPropagation(); ir(-1); });
+  if (prox) prox.addEventListener('click', ev => { ev.preventDefault(); ev.stopPropagation(); ir(1); });
 });
 </script>
 </body></html>

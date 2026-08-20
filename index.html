@@ -663,27 +663,6 @@ window.buscarTexto = function (q) {
   document.getElementById('imoveis').scrollIntoView({ behavior: 'smooth' });
 };
 
-// Carrossel da miniatura. A seta vive DENTRO do link do cartão, então sem
-// preventDefault o clique abriria o imóvel em vez de trocar a foto.
-document.querySelectorAll('.cartao-foto').forEach(moldura => {
-  const img = moldura.querySelector('img');
-  if (!img || !img.dataset.fotos) return;
-  const fotos = [img.getAttribute('src')].concat(img.dataset.fotos.split('|'));
-  const pontos = moldura.querySelectorAll('.cartao-pontos i');
-  let i = 0;
-  const ir = passo => {
-    i = (i + passo + fotos.length) % fotos.length;
-    img.src = fotos[i];
-    pontos.forEach((p, k) => p.classList.toggle('on', k === i));
-  };
-  pontos.forEach((p, k) => p.classList.toggle('on', k === 0));
-  moldura.querySelector('.cartao-ant').addEventListener('click', ev => {
-    ev.preventDefault(); ev.stopPropagation(); ir(-1);
-  });
-  moldura.querySelector('.cartao-prox').addEventListener('click', ev => {
-    ev.preventDefault(); ev.stopPropagation(); ir(1);
-  });
-});
 </script>
 <footer class="rodape"><div class="env">
   <div>
@@ -756,6 +735,30 @@ document.addEventListener('click', function (ev) {
   capa.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
     '?autoplay=1&rel=0" title="Vídeo" allow="autoplay; encrypted-media; picture-in-picture" ' +
     'allowfullscreen></iframe>';
+});
+</script>
+
+<script>
+document.querySelectorAll('.cartao-foto').forEach(moldura => {
+  const img = moldura.querySelector('img');
+  if (!img || !img.dataset.fotos) return;
+  const fotos = [img.getAttribute('src')].concat(img.dataset.fotos.split('|'));
+  const pontos = moldura.querySelectorAll('.cartao-pontos i');
+  let i = 0;
+  const ir = passo => {
+    i = (i + passo + fotos.length) % fotos.length;
+    img.src = fotos[i];
+    moldura.dataset.indiceAtual = i;
+    pontos.forEach((p, k) => p.classList.toggle('on', k === i));
+  };
+  moldura.dataset.indiceAtual = 0;
+  pontos.forEach((p, k) => p.classList.toggle('on', k === 0));
+  const ant = moldura.querySelector('.cartao-ant'), prox = moldura.querySelector('.cartao-prox');
+  // A seta vive DENTRO do link do cartão (ou do clique-pra-abrir-visor da
+  // ficha) — sem parar a propagação, o clique navegava/abria em vez de só
+  // trocar a foto.
+  if (ant) ant.addEventListener('click', ev => { ev.preventDefault(); ev.stopPropagation(); ir(-1); });
+  if (prox) prox.addEventListener('click', ev => { ev.preventDefault(); ev.stopPropagation(); ir(1); });
 });
 </script>
 </body></html>
