@@ -46,7 +46,7 @@
   header .btn{padding:11px 22px;font-size:0.78rem;white-space:nowrap;}
 
   .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;background:#181310;overflow:hidden;}
-  .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%;}
+  .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 8%;}
   .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top, rgba(10,8,6,0.96) 0%, rgba(10,8,6,0.82) 20%, rgba(10,8,6,0.4) 46%, rgba(10,8,6,0.12) 70%, rgba(10,8,6,0.05) 100%);}
   .hero-content{position:relative;z-index:2;color:#F5F0E8;padding:0 32px 34px;max-width:1160px;margin:0 auto;width:100%;}
   .campaign-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(245,240,232,0.1);border:1px solid rgba(183,147,95,0.55);border-radius:30px;padding:8px 18px 8px 8px;margin-bottom:22px;}
@@ -110,6 +110,12 @@
   .gallery-item img{width:100%;height:100%;object-fit:cover;}
   .gallery-item .cap{position:absolute;left:0;right:0;bottom:0;padding:14px 16px 12px;background:linear-gradient(to top, rgba(15,12,9,0.82), transparent);color:#F5F0E8;font-size:0.76rem;letter-spacing:0.02em;}
 
+  .broker{display:flex;align-items:center;gap:36px;}
+  .broker-photo{width:132px;height:168px;object-fit:cover;object-position:center 15%;border-radius:10px;flex-shrink:0;box-shadow:0 8px 24px rgba(44,36,22,0.14);}
+  .broker h3{font-size:1.2rem;margin:8px 0 8px;}
+  .broker p{font-size:0.9rem;opacity:0.78;max-width:560px;}
+  @media (max-width:600px){.broker{flex-direction:column;text-align:center;gap:18px;}.broker p{max-width:100%;}}
+
   .cta-final{background:linear-gradient(135deg, #211B12 0%, #2C2416 100%);color:#F5F0E8;}
   .cta-final .wrap{display:grid;grid-template-columns:1.05fr 0.95fr;gap:70px;align-items:start;}
   .cta-final h2{color:#fff;font-size:2rem;margin:14px 0 18px;}
@@ -165,7 +171,7 @@
   <div class="hero-content">
     <div class="campaign-tag"><span class="dot"></span><span>Campanha Office Experience · até 27 de setembro</span></div>
     <h1>10% de desconto à vista para ser dono do primeiro comercial da Zabaleta.</h1>
-    <p class="sub">Salas de 23,96 m² a 61,49 m², dentro da única fachada neoclássica de Pelotas convertida em torre corporativa. Rua Andrade Neves, 3418.</p>
+    <p class="sub">Prédio entregue e em funcionamento, com salas de 23,96 m² a 61,49 m² em estoque. A única fachada neoclássica de Pelotas convertida em torre corporativa, na Rua Andrade Neves, 3418.</p>
     <a class="btn" href="https://wa.me/5553981041499?text=Ol%C3%A1%2C%20quero%20as%20condi%C3%A7%C3%B5es%20da%20campanha%20Office%20Experience%20do%20Zabaleta%20Office.">Quero as condições da campanha</a>
     <div class="hero-badge">Construtora Zabaleta · desde 1982</div>
   </div>
@@ -226,7 +232,7 @@
       <div class="audience-card">
         <div class="tag">Investimento</div>
         <h3>Comprar para alugar</h3>
-        <p>É o primeiro estoque comercial de uma construtora sem histórico de atraso relevante em 8 empreendimentos residenciais entregues. Sala comercial nova, com essa localização e esse padrão construtivo, não é oferta recorrente em Pelotas.</p>
+        <p>É estoque remanescente do primeiro comercial de uma construtora com 8 obras entregues, este já em pleno funcionamento. Sala comercial pronta, nessa localização e nesse padrão construtivo, não é oferta recorrente em Pelotas.</p>
       </div>
     </div>
     <div class="stats">
@@ -242,7 +248,7 @@
 <section id="campanha">
   <div class="wrap">
     <p class="eyebrow">A campanha em números</p>
-    <h2 style="font-size:1.95rem;max-width:680px;margin-top:12px;">10% de desconto à vista. Real, em cada unidade listada abaixo.</h2>
+    <h2 style="font-size:1.95rem;max-width:680px;margin-top:12px;">10% de desconto à vista no estoque remanescente. Real, em cada unidade listada abaixo.</h2>
     <div class="campaign-window" style="margin-top:28px;">
       <span class="lbl">Vigência</span>
       <span class="val">13 de agosto a 27 de setembro de 2026</span>
@@ -270,13 +276,24 @@
   <div class="wrap two-col">
     <div>
       <p class="eyebrow">Segurança e trajetória</p>
-      <h2>Comprar comercial na planta é comprar a entrega. Aqui, quem assina tem 8 obras no currículo.</h2>
-      <p>A incorporação está registrada sob o Protocolo 343.254, no Registro de Imóveis da Primeira Zona de Pelotas. Não é o primeiro empreendimento da Zabaleta, é o primeiro <b>comercial</b>: antes dele vieram Royal Park, Mônaco, Central Park, Versailles, Green Park, Parthenon, Golden Park e Leonardo da Vinci, todos entregues sob a mesma administração da família Zabaleta.</p>
-      <p>A campanha Office Experience existe porque este é o lançamento de uma categoria nova no portfólio da construtora. A condição de entrada não se repete no próximo empreendimento comercial, porque não vai mais ser o primeiro.</p>
+      <h2>Você não está comprando uma promessa. Está comprando o que já foi entregue e está em funcionamento.</h2>
+      <p>O Zabaleta Office está pronto, com hall, sala de reuniões e circulação operando exatamente como nas fotos desta página. A incorporação está registrada sob o Protocolo 343.254, no Registro de Imóveis da Primeira Zona de Pelotas. Não é o primeiro empreendimento da Zabaleta, é o primeiro <b>comercial</b>: antes dele vieram Royal Park, Mônaco, Central Park, Versailles, Green Park, Parthenon, Golden Park e Leonardo da Vinci, todos entregues sob a mesma administração da família Zabaleta.</p>
+      <p>A campanha Office Experience existe para acelerar a venda do estoque remanescente deste primeiro comercial. Quando ele esgotar, a construtora segue para o próximo lançamento comercial, e a condição de campanha não se repete lá.</p>
     </div>
     <div class="img-col">
       <img src="img/corredor-historia.jpg" alt="Corredor do Zabaleta Office com fotografia histórica da fachada original">
       <p class="img-caption">Circulação do pavimento · registro fotográfico da fachada original em exposição</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap broker">
+    <img class="broker-photo" src="img/corretor-rodrigo.jpg" alt="Rodrigo Maysonnave Fernandes, corretor de imóveis">
+    <div>
+      <p class="eyebrow">Quem atende você</p>
+      <h3>Rodrigo Maysonnave Fernandes</h3>
+      <p>Corretor de imóveis de alto padrão e perito avaliador certificado, CRECI-RS 61.580. Atendimento direto, do primeiro contato à assinatura, sem call center no meio do caminho.</p>
     </div>
   </div>
 </section>
@@ -310,7 +327,7 @@
   </div>
   <p>Realização: Construtora Zabaleta · desde 1982 · Vendas: Rodrigo Maysonnave Fernandes · CRECI-RS 61.580</p>
   <p>Rua XV de Novembro, 666, Loja 67, Galeria Zabaleta, Pelotas/RS · (53) 98104-1499</p>
-  <p class="legal">Registro da incorporação imobiliária: R.I. Protocolo 343.254, Registro de Imóveis da Primeira Zona de Pelotas/RS. Áreas comuns serão equipadas, decoradas e executadas com base nas imagens deste material e podem sofrer alterações nos materiais e cores em função da disponibilidade de mercado. Áreas privativas não são entregues equipadas, decoradas ou com piso. Valores e condições de pagamento sujeitos a confirmação no plantão de vendas.</p>
+  <p class="legal">Registro da incorporação imobiliária: R.I. Protocolo 343.254, Registro de Imóveis da Primeira Zona de Pelotas/RS. Empreendimento entregue e em funcionamento. Áreas comuns executadas conforme as imagens deste material. Unidades em estoque são entregues em contrapiso, sem piso, equipamentos ou decoração. Valores e condições de pagamento sujeitos a confirmação no plantão de vendas.</p>
 </footer>
 
 <script>
