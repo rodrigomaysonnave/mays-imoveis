@@ -92,6 +92,13 @@
 
   .price-note{margin-top:22px;font-size:0.88rem;opacity:0.75;max-width:680px;}
 
+  .condition-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:36px;}
+  .condition-card{background:#FDFBF6;border-radius:10px;padding:32px 30px;box-shadow:0 2px 14px rgba(44,36,22,0.07);border-top:3px solid var(--champ);}
+  .condition-card .tag{font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--champ-deep);margin-bottom:14px;}
+  .condition-card .big{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(2rem,3.4vw,2.6rem);color:var(--champ-deep);line-height:1;margin-bottom:12px;}
+  .condition-card p{font-size:0.92rem;opacity:0.8;}
+  @media (max-width:700px){.condition-grid{grid-template-columns:1fr;}}
+
   .gallery{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:20px;margin-top:56px;}
   .gallery-item{position:relative;border-radius:10px;overflow:hidden;height:340px;}
   .gallery-item:nth-child(2),.gallery-item:nth-child(3){height:160px;}
@@ -159,7 +166,7 @@
   <img class="bg" src="img/hero-fachada.jpg" alt="Fachada neoclássica revitalizada do Zabaleta Office, Rua Andrade Neves, Pelotas">
   <div class="hero-content">
     <div class="campaign-tag"><span class="dot"></span><span>Campanha Office Experience · até 27 de setembro</span></div>
-    <h1>10% de desconto à vista para ser dono do primeiro comercial da Zabaleta.</h1>
+    <h1>10% de desconto à vista ou apenas 6% de entrada para ser dono do primeiro comercial da Zabaleta.</h1>
     <p class="sub">Prédio entregue e em funcionamento, com salas de 23,96 m² a 61,49 m² em estoque. A única fachada neoclássica de Pelotas convertida em torre corporativa, na Rua Andrade Neves, 3418.</p>
     <a class="btn" href="https://wa.me/5553981041499?text=Ol%C3%A1%2C%20quero%20as%20condi%C3%A7%C3%B5es%20da%20campanha%20Office%20Experience%20do%20Zabaleta%20Office.">Quero as condições da campanha</a>
     <div class="hero-badge">Construtora Zabaleta · desde 1982</div>
@@ -242,7 +249,19 @@
       <span class="lbl">Vigência</span>
       <span class="val">13 de agosto a 27 de setembro de 2026</span>
     </div>
-    <p class="price-note" style="margin-top:28px;font-size:0.98rem;max-width:640px;">Entrada a partir de 6% do valor, mais parcelamento assistido em até 12 meses e financiamento do saldo. Unidades menores também têm opção de entrada de 20% com 6 parcelas semestrais. Valores variam por unidade e são atualizados direto com o corretor responsável.</p>
+    <div class="condition-grid">
+      <div class="condition-card">
+        <div class="tag">À vista</div>
+        <div class="big">10% off</div>
+        <p>Desconto direto no valor da unidade, pago à vista.</p>
+      </div>
+      <div class="condition-card">
+        <div class="tag">Parcelado</div>
+        <div class="big">6% de entrada</div>
+        <p>Mais parcelamento assistido em até 12 meses e financiamento do saldo. Unidades menores também aceitam entrada de 20% com 6 parcelas semestrais.</p>
+      </div>
+    </div>
+    <p class="price-note">Valores variam por unidade e são atualizados direto com o corretor responsável.</p>
     <a class="btn" style="margin-top:8px;" href="https://wa.me/5553981041499?text=Ol%C3%A1%2C%20quero%20a%20simula%C3%A7%C3%A3o%20de%20valores%20da%20campanha%20Office%20Experience%20do%20Zabaleta%20Office.">Quero a simulação da minha unidade</a>
   </div>
 </section>
@@ -267,7 +286,7 @@
     <img class="broker-photo" src="img/corretor-rodrigo.jpg" alt="Rodrigo Maysonnave Fernandes, corretor de imóveis">
     <div>
       <p class="eyebrow">Quem atende você</p>
-      <h3>Rodrigo Maysonnave Fernandes</h3>
+      <h3>Rodrigo Maysonnave</h3>
       <p>Corretor de imóveis de alto padrão e perito avaliador certificado, CRECI-RS 61.580. Atendimento direto, do primeiro contato à assinatura, sem call center no meio do caminho.</p>
     </div>
   </div>
