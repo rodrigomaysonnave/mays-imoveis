@@ -57,6 +57,7 @@
     })();
     </script></div></div></div></div><a class="nav-item" href="../../#destaques">Destaques</a><div class="nav-mm direita"><a class="nav-item nav-mm-alvo" href="../../blog/">Blog<span class="nav-seta" aria-hidden="true">⌄</span></a><div class="mm-caixa" style="--mm-larg:340px"><div class="mm-env"><div class="mm-grade"><div class="mm-col mm-col-larga"><h4>Últimos artigos</h4><a href="../../blog/o-que-ja-esta-confirmado-no-pre-lancamento-da-zabaleta-na-dom-joaquim/">O que já está confirmado no pré-lançamento da Zabaleta na Dom Joaquim</a></div></div></div></div></div><div class="nav-mm direita"><a class="nav-item nav-mm-alvo" href="../../#contato">Contato<span class="nav-seta" aria-hidden="true">⌄</span></a><div class="mm-caixa" style="--mm-larg:330px"><div class="mm-env"><div class="mm-grade"><div class="mm-col mm-col-larga"><h4>Fale com o corretor</h4><a href="https://wa.me/5553981041499?text=Ol%C3%A1%20Rodrigo%2C%20cheguei%20pelo%20site%20e%20gostaria%20de%20falar%20sobre%20im%C3%B3veis." target="_blank" rel="noopener">Falar no WhatsApp</a><a href="mailto:rodrigomaysonnave@gmail.com">rodrigomaysonnave@gmail.com</a><a href="../../#contato">Rua XV de Novembro, 666 · loja 67</a></div></div></div></div></div><a class="nav-item nav-favoritos" href="../../favoritos.html"><span aria-hidden="true">★</span> Favoritos <b id="favConta">0</b></a><button type="button" class="nav-lupa" id="btnBusca" aria-label="Buscar imóvel" title="Buscar imóvel">⌕</button></nav>
 </div></header>
+<main>
 <script>const RAIZ_SITE = "../..";</script><div class="busca-texto" id="buscaTexto"><div class="env"><input type="search" id="qTexto" aria-label="Buscar imóvel" placeholder="Buscar por código, rua, bairro ou título"></div></div><script>(function () {  var b = document.getElementById("btnBusca"),      cx = document.getElementById("buscaTexto"),      campo = document.getElementById("qTexto");  if (!b) return;  b.addEventListener("click", function () {    cx.classList.toggle("aberta");    if (cx.classList.contains("aberta")) campo.focus();  });  campo.addEventListener("keydown", function (ev) {    if (ev.key !== "Enter") return;    var q = campo.value.trim();    if (!q) return;    if (typeof window.buscarTexto === "function") window.buscarTexto(q);    else location.href = RAIZ_SITE + "/?q=" + encodeURIComponent(q) + "#imoveis";  });})();</script>
 
 <div class="env">
@@ -113,6 +114,7 @@
     </div></div>
   </div>
 </section>
+</main>
 <footer class="rodape"><div class="env">
   <div>
     <strong>Maysonnave Imóveis</strong>
