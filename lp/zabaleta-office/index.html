@@ -47,12 +47,13 @@
 
   .hero{
     position:relative;min-height:100vh;display:flex;align-items:flex-end;background-color:#181310;
-    background-image:linear-gradient(to top, rgba(10,8,6,0.96) 0%, rgba(10,8,6,0.82) 20%, rgba(10,8,6,0.4) 46%, rgba(10,8,6,0.12) 70%, rgba(10,8,6,0.05) 100%), url('img/hero-fachada.jpg');
-    background-size:cover, cover;
-    background-position:center, center 22%;
-    background-repeat:no-repeat, no-repeat;
-    background-attachment:fixed, fixed;
+    background-image:url('img/hero-fachada.jpg');
+    background-size:cover;
+    background-position:center 22%;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
   }
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top, rgba(10,8,6,0.96) 0%, rgba(10,8,6,0.82) 20%, rgba(10,8,6,0.4) 46%, rgba(10,8,6,0.12) 70%, rgba(10,8,6,0.05) 100%);}
   .hero-content{position:relative;z-index:2;color:#F5F0E8;padding:0 32px 34px;max-width:1160px;margin:0 auto;width:100%;}
   .campaign-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(245,240,232,0.1);border:1px solid rgba(183,147,95,0.55);border-radius:30px;padding:8px 18px 8px 8px;margin-bottom:22px;}
   .campaign-tag .dot{width:8px;height:8px;border-radius:50%;background:var(--champ);flex-shrink:0;}
