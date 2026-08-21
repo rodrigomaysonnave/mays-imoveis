@@ -129,7 +129,6 @@ a{color:var(--marca)}
   margin-top:12px;border:1px solid var(--marca);color:var(--marca);background:transparent}
 .botao-cheio{background:var(--marca);color:#fff}
 .botao:hover{filter:brightness(1.08)}
-.botao-emp{width:auto;max-width:320px;margin:24px auto 0}
 .extras{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
 .extra{font-size:12.5px;padding:5px 11px;border:1px solid var(--linha);border-radius:20px;color:var(--tinta-2)}
 
