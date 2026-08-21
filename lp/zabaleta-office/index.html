@@ -23,7 +23,7 @@
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;background:#181310;overflow-x:clip;}
-  body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:clip;overscroll-behavior-y:none;}
+  body{color:var(--text);font-family:'Inter',sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:clip;overscroll-behavior-y:none;}
   img{max-width:100%;display:block;}
   h1,h2,h3{font-family:'Montserrat',sans-serif;font-weight:700;line-height:1.18;letter-spacing:-0.01em;}
   .serif{font-family:'Playfair Display',serif;font-weight:700;}
@@ -45,14 +45,9 @@
   header img.logo{height:42px;filter:brightness(0) invert(1);}
   header .btn{padding:11px 22px;font-size:0.78rem;white-space:nowrap;}
 
-  .hero{
-    position:relative;min-height:100vh;display:flex;align-items:flex-end;background-color:#181310;
-    background-image:url('img/hero-fachada.jpg');
-    background-size:cover;
-    background-position:center 22%;
-    background-repeat:no-repeat;
-    background-attachment:fixed;
-  }
+  .hero-bg-fixed{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;overflow:hidden;background:#181310;}
+  .hero-bg-fixed img{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block;}
+  .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;background:none;}
   .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top, rgba(10,8,6,0.96) 0%, rgba(10,8,6,0.82) 20%, rgba(10,8,6,0.4) 46%, rgba(10,8,6,0.12) 70%, rgba(10,8,6,0.05) 100%);}
   .hero-content{position:relative;z-index:2;color:#F5F0E8;padding:0 32px 34px;max-width:1160px;margin:0 auto;width:100%;}
   .campaign-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(245,240,232,0.1);border:1px solid rgba(183,147,95,0.55);border-radius:30px;padding:8px 18px 8px 8px;margin-bottom:22px;}
@@ -160,6 +155,10 @@
 </style>
 <link rel="canonical" href="https://maysimoveis.com/lp/zabaleta-office/"></head>
 <body>
+
+<div class="hero-bg-fixed">
+  <img src="img/hero-fachada.jpg" alt="Fachada neoclássica revitalizada do Zabaleta Office, Rua Andrade Neves, Pelotas">
+</div>
 
 <header>
   <div class="wrap">
