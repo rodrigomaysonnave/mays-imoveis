@@ -146,8 +146,11 @@
   .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:30px 22px;margin-top:50px;}
   .stat-num{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.7rem,2.8vw,2.3rem);color:var(--champ);line-height:1;margin-bottom:8px;}
   .stat-label{font-size:0.79rem;color:#C4BAA8;}
-  .aerea{margin-top:52px;border-radius:10px;overflow:hidden;}
-  .aerea img{width:100%;height:clamp(240px,42vh,460px);object-fit:cover;}
+  .mapa{margin-top:52px;border-radius:10px;overflow:hidden;border:1px solid rgba(183,147,95,0.35);background:#EFE9DE;}
+  .mapa iframe{display:block;width:100%;height:clamp(300px,46vh,480px);border:0;}
+  .mapa-acoes{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:14px;font-size:0.84rem;color:#B4AA97;}
+  .mapa-acoes a{color:var(--champ);text-decoration:none;font-family:'Montserrat',sans-serif;font-weight:600;}
+  .mapa-acoes a:hover{text-decoration:underline;}
 
   /* ---------- valores ---------- */
   .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:36px;}
@@ -544,8 +547,15 @@
       <div><div class="stat-num">16</div><div class="stat-label">farmácias</div></div>
       <div><div class="stat-num">32</div><div class="stat-label">lojas e comércios</div></div>
     </div>
-    <div class="aerea"><img src="img/aerea-rua.jpg" alt="Vista aérea da Rua Andrade Neves com o Residencial Miguel Zabaleta e o Zabaleta Office" loading="lazy"></div>
-    <p class="img-caption" style="color:#9C9280;">Vista aérea do endereço, com o Zabaleta Office ao lado</p>
+    <div class="mapa">
+      <iframe title="Mapa da localização do Residencial Miguel Zabaleta, Rua Andrade Neves 3446, Centro, Pelotas"
+              src="https://www.google.com/maps?q=Rua+Andrade+Neves,+3446+-+Centro,+Pelotas+-+RS,+96020-080&hl=pt-BR&z=16&output=embed"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+    <div class="mapa-acoes">
+      <span>Rua Andrade Neves, 3446 · Centro · Pelotas/RS · CEP 96020-080</span>
+      <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua+Andrade+Neves,+3446+-+Centro,+Pelotas+-+RS,+96020-080" target="_blank" rel="noopener">Traçar rota até o prédio</a>
+    </div>
   </div>
 </section>
 
