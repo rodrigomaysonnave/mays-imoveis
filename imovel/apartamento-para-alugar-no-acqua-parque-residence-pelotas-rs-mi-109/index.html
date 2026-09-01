@@ -312,12 +312,25 @@ document.querySelectorAll('.cartao-foto').forEach(moldura => {
   const fotos = [img.getAttribute('src')].concat(img.dataset.fotos.split('|'));
   const pontos = moldura.querySelectorAll('.cartao-pontos i');
   let i = 0;
+  // A foto de capa da ficha tem `srcset`, e srcset MANDA MAIS que src: trocar
+  // só o src mudava o endereço e o navegador seguia desenhando a candidata
+  // que ele já tinha escolhido, a primeira foto. Da tela, o carrossel parecia
+  // morto — só o fundo borrado acompanhava, denunciando pelas bordas que algo
+  // mudava. O srcset sai enquanto se navega e volta ao chegar de novo na
+  // primeira, que é a única que tem versão em vários tamanhos.
+  const srcset0 = img.getAttribute('srcset'), sizes0 = img.getAttribute('sizes');
+  const responsivo = (ligar) => {
+    if (!srcset0) return;
+    if (ligar) { img.setAttribute('srcset', srcset0); if (sizes0) img.setAttribute('sizes', sizes0); }
+    else { img.removeAttribute('srcset'); img.removeAttribute('sizes'); }
+  };
   // O fundo borrado que preenche a sobra precisa acompanhar a foto que está
   // à mostra. Preso na primeira, virar o carrossel deixava a moldura com o
   // borrão de uma foto e a foto de outra na frente.
   const temFundo = getComputedStyle(moldura).getPropertyValue('--fundo').trim() !== '';
   const ir = passo => {
     i = (i + passo + fotos.length) % fotos.length;
+    responsivo(i === 0);          // antes do src: é ele que decide o que desenha
     img.src = fotos[i];
     if (temFundo) moldura.style.setProperty('--fundo', 'url("' + fotos[i] + '")');
     moldura.dataset.indiceAtual = i;
