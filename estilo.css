@@ -205,6 +205,11 @@ a{color:var(--marca)}
 /* Palco: foto grande, carrossel de setas + pontos (mesma peça do cartão) */
 .palco .ficha-capa{margin-bottom:0;cursor:zoom-in}
 .palco .cartao-seta{width:44px;height:100%;font-size:34px}
+/* No cartão a seta aparece no hover, porque a grade toda cheia de seta vira
+   ruído. No palco é o contrário: é A foto do imóvel, e seta que só aparece
+   quando o mouse encosta é seta que a maioria nunca descobre. */
+.palco .cartao-seta{opacity:.72}
+.palco .cartao-foto:hover .cartao-seta{opacity:1}
 /* Imóvel com muita foto (20+) gera ponto demais pra caber numa linha só —
    rola por dentro em vez de estourar a moldura. */
 .palco .cartao-pontos{bottom:14px;gap:7px;max-width:80%;overflow-x:auto;scrollbar-width:none;padding:2px 0}
@@ -235,7 +240,7 @@ a{color:var(--marca)}
 .cartao-seta:hover{background:rgba(36,28,20,.74)}
 .cartao-pontos{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);z-index:3;
   display:flex;gap:5px}
-.cartao-pontos i{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.5)}
+.cartao-pontos i{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer}
 .cartao-pontos i.on{background:#fff}
 @media(hover:none){.cartao-seta{opacity:.85}}
 
