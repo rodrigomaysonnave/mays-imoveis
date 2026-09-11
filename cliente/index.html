@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sua seleção de imóveis · Maysonnave Imóveis</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="../estilo.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23241C14'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' font-weight='700' fill='%239B7B5A' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<style>
+  /* Página gerada uma única vez, à mão — não faz parte do lote que o
+     gerar.py republica. Busca ao vivo pelo token na URL, então não precisa
+     de novo deploy quando o corretor muda a seleção do lado de dentro. */
+  .sel-cabeca { padding: 40px 0 8px; text-align: center; }
+  .sel-cabeca .marca-logo { margin: 0 auto 22px; }
+  .sel-cabeca h1 { font-size: 26px; line-height: 1.3; margin-bottom: 6px; }
+  .sel-cabeca .sel-para { color: var(--tinta-3); font-size: 14.5px; }
+  .sel-condicao-geral {
+    max-width: 640px; margin: 18px auto 0; padding: 14px 18px;
+    background: var(--superficie-2); border-radius: 10px; font-size: 14px; line-height: 1.6;
+  }
+  .sel-condicao-item {
+    margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--linha);
+    font-size: 13px; line-height: 1.5; color: var(--tinta-2);
+  }
+  .sel-estado { max-width: 520px; margin: 90px auto; text-align: center; padding: 0 20px; }
+  .sel-estado h2 { font-size: 20px; margin-bottom: 10px; }
+  .sel-estado p { color: var(--tinta-3); }
+  .sel-cta { text-align: center; margin: 44px 0 64px; }
+  .sel-cta a.atalho-contato {
+    display: inline-flex; flex-direction: column; align-items: center; gap: 4px;
+    padding: 16px 28px; border-radius: 12px; background: var(--marca); color: #fff;
+    text-decoration: none;
+  }
+  .sel-cta a.atalho-contato span { font-size: 12.5px; opacity: .85; }
+</style>
+</head>
+<body>
+<main>
+  <header class="sel-cabeca env">
+    <a href="../"><img src="../logo.png" alt="Maysonnave Imóveis" class="marca-logo" width="140" height="74"></a>
+    <h1 id="selTitulo">Carregando sua seleção…</h1>
+    <div class="sel-para" id="selPara"></div>
+    <div class="sel-condicao-geral" id="selCondicaoGeral" hidden></div>
+  </header>
+
+  <div class="env" id="selGrade" style="padding:28px 0"></div>
+
+  <div class="sel-estado" id="selEstado" hidden>
+    <h2 id="selEstadoTitulo">Não encontramos essa seleção</h2>
+    <p id="selEstadoTexto">O link pode ter expirado ou sido desativado. Fale com o corretor pra receber um novo.</p>
+  </div>
+
+  <div class="sel-cta" id="selCta" hidden>
+    <a class="atalho-contato" id="selWhats" target="_blank" rel="noopener">
+      <strong>Quer conversar sobre estas opções?</strong>
+      <span>Falar no WhatsApp</span>
+    </a>
+  </div>
+</main>
+
+<footer class="rodape"><div class="env">
+  <div>
+    <strong>Maysonnave Imóveis</strong>
+    CRECI/RS 61580<br>Rua XV de Novembro, 666 · loja 67<br>Pelotas, Rio Grande do Sul
+  </div>
+  <div id="contato">
+    <strong>Contato</strong>
+    <a href="https://wa.me/5553981041499" target="_blank" rel="noopener">Falar no WhatsApp</a><br>
+    <a href="mailto:rodrigomaysonnave@gmail.com">rodrigomaysonnave@gmail.com</a>
+  </div>
+</div>
+<div class="rodape-fim env">© 2026 Maysonnave Imóveis · CRECI/RS 61580</div>
+</footer>
+
+<script>
+(function () {
+  var SUPABASE_URL = 'https://gwhwesvmqvxakvjtsrdn.supabase.co';
+  var ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd3aHdlc3ZtcXZ4YWt2anRzcmRuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY2MjI3MjMsImV4cCI6MjEwMjE5ODcyM30.-8YOH8sLts-lK-u6ALcbnlQHhVOsgZrKQWg5B3DhjRE';
+
+  var esc = function (s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  };
+  var brl = function (v) {
+    return v == null ? null : 'R$ ' + Number(v).toLocaleString('pt-BR', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+  };
+
+  async function rpc(nome, corpo) {
+    var r = await fetch(SUPABASE_URL + '/rest/v1/rpc/' + nome, {
+      method: 'POST',
+      headers: { apikey: ANON_KEY, Authorization: 'Bearer ' + ANON_KEY, 'Content-Type': 'application/json' },
+      body: JSON.stringify(corpo),
+    });
+    if (!r.ok) throw new Error('rpc ' + nome + ' falhou: ' + r.status);
+    return r.json();
+  }
+
+  function mostrarEstado(titulo, texto) {
+    document.querySelector('.sel-cabeca').hidden = true;
+    document.getElementById('selEstadoTitulo').textContent = titulo;
+    document.getElementById('selEstadoTexto').textContent = texto;
+    document.getElementById('selEstado').hidden = false;
+  }
+
+  function itemHtml(row, fotos) {
+    var fotosDoItem = fotos.filter(function (f) { return f.imovel_id === row.imovel_id; });
+    var capa = fotosDoItem.find(function (f) { return f.capa; }) || fotosDoItem[0];
+    var precoTxt = row.finalidade === 'aluguel' ? brl(row.valor_aluguel) : brl(row.valor);
+    var itens = [];
+    if (row.dormitorios) itens.push('<span><b>' + row.dormitorios + '</b> dorm</span>');
+    if (row.suites) itens.push('<span><b>' + row.suites + '</b> suíte</span>');
+    if (row.banheiros) itens.push('<span><b>' + row.banheiros + '</b> banh</span>');
+    if (row.vagas) itens.push('<span><b>' + row.vagas + '</b> vaga</span>');
+    if (row.area_util) itens.push('<span><b>' + Math.round(row.area_util) + ' m²</b></span>');
+
+    return (
+      '<div class="cartao-caixa"><div class="cartao">' +
+        '<div class="cartao-foto">' +
+          (capa ? '<img src="' + esc(capa.url_thumb || capa.url) + '" alt="' + esc(row.imovel_titulo || row.codigo) + '" loading="lazy">' : '') +
+        '</div>' +
+        '<div class="cartao-corpo">' +
+          '<div class="cartao-titulo"><h3>' + esc(row.imovel_titulo || 'Sem título') + '</h3>' +
+            '<span class="cartao-ref">' + esc(row.codigo) + '</span></div>' +
+          '<div class="cartao-itens">' + itens.join('') + '</div>' +
+          (precoTxt ? '<div class="cartao-preco">' + precoTxt + '</div>' : '') +
+          (row.condicao_item ? '<div class="sel-condicao-item">' + esc(row.condicao_item) + '</div>' : '') +
+        '</div>' +
+      '</div></div>'
+    );
+  }
+
+  async function iniciar() {
+    var token = new URLSearchParams(location.search).get('t');
+    if (!token) { mostrarEstado('Link incompleto', 'Peça o link completo pro corretor — falta o código da seleção.'); return; }
+
+    var linhas;
+    try { linhas = await rpc('abrir_selecao_cliente', { p_token: token }); }
+    catch (e) { mostrarEstado('Não consegui carregar', 'Verifique sua conexão e tente atualizar a página.'); return; }
+
+    if (!linhas || !linhas.length) { mostrarEstado('Não encontramos essa seleção', 'O link pode ter expirado ou sido desativado. Fale com o corretor pra receber um novo.'); return; }
+
+    var fotos = [];
+    try { fotos = await rpc('abrir_selecao_cliente_fotos', { p_token: token }); } catch (e) { /* segue sem foto */ }
+
+    var cab = linhas[0];
+    document.getElementById('selTitulo').textContent = cab.titulo || 'Sua seleção de imóveis';
+    document.getElementById('selPara').textContent = 'Preparada para ' + (cab.contato_nome || 'você') +
+      (cab.corretor_nome ? ' por ' + cab.corretor_nome : '') + '.';
+    if (cab.condicao_geral) {
+      var cg = document.getElementById('selCondicaoGeral');
+      cg.textContent = cab.condicao_geral;
+      cg.hidden = false;
+    }
+
+    var grade = document.getElementById('selGrade');
+    grade.innerHTML = '<div class="grade">' + linhas.map(function (row) { return itemHtml(row, fotos); }).join('') + '</div>';
+
+    var msg = encodeURIComponent('Olá! Vi a seleção "' + (cab.titulo || 'de imóveis') + '" que você montou pra mim e queria conversar.');
+    var whats = document.getElementById('selWhats');
+    whats.href = 'https://wa.me/5553981041499?text=' + msg;
+    document.getElementById('selCta').hidden = false;
+  }
+
+  iniciar();
+})();
+</script>
+</body>
+</html>
