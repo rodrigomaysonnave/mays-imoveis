@@ -118,6 +118,8 @@
   .ficha .btn{width:100%;text-align:center;margin-top:8px;padding:16px;}
   .ficha .whats-direct{display:block;text-align:center;margin-top:14px;font-size:0.82rem;color:var(--text);opacity:0.65;text-decoration:none;}
   .ficha .whats-direct:hover{opacity:1;}
+  .aviso-renda{background:var(--cream-alt);border-left:4px solid var(--accent);border-radius:8px;padding:14px 16px;font-size:0.86rem;margin-bottom:22px;}
+  .aviso-renda strong{color:var(--accent-dark);}
 
   footer{background:#1C2D19;color:#B7C0AF;padding:44px 24px;text-align:center;font-size:0.82rem;}
   footer .logo-mark{height:40px;margin:0 auto 20px;opacity:0.92;}
@@ -134,7 +136,21 @@
     section{padding:52px 0;}
   }
 </style>
-<link rel="canonical" href="https://maysimoveis.com/lp/reserva-areal/"><meta name="google-site-verification" content="verificacao-teste-123"></head>
+
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1465473300752819');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1465473300752819&ev=PageView&noscript=1"></noscript>
+<link rel="canonical" href="https://maysimoveis.com/lp/reserva-areal/"><meta name="google-site-verification" content="verificacao-teste-123"><script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","1465473300752819");fbq("track","PageView");</script></head>
 <body>
 
 <header>
@@ -250,56 +266,81 @@
       <h2>Preencha e receba seu retorno pelo WhatsApp.</h2>
       <p class="lead-sub">É rápido. Com esses dados a gente já consegue te dizer se você se enquadra nas condições do Reserva Areal.</p>
     </div>
-    <form class="ficha" id="fichaForm">
-      <h3>Ficha de pré-avaliação</h3>
-      <p class="sub">Sem compromisso. Seus dados vão direto pro corretor responsável.</p>
+    <div class="ficha">
+      <div id="passoFiltro">
+        <h3>Antes de continuar</h3>
+        <p class="sub">Responda 4 perguntas rápidas pra gente já te dizer se você se enquadra.</p>
 
-      <div class="field">
-        <label for="nome">Nome completo</label>
-        <input type="text" id="nome" name="nome" required placeholder="Seu nome completo">
-      </div>
+        <div class="aviso-renda">⚠️ <strong>Aviso:</strong> a renda sugerida para melhor aprovação é acima de R$ 3.500.</div>
 
-      <div class="field">
-        <label for="nascimento">Data de nascimento</label>
-        <input type="date" id="nascimento" name="nascimento" required>
-      </div>
-
-      <div class="field">
-        <label for="renda">Renda bruta mensal</label>
-        <input type="text" id="renda" name="renda" required placeholder="Ex: R$ 2.500,00">
-      </div>
-
-      <div class="field">
-        <div class="check-row">
-          <input type="checkbox" id="filhos" name="filhos">
-          <label for="filhos">Tenho filho(s) menor(es) de 18 anos</label>
-        </div>
-      </div>
-
-      <div class="field">
-        <div class="check-row">
-          <input type="checkbox" id="carteira" name="carteira">
-          <label for="carteira">Tenho mais de 3 anos de carteira assinada (somados)</label>
-        </div>
-      </div>
-
-      <div class="field">
-        <label>Já tem imóvel próprio em seu nome?</label>
-        <div class="radio-group">
-          <div class="radio-opt">
-            <input type="radio" id="imovelSim" name="imovel" value="Sim" required>
-            <label for="imovelSim">Sim</label>
-          </div>
-          <div class="radio-opt">
-            <input type="radio" id="imovelNao" name="imovel" value="Não" required>
-            <label for="imovelNao">Não</label>
+        <div class="field">
+          <label>Você ganha acima de 2 salários mínimos?</label>
+          <div class="radio-group">
+            <div class="radio-opt"><input type="radio" id="q1Sim" name="q1" value="Sim" required><label for="q1Sim">Sim</label></div>
+            <div class="radio-opt"><input type="radio" id="q1Nao" name="q1" value="Não" required><label for="q1Nao">Não</label></div>
           </div>
         </div>
+
+        <div class="field">
+          <label>Tem ou teve carteira assinada por mais de 3 anos?</label>
+          <div class="radio-group">
+            <div class="radio-opt"><input type="radio" id="q2Sim" name="q2" value="Sim" required><label for="q2Sim">Sim</label></div>
+            <div class="radio-opt"><input type="radio" id="q2Nao" name="q2" value="Não" required><label for="q2Nao">Não</label></div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Tem filho menor de idade ou dependente?</label>
+          <div class="radio-group">
+            <div class="radio-opt"><input type="radio" id="q3Sim" name="q3" value="Sim" required><label for="q3Sim">Sim</label></div>
+            <div class="radio-opt"><input type="radio" id="q3Nao" name="q3" value="Não" required><label for="q3Nao">Não</label></div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Tem renda declarada ou contracheque?</label>
+          <div class="radio-group">
+            <div class="radio-opt"><input type="radio" id="q4Sim" name="q4" value="Sim" required><label for="q4Sim">Sim</label></div>
+            <div class="radio-opt"><input type="radio" id="q4Nao" name="q4" value="Não" required><label for="q4Nao">Não</label></div>
+          </div>
+        </div>
+
+        <button type="button" class="btn" id="btnFiltro">Continuar meu pré-cadastro</button>
       </div>
 
-      <button type="submit" class="btn">Enviar minha ficha</button>
-      <a class="whats-direct" href="https://wa.me/5553991107769?text=Ol%C3%A1%2C%20quero%20fazer%20meu%20pr%C3%A9-cadastro%20no%20Reserva%20Areal.">ou fale direto pelo WhatsApp, sem preencher a ficha</a>
-    </form>
+      <form id="fichaForm" hidden>
+        <h3>Ficha de pré-avaliação</h3>
+        <p class="sub">Só mais um passo. Seus dados vão direto pro corretor responsável.</p>
+
+        <div class="field">
+          <label for="nome">Nome completo</label>
+          <input type="text" id="nome" name="nome" required placeholder="Seu nome completo">
+        </div>
+
+        <div class="field">
+          <label for="nascimento">Data de nascimento</label>
+          <input type="date" id="nascimento" name="nascimento" required>
+        </div>
+
+        <div class="field">
+          <label>Já tem imóvel próprio em seu nome?</label>
+          <div class="radio-group">
+            <div class="radio-opt">
+              <input type="radio" id="imovelSim" name="imovel" value="Sim" required>
+              <label for="imovelSim">Sim</label>
+            </div>
+            <div class="radio-opt">
+              <input type="radio" id="imovelNao" name="imovel" value="Não" required>
+              <label for="imovelNao">Não</label>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn">Enviar minha ficha</button>
+      </form>
+
+      <a class="whats-direct" onclick="if(typeof fbq==='function'){fbq('track','Contact');}" href="https://wa.me/5553991107769?text=Ol%C3%A1%2C%20quero%20fazer%20meu%20pr%C3%A9-cadastro%20no%20Reserva%20Areal.">ou fale direto pelo WhatsApp, sem preencher a ficha</a>
+    </div>
   </div>
 </section>
 
@@ -311,23 +352,41 @@
 </footer>
 
 <script>
+  document.getElementById('btnFiltro').addEventListener('click', function(){
+    var form = document.getElementById('passoFiltro');
+    var camposObrigatorios = form.querySelectorAll('input[required]');
+    for (var i = 0; i < camposObrigatorios.length; i++) {
+      if (!form.querySelector('input[name="' + camposObrigatorios[i].name + '"]:checked')) {
+        alert('Responda todas as perguntas para continuar.');
+        return;
+      }
+    }
+    document.getElementById('passoFiltro').hidden = true;
+    document.getElementById('fichaForm').hidden = false;
+    document.getElementById('fichaForm').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
   document.getElementById('fichaForm').addEventListener('submit', function(e){
     e.preventDefault();
+    var q1 = document.querySelector('input[name="q1"]:checked').value;
+    var q2 = document.querySelector('input[name="q2"]:checked').value;
+    var q3 = document.querySelector('input[name="q3"]:checked').value;
+    var q4 = document.querySelector('input[name="q4"]:checked').value;
     var nome = document.getElementById('nome').value.trim();
     var nascimento = document.getElementById('nascimento').value;
-    var renda = document.getElementById('renda').value.trim();
-    var filhos = document.getElementById('filhos').checked ? 'Sim' : 'Não';
-    var carteira = document.getElementById('carteira').checked ? 'Sim' : 'Não';
     var imovel = document.querySelector('input[name="imovel"]:checked');
     imovel = imovel ? imovel.value : '';
 
     var msg = 'Olá, quero fazer meu pré-cadastro no Reserva Areal.\n' +
       'Nome: ' + nome + '\n' +
       'Data de nascimento: ' + nascimento + '\n' +
-      'Renda bruta mensal: ' + renda + '\n' +
-      'Tem filhos menores de 18 anos: ' + filhos + '\n' +
-      'Mais de 3 anos de carteira assinada: ' + carteira + '\n' +
+      'Ganha acima de 2 salários mínimos: ' + q1 + '\n' +
+      'Carteira assinada por mais de 3 anos: ' + q2 + '\n' +
+      'Tem filho menor de idade ou dependente: ' + q3 + '\n' +
+      'Tem renda declarada ou contracheque: ' + q4 + '\n' +
       'Já tem imóvel próprio em seu nome: ' + imovel;
+
+    if (typeof fbq === 'function') { fbq('track', 'Lead'); }
 
     var url = 'https://wa.me/5553991107769?text=' + encodeURIComponent(msg);
     if (window.innerWidth < 768) { window.location.href = url; } else { window.open(url, '_blank'); }
