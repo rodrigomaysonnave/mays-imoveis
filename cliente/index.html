@@ -33,6 +33,15 @@
     text-decoration: none;
   }
   .sel-cta a.atalho-contato span { font-size: 12.5px; opacity: .85; }
+  .sel-interesse-btn {
+    margin-top: 12px; width: 100%; padding: 10px 14px; border-radius: 8px;
+    border: 1px solid var(--marca); background: none; color: var(--marca);
+    font-size: 13.5px; font-weight: 600; cursor: pointer;
+  }
+  .sel-interesse-btn:hover { background: var(--marca); color: #fff; }
+  .sel-interesse-btn[disabled] {
+    cursor: default; border-color: var(--verde, #4caf7d); color: var(--verde, #4caf7d); background: none;
+  }
 </style>
 </head>
 <body>
@@ -94,7 +103,10 @@
       body: JSON.stringify(corpo),
     });
     if (!r.ok) throw new Error('rpc ' + nome + ' falhou: ' + r.status);
-    return r.json();
+    // Função que devolve void vem sem corpo (204) — r.json() rejeitaria com
+    // "Unexpected end of JSON input" mesmo tendo dado certo no servidor.
+    var texto = await r.text();
+    return texto ? JSON.parse(texto) : null;
   }
 
   function mostrarEstado(titulo, texto) {
@@ -126,6 +138,9 @@
           '<div class="cartao-itens">' + itens.join('') + '</div>' +
           (precoTxt ? '<div class="cartao-preco">' + precoTxt + '</div>' : '') +
           (row.condicao_item ? '<div class="sel-condicao-item">' + esc(row.condicao_item) + '</div>' : '') +
+          '<button type="button" class="sel-interesse-btn" data-item="' + esc(row.item_id) + '"' +
+            (row.interesse ? ' disabled' : '') + '>' +
+            (row.interesse ? '✓ Interesse registrado' : 'Tenho interesse') + '</button>' +
         '</div>' +
       '</div></div>'
     );
@@ -156,6 +171,25 @@
 
     var grade = document.getElementById('selGrade');
     grade.innerHTML = '<div class="grade">' + linhas.map(function (row) { return itemHtml(row, fotos); }).join('') + '</div>';
+
+    grade.querySelectorAll('.sel-interesse-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (btn.disabled) return;
+        btn.disabled = true;
+        btn.textContent = '✓ Interesse registrado';
+        rpc('marcar_interesse_selecao', { p_token: token, p_item_id: btn.dataset.item }).catch(function () {
+          // Falhou de rede: desmarca pra dar chance de tentar de novo, sem
+          // travar o cliente num botão "registrado" que não registrou nada.
+          btn.disabled = false;
+          btn.textContent = 'Tenho interesse';
+        });
+      });
+    });
+
+    // Fogo-e-esquece: se falhar (rede instável, RPC fora do ar), a página
+    // continua funcionando normal pro cliente — só o contador de
+    // visualização do corretor que fica sem essa abertura.
+    rpc('registrar_visualizacao_selecao', { p_token: token }).catch(function () {});
 
     var msg = encodeURIComponent('Olá! Vi a seleção "' + (cab.titulo || 'de imóveis') + '" que você montou pra mim e queria conversar.');
     var whats = document.getElementById('selWhats');
