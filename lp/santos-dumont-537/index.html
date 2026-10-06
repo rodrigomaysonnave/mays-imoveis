@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Santos Dumont 537 e Amarante 733</title>
+<meta name="description" content="Antigo engenho da Extremo Sul no Centro de Pelotas: cerca de 3.760 m² com três frentes, em venda judicial pelo Comprei da PGFN.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://maysimoveis.com/lp/santos-dumont-537/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Santos Dumont 537 e Dr. Amarante 733 · Centro de Pelotas">
+<meta property="og:description" content="3.760 m² com três frentes no Centro. Venda judicial com lance mínimo de R$ 2,07 milhões.">
+<meta property="og:image" content="https://maysimoveis.com/lp/santos-dumont-537/img/drone-8.jpg">
+<meta property="og:url" content="https://maysimoveis.com/lp/santos-dumont-537/">
+<link rel="icon" href="/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;800&family=Playfair+Display:wght@500;600&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: proposta editorial em coluna única, foto aérea no topo, números em faixa, depois imóveis, situação, custos, processo e contato */
+:root {
+  --bg: #F5F0E8;
+  --surface: #EDE8DF;
+  --ink: #2C2416;
+  --muted: #6E6253;
+  --accent: #9B7B5A;
+  --accent-ink: #F5F0E8;
+  --accent-soft: #E4D8C7;
+  --line: rgba(44, 36, 22, 0.13);
+  --shadow: 0 2px 12px rgba(44, 36, 22, 0.08);
+  --logo-on-light: block;
+  --logo-on-dark: none;
+  --f-display: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --f-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --f-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #17130E; --surface: #211C15; --ink: #EDE6DA; --muted: #B4A792;
+    --accent: #C9A57E; --accent-ink: #17130E; --accent-soft: #2D251B;
+    --line: rgba(237, 230, 218, 0.14); --shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+    --logo-on-light: none; --logo-on-dark: block; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #17130E; --surface: #211C15; --ink: #EDE6DA; --muted: #B4A792;
+  --accent: #C9A57E; --accent-ink: #17130E; --accent-soft: #2D251B;
+  --line: rgba(237, 230, 218, 0.14); --shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+  --logo-on-light: none; --logo-on-dark: block; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 16px/1.6 var(--f-body); -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-inline: 20px; }
+.narrow { max-width: 720px; }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+p { margin: 0; }
+.eyebrow { font: 600 12px/1.3 var(--f-display); letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.num { font-variant-numeric: lining-nums tabular-nums; }
+.fig .v, .price .v, .status .when b, tr.total td + td, .contact .phone, .steps li::before { font-variant-numeric: lining-nums tabular-nums; }
+
+/* topo */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 18px; border-bottom: 1px solid var(--line); }
+.top img { height: 46px; width: auto; }
+.top .logo-light { display: var(--logo-on-light); }
+.top .logo-dark { display: var(--logo-on-dark); }
+.top .tag { font: 500 12px/1.4 var(--f-display); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-align: right; }
+
+/* hero */
+.hero { padding-block: 44px 28px; display: grid; gap: 18px; }
+.hero h1 { font-weight: 800; font-size: clamp(32px, 6vw, 58px); line-height: 1.04; }
+.hero h1 span { display: block; font-family: var(--f-serif); font-weight: 500; font-style: italic; font-size: 0.5em; color: var(--accent); letter-spacing: 0; margin-top: 10px; }
+.hero .lead { font-size: 18px; color: var(--muted); max-width: 64ch; }
+.hero-img { margin: 8px 0 0; }
+.hero-img img { width: 100%; height: auto; display: block; border-radius: 10px; aspect-ratio: 4 / 3; object-fit: cover; max-height: 620px; }
+figcaption { font-size: 13px; color: var(--muted); padding-top: 8px; }
+
+/* faixa de números */
+.figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-block: 28px 8px; }
+.fig { padding: 22px 18px; border-left: 1px solid var(--line); display: grid; gap: 4px; align-content: start; }
+.fig:first-child { border-left: 0; padding-left: 0; }
+.fig .l { font: 600 11px/1.3 var(--f-display); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.fig .v { font: 600 clamp(24px, 3.2vw, 32px)/1.1 var(--f-serif); color: var(--ink); }
+.fig .n { font-size: 13px; color: var(--muted); }
+.fig.main .v { color: var(--accent); }
+
+section { padding-block: 48px 8px; }
+section > .wrap > h2, .sec-h { font-size: clamp(24px, 3.4vw, 32px); font-weight: 800; margin-bottom: 8px; }
+.sec-sub { color: var(--muted); max-width: 64ch; margin-bottom: 26px; }
+
+/* situação */
+.status { background: var(--surface); border-radius: 10px; padding: 24px; display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 22px; }
+.status .when { font: 600 13px/1.4 var(--f-display); text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
+.status .when b { display: block; font: 600 30px/1.1 var(--f-serif); letter-spacing: 0; text-transform: none; color: var(--ink); margin-top: 6px; }
+.status p + p { margin-top: 10px; }
+.pill { display: inline-block; font: 600 12px/1 var(--f-display); letter-spacing: 0.06em; text-transform: uppercase; padding: 7px 10px; border-radius: 6px; background: var(--accent-soft); color: var(--ink); margin-bottom: 12px; }
+
+/* imóveis */
+.props { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.prop { background: var(--surface); border-radius: 10px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; }
+.prop img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; display: block; }
+.prop .body { padding: 22px; display: grid; gap: 14px; align-content: start; }
+.prop h3 { font-size: 22px; font-weight: 800; }
+.prop .mat { font-size: 13px; color: var(--muted); margin-top: -10px; }
+.price { display: grid; gap: 2px; padding-block: 12px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.price .l { font: 600 11px/1.3 var(--f-display); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.price .v { font: 600 28px/1.15 var(--f-serif); color: var(--accent); }
+.price .n { font-size: 13px; color: var(--muted); }
+dl.kv { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px 16px; margin: 0; font-size: 15px; }
+dl.kv dt { color: var(--muted); }
+dl.kv dd { margin: 0; }
+.note { margin-top: 18px; font-size: 15px; color: var(--muted); max-width: 72ch; }
+.note b { color: var(--ink); }
+
+/* localização */
+.maps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.maps img { width: 100%; height: auto; display: block; border-radius: 8px; background: #fff; }
+.facts { margin-top: 22px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.facts div { border-top: 2px solid var(--accent); padding-top: 10px; font-size: 15px; }
+.facts b { display: block; font-family: var(--f-display); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; }
+
+/* galeria */
+.gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.gallery button { padding: 0; border: 0; background: none; cursor: zoom-in; display: block; border-radius: 8px; overflow: hidden; }
+.gallery img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; transition: transform .4s ease; }
+.gallery button:hover img { transform: scale(1.03); }
+.lightbox { position: fixed; inset: 0; background: rgba(15, 12, 8, 0.92); display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: 10px; padding: calc(16px + env(safe-area-inset-top, 0px)) 16px calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 10; }
+.lightbox img { max-width: 100%; max-height: 100%; margin: auto; object-fit: contain; border-radius: 6px; }
+.lightbox .bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; color: #EDE6DA; font-size: 14px; }
+.lightbox button { font: 600 13px/1 var(--f-display); letter-spacing: 0.06em; text-transform: uppercase; background: #EDE6DA; color: #2C2416; border: 0; border-radius: 6px; padding: 10px 14px; cursor: pointer; }
+.lightbox .nav { display: flex; gap: 8px; }
+
+/* vídeo */
+.video { position: relative; display: block; border-radius: 10px; overflow: hidden; text-decoration: none; }
+.video img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+.video .play { position: absolute; inset: 0; display: grid; place-items: center; background: linear-gradient(0deg, rgba(23, 19, 14, 0.55), rgba(23, 19, 14, 0.1)); }
+.video .play span { display: inline-flex; align-items: center; gap: 12px; background: #F5F0E8; color: #2C2416; font: 600 14px/1 var(--f-display); letter-spacing: 0.06em; text-transform: uppercase; padding: 16px 22px; border-radius: 999px; box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25); }
+.video .play svg { width: 16px; height: 16px; fill: #9B7B5A; }
+
+.yt-btn { all: unset; display: block; position: relative; width: 100%; cursor: pointer; }
+.yt-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.video iframe { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border: 0; background: #000; }
+
+/* custos e avaliações */
+.cols { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 32px; align-items: start; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+td { padding: 12px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+td + td { text-align: right; padding-left: 16px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+td small { display: block; color: var(--muted); font-size: 13px; }
+tr.total td { border-bottom: 0; border-top: 2px solid var(--ink); font-weight: 600; padding-top: 14px; }
+tr.total td + td { font: 600 22px/1.2 var(--f-serif); color: var(--accent); }
+.bars { display: grid; gap: 14px; }
+.bar-row { display: grid; gap: 6px; }
+.bar-row .lbl { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; }
+.bar-row .lbl span:last-child { font-variant-numeric: tabular-nums; font-weight: 600; }
+.track { height: 12px; background: var(--surface); border-radius: 6px; overflow: hidden; }
+.track i { display: block; height: 100%; background: var(--muted); border-radius: 6px; opacity: 0.55; }
+.bar-row.now .track i { background: var(--accent); opacity: 1; }
+.bars-note { font-size: 13px; color: var(--muted); }
+
+/* segurança, passos */
+.checks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 28px; list-style: none; padding: 0; margin: 0; }
+.checks li { padding-left: 26px; position: relative; }
+.checks li::before { content: ""; position: absolute; left: 0; top: 7px; width: 12px; height: 12px; border-radius: 3px; background: var(--accent); }
+.checks b { display: block; }
+.steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; counter-reset: s; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 14px; padding-block: 16px; border-bottom: 1px solid var(--line); }
+.steps li::before { content: counter(s); font: 600 30px/1 var(--f-serif); color: var(--accent); }
+.steps b { display: block; font-family: var(--f-display); font-size: 16px; margin-bottom: 2px; }
+
+/* linha do tempo */
+.timeline { list-style: none; padding: 0; margin: 0; border-left: 2px solid var(--line); margin-left: 6px; }
+.timeline li { position: relative; padding: 0 0 22px 24px; display: grid; grid-template-columns: 128px minmax(0, 1fr); gap: 14px; }
+.timeline li::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 2px solid var(--muted); }
+.timeline li.key::before { background: var(--accent); border-color: var(--accent); }
+.timeline time { font: 600 13px/1.5 var(--f-display); letter-spacing: 0.04em; color: var(--muted); }
+.timeline li.key time { color: var(--accent); }
+.timeline b { font-weight: 600; }
+
+
+/* contato */
+.contact { margin-top: 56px; background: var(--ink); color: var(--bg); padding-block: 44px; }
+.contact .wrap { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 28px; align-items: center; }
+.contact h2 { font-size: clamp(24px, 3.4vw, 32px); font-weight: 800; color: var(--bg); }
+.contact p { color: var(--bg); opacity: 0.8; margin-top: 10px; }
+.contact .card { display: grid; gap: 6px; font-size: 15px; }
+.contact .card b { font-family: var(--f-display); font-size: 17px; }
+.contact .phone { font: 600 26px/1.2 var(--f-serif); user-select: all; }
+.btn { display: inline-block; margin-top: 12px; background: var(--accent); color: var(--accent-ink); text-decoration: none; font: 600 14px/1 var(--f-display); letter-spacing: 0.06em; text-transform: uppercase; padding: 15px 20px; border-radius: 8px; justify-self: start; }
+.sources { font-size: 12.5px; color: var(--muted); padding-block: 28px 40px; }
+.sources p + p { margin-top: 8px; }
+
+@media (max-width: 820px) {
+  .figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fig:nth-child(3) { border-left: 0; padding-left: 0; }
+  .fig:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .props, .maps, .cols, .checks, .contact .wrap { grid-template-columns: minmax(0, 1fr); }
+  .facts { grid-template-columns: minmax(0, 1fr); }
+  .status { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .timeline li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+}
+@media (max-width: 420px) {
+  .wrap { padding-inline: 16px; }
+  .fig { padding: 18px 12px; }
+  .fig:nth-child(odd) { padding-left: 0; }
+  .top img { height: 38px; }
+  .top .tag { font-size: 10.5px; }
+}
+@media (prefers-reduced-motion: reduce) { .gallery img { transition: none; } }
+
+/* algarismos alinhados nos números grandes (o atalho font zera font-variant) */
+.fig .v, .price .v, .status .when b, tr.total td + td, .contact .phone, .steps li::before, .bar-row .lbl span:last-child { font-variant-numeric: lining-nums tabular-nums; }
+</style>
+<style>body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+<script>
+(function () {
+'use strict';
+try {
+var w = window, d = document, n = navigator, L = location;
+if (L.protocol === 'file:' || w.maysMedir) return;
+var ls = null;
+try { ls = w.localStorage; ls.setItem('_m', '1'); ls.removeItem('_m'); } catch (e) { ls = null; }
+var ler = function (k) { try { return ls ? ls.getItem(k) : null; } catch (e) { return null; } };
+var gravar = function (k, v) { try { if (ls) { if (v === null) ls.removeItem(k); else ls.setItem(k, v); } } catch (e) {} };
+var q = new URLSearchParams(L.search);
+if (q.has('nao-contar')) gravar('mays_nao_contar', '1');
+if (q.has('contar')) gravar('mays_nao_contar', null);
+w.maysMedir = function () {};
+if (ler('mays_nao_contar') || n.webdriver ||
+/bot|crawl|spider|slurp|headless|lighthouse|pagespeed|preview|facebookexternalhit|embedly/i.test(n.userAgent)) return;
+var sorteio = function () {
+var a = new Uint8Array(12), s = '';
+w.crypto.getRandomValues(a);
+for (var i = 0; i < a.length; i++) s += (a[i] % 36).toString(36);
+return s;
+};
+var base = L.hostname.replace(/^www\./, '');
+var ref = d.referrer || '', refHost = '';
+try { refHost = ref ? new URL(ref).hostname.replace(/^www\./, '') : ''; } catch (e) {}
+var externo = !!refHost && refHost !== base && refHost.slice(-base.length - 1) !== '.' + base;
+var utm = {}, temUtm = false, clique = null;
+['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) {
+var v = q.get(k); if (v) { utm[k] = v.slice(0, 150); temUtm = true; }
+});
+['gclid', 'gbraid', 'wbraid', 'fbclid', 'msclkid', 'ttclid'].some(function (k) {
+if (q.has(k)) { clique = k; return true; } return false;
+});
+var agora = Date.now(), s = null, entrada = false;
+try { s = JSON.parse(ler('mays_sessao') || 'null'); } catch (e) {}
+var nova = (externo || temUtm || clique) ? { r: externo ? ref.slice(0, 300) : null, u: utm, c: clique } : null;
+var assinatura = nova ? JSON.stringify([refHost, utm, clique]) : null;
+if (!s || !s.id || agora - (s.ult || 0) > 1800000 || (nova && assinatura !== s.sig)) {
+s = { id: sorteio(), sig: assinatura, a: nova || { r: null, u: {}, c: null } };
+entrada = true;
+}
+var visitante = ler('mays_visitante');
+if (!/^[a-z0-9]{8,32}$/.test(visitante || '')) { visitante = sorteio(); gravar('mays_visitante', visitante); }
+var ua = n.userAgent;
+var disp = (/iPad|Tablet/i.test(ua) || (/Android/i.test(ua) && !/Mobile/i.test(ua)) ||
+(/Macintosh/.test(ua) && n.maxTouchPoints > 1)) ? 'tablet'
+: (/Mobi|iPhone|iPod|Android/i.test(ua) ? 'celular' : 'computador');
+var lead = q.get('lead');
+if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(lead || '')) lead = null;
+var caminho = (L.pathname.replace(/index\.html$/, '') || '/').slice(0, 300);
+var enviar = function (tipo, alvo) {
+s.ult = Date.now(); gravar('mays_sessao', JSON.stringify(s));
+var a = s.a || {}, u = a.u || {};
+var corpo = JSON.stringify({
+tipo: tipo, visitante: visitante, sessao: s.id,
+entrada: tipo === 'pagina' && entrada,
+caminho: caminho, titulo: (d.title || '').slice(0, 200) || null,
+referencia: a.r || null, clique: a.c || null,
+utm_source: u.utm_source || null, utm_medium: u.utm_medium || null,
+utm_campaign: u.utm_campaign || null, utm_content: u.utm_content || null,
+utm_term: u.utm_term || null, dispositivo: disp,
+alvo: alvo ? String(alvo).replace(/\s+/g, ' ').trim().slice(0, 150) || null : null,
+lead_campanha: tipo === 'pagina' ? lead : null
+});
+if (tipo === 'pagina') entrada = false;
+var mandar = function (manter) {
+return fetch('https://gwhwesvmqvxakvjtsrdn.supabase.co/rest/v1/visita_site', {
+method: 'POST', keepalive: manter, body: corpo,
+headers: { apikey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd3aHdlc3ZtcXZ4YWt2anRzcmRuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY2MjI3MjMsImV4cCI6MjEwMjE5ODcyM30.-8YOH8sLts-lK-u6ALcbnlQHhVOsgZrKQWg5B3DhjRE', 'Content-Type': 'application/json', Prefer: 'return=minimal' }
+});
+};
+try { mandar(true).catch(function () { mandar(false).catch(function () {}); }); } catch (e) {}
+};
+w.maysMedir = enviar;
+var pagina = function () { setTimeout(function () { enviar('pagina'); }, 0); };
+if (d.readyState === 'complete') pagina(); else w.addEventListener('load', pagina);
+d.addEventListener('click', function (ev) {
+var el = ev.target && ev.target.closest ? ev.target.closest('a[href]') : null;
+if (!el) return;
+var h = el.getAttribute('href') || '';
+var rot = el.getAttribute('aria-label') || el.getAttribute('title') || el.textContent || '';
+if (/wa\.me\/|api\.whatsapp\.com|^whatsapp:/i.test(h)) enviar('whatsapp', rot);
+else if (/^tel:/i.test(h)) enviar('telefone', rot);
+}, true);
+d.addEventListener('submit', function (ev) {
+var f = ev.target;
+if (!f || f.id === 'formLead' || f.getAttribute('role') === 'search' ||
+/(^|\s)busca(\s|$)/.test(f.className || '')) return;
+enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
+}, true);
+} catch (e) {}
+})();
+</script>
+</head>
+<body>
+<header class="wrap top">
+  <div>
+    <img class="logo-light" src="img/logo.png" alt="Maysonnave Imóveis" width="400" height="213">
+    <img class="logo-dark" src="img/logo-claro.png" alt="Maysonnave Imóveis" width="400" height="213">
+  </div>
+  <div class="tag">Proposta de aquisição<br>Outubro de 2026</div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <p class="eyebrow">Centro de Pelotas · Quadra 212</p>
+    <h1>Santos Dumont 537 e Dr. Amarante 733<span>O antigo engenho da Extremo Sul</span></h1>
+    <p class="lead">Cerca de 3.760 m² de terreno no Centro, com frente para três ruas e a uma quadra da Avenida Bento Gonçalves. A Justiça Federal autorizou a venda direta pelo sistema Comprei da Procuradoria da Fazenda Nacional, com lance mínimo de metade da avaliação judicial.</p>
+    <figure class="hero-img">
+      <img src="img/drone-8.jpg" alt="Vista aérea da fachada do antigo engenho na Rua Dr. Amarante, com o Centro de Pelotas ao fundo" width="1800" height="1350">
+      <figcaption>Fachada da Rua Dr. Amarante, com o Centro ao fundo. Drone, 6 de outubro de 2026.</figcaption>
+    </figure>
+
+    <div class="figures">
+      <div class="fig main"><span class="l">Valor do conjunto</span><span class="v num">R$ 2.065.761,58</span><span class="n">lance mínimo, 50% da avaliação</span></div>
+      <div class="fig"><span class="l">Terreno</span><span class="v num">3.763 m²</span><span class="n">duas matrículas, vendidas juntas</span></div>
+      <div class="fig"><span class="l">Frentes</span><span class="v num">3 ruas</span><span class="n">126 m de testada somada</span></div>
+      <div class="fig"><span class="l">Preço por m²</span><span class="v num">R$ 549</span><span class="n">laudo usa R$ 1.062/m² de referência</span></div>
+    </div>
+  </div>
+
+  <section id="situacao">
+    <div class="wrap">
+      <div class="status">
+        <div class="when">Situação em<b>6 de outubro de 2026</b></div>
+        <div>
+          <span class="pill">Venda autorizada · aguardando a PGFN</span>
+          <p>A 1ª Vara Federal de Pelotas autorizou a venda direta pelo Comprei em 20 de agosto de 2026, a pedido da própria Fazenda Nacional.</p>
+          <p>Em 15 de setembro a cooperativa devedora pediu a suspensão da venda, alegando um pedido de transação tributária em análise. Esse pedido é um recurso contra uma proposta já indeferida em 2023. O juiz deu 10 dias para a PGFN responder, com prazo até <b>14 de outubro de 2026</b>.</p>
+          <p>A PGFN suspendeu a execução várias vezes desde 2023 para negociar com a cooperativa e, em julho de 2026, voltou a pedir a venda.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="imoveis">
+    <div class="wrap">
+      <h2>Os dois imóveis</h2>
+      <p class="sec-sub">O prédio do engenho foi construído sobre os dois terrenos. Por isso o juiz determinou que as matrículas sejam vendidas juntas, para um único comprador.</p>
+      <div class="props">
+        <article class="prop">
+          <img src="img/drone-1.jpg" alt="Vista aérea do terreno da Santos Dumont 537A, com as paredes do antigo armazém e vegetação no interior" width="1400" height="1050" loading="lazy">
+          <div class="body">
+            <h3>Rua Santos Dumont, 537A</h3>
+            <p class="mat">Matrícula 8.936 · Registro de Imóveis da 1ª Zona</p>
+            <div class="price">
+              <span class="l">Valor pedido</span>
+              <span class="v num">R$ 560.575,98</span>
+              <span class="n">50% da avaliação de R$ 1.121.151,96</span>
+            </div>
+            <dl class="kv">
+              <dt>Terreno</dt><dd class="num">1.055,48 m² pela matrícula</dd>
+              <dt>Frente</dt><dd class="num">22,10 m para a Santos Dumont</dd>
+              <dt>Laterais</dt><dd class="num">44,00 m e 51,50 m de profundidade</dd>
+              <dt>Hoje</dt><dd>Paredes do antigo armazém, sem cobertura. Avaliado como terreno.</dd>
+            </dl>
+          </div>
+        </article>
+        <article class="prop">
+          <img src="img/drone-7.jpg" alt="Vista aérea da esquina da Rua Dr. Amarante com a Rua Professor Araújo" width="1800" height="1350" loading="lazy">
+          <div class="body">
+            <h3>Rua Dr. Amarante, 733</h3>
+            <p class="mat">Matrícula 8.935 · Registro de Imóveis da 1ª Zona</p>
+            <div class="price">
+              <span class="l">Valor pedido</span>
+              <span class="v num">R$ 1.505.185,60</span>
+              <span class="n">50% da avaliação de R$ 3.010.371,20</span>
+            </div>
+            <dl class="kv">
+              <dt>Terreno</dt><dd class="num">2.707,32 m²</dd>
+              <dt>Frentes</dt><dd class="num">Esquina: 58,00 m na Dr. Amarante e 46,20 m na Prof. Araújo</dd>
+              <dt>Construção</dt><dd class="num">1.164 m² de galpão ainda coberto</dd>
+              <dt>Hoje</dt><dd>Restante dos armazéns sem cobertura. Desocupado.</dd>
+            </dl>
+          </div>
+        </article>
+      </div>
+      <p class="note">As duas matrículas se encontram pelos fundos, por dentro do quarteirão. O conjunto atravessa a quadra da Rua Professor Araújo até a Rua Santos Dumont. <b>Depois da compra, cada matrícula continua com registro próprio.</b></p>
+    </div>
+  </section>
+
+  <section id="localizacao">
+    <div class="wrap">
+      <h2>Localização</h2>
+      <p class="sec-sub">Quadra 212 do Centro, entre as ruas Dr. Amarante, Professor Araújo e Santos Dumont.</p>
+      <div class="maps">
+        <figure>
+          <img src="img/satelite.jpg" alt="Imagem de satélite com a matrícula 8.935 marcada: terreno na esquina e galpão" width="808" height="712" loading="lazy">
+          <figcaption>Matrícula 8.935: área aberta na esquina (verde) e galpão coberto (vermelho). O 537A fica logo abaixo, à direita. Fonte: laudo judicial de 2025.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/croqui.jpg" alt="Croqui da Prefeitura de Pelotas do quarteirão 212 com a matrícula 8.936 destacada" width="729" height="644" loading="lazy">
+          <figcaption>Croqui da Prefeitura, quarteirão 212. Em amarelo, o 537A (mat. 8.936). À esquerda, o lote da esquina (mat. 8.935).</figcaption>
+        </figure>
+      </div>
+      <div class="facts">
+        <div><b>Três frentes</b>Dr. Amarante, Professor Araújo e Santos Dumont, com acesso por todos os lados do conjunto.</div>
+        <div><b>Bento Gonçalves</b>A uma quadra da avenida, segundo o laudo da oficiala de justiça avaliadora.</div>
+        <div><b>Potencial</b>O laudo registra "alto potencial construtivo pela metragem larga e excelente localização".</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fotos">
+    <div class="wrap">
+      <h2>Fotos aéreas</h2>
+      <p class="sec-sub">Voo de drone em 6 de outubro de 2026. Toque numa foto para ampliar.</p>
+      <div class="gallery" id="gallery">
+        <button type="button" data-i="0"><img src="img/drone-8.jpg" alt="Fachada da Rua Dr. Amarante com o Centro ao fundo" loading="lazy"></button>
+        <button type="button" data-i="1"><img src="img/drone-7.jpg" alt="Esquina da Dr. Amarante com a Professor Araújo" loading="lazy"></button>
+        <button type="button" data-i="2"><img src="img/drone-9.jpg" alt="Visão geral do conjunto" loading="lazy"></button>
+        <button type="button" data-i="3"><img src="img/drone-1.jpg" alt="Santos Dumont 537A visto de cima" loading="lazy"></button>
+        <button type="button" data-i="4"><img src="img/drone-2.jpg" alt="Interior aberto do 537A" loading="lazy"></button>
+        <button type="button" data-i="5"><img src="img/drone-3.jpg" alt="Galpão coberto e telhados do conjunto" loading="lazy"></button>
+        <button type="button" data-i="6"><img src="img/drone-6.jpg" alt="Salão da esquina sem cobertura, junto à rua" loading="lazy"></button>
+        <button type="button" data-i="7"><img src="img/drone-4.jpg" alt="Salão sem cobertura visto de outro ângulo" loading="lazy"></button>
+        <button type="button" data-i="8"><img src="img/drone-5.jpg" alt="Vista do salão aberto em direção ao galpão" loading="lazy"></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="video">
+    <div class="wrap">
+      <h2>Vídeo do imóvel</h2>
+      <p class="sec-sub">Sobrevoo e imagens do interior, 2 min 15 s.</p>
+      <div class="video" id="yt">
+        <button type="button" class="yt-btn" id="yt-btn" aria-label="Assistir ao vídeo do imóvel">
+          <img src="img/video.jpg" alt="Quadro do vídeo: vista aérea do conjunto e das ruas do entorno" width="1600" height="900" loading="lazy">
+          <span class="play"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z"/></svg>Assistir ao vídeo</span></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="numeros">
+    <div class="wrap cols">
+      <div>
+        <h2 class="sec-h">Custo de aquisição</h2>
+        <p class="sec-sub">Pelo lance mínimo, a partir do 31º dia de anúncio.</p>
+        <table>
+          <tr><td>Lance mínimo do conjunto<small>50% de R$ 4.131.523,16</small></td><td>R$ 2.065.761,58</td></tr>
+          <tr><td>Comissão do intermediário no Comprei<small>5% sobre o lance, fixada pelo juiz</small></td><td>R$ 103.288,08</td></tr>
+          <tr><td>Corretagem Maysonnave Imóveis<small>6% sobre o lance</small></td><td>R$ 123.945,69</td></tr>
+          <tr><td>ITBI de Pelotas<small>3% sobre o valor da compra, estimado</small></td><td>R$ 61.972,85</td></tr>
+          <tr><td>Registro da carta nas duas matrículas<small>estimativa</small></td><td>R$ 12.000,00</td></tr>
+          <tr class="total"><td>Total estimado<small>cerca de R$ 629 por m² de terreno</small></td><td>R$ 2.366.968,20</td></tr>
+        </table>
+      </div>
+      <div>
+        <h2 class="sec-h">Avaliações judiciais</h2>
+        <p class="sec-sub">Soma das duas matrículas em cada avaliação.</p>
+        <div class="bars">
+          <div class="bar-row"><div class="lbl"><span>Dezembro de 2019</span><span>R$ 5,90 mi</span></div><div class="track"><i style="width:100%"></i></div></div>
+          <div class="bar-row"><div class="lbl"><span>Junho de 2022</span><span>R$ 4,23 mi</span></div><div class="track"><i style="width:71.6%"></i></div></div>
+          <div class="bar-row"><div class="lbl"><span>Agosto de 2025 (vigente)</span><span>R$ 4,13 mi</span></div><div class="track"><i style="width:70%"></i></div></div>
+          <div class="bar-row now"><div class="lbl"><span>Lance mínimo hoje</span><span>R$ 2,07 mi</span></div><div class="track"><i style="width:35%"></i></div></div>
+          <p class="bars-note">Em 2021 o conjunto foi a leilão avaliado em R$ 5,9 milhões e não recebeu lances. A leiloeira atribuiu o resultado a uma avaliação acima do estado real dos prédios. As avaliações seguintes corrigiram esse valor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="seguranca">
+    <div class="wrap">
+      <h2>Segurança da compra</h2>
+      <p class="sec-sub">O que a decisão de 20 de agosto de 2026 e a lei garantem ao comprador.</p>
+      <ul class="checks">
+        <li><b>Imóvel livre de ônus</b>A carta de alienação manda cancelar as penhoras, a hipoteca de 1984 e as indisponibilidades das duas matrículas.</li>
+        <li><b>Dívidas ficam com o preço</b>Débitos do imóvel, inclusive IPTU, são pagos com o valor da venda e não passam para o comprador (art. 130 do CTN).</li>
+        <li><b>Desocupado</b>Oficiais de justiça certificaram os imóveis desocupados em 2021 e em 2025.</li>
+        <li><b>Venda supervisionada</b>Comprei é a plataforma oficial da PGFN. O pagamento é por DARF e o juízo homologa a venda.</li>
+        <li><b>Pagamento à vista</b>Neste processo não há parcelamento, porque existem penhoras trabalhistas nas matrículas.</li>
+        <li><b>Fora do inventário histórico</b>Os dois imóveis não constam do Inventário do Patrimônio Cultural de Pelotas. O quarteirão integra a ZPPC 1, Sítio do 1º Loteamento, como os vizinhos inventariados.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="como-comprar">
+    <div class="wrap narrow">
+      <h2>Como funciona a compra</h2>
+      <p class="sec-sub">Regras fixadas pelo juiz para a venda pelo Comprei, com prazo total de 360 dias.</p>
+      <ol class="steps">
+        <li><div><b>Anúncio no Comprei</b>Nos primeiros 30 dias, a venda só fecha com proposta igual ou maior que a avaliação, de R$ 4.131.523,16.</div></li>
+        <li><div><b>Propostas a partir do 31º dia</b>Vence a melhor proposta registrada, com mínimo de R$ 2.065.761,58. Pessoas físicas e empresas podem propor.</div></li>
+        <li><div><b>Pagamento</b>Preço à vista por DARF, mais as comissões e o ITBI.</div></li>
+        <li><div><b>Auto e carta de alienação</b>A PGFN emite os documentos depois do pagamento e o juízo homologa a venda.</div></li>
+        <li><div><b>Registro</b>A carta vai ao Registro de Imóveis, que cancela os ônus e transfere as duas matrículas.</div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="processo">
+    <div class="wrap narrow">
+      <h2>Histórico do processo</h2>
+      <p class="sec-sub">Execução fiscal 5002229-10.2017.4.04.7110, da União contra a Cooperativa Arrozeira Extremo Sul, na 1ª Vara Federal de Pelotas. Cobra contribuições previdenciárias de 2005 e 2006, que somavam R$ 4,19 milhões em setembro de 2026.</p>
+      <ol class="timeline">
+        <li><time>Março de 2008</time><div>A execução é ajuizada. Em 2017 o processo físico é digitalizado no sistema eproc.</div></li>
+        <li><time>Dezembro de 2019</time><div>Reavaliação dos imóveis penhorados: R$ 4,3 milhões a matrícula 8.935 e R$ 1,6 milhão a 8.936.</div></li>
+        <li><time>Março de 2020</time><div>O juiz rejeita a impugnação da cooperativa contra a avaliação.</div></li>
+        <li><time>Abril de 2021</time><div>O juiz determina que as duas matrículas sejam leiloadas juntas, porque o prédio ocupa os dois terrenos.</div></li>
+        <li><time>Outubro de 2021</time><div>Primeiro e segundo leilões, com avaliação de R$ 5,9 milhões, terminam sem lances.</div></li>
+        <li><time>Dezembro de 2021 a março de 2022</time><div>Noventa dias de venda direta pela leiloeira, sem propostas. Ela atribui o resultado à avaliação alta para o estado dos prédios.</div></li>
+        <li><time>Junho de 2022</time><div>Nova reavaliação: R$ 4,23 milhões. O recurso ao TRF4 contra essa decisão tem a liminar negada.</div></li>
+        <li><time>Abril a maio de 2023</time><div>Novo leilão é marcado para junho e cancelado depois que a cooperativa alega um parcelamento. A PGFN informa que o parcelamento tinha sido indeferido.</div></li>
+        <li><time>2023 a 2025</time><div>A execução fica suspensa várias vezes, a pedido da PGFN, para negociar uma transação tributária.</div></li>
+        <li><time>Abril de 2025</time><div>A PGFN informa a rescisão dos parcelamentos e pede reavaliação e venda.</div></li>
+        <li><time>Agosto de 2025</time><div>Reavaliação vigente: R$ 3.010.371,20 e R$ 1.121.151,96, total de R$ 4.131.523,16. Imóveis desocupados.</div></li>
+        <li><time>Setembro de 2025 a julho de 2026</time><div>Novas suspensões para negociação, sem acordo.</div></li>
+        <li class="key"><time>29 de julho de 2026</time><div><b>A PGFN pede a venda direta pelo Comprei.</b></div></li>
+        <li class="key"><time>20 de agosto de 2026</time><div><b>O juiz autoriza a venda</b>, com lance mínimo de 50% depois de 30 dias, comissão de 5% e venda conjunta.</div></li>
+        <li><time>15 de setembro de 2026</time><div>A cooperativa pede a suspensão da venda. O juiz dá 10 dias para a PGFN responder.</div></li>
+        <li class="key"><time>14 de outubro de 2026</time><div><b>Prazo da PGFN para se manifestar.</b></div></li>
+      </ol>
+    </div>
+  </section>
+
+</main>
+
+<footer class="contact">
+  <div class="wrap">
+    <div>
+      <h2>Fale com a Maysonnave</h2>
+      <p>Acompanhamos a visita, a análise dos documentos e a proposta no Comprei até o registro.</p>
+    </div>
+    <div class="card">
+      <b>Rodrigo Maysonnave Fernandes</b>
+      <span>Maysonnave Imóveis · CRECI-RS 61.580</span>
+      <span class="phone num">(53) 98104-1499</span>
+      <span>Rua XV de Novembro, 666, Loja 67, Galeria Zabaleta, Pelotas/RS</span>
+      <span>maysimoveis.com</span>
+      <a class="btn" href="https://wa.me/5553981041499?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20proposta%20Santos%20Dumont%20537%20e%20Dr.%20Amarante%20733." target="_blank" rel="noopener">Conversar no WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+<div class="wrap sources">
+  <p>Fontes: processo 5002229-10.2017.4.04.7110 da 1ª Vara Federal de Pelotas, decisão de 20/08/2026, laudos de reavaliação de agosto de 2025 e matrículas 8.935 e 8.936 do Registro de Imóveis da 1ª Zona de Pelotas. ITBI pela Lei Municipal 7.167/2023. Patrimônio conforme o Inventário do Patrimônio Cultural de Pelotas. Fotos e vídeo: Maysonnave Imóveis, outubro de 2026.</p>
+  <p>Este material resume documentos públicos do processo e não substitui a análise jurídica do comprador.</p>
+</div>
+
+<div class="lightbox" id="lightbox" hidden>
+  <img id="lb-img" alt="">
+  <div class="bar">
+    <span id="lb-cap"></span>
+    <div class="nav">
+      <button type="button" id="lb-prev" aria-label="Foto anterior">Anterior</button>
+      <button type="button" id="lb-next" aria-label="Próxima foto">Próxima</button>
+      <button type="button" id="lb-close">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var b = document.getElementById('yt-btn');
+  if (!b) return;
+  b.addEventListener('click', function () {
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/Akg0vE2jM9E?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+    f.title = 'Vídeo do imóvel: Santos Dumont 537 e Dr. Amarante 733';
+    f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    f.setAttribute('allowfullscreen', '');
+    var box = document.getElementById('yt');
+    box.innerHTML = '';
+    box.appendChild(f);
+    if (window.maysMedir) window.maysMedir('video', 'Vídeo Santos Dumont 537');
+  });
+})();
+</script>
+<script>
+(function () {
+  var buttons = Array.prototype.slice.call(document.querySelectorAll('#gallery button'));
+  var box = document.getElementById('lightbox');
+  var img = document.getElementById('lb-img');
+  var cap = document.getElementById('lb-cap');
+  var current = 0;
+  var lastFocus = null;
+  function show(i) {
+    current = (i + buttons.length) % buttons.length;
+    var src = buttons[current].querySelector('img');
+    img.src = src.getAttribute('src');
+    img.alt = src.alt;
+    cap.textContent = (current + 1) + ' de ' + buttons.length + ' · ' + src.alt;
+  }
+  function open(i) { lastFocus = document.activeElement; show(i); box.hidden = false; document.getElementById('lb-close').focus(); }
+  function close() { box.hidden = true; if (lastFocus) lastFocus.focus(); }
+  buttons.forEach(function (b, i) { b.addEventListener('click', function () { open(i); }); });
+  document.getElementById('lb-prev').addEventListener('click', function () { show(current - 1); });
+  document.getElementById('lb-next').addEventListener('click', function () { show(current + 1); });
+  document.getElementById('lb-close').addEventListener('click', close);
+  box.addEventListener('click', function (e) { if (e.target === box) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (box.hidden) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowRight') show(current + 1);
+    if (e.key === 'ArrowLeft') show(current - 1);
+  });
+})();
+</script>
+</body>
+</html>
