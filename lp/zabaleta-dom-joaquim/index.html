@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pré-lançamento Zabaleta · Av. Dom Joaquim, Pelotas</title>
-<meta property="og:title" content="Pré-lançamento Zabaleta · Av. Dom Joaquim">
-<meta property="og:description" content="O próximo endereço da Dom Joaquim nasce inteiro voltado para o norte. Apartamentos de 3 dormitórios, 100 a 180 m². Entre na lista de interessados.">
+<title>Zabaleta Milano · Pré-lançamento na Av. Dom Joaquim, Pelotas</title>
+<meta property="og:title" content="Zabaleta Milano · Av. Dom Joaquim, Pelotas">
+<meta property="og:description" content="Zabaleta Milano: o próximo endereço da Dom Joaquim nasce inteiro voltado para o norte. Apartamentos de 3 dormitórios, 112 a 170 m². Entre na lista de interessados.">
 <meta property="og:image" content="img/hero-poster.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,15 +45,17 @@
   header .btn{padding:11px 22px;font-size:0.78rem;white-space:nowrap;}
 
   /* HERO */
-  .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;background:#101216;overflow:hidden;}
+  .hero{position:relative;min-height:100vh;min-height:100svh;padding:0;display:flex;align-items:flex-end;background:#101216;overflow:hidden;}
   .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
   .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top, rgba(8,9,12,0.98) 0%, rgba(8,9,12,0.85) 18%, rgba(8,9,12,0.42) 42%, rgba(8,9,12,0.1) 68%, rgba(8,9,12,0.05) 100%);}
-  .hero-content{position:relative;z-index:2;color:#F6F2EA;padding:0 32px 30px;max-width:1160px;margin:0 auto;width:100%;}
+  .hero-content{position:relative;z-index:2;color:#F6F2EA;padding:0 32px 28px;max-width:1160px;margin:0 auto;width:100%;}
+  .hero-content .project-name{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.9rem,5.4vw,3.1rem);letter-spacing:0.04em;text-transform:uppercase;color:var(--champ);line-height:1.12;margin-bottom:8px;text-shadow:0 4px 24px rgba(0,0,0,0.75);}
   .hero-content .eyebrow{color:#FFFFFF;margin-bottom:14px;font-size:0.92rem;font-weight:700;letter-spacing:0.2em;text-shadow:0 2px 16px rgba(0,0,0,0.85);}
+  .name-divider{padding:56px 0;text-align:center;background:var(--dark);}
+  .name-divider span{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.7rem,4.2vw,2.7rem);letter-spacing:0.07em;text-transform:uppercase;color:var(--champ);}
+  .name-divider small{display:block;margin-top:10px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:#8B8F98;}
   .hero-content h1{font-size:clamp(2rem,4.6vw,3.4rem);max-width:840px;margin-bottom:14px;font-weight:800;text-shadow:0 4px 30px rgba(0,0,0,0.8), 0 1px 6px rgba(0,0,0,0.6);}
-  .hero-content p.sub{font-size:0.96rem;max-width:560px;color:#F0EBDF;margin-bottom:18px;text-shadow:0 2px 16px rgba(0,0,0,0.8);}
-  .hero-badge{display:inline-flex;align-items:center;gap:10px;margin-top:26px;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:#CDC6B6;}
-  .hero-badge::before{content:"";width:34px;height:1px;background:var(--champ);}
+  .hero-content p.sub{font-size:0.96rem;max-width:560px;color:#F0EBDF;margin-bottom:0;text-shadow:0 2px 16px rgba(0,0,0,0.8);}
 
   /* SECTIONS */
   section{padding:96px 0;}
@@ -61,6 +63,19 @@
   .section-dark h2{color:#F6F2EA;}
   .section-dark .eyebrow{color:var(--champ);}
   .section-alt{background:var(--alt);}
+
+  /* VÍDEO DO LANÇAMENTO */
+  .video-intro{max-width:640px;margin:0 auto 40px;text-align:center;}
+  .video-intro h2{font-size:1.9rem;margin-top:12px;}
+  .video-frame{position:relative;width:100%;max-width:380px;margin:0 auto;border-radius:18px;overflow:hidden;box-shadow:0 24px 60px rgba(23,26,31,0.28);background:#000;}
+  .video-frame video{width:100%;display:block;}
+  .video-mute-toggle{position:absolute;bottom:14px;right:14px;min-width:36px;height:36px;padding:0 10px;border-radius:18px;background:rgba(23,26,31,0.6);border:1px solid rgba(255,255,255,0.3);color:#fff;display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;font-size:15px;z-index:2;}
+  .video-mute-label{display:none;font-size:12px;font-family:'Montserrat',sans-serif;letter-spacing:0.02em;white-space:nowrap;}
+  @media (hover:hover) and (pointer:fine){
+    .video-mute-toggle.is-muted{animation:mute-pulse 2.4s ease-in-out infinite;}
+    .video-mute-toggle.is-muted .video-mute-label{display:inline;}
+  }
+  @keyframes mute-pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,0.35);}50%{box-shadow:0 0 0 8px rgba(255,255,255,0);}}
 
   .two-col{display:grid;grid-template-columns:1.05fr 0.95fr;gap:64px;align-items:center;}
   .two-col h2{font-size:1.95rem;margin:14px 0 20px;}
@@ -108,7 +123,12 @@
   .level-card p{font-size:0.9rem;color:#C9C3B5;}
 
   /* GALERIA TEASER LAZER */
-  .lazer-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:22px;}
+  .lazer-gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:22px;}
+  .reveal-card{grid-column:1/-1;position:relative;border-radius:10px;overflow:hidden;background:#20242B;}
+  .reveal-card img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center 40%;}
+  .reveal-card .tag{position:absolute;top:14px;left:14px;background:var(--champ);color:#16191E;font-size:0.62rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:6px 12px;border-radius:4px;}
+  .reveal-card .lbl{position:absolute;bottom:0;left:0;right:0;padding:40px 22px 18px;background:linear-gradient(to top, rgba(10,11,14,0.88), transparent);color:#F6F2EA;font-family:'Montserrat',sans-serif;font-weight:600;font-size:1rem;}
+  .reveal-card .lbl small{display:block;margin-top:4px;font-family:'Inter',sans-serif;font-weight:400;font-size:0.7rem;letter-spacing:0.04em;opacity:0.7;}
   .tease-card{position:relative;height:240px;border-radius:10px;overflow:hidden;background:#20242B;display:flex;align-items:center;justify-content:center;transform:translateZ(0);}
   .tease-blur{position:absolute;inset:-25%;filter:blur(30px);opacity:0.85;
     background:
@@ -129,6 +149,18 @@
   .conv-card h3{font-size:1.02rem;margin-bottom:8px;}
   .conv-card p{font-size:0.86rem;opacity:0.78;}
 
+  /* ENTREGA E INFRAESTRUTURA */
+  .entrega-intro{max-width:720px;}
+  .entrega-intro h2{font-size:1.95rem;margin:12px 0 14px;}
+  .entrega-intro p{font-size:0.97rem;opacity:0.8;}
+  .entrega-grupo{margin-top:44px;}
+  .entrega-grupo h3.grupo{font-family:'Montserrat',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--champ-deep);padding-bottom:12px;border-bottom:1px solid rgba(23,26,31,0.12);}
+  .entrega-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:20px;}
+  .entrega-card{background:#FDFBF6;border-radius:10px;padding:26px 26px 28px;box-shadow:0 2px 14px rgba(23,26,31,0.06);border-top:3px solid var(--champ);}
+  .entrega-card h4{font-family:'Montserrat',sans-serif;font-size:1.02rem;font-weight:700;margin-bottom:8px;}
+  .entrega-card p{font-size:0.86rem;opacity:0.78;}
+  @media (max-width:860px){.entrega-grid{grid-template-columns:1fr;}}
+
   /* DESTAQUE ENTORNO */
   .conv-highlight{margin-top:22px;background:#FDFBF6;border-left:3px solid var(--champ);border-radius:10px;padding:28px 32px;box-shadow:0 2px 14px rgba(23,26,31,0.06);}
   .conv-highlight h3{font-size:1.08rem;margin-bottom:8px;}
@@ -137,6 +169,13 @@
   /* CONSTRUTORA */
   .construtora .two-col p{font-size:0.97rem;}
   .img-caption{font-size:0.76rem;opacity:0.6;margin-top:10px;letter-spacing:0.04em;}
+
+  /* CORRETOR RESPONSÁVEL */
+  .broker{display:flex;align-items:flex-end;gap:36px;}
+  .broker-photo{width:160px;height:auto;border-radius:10px;flex-shrink:0;box-shadow:0 8px 24px rgba(44,36,22,0.14);}
+  .broker h3{font-size:1.2rem;margin:8px 0 8px;}
+  .broker p{font-size:0.9rem;opacity:0.78;max-width:560px;}
+  @media (max-width:600px){.broker{flex-direction:column;align-items:center;text-align:center;gap:18px;}.broker p{max-width:100%;}}
 
   /* CTA FINAL */
   .cta-final{background:linear-gradient(135deg, #1B1E24 0%, #23262E 100%);color:#F6F2EA;}
@@ -172,6 +211,8 @@
     .plantas-grid{grid-template-columns:1fr;}
     .lazer-levels{grid-template-columns:1fr;}
     .lazer-gallery{grid-template-columns:1fr;}
+    .reveal-card img{aspect-ratio:4/3;}
+    .reveal-card .lbl{font-size:0.88rem;padding:32px 18px 14px;}
     .conv-grid{grid-template-columns:1fr;}
     section{padding:68px 0;}
   }
@@ -283,10 +324,26 @@ enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
     <source src="img/hero.mp4" type="video/mp4">
   </video>
   <div class="hero-content">
+    <p class="project-name">Zabaleta Milano</p>
     <p class="eyebrow">Pré-lançamento · Av. Dom Joaquim · Pelotas</p>
     <h1>Onde o sol te visita todas as manhãs. E fica o dia inteiro.</h1>
-    <p class="sub">Todos os apartamentos com frente norte. 3 dormitórios, de 100 a 180 m², na Av. Dom Joaquim.</p>
-    <div class="hero-badge">Construtora Zabaleta · desde 1982</div>
+    <p class="sub">Maioria absoluta dos apartamentos com frente norte, todos com sol garantido. 3 dormitórios, de 112 a 170 m², no Zabaleta Milano, na Av. Dom Joaquim.</p>
+  </div>
+</section>
+
+<section class="section-dark">
+  <div class="wrap">
+    <div class="video-intro">
+      <p class="eyebrow">Simulação exclusiva</p>
+      <h2>O que vai nascer na Dom Joaquim, ainda ninguém viu de verdade.</h2>
+      <p style="margin-top:12px;font-size:0.95rem;opacity:0.8;">Uma simulação para sentir o clima da revelação. Quem está na lista acompanha cada novidade em primeira mão.</p>
+    </div>
+    <div class="video-frame">
+      <video muted loop playsinline preload="auto" poster="img/fachada-coberta-poster.jpg" data-autoplay-video>
+        <source src="img/fachada-coberta.mp4" type="video/mp4">
+      </video>
+      <button type="button" class="video-mute-toggle is-muted" aria-label="Ativar som"><span class="video-mute-icon">🔇</span><span class="video-mute-label">Ativar som</span></button>
+    </div>
   </div>
 </section>
 
@@ -295,7 +352,7 @@ enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
     <div>
       <p class="eyebrow">A decisão de projeto</p>
       <h2>Sol o ano inteiro não se promete. Se projeta.</h2>
-      <p>Em quase todo edifício, a orientação solar é loteria: metade das unidades recebe o sol, a outra metade olha para face sul. Aqui, a decisão foi tomada na prancheta: <b>os 40 metros de frente para Dom Joaquim permitiram desenhar o pavimento inteiro na face norte</b>.</p>
+      <p>Em quase todo edifício, a orientação solar é loteria: uma fração das unidades sempre fica de costas para o sol. Aqui, a decisão foi tomada na prancheta: <b>os 40 metros de frente para Dom Joaquim permitiram desenhar a maioria absoluta do pavimento na face norte</b> — e garantir que nenhuma unidade ficasse sem sol.</p>
       <p>O resultado é um privilégio que nenhuma reforma compra depois: luz natural atravessando a sala e os dormitórios todos os dias do ano, incluindo os meses de inverno que todo pelotense conhece bem.</p>
       <p>É uma característica irreversível de projeto. Ou o prédio nasce assim, ou nunca será.</p>
     </div>
@@ -306,29 +363,71 @@ enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
   </div>
 </section>
 
-<section class="section-dark">
-  <div class="wrap">
-    <div class="stats-intro">
-      <p class="eyebrow">O projeto em números</p>
-      <h2>O que já está definido e não muda.</h2>
+<section class="section-alt">
+  <div class="wrap two-col reverse">
+    <div class="img-col">
+      <img src="img/area-verde-parque.jpg" alt="Caminho arborizado em área verde privativa do empreendimento">
     </div>
-    <div class="stats">
-      <div><div class="stat-num">100%</div><div class="stat-label">dos apartamentos com frente norte</div></div>
-      <div><div class="stat-num">40 m</div><div class="stat-label">de frente para Av. Dom Joaquim</div></div>
-      <div><div class="stat-num">100–180 m²</div><div class="stat-label">Apenas apartamentos de 3 dormitórios</div></div>
-      <div><div class="stat-num">16</div><div class="stat-label">pavimentos, com área de lazer em dois níveis: 3º andar e rooftop</div></div>
-      <div><div class="stat-num">2</div><div class="stat-label">coberturas apenas, com elevador privativo nas unidades especiais</div></div>
-      <div><div class="stat-num">43</div><div class="stat-label">anos de Construtora Zabaleta entregando em Pelotas</div></div>
+    <div>
+      <p class="eyebrow">Diferencial exclusivo</p>
+      <h2>500 m² de área verde. Um parque particular, só de quem vai morar aqui.</h2>
+      <p>Boa parte dos lançamentos resolve "área verde" com um canteiro na entrada. No Milano são 500 m² de paisagismo contínuo, com caminho próprio integrado ao térreo do edifício.</p>
+      <p>Espaço para caminhar, ler ou simplesmente atravessar o dia sem sair do próprio endereço. Um parque projetado para gerar conexão com a natureza.</p>
     </div>
   </div>
 </section>
+
+<section class="section-dark">
+  <div class="wrap">
+    <div class="stats-intro">
+      <p class="eyebrow">Zabaleta Milano em números</p>
+      <h2>O que já está definido e não muda.</h2>
+    </div>
+    <div class="stats">
+      <div><div class="stat-num">100%</div><div class="stat-label">das unidades com sol garantido</div></div>
+      <div><div class="stat-num">40 m</div><div class="stat-label">de frente para Av. Dom Joaquim</div></div>
+      <div><div class="stat-num">112–170 m²</div><div class="stat-label">Apenas apartamentos de 3 dormitórios</div></div>
+      <div><div class="stat-num">16</div><div class="stat-label">pavimentos, com área de lazer em dois níveis: 3º andar e rooftop</div></div>
+      <div><div class="stat-num">2</div><div class="stat-label">coberturas apenas, com elevador privativo nas unidades especiais</div></div>
+      <div><div class="stat-num">44</div><div class="stat-label">anos de Construtora Zabaleta entregando em Pelotas</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="entrega">
+  <div class="wrap">
+    <div class="entrega-intro">
+      <p class="eyebrow">Novidades confirmadas</p>
+      <h2>O acabamento que costuma ficar por sua conta, aqui já vem com o apartamento.</h2>
+      <p>A construtora confirmou mais itens de entrega e de infraestrutura do Zabaleta Milano.</p>
+    </div>
+    <div class="entrega-grupo">
+      <h3 class="grupo">No apartamento</h3>
+      <div class="entrega-grid">
+        <div class="entrega-card"><h4>Entregue com piso</h4><p>O piso já vem instalado. Menos obra e menos espera entre a chave e a mudança.</p></div>
+        <div class="entrega-card"><h4>Rebaixo em gesso</h4><p>Teto rebaixado em gesso entregue pela construtora, pronto para o projeto de iluminação.</p></div>
+        <div class="entrega-card"><h4>Piso aquecido na suíte</h4><p>Piso aquecido no banheiro da suíte, para o inverno pelotense começar mais confortável.</p></div>
+      </div>
+    </div>
+    <div class="entrega-grupo">
+      <h3 class="grupo">No condomínio</h3>
+      <div class="entrega-grid">
+        <div class="entrega-card"><h4>Piscina aquecida</h4><p>A piscina de borda infinita do rooftop é aquecida, para aproveitar além do verão.</p></div>
+        <div class="entrega-card"><h4>Gerador de energia</h4><p>O condomínio terá gerador próprio, para mais segurança quando faltar luz.</p></div>
+        <div class="entrega-card"><h4>Pronto para carro elétrico</h4><p>As vagas terão espera para carregador de veículo elétrico.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="name-divider"><span>Zabaleta Milano</span><small>Av. Dom Joaquim · Pelotas</small></div>
 
 <section class="section-alt">
   <div class="wrap">
     <div class="plantas-intro">
       <p class="eyebrow">Plantas em aprovação final</p>
       <h2>As plantas serão reveladas em breve. Quem está na lista vê primeiro.</h2>
-      <p style="margin-top:12px;font-size:0.95rem;opacity:0.8;">Cinco tipologias de 3 dormitórios, de 100 a 180 m², incluindo unidades especiais com elevador privativo e duas coberturas. O detalhamento está em fase final de aprovação.</p>
+      <p style="margin-top:12px;font-size:0.95rem;opacity:0.8;">Seis tipologias de 3 dormitórios, de 112,51 a 170,43 m², além de duas coberturas exclusivas: uma horizontal de 227 m² e uma duplex de 267 m². O detalhamento final está em aprovação.</p>
     </div>
     <div class="plantas-grid">
       <div class="planta-card">
@@ -338,9 +437,9 @@ enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
           <div class="q">?</div>
         </div>
         <div class="planta-body">
-          <h3>Tipologias iniciais</h3>
-          <p class="meta">3 dormitórios · a partir de 100 m²</p>
-          <p>Sacada, living integrado e a frente norte de todo o edifício.</p>
+          <h3>Tipologias compactas</h3>
+          <p class="meta">3 dormitórios · 112,51 a 125,08 m²</p>
+          <p>Sacada, living integrado e a face norte, predominante em todo o edifício.</p>
         </div>
       </div>
       <div class="planta-card">
@@ -351,7 +450,7 @@ enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
         </div>
         <div class="planta-body">
           <h3>Tipologias intermediárias</h3>
-          <p class="meta">3 dormitórios · suíte e living ampliados</p>
+          <p class="meta">3 dormitórios · 130,16 a 131,09 m²</p>
           <p>O meio-termo entre metragem e investimento. Historicamente, as primeiras a esgotar.</p>
         </div>
       </div>
@@ -362,15 +461,15 @@ enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
           <div class="q">?</div>
         </div>
         <div class="planta-body">
-          <h3>Unidades especiais e coberturas</h3>
-          <p class="meta">Até 180 m² · elevador privativo · 2 coberturas</p>
-          <p>O topo do edifício e do corredor Dom Joaquim. Duas existirão. Nenhuma igual.</p>
+          <h3>Tipologias amplas e coberturas</h3>
+          <p class="meta">163,42 a 170,43 m² · coberturas até 267 m²</p>
+          <p>O topo do edifício e do corredor Dom Joaquim. Duas coberturas: uma horizontal de 227 m², outra duplex de 267 m². Nenhuma igual.</p>
         </div>
       </div>
     </div>
     <div class="plantas-cta">
       <p>As plantas e condições de pré-lançamento serão enviadas primeiro a quem está na lista.</p>
-      <a class="btn" href="https://wa.me/5553981041499?text=Ol%C3%A1%2C%20quero%20receber%20as%20plantas%20do%20novo%20empreendimento%20da%20Zabaleta%20na%20Dom%20Joaquim%20em%20primeira%20m%C3%A3o.">Quero receber as plantas em primeira mão</a>
+      <a class="btn" href="https://wa.me/5553981041499?text=Ol%C3%A1%2C%20quero%20receber%20as%20plantas%20do%20Zabaleta%20Milano%2C%20na%20Dom%20Joaquim%2C%20em%20primeira%20m%C3%A3o.">Quero receber as plantas em primeira mão</a>
     </div>
   </div>
 </section>
@@ -382,7 +481,7 @@ enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
     <p style="max-width:640px;margin-top:16px;color:#C9C3B5;font-size:0.97rem;">A régua não é o suficiente. É o melhor que Pelotas já viu. A área de lazer foi distribuída em dois níveis do edifício — e os primeiros itens confirmados já mostram o tamanho da ambição.</p>
     <div class="stats" style="margin-top:52px;">
       <div><div class="stat-num">100 m²</div><div class="stat-label">de academia completa, dentro do edifício</div></div>
-      <div><div class="stat-num">Borda infinita</div><div class="stat-label">piscina no rooftop, debruçada sobre a Dom Joaquim</div></div>
+      <div><div class="stat-num">15 m</div><div class="stat-label">de piscina aquecida de borda infinita no rooftop, debruçada sobre a Dom Joaquim</div></div>
       <div><div class="stat-num">100</div><div class="stat-label">pessoas de capacidade no salão de festas</div></div>
     </div>
     <div class="lazer-levels">
@@ -394,23 +493,23 @@ enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
       <div class="level-card">
         <div class="lvl">Rooftop</div>
         <h3>O nível do horizonte</h3>
-        <p>Piscina de borda infinita no 16º pavimento, com a vista aberta que só 40 metros de frente na Dom Joaquim proporcionam.</p>
+        <p>Piscina aquecida de borda infinita com 15 metros de extensão, no 16º pavimento, com a vista aberta que só 40 metros de frente na Dom Joaquim proporcionam.</p>
       </div>
     </div>
 
     <div style="margin-top:72px;">
-      <p class="eyebrow">Galeria do empreendimento</p>
+      <p class="eyebrow">Galeria do Zabaleta Milano</p>
       <h2 style="font-size:1.7rem;max-width:640px;margin-top:12px;">Conheça as áreas de lazer. Quer dizer, quase.</h2>
-      <p style="max-width:600px;margin-top:14px;color:#C9C3B5;font-size:0.95rem;">As imagens serão reveladas junto com o projeto. E a primeira revelação não será pública: chega por mensagem, para quem está na lista de interessados.</p>
+      <p style="max-width:600px;margin-top:14px;color:#C9C3B5;font-size:0.95rem;">A primeira imagem já foi liberada: a piscina de borda infinita do rooftop. As próximas chegam antes, por mensagem, para quem está na lista de interessados.</p>
     </div>
     <div class="lazer-gallery">
-      <div class="tease-card"><div class="tease-blur"></div><span class="tag">Em breve</span><div class="q">?</div><div class="lbl">Piscina de borda infinita · Rooftop</div></div>
+      <figure class="reveal-card"><img src="img/piscina-rooftop.jpg" alt="Piscina de borda infinita no rooftop do Zabaleta Milano ao pôr do sol, com vista aberta para Pelotas" loading="lazy"><span class="tag">Revelada</span><figcaption class="lbl">Piscina aquecida de 15 m de borda infinita · Rooftop, 16º pavimento<small>Perspectiva ilustrativa</small></figcaption></figure>
       <div class="tease-card"><div class="tease-blur" style="transform:rotate(120deg);"></div><span class="tag">Em breve</span><div class="q">?</div><div class="lbl">Lazer do 3º andar</div></div>
       <div class="tease-card"><div class="tease-blur" style="transform:rotate(240deg);"></div><span class="tag">Em breve</span><div class="q">?</div><div class="lbl">O que ainda não podemos contar</div></div>
     </div>
     <div class="lazer-gallery-cta">
-      <p>Quando as imagens forem liberadas, a lista recebe primeiro.</p>
-      <a class="btn" href="https://wa.me/5553981041499?text=Ol%C3%A1%2C%20quero%20ver%20as%20imagens%20das%20%C3%A1reas%20de%20lazer%20do%20novo%20empreendimento%20da%20Zabaleta%20na%20Dom%20Joaquim%20assim%20que%20forem%20liberadas.">Quero ver as áreas de lazer primeiro</a>
+      <p>Quando as próximas imagens forem liberadas, a lista recebe primeiro.</p>
+      <a class="btn" href="https://wa.me/5553981041499?text=Ol%C3%A1%2C%20quero%20ver%20as%20imagens%20das%20%C3%A1reas%20de%20lazer%20do%20Zabaleta%20Milano%2C%20na%20Dom%20Joaquim%2C%20assim%20que%20forem%20liberadas.">Quero ver as áreas de lazer primeiro</a>
     </div>
   </div>
 </section>
@@ -436,6 +535,23 @@ enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
   </div>
 </section>
 
+<div class="name-divider"><span>Zabaleta Milano</span><small>Construtora Zabaleta · desde 1982</small></div>
+
+<section class="section-dark">
+  <div class="wrap">
+    <div class="video-intro">
+      <p class="eyebrow">Direto da construtora</p>
+      <h2>Recado do Maurício Zabaleta sobre o Milano.</h2>
+    </div>
+    <div class="video-frame">
+      <video muted playsinline preload="auto" poster="img/anuncio-zabaleta-poster.jpg" data-autoplay-video>
+        <source src="img/anuncio-zabaleta.mp4" type="video/mp4">
+      </video>
+      <button type="button" class="video-mute-toggle is-muted" aria-label="Ativar som"><span class="video-mute-icon">🔇</span><span class="video-mute-label">Ativar som</span></button>
+    </div>
+  </div>
+</section>
+
 <section class="section-alt construtora">
   <div class="wrap two-col reverse">
     <div class="img-col">
@@ -444,10 +560,21 @@ enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
     </div>
     <div>
       <p class="eyebrow">Quem assina a obra</p>
-      <h2>Comprar na planta é comprar a entrega. Aqui, ela tem 43 anos de histórico.</h2>
+      <h2>Comprar na planta é comprar a entrega. Aqui, ela tem 44 anos de histórico.</h2>
       <p>A Construtora Zabaleta ergue Pelotas desde 1982: dos edifícios neoclássicos que marcaram a arquitetura da cidade à nova geração contemporânea, de fachadas em ACM e pele de vidro, que este empreendimento representa.</p>
       <p>É também uma das poucas construtoras da região certificadas <b>Great Place to Work</b>, entre as melhores empresas para se trabalhar no Rio Grande do Sul. Obra boa começa em equipe que fica.</p>
       <p>Neste momento de pré-lançamento, o cadastro na lista não envolve compromisso de compra: envolve prioridade. Plantas, programa de lazer e condições chegam primeiro para quem já está dentro.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap broker">
+    <img class="broker-photo" src="img/corretor-rodrigo.jpg" alt="Rodrigo Maysonnave Fernandes, corretor de imóveis" loading="lazy">
+    <div>
+      <p class="eyebrow">Quem atende você</p>
+      <h3>Rodrigo Maysonnave</h3>
+      <p>Corretor de imóveis de alto padrão e perito avaliador certificado, CRECI-RS 61.580. Atendimento direto, do primeiro contato à assinatura, sem call center no meio do caminho.</p>
     </div>
   </div>
 </section>
@@ -469,7 +596,7 @@ enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
       <label for="telefone">Telefone / WhatsApp</label>
       <input type="tel" id="telefone" name="telefone" required placeholder="(53) 9xxxx-xxxx">
       <button type="submit" class="btn">Garantir prioridade na lista</button>
-      <a class="whatsapp-direct" href="https://wa.me/5553981041499?text=Ol%C3%A1%2C%20quero%20entrar%20na%20lista%20de%20interessados%20do%20novo%20empreendimento%20da%20Zabaleta%20na%20Av.%20Dom%20Joaquim.">ou fale direto pelo WhatsApp, sem preencher o formulário</a>
+      <a class="whatsapp-direct" href="https://wa.me/5553981041499?text=Ol%C3%A1%2C%20quero%20entrar%20na%20lista%20de%20interessados%20do%20Zabaleta%20Milano%2C%20na%20Av.%20Dom%20Joaquim.">ou fale direto pelo WhatsApp, sem preencher o formulário</a>
     </form>
   </div>
 </section>
@@ -479,7 +606,7 @@ enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
     <img src="img/logo-zabaleta.png" alt="Construtora Zabaleta">
     <img class="mays" src="img/logo-maysonnave.png" alt="Maysonnave Imóveis">
   </div>
-  <p>Realização: Construtora Zabaleta · desde 1982 · Vendas: Rodrigo Maysonnave Fernandes · CRECI-RS 61.580</p>
+  <p>Zabaleta Milano · Realização: Construtora Zabaleta · desde 1982 · Vendas: Rodrigo Maysonnave Fernandes · CRECI-RS 61.580</p>
   <p>Rua XV de Novembro, 666, Loja 67, Galeria Zabaleta, Pelotas/RS · (53) 98104-1499</p>
   <p class="legal">Empreendimento em fase de pré-lançamento. Imagens, metragens e informações são preliminares e podem ser alteradas até o registro de incorporação. Cadastro de interesse sem compromisso de compra.</p>
 </footer>
@@ -489,10 +616,80 @@ enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
     e.preventDefault();
     var nome = document.getElementById('nome').value.trim();
     var telefone = document.getElementById('telefone').value.trim();
-    var msg = 'Olá, quero entrar na lista de interessados do novo empreendimento da Zabaleta na Av. Dom Joaquim.\nNome: ' + nome + '\nTelefone: ' + telefone;
+    var msg = 'Olá, quero entrar na lista de interessados do Zabaleta Milano, na Av. Dom Joaquim.\nNome: ' + nome + '\nTelefone: ' + telefone;
     var url = 'https://wa.me/5553981041499?text=' + encodeURIComponent(msg);
     if (window.innerWidth < 768) { window.location.href = url; } else { window.open(url, '_blank'); }
   });
+</script>
+
+<script>
+(function(){
+  var userInteracted = false;
+  var videos = Array.prototype.slice.call(document.querySelectorAll('[data-autoplay-video]'));
+
+  function syncButton(v){
+    var btn = v.nextElementSibling;
+    if (!btn || !btn.classList.contains('video-mute-toggle')) return;
+    var icon = btn.querySelector('.video-mute-icon');
+    if (icon) icon.textContent = v.muted ? '🔇' : '🔊';
+    btn.classList.toggle('is-muted', v.muted);
+  }
+
+  function unlockVideo(v){
+    var wasPlaying = !v.paused;
+    v.muted = false;
+    var p = v.play();
+    if (p && p.then) {
+      p.then(function(){
+        if (!wasPlaying) v.pause();
+        syncButton(v);
+      }).catch(function(){
+        v.muted = true;
+        if (!wasPlaying) v.pause();
+        syncButton(v);
+      });
+    }
+  }
+
+  var justUnlocked = false;
+  function unlockSound(){
+    if (userInteracted) return;
+    userInteracted = true;
+    justUnlocked = true;
+    videos.forEach(unlockVideo);
+    setTimeout(function(){ justUnlocked = false; }, 0);
+  }
+  ['pointerdown','touchstart','keydown'].forEach(function(evt){
+    window.addEventListener(evt, unlockSound, { once:true, passive:true });
+  });
+
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      var video = entry.target;
+      if (entry.isIntersecting) {
+        if (userInteracted) { video.muted = false; syncButton(video); }
+        video.play().catch(function(){});
+      } else {
+        video.pause();
+      }
+    });
+  }, { threshold: 0.4, rootMargin: '200px 0px' });
+  videos.forEach(function(v){ observer.observe(v); });
+
+  document.querySelectorAll('.video-mute-toggle').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var video = btn.previousElementSibling;
+      if (justUnlocked) {
+        justUnlocked = false;
+        syncButton(video);
+        return;
+      }
+      video.muted = !video.muted;
+      syncButton(video);
+      userInteracted = true;
+    });
+  });
+})();
 </script>
 
 <script>
