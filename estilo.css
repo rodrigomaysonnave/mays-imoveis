@@ -1,7 +1,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --tinta:#241C14;--tinta-2:#5C4E42;--tinta-3:#6F6155;--sobre-escuro:#A79684;
-  --fundo:#FAF7F3;--superficie:#fff;--superficie-2:#F3EEE7;
+  --fundo:#FFFFFF;--superficie:#fff;--superficie-2:#F5F5F5;
   --linha:#E3DAD0;--marca:#7D5F41;--marca-clara:#9B7B5A;--escuro:#241C14;
 }
 html{scroll-behavior:smooth}
@@ -98,6 +98,13 @@ a{color:var(--marca)}
 .ficha{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(280px,1fr);gap:32px;align-items:start;margin:32px 0 56px}
 .ficha h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(24px,3.6vw,34px);line-height:1.2;margin-bottom:8px}
 .ficha-local{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--marca);margin-bottom:20px}
+.ficha-mapa,.cond-resumo{margin:32px 0;padding-top:28px;border-top:1px solid var(--linha)}
+.ficha-mapa h2,.cond-resumo h2{font-family:Georgia,serif;font-weight:400;font-size:26px;margin-bottom:16px}
+.ficha-mapa iframe{display:block;width:100%;height:360px;border:0;border-radius:8px;margin:16px 0;background:var(--superficie-2)}
+.mapa-aviso{font-size:13px;color:var(--tinta-3);margin-bottom:16px}
+.emp-lazer{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;padding-left:20px;margin:20px 0}
+.emp-galeria{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:24px 0}
+.emp-galeria img{display:block;width:100%;height:200px;object-fit:cover;border-radius:6px}
 .ficha-desc{margin:24px 0;color:var(--tinta-2);line-height:1.7}
 .ficha-desc p,.prose p{margin-bottom:1.1em}
 .ficha-desc p:last-child,.prose p:last-child{margin-bottom:0}

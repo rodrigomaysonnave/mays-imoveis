@@ -168,6 +168,7 @@ enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
       
       <div class="extras"><span class="extra">Aceita financiamento</span><span class="extra">Ar condicionado</span><span class="extra">Interfone</span><span class="extra">Portaria</span><span class="extra">Rua asfaltada</span><span class="extra">Zelador</span></div>
       
+      <section class="ficha-mapa"><h2>Localização</h2><p>Rua Andrade Neves, 2142, Centro, Pelotas, RS, Brasil</p><iframe src="https://www.google.com/maps?q=-31.75427%2C-52.336304&amp;z=15&amp;output=embed&amp;hl=pt-BR" title="Mapa de localização do imóvel" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe><p class="mapa-aviso">Ponto informado no cadastro do imóvel ou empreendimento.</p><a class="botao" href="https://www.google.com/maps/search/?api=1&amp;query=-31.75427%2C-52.336304" target="_blank" rel="noopener">Abrir no Google Maps</a></section>
     </div>
 
     <aside class="lateral">
@@ -183,64 +184,6 @@ enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
     </aside>
   </div>
 </div>
-<div class="visor" id="visor" hidden role="dialog" aria-modal="true" aria-label="Fotos do imóvel">
-  <button class="visor-fechar" id="visorFechar" aria-label="Fechar">&#x2715;</button>
-  <button class="visor-seta visor-ant" id="visorAnt" aria-label="Foto anterior">&#x2039;</button>
-  <figure class="visor-palco"><img id="visorImg" alt=""></figure>
-  <button class="visor-seta visor-prox" id="visorProx" aria-label="Próxima foto">&#x203a;</button>
-  <div class="visor-conta" id="visorConta"></div>
-</div>
-<script>
-(() => {
-  const fotos = ["../../fotos/MI-114-tecimob-114-0.jpg", "../../fotos/MI-114-tecimob-114-1.jpg", "../../fotos/MI-114-tecimob-114-2.jpg", "../../fotos/MI-114-tecimob-114-3.jpg", "../../fotos/MI-114-tecimob-114-4.jpg", "../../fotos/MI-114-tecimob-114-5.jpg"];
-  const visor = document.getElementById('visor');
-  const img = document.getElementById('visorImg');
-  const conta = document.getElementById('visorConta');
-  let atual = 0, ultimoFoco = null;
-
-  function mostrar(i) {
-    atual = (i + fotos.length) % fotos.length;
-    img.src = fotos[atual];
-    img.alt = 'Foto ' + (atual + 1) + ' de ' + fotos.length;
-    conta.textContent = (atual + 1) + ' / ' + fotos.length;
-  }
-  function abrir(i) {
-    ultimoFoco = document.activeElement;
-    mostrar(i);
-    visor.hidden = false;
-    document.body.style.overflow = 'hidden';
-    document.getElementById('visorFechar').focus();
-  }
-  function fechar() {
-    visor.hidden = true;
-    document.body.style.overflow = '';
-    if (ultimoFoco) ultimoFoco.focus();
-  }
-  const capa = document.querySelector('.ficha-capa');
-  // Abre na foto que o carrossel da capa estiver mostrando, não sempre na
-  // primeira — script_carrossel_cartao() guarda o índice em data-indice-atual.
-  if (capa) { capa.style.cursor = 'zoom-in'; capa.addEventListener('click', () => abrir(Number(capa.dataset.indiceAtual) || 0)); }
-  document.getElementById('visorFechar').addEventListener('click', fechar);
-  document.getElementById('visorAnt').addEventListener('click', () => mostrar(atual - 1));
-  document.getElementById('visorProx').addEventListener('click', () => mostrar(atual + 1));
-  visor.addEventListener('click', ev => { if (ev.target === visor) fechar(); });
-  document.addEventListener('keydown', ev => {
-    if (visor.hidden) return;
-    if (ev.key === 'Escape') fechar();
-    if (ev.key === 'ArrowLeft') mostrar(atual - 1);
-    if (ev.key === 'ArrowRight') mostrar(atual + 1);
-  });
-  // Arrastar o dedo no celular
-  let x0 = null;
-  visor.addEventListener('touchstart', ev => { x0 = ev.touches[0].clientX; }, {passive: true});
-  visor.addEventListener('touchend', ev => {
-    if (x0 === null) return;
-    const d = ev.changedTouches[0].clientX - x0;
-    if (Math.abs(d) > 45) mostrar(atual + (d < 0 ? 1 : -1));
-    x0 = null;
-  }, {passive: true});
-})();
-</script>
 <section class="form-lead" id="falar">
   <div class="env">
     <div class="form-caixa">
@@ -299,6 +242,64 @@ enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
       btn.disabled = false; btn.textContent = 'Enviar';
     }
   });
+})();
+</script>
+<div class="visor" id="visor" hidden role="dialog" aria-modal="true" aria-label="Fotos do imóvel">
+  <button class="visor-fechar" id="visorFechar" aria-label="Fechar">&#x2715;</button>
+  <button class="visor-seta visor-ant" id="visorAnt" aria-label="Foto anterior">&#x2039;</button>
+  <figure class="visor-palco"><img id="visorImg" alt=""></figure>
+  <button class="visor-seta visor-prox" id="visorProx" aria-label="Próxima foto">&#x203a;</button>
+  <div class="visor-conta" id="visorConta"></div>
+</div>
+<script>
+(() => {
+  const fotos = ["../../fotos/MI-114-tecimob-114-0.jpg", "../../fotos/MI-114-tecimob-114-1.jpg", "../../fotos/MI-114-tecimob-114-2.jpg", "../../fotos/MI-114-tecimob-114-3.jpg", "../../fotos/MI-114-tecimob-114-4.jpg", "../../fotos/MI-114-tecimob-114-5.jpg"];
+  const visor = document.getElementById('visor');
+  const img = document.getElementById('visorImg');
+  const conta = document.getElementById('visorConta');
+  let atual = 0, ultimoFoco = null;
+
+  function mostrar(i) {
+    atual = (i + fotos.length) % fotos.length;
+    img.src = fotos[atual];
+    img.alt = 'Foto ' + (atual + 1) + ' de ' + fotos.length;
+    conta.textContent = (atual + 1) + ' / ' + fotos.length;
+  }
+  function abrir(i) {
+    ultimoFoco = document.activeElement;
+    mostrar(i);
+    visor.hidden = false;
+    document.body.style.overflow = 'hidden';
+    document.getElementById('visorFechar').focus();
+  }
+  function fechar() {
+    visor.hidden = true;
+    document.body.style.overflow = '';
+    if (ultimoFoco) ultimoFoco.focus();
+  }
+  const capa = document.querySelector('.ficha-capa');
+  // Abre na foto que o carrossel da capa estiver mostrando, não sempre na
+  // primeira — script_carrossel_cartao() guarda o índice em data-indice-atual.
+  if (capa) { capa.style.cursor = 'zoom-in'; capa.addEventListener('click', () => abrir(Number(capa.dataset.indiceAtual) || 0)); }
+  document.getElementById('visorFechar').addEventListener('click', fechar);
+  document.getElementById('visorAnt').addEventListener('click', () => mostrar(atual - 1));
+  document.getElementById('visorProx').addEventListener('click', () => mostrar(atual + 1));
+  visor.addEventListener('click', ev => { if (ev.target === visor) fechar(); });
+  document.addEventListener('keydown', ev => {
+    if (visor.hidden) return;
+    if (ev.key === 'Escape') fechar();
+    if (ev.key === 'ArrowLeft') mostrar(atual - 1);
+    if (ev.key === 'ArrowRight') mostrar(atual + 1);
+  });
+  // Arrastar o dedo no celular
+  let x0 = null;
+  visor.addEventListener('touchstart', ev => { x0 = ev.touches[0].clientX; }, {passive: true});
+  visor.addEventListener('touchend', ev => {
+    if (x0 === null) return;
+    const d = ev.changedTouches[0].clientX - x0;
+    if (Math.abs(d) > 45) mostrar(atual + (d < 0 ? 1 : -1));
+    x0 = null;
+  }, {passive: true});
 })();
 </script>
 </main>

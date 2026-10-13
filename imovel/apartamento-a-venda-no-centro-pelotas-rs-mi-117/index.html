@@ -168,6 +168,7 @@ enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
       
       <div class="extras"><span class="extra">Aceita financiamento</span><span class="extra">Ar condicionado</span><span class="extra">Interfone</span><span class="extra">Rua asfaltada</span></div>
       
+      <section class="ficha-mapa"><h2>Localização</h2><p>Rua Félix Xavier da Cunha, 608, Centro, Pelotas, RS, Brasil</p><iframe src="https://www.google.com/maps?q=-31.76646%2C-52.3387485&amp;z=15&amp;output=embed&amp;hl=pt-BR" title="Mapa de localização do imóvel" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe><p class="mapa-aviso">Ponto informado no cadastro do imóvel ou empreendimento.</p><a class="botao" href="https://www.google.com/maps/search/?api=1&amp;query=-31.76646%2C-52.3387485" target="_blank" rel="noopener">Abrir no Google Maps</a></section>
     </div>
 
     <aside class="lateral">
@@ -183,6 +184,66 @@ enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
     </aside>
   </div>
 </div>
+<section class="form-lead" id="falar">
+  <div class="env">
+    <div class="form-caixa">
+      <h2>Mais informações sobre este imóvel</h2>
+      <p>Respondo pessoalmente. Sem robô e sem corrente de e-mail.</p>
+      <form id="formLead" novalidate>
+        <label for="lNome">Nome<span aria-hidden="true">*</span></label>
+        <input type="text" id="lNome" name="nome" required autocomplete="name">
+        <div class="form-dupla">
+          <div><label for="lTel">Telefone<span aria-hidden="true">*</span></label>
+            <input type="tel" id="lTel" name="telefone" required autocomplete="tel"
+                   placeholder="(53) 9 9999-9999"></div>
+          <div><label for="lEmail">E-mail</label>
+            <input type="email" id="lEmail" name="email" autocomplete="email"></div>
+        </div>
+        <label for="lMsg">Mensagem</label>
+        <textarea id="lMsg" name="mensagem" rows="3">Olá Rodrigo, tenho interesse no imóvel MI-117 (Apartamento Loft em Centro, Pelotas/RS). Aguardo o contato.</textarea>
+        <button type="submit" class="botao botao-cheio" id="lEnviar">Enviar</button>
+        <p class="form-aviso" id="lAviso" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+<script>
+(() => {
+  const f = document.getElementById('formLead');
+  const aviso = document.getElementById('lAviso');
+  const btn = document.getElementById('lEnviar');
+  f.addEventListener('submit', async ev => {
+    ev.preventDefault();
+    const nome = lNome.value.trim(), tel = lTel.value.trim();
+    if (!nome || !tel) {
+      aviso.textContent = 'Preencha nome e telefone para eu conseguir responder.';
+      aviso.className = 'form-aviso erro';
+      (nome ? lTel : lNome).focus();
+      return;
+    }
+    btn.disabled = true; btn.textContent = 'Enviando…';
+    try {
+      const r = await fetch('https://gwhwesvmqvxakvjtsrdn.supabase.co/rest/v1/lead_site', {
+        method: 'POST',
+        headers: { 'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd3aHdlc3ZtcXZ4YWt2anRzcmRuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY2MjI3MjMsImV4cCI6MjEwMjE5ODcyM30.-8YOH8sLts-lK-u6ALcbnlQHhVOsgZrKQWg5B3DhjRE', 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nome, telefone: tel, email: lEmail.value.trim() || null,
+          mensagem: lMsg.value.trim() || null,
+          imovel_id: 'fe50943b-7716-40d7-916a-c85c22729e93', imovel_ref: 'MI-117',
+          pagina: location.pathname, origem: 'Ficha do imóvel'
+        })
+      });
+      if (!r.ok) throw new Error(r.status);
+      if (window.maysMedir) window.maysMedir('formulario', 'Ficha do imóvel');
+      f.innerHTML = '<p class="form-ok">Recebido. Retorno em breve no telefone que você deixou.</p>';
+    } catch (erro) {
+      aviso.textContent = 'Não consegui enviar agora. Chame no WhatsApp que eu respondo na hora.';
+      aviso.className = 'form-aviso erro';
+      btn.disabled = false; btn.textContent = 'Enviar';
+    }
+  });
+})();
+</script>
   <section class="semelhantes">
     <div class="env">
       <h2>Imóveis semelhantes</h2>
@@ -315,66 +376,6 @@ enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
     if (Math.abs(d) > 45) mostrar(atual + (d < 0 ? 1 : -1));
     x0 = null;
   }, {passive: true});
-})();
-</script>
-<section class="form-lead" id="falar">
-  <div class="env">
-    <div class="form-caixa">
-      <h2>Mais informações sobre este imóvel</h2>
-      <p>Respondo pessoalmente. Sem robô e sem corrente de e-mail.</p>
-      <form id="formLead" novalidate>
-        <label for="lNome">Nome<span aria-hidden="true">*</span></label>
-        <input type="text" id="lNome" name="nome" required autocomplete="name">
-        <div class="form-dupla">
-          <div><label for="lTel">Telefone<span aria-hidden="true">*</span></label>
-            <input type="tel" id="lTel" name="telefone" required autocomplete="tel"
-                   placeholder="(53) 9 9999-9999"></div>
-          <div><label for="lEmail">E-mail</label>
-            <input type="email" id="lEmail" name="email" autocomplete="email"></div>
-        </div>
-        <label for="lMsg">Mensagem</label>
-        <textarea id="lMsg" name="mensagem" rows="3">Olá Rodrigo, tenho interesse no imóvel MI-117 (Apartamento Loft em Centro, Pelotas/RS). Aguardo o contato.</textarea>
-        <button type="submit" class="botao botao-cheio" id="lEnviar">Enviar</button>
-        <p class="form-aviso" id="lAviso" role="status"></p>
-      </form>
-    </div>
-  </div>
-</section>
-<script>
-(() => {
-  const f = document.getElementById('formLead');
-  const aviso = document.getElementById('lAviso');
-  const btn = document.getElementById('lEnviar');
-  f.addEventListener('submit', async ev => {
-    ev.preventDefault();
-    const nome = lNome.value.trim(), tel = lTel.value.trim();
-    if (!nome || !tel) {
-      aviso.textContent = 'Preencha nome e telefone para eu conseguir responder.';
-      aviso.className = 'form-aviso erro';
-      (nome ? lTel : lNome).focus();
-      return;
-    }
-    btn.disabled = true; btn.textContent = 'Enviando…';
-    try {
-      const r = await fetch('https://gwhwesvmqvxakvjtsrdn.supabase.co/rest/v1/lead_site', {
-        method: 'POST',
-        headers: { 'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd3aHdlc3ZtcXZ4YWt2anRzcmRuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY2MjI3MjMsImV4cCI6MjEwMjE5ODcyM30.-8YOH8sLts-lK-u6ALcbnlQHhVOsgZrKQWg5B3DhjRE', 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          nome, telefone: tel, email: lEmail.value.trim() || null,
-          mensagem: lMsg.value.trim() || null,
-          imovel_id: 'fe50943b-7716-40d7-916a-c85c22729e93', imovel_ref: 'MI-117',
-          pagina: location.pathname, origem: 'Ficha do imóvel'
-        })
-      });
-      if (!r.ok) throw new Error(r.status);
-      if (window.maysMedir) window.maysMedir('formulario', 'Ficha do imóvel');
-      f.innerHTML = '<p class="form-ok">Recebido. Retorno em breve no telefone que você deixou.</p>';
-    } catch (erro) {
-      aviso.textContent = 'Não consegui enviar agora. Chame no WhatsApp que eu respondo na hora.';
-      aviso.className = 'form-aviso erro';
-      btn.disabled = false; btn.textContent = 'Enviar';
-    }
-  });
 })();
 </script>
 </main>

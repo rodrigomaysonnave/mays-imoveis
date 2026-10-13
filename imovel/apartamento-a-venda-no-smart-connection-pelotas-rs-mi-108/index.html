@@ -167,7 +167,8 @@ enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
       <div class="ficha-desc"><p>🌅 Onde o Futuro Encontra a Melhor Vista de Pelotas</p><p>Se você busca um refúgio que une tecnologia de ponta e uma contemplação única da natureza, este apartamento no Smart Connection é o seu próximo endereço. Localizado no 9º andar, ele oferece uma experiência visual rara em Pelotas: uma vista livre e permanente que abraça desde a área verde preservada e o curso do Arroio Pelotas até o horizonte pulsante do centro da cidade.</p><p>Destaques do Imóvel:Andar Alto (9º): Mais privacidade, silêncio e uma ventilação privilegiada.</p><p>Pôr do Sol Exclusivo: A posição solar garante finais de tarde cinematográficos diretamente da sua janela.</p><p>Casa Inteligente (Smart Home): Equipado com central de automação completa. Controle iluminação, dispositivos e segurança através do painel de comando intuitivo ou na palma da sua mão pelo celular.</p><p>Acabamento Premium: Já conta com piso laminado de alta qualidade, trazendo conforto térmico e sofisticação imediata para os 2 dormitórios e áreas sociais.</p><p>Conectividade e Conforto</p><p>Viver no Smart Connection é estar no centro de tudo, com a conveniência de um condomínio pensado para o estilo de vida moderno. O layout de 2 dormitórios foi planejado para otimizar cada metro quadrado, ideal para quem não abre mão de praticidade sem perder o contato com a beleza natural da nossa região.</p><p>Por que este é o investimento certo?</p><p>Valorização Garantida: Imóveis em andares altos com vista permanente são os mais procurados e valorizados no mercado imobiliário de Pelotas.</p><p>Tecnologia: A automação residencial já instalada economiza tempo e adiciona uma camada extra de segurança e modernidade ao seu dia a dia.</p><p>Pronto para Morar: Com o piso laminado já colocado, o caminho entre a assinatura do contrato e a mudança ficou muito mais curto.📍 Localização: Próximo às principais conveniências, mas com a paz de olhar para o verde.</p><p>Agende uma visita e venha descobrir como é ver o sol se pôr sobre o Arroio Pelotas do seu novo living.</p><p>As informações estão sujeitas a alterações. Consulte o corretor responsável.</p></div>
       
       <div class="extras"><span class="extra">Cozinha americana</span><span class="extra">Gás central</span><span class="extra">Gás individual</span><span class="extra">Infraestrutura p/ ar-condicionado</span><span class="extra">Interfone</span><span class="extra">Portaria</span><span class="extra">Rua asfaltada</span><span class="extra">Varanda gourmet</span><span class="extra">Vista exterior</span><span class="extra">Zelador</span></div>
-      
+      <section class="cond-resumo"><h2>Conheça o Smart Connection</h2><div class="ficha-desc"></div><a class="cond-fotos-link" href="../../condominio/smart-connection/">Ver empreendimento completo →</a></section>
+      <section class="ficha-mapa"><h2>Localização</h2><p>Avenida Ferreira Viana, 3666, Areal, Pelotas, RS, Brasil</p><iframe src="https://www.google.com/maps?q=-31.7525934%2C-52.2970265&amp;z=15&amp;output=embed&amp;hl=pt-BR" title="Mapa de localização do imóvel" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe><p class="mapa-aviso">Ponto informado no cadastro do imóvel ou empreendimento.</p><a class="botao" href="https://www.google.com/maps/search/?api=1&amp;query=-31.7525934%2C-52.2970265" target="_blank" rel="noopener">Abrir no Google Maps</a></section>
     </div>
 
     <aside class="lateral">
@@ -175,7 +176,7 @@ enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
       <ul class="lista-icones"><li class="ic ic-dorm">2 dormitórios (1 suíte)</li><li class="ic ic-vaga">1 vaga</li><li class="ic ic-banho">2 banheiros</li><li class="ic ic-ano">Construído em 2025</li></ul>
       <div class="lateral-preco">R$ 350.000</div>
       <div class="lateral-ref">Referência MI-108</div>
-      <div class="lateral-empreendimento">Unidade no <a href="../../condominio/smart-connection/">Smart Connection</a></div>
+      <div class="lateral-empreendimento">Unidade no Smart Connection</div>
       <a class="botao botao-cheio" href="https://wa.me/5553981041499?text=Ol%C3%A1%20Rodrigo%2C%20vi%20o%20im%C3%B3vel%20MI-108%20no%20site%20e%20gostaria%20de%20saber%20mais." target="_blank" rel="noopener">Falar sobre este imóvel</a>
       
       <p style="font-size:12.5px;color:var(--tinta-3);margin-top:18px;line-height:1.55">
@@ -183,6 +184,66 @@ enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
     </aside>
   </div>
 </div>
+<section class="form-lead" id="falar">
+  <div class="env">
+    <div class="form-caixa">
+      <h2>Mais informações sobre este imóvel</h2>
+      <p>Respondo pessoalmente. Sem robô e sem corrente de e-mail.</p>
+      <form id="formLead" novalidate>
+        <label for="lNome">Nome<span aria-hidden="true">*</span></label>
+        <input type="text" id="lNome" name="nome" required autocomplete="name">
+        <div class="form-dupla">
+          <div><label for="lTel">Telefone<span aria-hidden="true">*</span></label>
+            <input type="tel" id="lTel" name="telefone" required autocomplete="tel"
+                   placeholder="(53) 9 9999-9999"></div>
+          <div><label for="lEmail">E-mail</label>
+            <input type="email" id="lEmail" name="email" autocomplete="email"></div>
+        </div>
+        <label for="lMsg">Mensagem</label>
+        <textarea id="lMsg" name="mensagem" rows="3">Olá Rodrigo, tenho interesse no imóvel MI-108 (Apartamento de 2 dormitórios no Smart Connection). Aguardo o contato.</textarea>
+        <button type="submit" class="botao botao-cheio" id="lEnviar">Enviar</button>
+        <p class="form-aviso" id="lAviso" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+<script>
+(() => {
+  const f = document.getElementById('formLead');
+  const aviso = document.getElementById('lAviso');
+  const btn = document.getElementById('lEnviar');
+  f.addEventListener('submit', async ev => {
+    ev.preventDefault();
+    const nome = lNome.value.trim(), tel = lTel.value.trim();
+    if (!nome || !tel) {
+      aviso.textContent = 'Preencha nome e telefone para eu conseguir responder.';
+      aviso.className = 'form-aviso erro';
+      (nome ? lTel : lNome).focus();
+      return;
+    }
+    btn.disabled = true; btn.textContent = 'Enviando…';
+    try {
+      const r = await fetch('https://gwhwesvmqvxakvjtsrdn.supabase.co/rest/v1/lead_site', {
+        method: 'POST',
+        headers: { 'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd3aHdlc3ZtcXZ4YWt2anRzcmRuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY2MjI3MjMsImV4cCI6MjEwMjE5ODcyM30.-8YOH8sLts-lK-u6ALcbnlQHhVOsgZrKQWg5B3DhjRE', 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nome, telefone: tel, email: lEmail.value.trim() || null,
+          mensagem: lMsg.value.trim() || null,
+          imovel_id: '98df2b55-3e0a-407f-b719-bb42227fe590', imovel_ref: 'MI-108',
+          pagina: location.pathname, origem: 'Ficha do imóvel'
+        })
+      });
+      if (!r.ok) throw new Error(r.status);
+      if (window.maysMedir) window.maysMedir('formulario', 'Ficha do imóvel');
+      f.innerHTML = '<p class="form-ok">Recebido. Retorno em breve no telefone que você deixou.</p>';
+    } catch (erro) {
+      aviso.textContent = 'Não consegui enviar agora. Chame no WhatsApp que eu respondo na hora.';
+      aviso.className = 'form-aviso erro';
+      btn.disabled = false; btn.textContent = 'Enviar';
+    }
+  });
+})();
+</script>
   <section class="semelhantes">
     <div class="env">
       <h2>Imóveis semelhantes</h2>
@@ -315,66 +376,6 @@ enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
     if (Math.abs(d) > 45) mostrar(atual + (d < 0 ? 1 : -1));
     x0 = null;
   }, {passive: true});
-})();
-</script>
-<section class="form-lead" id="falar">
-  <div class="env">
-    <div class="form-caixa">
-      <h2>Mais informações sobre este imóvel</h2>
-      <p>Respondo pessoalmente. Sem robô e sem corrente de e-mail.</p>
-      <form id="formLead" novalidate>
-        <label for="lNome">Nome<span aria-hidden="true">*</span></label>
-        <input type="text" id="lNome" name="nome" required autocomplete="name">
-        <div class="form-dupla">
-          <div><label for="lTel">Telefone<span aria-hidden="true">*</span></label>
-            <input type="tel" id="lTel" name="telefone" required autocomplete="tel"
-                   placeholder="(53) 9 9999-9999"></div>
-          <div><label for="lEmail">E-mail</label>
-            <input type="email" id="lEmail" name="email" autocomplete="email"></div>
-        </div>
-        <label for="lMsg">Mensagem</label>
-        <textarea id="lMsg" name="mensagem" rows="3">Olá Rodrigo, tenho interesse no imóvel MI-108 (Apartamento de 2 dormitórios no Smart Connection). Aguardo o contato.</textarea>
-        <button type="submit" class="botao botao-cheio" id="lEnviar">Enviar</button>
-        <p class="form-aviso" id="lAviso" role="status"></p>
-      </form>
-    </div>
-  </div>
-</section>
-<script>
-(() => {
-  const f = document.getElementById('formLead');
-  const aviso = document.getElementById('lAviso');
-  const btn = document.getElementById('lEnviar');
-  f.addEventListener('submit', async ev => {
-    ev.preventDefault();
-    const nome = lNome.value.trim(), tel = lTel.value.trim();
-    if (!nome || !tel) {
-      aviso.textContent = 'Preencha nome e telefone para eu conseguir responder.';
-      aviso.className = 'form-aviso erro';
-      (nome ? lTel : lNome).focus();
-      return;
-    }
-    btn.disabled = true; btn.textContent = 'Enviando…';
-    try {
-      const r = await fetch('https://gwhwesvmqvxakvjtsrdn.supabase.co/rest/v1/lead_site', {
-        method: 'POST',
-        headers: { 'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd3aHdlc3ZtcXZ4YWt2anRzcmRuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY2MjI3MjMsImV4cCI6MjEwMjE5ODcyM30.-8YOH8sLts-lK-u6ALcbnlQHhVOsgZrKQWg5B3DhjRE', 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          nome, telefone: tel, email: lEmail.value.trim() || null,
-          mensagem: lMsg.value.trim() || null,
-          imovel_id: '98df2b55-3e0a-407f-b719-bb42227fe590', imovel_ref: 'MI-108',
-          pagina: location.pathname, origem: 'Ficha do imóvel'
-        })
-      });
-      if (!r.ok) throw new Error(r.status);
-      if (window.maysMedir) window.maysMedir('formulario', 'Ficha do imóvel');
-      f.innerHTML = '<p class="form-ok">Recebido. Retorno em breve no telefone que você deixou.</p>';
-    } catch (erro) {
-      aviso.textContent = 'Não consegui enviar agora. Chame no WhatsApp que eu respondo na hora.';
-      aviso.className = 'form-aviso erro';
-      btn.disabled = false; btn.textContent = 'Enviar';
-    }
-  });
 })();
 </script>
 </main>
