@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Assistente de busca · Maysonnave Imóveis</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23241C14'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' font-weight='700' fill='%239B7B5A' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<style>
+/* Página de TESTE do assistente de busca (função assistente-site).
+   Fora do sitemap e com noindex: só quem tem o link chega aqui. */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tinta:#241C14;--tinta-2:#5C4E42;--tinta-3:#6F6155;--sobre-escuro:#A79684;
+  --fundo:#FFFFFF;--superficie:#fff;--superficie-2:#F5F5F5;
+  --linha:#E3DAD0;--marca:#7D5F41;--marca-clara:#9B7B5A;--escuro:#241C14;
+}
+body{background:var(--superficie-2);color:var(--tinta);
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+  font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+img{max-width:100%;display:block}
+a{color:var(--marca)}
+/* Sem isto o `display:flex` das sugestões vence o hidden e elas não somem. */
+[hidden]{display:none !important}
+.env{width:min(100% - 32px,860px);margin:0 auto}
+
+.cabeca{background:var(--superficie);border-bottom:1px solid var(--linha)}
+.cabeca .env{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+.cabeca img{height:44px;width:auto}
+.selo{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--marca);border:1px solid var(--marca-clara);border-radius:3px;padding:4px 8px}
+
+.capa{background:var(--escuro);color:#fff}
+.capa .env{padding:40px 0 34px}
+.capa h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(26px,5vw,40px);line-height:1.15;text-wrap:balance}
+.capa p{margin-top:10px;color:rgba(255,255,255,.82);max-width:56ch}
+
+main{flex:1;padding:24px 0 0}
+.conversa{display:flex;flex-direction:column;gap:14px;padding-bottom:20px}
+.msg{max-width:min(620px,88%);padding:12px 16px;border-radius:12px;font-size:15.5px}
+.msg p+p{margin-top:8px}
+.msg-cliente{align-self:flex-end;background:var(--escuro);color:#fff;border-bottom-right-radius:3px}
+.msg-ia{align-self:flex-start;background:var(--superficie);border:1px solid var(--linha);border-bottom-left-radius:3px}
+.msg-ia strong{font-weight:700}
+.msg-aviso{align-self:center;font-size:13px;color:var(--tinta-3);text-align:center;max-width:52ch}
+.digitando{display:inline-flex;gap:5px;padding:4px 0}
+.digitando i{width:7px;height:7px;border-radius:50%;background:var(--marca-clara);animation:pulo 1s infinite ease-in-out}
+.digitando i:nth-child(2){animation-delay:.15s}.digitando i:nth-child(3){animation-delay:.3s}
+@keyframes pulo{0%,80%,100%{opacity:.3;transform:translateY(0)}40%{opacity:1;transform:translateY(-4px)}}
+
+.cartoes{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;align-self:stretch}
+.cartao{display:flex;flex-direction:column;background:var(--superficie);border:1px solid var(--linha);
+  border-radius:8px;overflow:hidden;text-decoration:none;color:var(--tinta);transition:box-shadow .2s,transform .2s}
+.cartao:hover{box-shadow:0 10px 28px -16px rgba(36,28,20,.5);transform:translateY(-2px)}
+.cartao-foto{aspect-ratio:4/3;background:var(--superficie-2) center/cover no-repeat}
+.cartao-corpo{padding:12px 14px 14px;display:flex;flex-direction:column;gap:4px}
+.cartao-local{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-3)}
+.cartao-titulo{font-size:14.5px;font-weight:600;line-height:1.35}
+.cartao-valor{font-size:17px;font-weight:700;color:var(--marca);margin-top:2px}
+.cartao-dados{font-size:13px;color:var(--tinta-2)}
+.cartao-ver{font-size:13px;font-weight:700;color:var(--marca);margin-top:6px}
+
+.sugestoes{display:flex;flex-wrap:wrap;gap:8px;padding-bottom:18px}
+.sugestoes button{font:inherit;font-size:13.5px;background:var(--superficie);color:var(--tinta-2);
+  border:1px solid var(--linha);border-radius:999px;padding:7px 14px;cursor:pointer}
+.sugestoes button:hover{border-color:var(--marca);color:var(--marca)}
+
+.barra{position:sticky;bottom:0;background:linear-gradient(transparent,var(--superficie-2) 30%);padding:18px 0 16px}
+.caixa{display:flex;gap:8px;background:var(--superficie);border:1px solid var(--linha);border-radius:10px;
+  padding:6px;box-shadow:0 10px 30px -18px rgba(36,28,20,.45)}
+.caixa textarea{flex:1;border:0;resize:none;font:inherit;font-size:16px;padding:9px 10px;max-height:140px;
+  color:var(--tinta);background:transparent;outline:none;line-height:1.45}
+.caixa button{border:0;background:var(--marca);color:#fff;font:inherit;font-weight:700;font-size:14px;
+  border-radius:7px;padding:0 18px;cursor:pointer;min-height:44px}
+.caixa button:disabled{opacity:.5;cursor:default}
+.rodape-nota{font-size:12px;color:var(--tinta-3);text-align:center;margin-top:8px}
+.rodape-nota a{color:var(--tinta-2)}
+
+@media (max-width:560px){
+  .cabeca img{height:36px}
+  .capa .env{padding:28px 0 24px}
+  .msg{max-width:94%}
+  .cartoes{grid-template-columns:1fr 1fr;gap:10px}
+  .cartao-corpo{padding:10px}
+  .cartao-titulo{font-size:13.5px}
+  .cartao-valor{font-size:15px}
+}
+@media (max-width:360px){.cartoes{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="cabeca">
+  <div class="env">
+    <a href="../"><img src="../logo.png" alt="Maysonnave Imóveis" width="160" height="44"></a>
+    <span class="selo">Versão de teste</span>
+  </div>
+</header>
+
+<section class="capa">
+  <div class="env">
+    <h1>Diga com suas palavras o imóvel que você procura.</h1>
+    <p>Bairro, valor, quartos, pátio pro cachorro, sol da manhã. O assistente procura no nosso catálogo e mostra o que combina.</p>
+  </div>
+</section>
+
+<main>
+  <div class="env">
+    <div class="conversa" id="conversa" aria-live="polite"></div>
+    <div class="sugestoes" id="sugestoes">
+      <button type="button">Apartamento de 3 dormitórios no Centro até R$ 900 mil</button>
+      <button type="button">Casa em condomínio no Laranjal com piscina</button>
+      <button type="button">O que já se sabe do Zabaleta Milano?</button>
+      <button type="button">Apartamento para alugar perto da UCPel</button>
+    </div>
+  </div>
+  <div class="barra">
+    <div class="env">
+      <form class="caixa" id="form">
+        <textarea id="campo" rows="1" placeholder="Ex.: casa com 3 suítes no Laranjal, até 2 milhões" aria-label="O que você procura?" maxlength="1200"></textarea>
+        <button type="submit" id="enviar">Enviar</button>
+      </form>
+      <p class="rodape-nota">Assistente virtual em teste. Prefere falar com gente? <a href="https://wa.me/5553981041499" target="_blank" rel="noopener">WhatsApp do corretor</a>.</p>
+    </div>
+  </div>
+</main>
+
+<script>
+(function () {
+  'use strict';
+  var FUNCAO = 'https://gwhwesvmqvxakvjtsrdn.supabase.co/functions/v1/assistente-site';
+  var conversa = document.getElementById('conversa');
+  var form = document.getElementById('form');
+  var campo = document.getElementById('campo');
+  var botao = document.getElementById('enviar');
+  var sugestoes = document.getElementById('sugestoes');
+  var mensagens = [];
+  var ocupado = false;
+
+  // Sessão por aba: agrupa a conversa no registro e evita lead duplicado.
+  var sessao = null;
+  try { sessao = sessionStorage.getItem('assistente-sessao'); } catch (e) {}
+  if (!sessao) {
+    sessao = 's' + Date.now().toString(36) + Math.random().toString(36).slice(2, 10);
+    try { sessionStorage.setItem('assistente-sessao', sessao); } catch (e) {}
+  }
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  // Texto da IA: escapa tudo e só então devolve negrito, link e parágrafo.
+  function formatar(t) {
+    return esc(t).split(/\n{2,}/).map(function (bloco) {
+      var h = bloco
+        .replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>')
+        .replace(/(https?:\/\/[^\s<]+[^\s<.,;:!?)])/g, '<a href="$1" target="_blank" rel="noopener">$1</a>')
+        .replace(/\n/g, '<br>');
+      return '<p>' + h + '</p>';
+    }).join('');
+  }
+
+  function brl(v) {
+    if (v == null || v === '') return '';
+    return Number(v).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+  }
+
+  function cartao(c) {
+    var local = [c.tipo, c.bairro].filter(Boolean).join(' · ');
+    var dados = [];
+    if (c.dormitorios) dados.push(c.dormitorios + (c.dormitorios > 1 ? ' dorms' : ' dorm'));
+    if (c.suites) dados.push(c.suites + (c.suites > 1 ? ' suítes' : ' suíte'));
+    if (c.vagas) dados.push(c.vagas + (c.vagas > 1 ? ' vagas' : ' vaga'));
+    if (c.area) dados.push(Math.round(c.area) + ' m²');
+    var valor = c.valor ? brl(c.valor) + (c.finalidade === 'aluguel' ? '/mês' : '') : 'Consulte';
+    var foto = c.foto ? ' style="background-image:url(&quot;' + esc(c.foto) + '&quot;)"' : '';
+    return '<a class="cartao" href="' + esc(c.url || '#') + '" target="_blank" rel="noopener">' +
+      '<div class="cartao-foto"' + foto + ' role="img" aria-label="' + esc(c.titulo) + '"></div>' +
+      '<div class="cartao-corpo">' +
+        '<span class="cartao-local">' + esc(local) + (c.empreendimento ? ' · ' + esc(c.empreendimento) : '') + '</span>' +
+        '<span class="cartao-titulo">' + esc(c.titulo) + '</span>' +
+        '<span class="cartao-valor">' + esc(valor) + '</span>' +
+        (dados.length ? '<span class="cartao-dados">' + esc(dados.join(' · ')) + '</span>' : '') +
+        '<span class="cartao-ver">' + esc(c.codigo) + ' · Ver imóvel →</span>' +
+      '</div></a>';
+  }
+
+  function adicionar(classe, html) {
+    var el = document.createElement('div');
+    el.className = classe;
+    el.innerHTML = html;
+    conversa.appendChild(el);
+    el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    return el;
+  }
+
+  function enviar(texto) {
+    texto = String(texto || '').trim();
+    if (!texto || ocupado) return;
+    ocupado = true; botao.disabled = true;
+    sugestoes.hidden = true;
+    adicionar('msg msg-cliente', formatar(texto));
+    mensagens.push({ de: 'cliente', texto: texto });
+    campo.value = ''; ajustar();
+    var esperando = adicionar('msg msg-ia', '<span class="digitando" aria-label="Digitando"><i></i><i></i><i></i></span>');
+
+    fetch(FUNCAO, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ sessao: sessao, pagina: location.href, mensagens: mensagens.slice(-20) })
+    }).then(function (r) { return r.json(); }).then(function (d) {
+      var resposta = d.texto || d.erro || 'Não consegui responder agora.';
+      esperando.innerHTML = formatar(resposta);
+      if (d.texto && !d.falhou) mensagens.push({ de: 'ia', texto: d.texto });
+      if (d.imoveis && d.imoveis.length) adicionar('cartoes', d.imoveis.map(cartao).join(''));
+      if (d.contato_registrado) adicionar('msg-aviso', 'Contato enviado ao corretor.');
+    }).catch(function () {
+      esperando.innerHTML = formatar('Não consegui me conectar agora. Tente de novo em instantes ou chame o corretor no WhatsApp.');
+    }).then(function () {
+      ocupado = false; botao.disabled = false; campo.focus();
+    });
+  }
+
+  function ajustar() {
+    campo.style.height = 'auto';
+    campo.style.height = Math.min(campo.scrollHeight, 140) + 'px';
+  }
+
+  form.addEventListener('submit', function (e) { e.preventDefault(); enviar(campo.value); });
+  campo.addEventListener('input', ajustar);
+  campo.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); enviar(campo.value); }
+  });
+  sugestoes.addEventListener('click', function (e) {
+    if (e.target.tagName === 'BUTTON') enviar(e.target.textContent);
+  });
+
+  adicionar('msg msg-ia', formatar('Olá! Sou o assistente virtual da Maysonnave Imóveis. Me conta o que você procura: tipo de imóvel, bairro, faixa de valor, o que não pode faltar.'));
+})();
+</script>
+</body>
+</html>
