@@ -51,48 +51,6 @@ a{color:var(--marca)}
   border:1px solid var(--linha);border-radius:4px;background:var(--fundo);
   color:var(--tinta);font-family:inherit}
 .busca-campos select:focus,.busca-campos input:focus{outline:2px solid var(--marca);outline-offset:1px}
-/* Busca por texto livre: a pessoa escreve o pedido e a IA traduz em
-   critérios (função assistente-site, modo busca). Os filtros continuam
-   embaixo para quem prefere escolher. */
-.busca-ia{padding:20px 20px 4px}
-.busca-ia-rotulo{display:block;font-family:Georgia,serif;font-size:20px;color:var(--tinta);margin-bottom:10px}
-.busca-ia-linha{display:flex;gap:10px}
-.busca-ia-linha input{flex:1;min-width:0;padding:14px 16px;font-size:16px;border:1px solid var(--linha);
-  border-radius:4px;background:var(--fundo);color:var(--tinta);font-family:inherit}
-.busca-ia-linha input:focus{outline:2px solid var(--marca);outline-offset:1px}
-.busca-ia-botao{padding:0 28px;border:0;border-radius:4px;background:var(--marca);color:#fff;
-  font-weight:700;font-size:15px;letter-spacing:.03em;cursor:pointer;font-family:inherit}
-.busca-ia-botao:disabled{opacity:.6;cursor:wait}
-.busca-ia-exemplos{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px;font-size:13px;color:var(--tinta-3)}
-.busca-ia-exemplos button{border:1px solid var(--linha);background:none;border-radius:999px;padding:6px 12px;
-  font-size:13px;color:var(--tinta-2);cursor:pointer;font-family:inherit}
-.busca-ia-exemplos button:hover{border-color:var(--marca);color:var(--marca)}
-.busca-ou{margin:14px 20px 0;padding-top:14px;border-top:1px solid var(--linha);font-size:10.5px;font-weight:700;
-  letter-spacing:.09em;text-transform:uppercase;color:var(--tinta-3)}
-.busca-ou + .busca-campos{padding-top:10px}
-.busca-entendi{margin-top:16px;font-size:15px;color:var(--tinta-2)}
-.busca-entendi b{color:var(--tinta)}
-.grade-sep{grid-column:1/-1;font-family:Georgia,serif;font-size:20px;color:var(--tinta);
-  padding-top:18px;margin-top:6px;border-top:1px solid var(--linha)}
-.cond-sug-titulo{font-family:Georgia,serif;font-size:20px;margin-top:22px}
-.cond-sug-grade{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:12px}
-.cond-sug{position:relative;display:block;aspect-ratio:16/9;border-radius:6px;overflow:hidden;
-  background:var(--escuro);color:#fff;text-decoration:none}
-.cond-sug img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.72;transition:transform .4s}
-.cond-sug:hover img{transform:scale(1.04)}
-.cond-sug div{position:absolute;left:0;right:0;bottom:0;padding:16px 18px;background:linear-gradient(transparent,rgba(0,0,0,.78))}
-.cond-sug small{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.85;margin-bottom:2px}
-.cond-sug strong{font-family:Georgia,serif;font-weight:400;font-size:21px}
-#destaques{scroll-margin-top:110px}
-.vazio-site .botao-zap{display:inline-block;width:auto;margin-top:14px;padding:12px 24px}
-@media (max-width:560px){
-  .busca-ia{padding:16px 16px 4px}
-  .busca-ia-rotulo{font-size:18px}
-  .busca-ia-linha{flex-direction:column}
-  .busca-ia-botao{min-height:48px}
-  .busca-ou{margin:12px 16px 0}
-  .cond-sug-grade{grid-template-columns:1fr}
-}
 
 /* Seções */
 .secao{margin:56px 0}
