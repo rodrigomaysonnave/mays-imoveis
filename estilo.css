@@ -601,3 +601,17 @@ button.video-capa{display:block;width:100%;padding:0;font:inherit;cursor:pointer
   .nav{display:none}
   .capa .env{padding-top:56px;padding-bottom:88px}
 }
+/* Balão do WhatsApp: acompanha a rolagem em todas as páginas. Fica abaixo
+   do visor de fotos (z 200) e respeita a barra do iPhone. */
+.zap-balao{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:150;
+  display:flex;align-items:center;gap:10px;height:58px;padding:0 14px;border-radius:29px;
+  background:#128C3E;color:#fff;text-decoration:none;font-weight:700;font-size:15px;
+  box-shadow:0 6px 18px rgba(20,15,10,.28);transition:transform .15s ease}
+.zap-balao:hover{transform:translateY(-2px)}
+.zap-balao:focus-visible{outline:3px solid var(--tinta);outline-offset:3px}
+.zap-balao span{padding-right:4px}
+@media (max-width:720px){
+  .zap-balao{width:58px;padding:0;justify-content:center;right:14px;bottom:calc(14px + env(safe-area-inset-bottom))}
+  .zap-balao span{display:none}
+}
+@media print{.zap-balao{display:none}}
