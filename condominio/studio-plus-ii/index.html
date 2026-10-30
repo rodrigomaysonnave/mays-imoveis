@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Studio Plus II — Condomínio em Centro, Pelotas/RS · Maysonnave Imóveis</title>
+<meta name="description" content="Studio Residence Plus II é um condomínio da Porto5 na Rua Almirante Barroso, 2733, no Centro de Pelotas. É o terceiro lançamento da linha de studios da constr">
+<link rel="canonical" href="https://maysimoveis.com/condominio/studio-plus-ii/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Studio Plus II — Condomínio em Centro, Pelotas/RS · Maysonnave Imóveis">
+<meta property="og:description" content="Studio Residence Plus II é um condomínio da Porto5 na Rua Almirante Barroso, 2733, no Centro de Pelotas. É o terceiro lançamento da linha de studios da constr">
+<meta property="og:url" content="https://maysimoveis.com/condominio/studio-plus-ii/">
+<meta property="og:image" content="../../fotos/emp-dc764483-emp-dc764483-0.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../../estilo.css?v=9584762883e5">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23241C14'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' font-weight='700' fill='%239B7B5A' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ApartmentComplex", "name": "Studio Plus II", "description": "Studio Residence Plus II é um condomínio da Porto5 na Rua Almirante Barroso, 2733, no Centro de Pelotas. É o terceiro lançamento da linha de studios da constr", "url": "https://maysimoveis.com/condominio/studio-plus-ii/", "image": "https://maysimoveis.com/fotos/emp-dc764483-emp-dc764483-0.jpg"}</script>
+<script>
+(function () {
+'use strict';
+try {
+var w = window, d = document, n = navigator, L = location;
+if (L.protocol === 'file:' || w.maysMedir) return;
+var ls = null;
+try { ls = w.localStorage; ls.setItem('_m', '1'); ls.removeItem('_m'); } catch (e) { ls = null; }
+var ler = function (k) { try { return ls ? ls.getItem(k) : null; } catch (e) { return null; } };
+var gravar = function (k, v) { try { if (ls) { if (v === null) ls.removeItem(k); else ls.setItem(k, v); } } catch (e) {} };
+var q = new URLSearchParams(L.search);
+if (q.has('nao-contar')) gravar('mays_nao_contar', '1');
+if (q.has('contar')) gravar('mays_nao_contar', null);
+w.maysMedir = function () {};
+if (ler('mays_nao_contar') || n.webdriver ||
+/bot|crawl|spider|slurp|headless|lighthouse|pagespeed|preview|facebookexternalhit|embedly/i.test(n.userAgent)) return;
+var sorteio = function () {
+var a = new Uint8Array(12), s = '';
+w.crypto.getRandomValues(a);
+for (var i = 0; i < a.length; i++) s += (a[i] % 36).toString(36);
+return s;
+};
+var base = L.hostname.replace(/^www\./, '');
+var ref = d.referrer || '', refHost = '';
+try { refHost = ref ? new URL(ref).hostname.replace(/^www\./, '') : ''; } catch (e) {}
+var externo = !!refHost && refHost !== base && refHost.slice(-base.length - 1) !== '.' + base;
+var utm = {}, temUtm = false, clique = null;
+['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) {
+var v = q.get(k); if (v) { utm[k] = v.slice(0, 150); temUtm = true; }
+});
+['gclid', 'gbraid', 'wbraid', 'fbclid', 'msclkid', 'ttclid'].some(function (k) {
+if (q.has(k)) { clique = k; return true; } return false;
+});
+var agora = Date.now(), s = null, entrada = false;
+try { s = JSON.parse(ler('mays_sessao') || 'null'); } catch (e) {}
+var nova = (externo || temUtm || clique) ? { r: externo ? ref.slice(0, 300) : null, u: utm, c: clique } : null;
+var assinatura = nova ? JSON.stringify([refHost, utm, clique]) : null;
+if (!s || !s.id || agora - (s.ult || 0) > 1800000 || (nova && assinatura !== s.sig)) {
+s = { id: sorteio(), sig: assinatura, a: nova || { r: null, u: {}, c: null } };
+entrada = true;
+}
+var visitante = ler('mays_visitante');
+if (!/^[a-z0-9]{8,32}$/.test(visitante || '')) { visitante = sorteio(); gravar('mays_visitante', visitante); }
+var ua = n.userAgent;
+var disp = (/iPad|Tablet/i.test(ua) || (/Android/i.test(ua) && !/Mobile/i.test(ua)) ||
+(/Macintosh/.test(ua) && n.maxTouchPoints > 1)) ? 'tablet'
+: (/Mobi|iPhone|iPod|Android/i.test(ua) ? 'celular' : 'computador');
+var lead = q.get('lead');
+if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(lead || '')) lead = null;
+var caminho = (L.pathname.replace(/index\.html$/, '') || '/').slice(0, 300);
+var enviar = function (tipo, alvo) {
+s.ult = Date.now(); gravar('mays_sessao', JSON.stringify(s));
+var a = s.a || {}, u = a.u || {};
+var corpo = JSON.stringify({
+tipo: tipo, visitante: visitante, sessao: s.id,
+entrada: tipo === 'pagina' && entrada,
+caminho: caminho, titulo: (d.title || '').slice(0, 200) || null,
+referencia: a.r || null, clique: a.c || null,
+utm_source: u.utm_source || null, utm_medium: u.utm_medium || null,
+utm_campaign: u.utm_campaign || null, utm_content: u.utm_content || null,
+utm_term: u.utm_term || null, dispositivo: disp,
+alvo: alvo ? String(alvo).replace(/\s+/g, ' ').trim().slice(0, 150) || null : null,
+lead_campanha: tipo === 'pagina' ? lead : null
+});
+if (tipo === 'pagina') entrada = false;
+var mandar = function (manter) {
+return fetch('https://gwhwesvmqvxakvjtsrdn.supabase.co/rest/v1/visita_site', {
+method: 'POST', keepalive: manter, body: corpo,
+headers: { apikey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd3aHdlc3ZtcXZ4YWt2anRzcmRuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY2MjI3MjMsImV4cCI6MjEwMjE5ODcyM30.-8YOH8sLts-lK-u6ALcbnlQHhVOsgZrKQWg5B3DhjRE', 'Content-Type': 'application/json', Prefer: 'return=minimal' }
+});
+};
+try { mandar(true).catch(function () { mandar(false).catch(function () {}); }); } catch (e) {}
+};
+w.maysMedir = enviar;
+var pagina = function () { setTimeout(function () { enviar('pagina'); }, 0); };
+if (d.readyState === 'complete') pagina(); else w.addEventListener('load', pagina);
+d.addEventListener('click', function (ev) {
+var el = ev.target && ev.target.closest ? ev.target.closest('a[href]') : null;
+if (!el) return;
+var h = el.getAttribute('href') || '';
+var rot = el.getAttribute('aria-label') || el.getAttribute('title') || el.textContent || '';
+if (/wa\.me\/|api\.whatsapp\.com|^whatsapp:/i.test(h)) enviar('whatsapp', rot);
+else if (/^tel:/i.test(h)) enviar('telefone', rot);
+}, true);
+d.addEventListener('submit', function (ev) {
+var f = ev.target;
+if (!f || f.id === 'formLead' || f.getAttribute('role') === 'search' ||
+/(^|\s)busca(\s|$)/.test(f.className || '')) return;
+enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
+}, true);
+} catch (e) {}
+})();
+</script><meta name="google-site-verification" content="verificacao-teste-123"><script async src="https://www.googletagmanager.com/gtag/js?id=G-BVCFDBCGGC"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-BVCFDBCGGC")</script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src="https://www.googletagmanager.com/gtm.js?id="+i;f.parentNode.insertBefore(j,f);})(window,document,"script","dataLayer","GTM-5ZH679FT");</script><script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","1465473300752819");fbq("track","PageView");</script>
+</head>
+<body>
+<header class="cabeca"><div class="env">
+  <a class="marca" href="../../">
+    <img src="../../logo.png" alt="Maysonnave Imóveis" class="marca-logo" width="140" height="74">
+  </a>
+  <nav class="nav"><div class="nav-mm"><a class="nav-item nav-mm-alvo" href="../../?fin=venda#imoveis">Vendas<span class="nav-seta" aria-hidden="true">⌄</span></a><div class="mm-caixa" style="--mm-larg:700px"><div class="mm-env"><div class="mm-grade"><div class="mm-col"><h4>Tipo de imóvel</h4><a href="../../?fin=venda&amp;tipo=Apartamento#imoveis">Apartamento <b>11</b></a><a href="../../?fin=venda&amp;tipo=Casa#imoveis">Casa <b>6</b></a><a href="../../?fin=venda&amp;tipo=Sala%20Comercial#imoveis">Sala Comercial <b>2</b></a><a href="../../?fin=venda&amp;tipo=Terreno#imoveis">Terreno <b>2</b></a></div><div class="mm-col"><h4>Por bairro</h4><a href="../../?fin=venda&amp;bairro=Centro#imoveis">Centro <b>8</b></a><a href="../../?fin=venda&amp;bairro=S%C3%A3o%20Gon%C3%A7alo#imoveis">São Gonçalo <b>5</b></a><a href="../../?fin=venda&amp;bairro=Laranjal#imoveis">Laranjal <b>4</b></a><a href="../../?fin=venda&amp;bairro=Areal#imoveis">Areal <b>3</b></a><a href="../../?fin=venda&amp;bairro=Tr%C3%AAs%20Vendas#imoveis">Três Vendas <b>1</b></a></div><div class="mm-col"><h4>Por dormitórios</h4><a href="../../?fin=venda&amp;dorm=1#imoveis">1 ou mais <b>17</b></a><a href="../../?fin=venda&amp;dorm=2#imoveis">2 ou mais <b>14</b></a><a href="../../?fin=venda&amp;dorm=3#imoveis">3 ou mais <b>9</b></a><a href="../../?fin=venda&amp;dorm=4#imoveis">4 ou mais <b>2</b></a></div></div></div></div></div><div class="nav-mm"><a class="nav-item nav-mm-alvo" href="../../?fin=aluguel#imoveis">Aluguel<span class="nav-seta" aria-hidden="true">⌄</span></a><div class="mm-caixa" style="--mm-larg:470px"><div class="mm-env"><div class="mm-grade"><div class="mm-col"><h4>Tipo de imóvel</h4><a href="../../?fin=aluguel&amp;tipo=Apartamento#imoveis">Apartamento <b>2</b></a></div><div class="mm-col"><h4>Por bairro</h4><a href="../../?fin=aluguel&amp;bairro=S%C3%A3o%20Gon%C3%A7alo#imoveis">São Gonçalo <b>2</b></a></div></div></div></div></div><div class="nav-mm"><a class="nav-item nav-mm-alvo" href="../../#destaques">Condomínios<span class="nav-seta" aria-hidden="true">⌄</span></a><div class="mm-caixa" style="--mm-larg:460px"><div class="mm-env"><div class="mm-grade"><div class="mm-col"><h4>Em destaque</h4><a href="../../condominio/lagos-de-sao-goncalo/">Lagos de São Gonçalo</a><a href="../../condominio/office-zabaleta/">Office Zabaleta</a><a href="../../condominio/veredas/">Veredas</a><a href="../../condominio/zabaleta-milano/">Zabaleta Milano</a></div><div class="mm-col mm-col-busca">
+      <h4>Buscar</h4>
+      <input type="search" class="mm-busca-campo" id="buscaCondominios"
+             placeholder="Nome do condomínio…" autocomplete="off">
+      <div class="mm-busca-resultado" id="resultadoCondominios"></div>
+    </div>
+    <script>
+    (function () {
+      var RAIZ_COND = "../..", LISTA = [{"nome": "Acqua Parque Residence", "slug": "acqua-parque-residence"}, {"nome": "Alphaville Pelotas", "slug": "alphaville-pelotas"}, {"nome": "Central Park", "slug": "central-park"}, {"nome": "Lagos de S\u00e3o Gon\u00e7alo", "slug": "lagos-de-sao-goncalo"}, {"nome": "Novo empreendimento", "slug": "novo-empreendimento-cd801f"}, {"nome": "Office Zabaleta", "slug": "office-zabaleta"}, {"nome": "Quinta da Baronesa", "slug": "quinta-da-baronesa"}, {"nome": "Reserva Areal", "slug": "reserva-areal"}, {"nome": "Royal Park Zabaleta", "slug": "novo-empreendimento-2d1637"}, {"nome": "Smart Connection", "slug": "smart-connection"}, {"nome": "Smart Urban Club", "slug": "novo-empreendimento-003bc4"}, {"nome": "Studio Plus II", "slug": "studio-plus-ii"}, {"nome": "Veredas", "slug": "veredas"}, {"nome": "Vista do butu\u00ed ", "slug": "novo-empreendimento"}, {"nome": "Zabaleta Milano", "slug": "zabaleta-milano"}];
+      var campo = document.getElementById('buscaCondominios'),
+          alvo = document.getElementById('resultadoCondominios');
+      if (!campo) return;
+      campo.addEventListener('input', function () {
+        var q = campo.value.trim().toLowerCase();
+        alvo.innerHTML = '';
+        if (!q) return;
+        var achados = LISTA.filter(function (c) {
+          return c.nome.toLowerCase().indexOf(q) !== -1;
+        }).slice(0, 8);
+        if (!achados.length) {
+          var p = document.createElement('p');
+          p.className = 'mm-busca-vazio'; p.textContent = 'Nenhum encontrado.';
+          alvo.appendChild(p);
+          return;
+        }
+        achados.forEach(function (c) {
+          var a = document.createElement('a');
+          a.href = RAIZ_COND + '/condominio/' + c.slug + '/';
+          a.textContent = c.nome;
+          alvo.appendChild(a);
+        });
+      });
+    })();
+    </script></div></div></div></div><a class="nav-item" href="../../#destaques">Destaques</a><div class="nav-mm direita"><a class="nav-item nav-mm-alvo" href="../../blog/">Blog<span class="nav-seta" aria-hidden="true">⌄</span></a><div class="mm-caixa" style="--mm-larg:340px"><div class="mm-env"><div class="mm-grade"><div class="mm-col mm-col-larga"><h4>Últimos artigos</h4><a href="../../blog/o-que-ja-esta-confirmado-no-pre-lancamento-da-zabaleta-na-dom-joaquim/">O que já está confirmado no pré-lançamento da Zabaleta na Dom Joaquim</a></div></div></div></div></div><div class="nav-mm direita"><a class="nav-item nav-mm-alvo" href="../../#contato">Contato<span class="nav-seta" aria-hidden="true">⌄</span></a><div class="mm-caixa" style="--mm-larg:330px"><div class="mm-env"><div class="mm-grade"><div class="mm-col mm-col-larga"><h4>Fale com o corretor</h4><a href="https://wa.me/5553991276960?text=Ol%C3%A1%21%20Cheguei%20pelo%20site%20e%20gostaria%20de%20falar%20sobre%20im%C3%B3veis." target="_blank" rel="noopener">Falar no WhatsApp</a><a href="mailto:rodrigomaysonnave@gmail.com">rodrigomaysonnave@gmail.com</a><a href="../../#contato">Rua XV de Novembro, 666 · loja 67</a></div></div></div></div></div><a class="nav-item nav-favoritos" href="../../favoritos.html"><span aria-hidden="true">★</span> Favoritos <b id="favConta">0</b></a><button type="button" class="nav-lupa" id="btnBusca" aria-label="Buscar imóvel" title="Buscar imóvel">⌕</button></nav>
+</div></header>
+<main>
+<script>const RAIZ_SITE = "../..";</script><div class="busca-texto" id="buscaTexto"><div class="env"><input type="search" id="qTexto" aria-label="Buscar imóvel" placeholder="Buscar por código, rua, bairro ou título"></div></div><script>(function () {  var b = document.getElementById("btnBusca"),      cx = document.getElementById("buscaTexto"),      campo = document.getElementById("qTexto");  if (!b) return;  b.addEventListener("click", function () {    cx.classList.toggle("aberta");    if (cx.classList.contains("aberta")) campo.focus();  });  campo.addEventListener("keydown", function (ev) {    if (ev.key !== "Enter") return;    var q = campo.value.trim();    if (!q) return;    if (typeof window.buscarTexto === "function") window.buscarTexto(q);    else location.href = RAIZ_SITE + "/?q=" + encodeURIComponent(q) + "#imoveis";  });})();</script>
+
+<section class="cd-capa">
+  <img class="cd-capa-foto" src="../../fotos/emp-dc764483-emp-dc764483-0.jpg" alt="Studio Plus II" loading="eager" fetchpriority="high" width="1600" height="900">
+  <div class="env cd-capa-env">
+    <nav class="trilha-site cd-trilha" aria-label="Você está em">
+      <a href="../../">Início</a> <i>›</i> <span>Studio Plus II</span></nav>
+    <div class="cd-capa-texto">
+      <span class="cd-sobre">Vertical residencial · apartamentos · Centro</span>
+      <h1>Studio Plus II</h1>
+      
+      <p class="cd-local">Centro · Rua Almirante Barroso, 2733 · Pelotas/RS</p>
+      <div class="cd-acoes"><a class="botao botao-cheio cd-botao" href="https://wa.me/5553991276960?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20Studio%20Plus%20II%20e%20gostaria%20de%20saber%20mais." target="_blank" rel="noopener">Quero receber informações</a><a class="cd-botao-claro" href="#fotos">Ver as 6 fotos</a></div>
+    </div>
+  </div>
+</section><div class="env"><div class="cd-numeros"><div><b>1</b><span>unidade à venda</span></div><div><b>10</b><span>itens de estrutura e lazer</span></div><div><b class="cd-num-texto">Porto 5</b><span>construtora</span></div></div></div>
+<section class="env cd-intro cd-intro-com-foto">
+  <div class="cd-intro-texto">
+    <span class="cd-rotulo">O empreendimento</span>
+    <p class="cd-destaque">Studio Residence Plus II é um condomínio da Porto5 na Rua Almirante Barroso, 2733, no Centro de Pelotas. É o terceiro lançamento da linha de studios da construtora, com unidades de 38 a 68 m² de área privativa, 1 ou 2 dormitórios e 1 vaga de garagem.</p><p>O prédio tem isolamento térmico e acústico na fachada, elevador, portaria 24h, interfone e câmeras de segurança, e as unidades têm sacada. Na área comum ficam espaço fitness, espaço gourmet, lounge gourmet, centro de jogos e espaço kids.</p><p>Fica perto de bancos, comércio, supermercados, universidades e transporte público, o que atende bem quem quer morar no Centro ou investir em locação.</p>
+  </div>
+  <button type="button" class="cd-intro-foto" data-visor="1" aria-label="Ampliar foto"><img src="../../fotos/emp-dc764483-emp-dc764483-1.jpg" alt="" loading="lazy" width="800" height="1000"></button>
+</section>
+<section class="cd-galeria-faixa" id="fotos">
+  <div class="env">
+    <span class="cd-rotulo">Galeria</span>
+    <h2 class="cd-titulo">Fotos do Studio Plus II</h2>
+    <div class="cd-galeria cd-galeria-5"><button type="button" class="cd-galeria-item" data-visor="0" aria-label="Abrir foto 1 de 6"><img src="../../fotos/emp-dc764483-emp-dc764483-0.jpg" alt="" loading="lazy" width="600" height="450"></button><button type="button" class="cd-galeria-item" data-visor="1" aria-label="Abrir foto 2 de 6"><img src="../../fotos/emp-dc764483-emp-dc764483-1.jpg" alt="" loading="lazy" width="600" height="450"></button><button type="button" class="cd-galeria-item" data-visor="2" aria-label="Abrir foto 3 de 6"><img src="../../fotos/emp-dc764483-emp-dc764483-2.jpg" alt="" loading="lazy" width="600" height="450"></button><button type="button" class="cd-galeria-item" data-visor="3" aria-label="Abrir foto 4 de 6"><img src="../../fotos/emp-dc764483-emp-dc764483-3.jpg" alt="" loading="lazy" width="600" height="450"></button><button type="button" class="cd-galeria-item" data-visor="4" aria-label="Abrir foto 5 de 6"><img src="../../fotos/emp-dc764483-emp-dc764483-4.jpg" alt="" loading="lazy" width="600" height="450"></button><button type="button" class="cd-galeria-item" data-visor="5" aria-label="Abrir foto 6 de 6"><img src="../../fotos/emp-dc764483-emp-dc764483-5.jpg" alt="" loading="lazy" width="600" height="450"></button></div>
+  </div>
+</section>
+<section class="env cd-estrutura">
+  <span class="cd-rotulo">Estrutura e lazer</span>
+  <h2 class="cd-titulo">O que o condomínio oferece</h2>
+  <ul class="cd-itens"><li>Elevador</li><li>Portaria 24h</li><li>Interfone</li><li>Câmeras de segurança</li><li>Sacada</li><li>Espaço Gourmet</li><li>Salão de festas</li><li>Área de lazer</li><li>Academia</li><li>Infraestrutura p/ ar-condicionado</li></ul>
+</section>
+<section class="cd-contato">
+  <div class="env cd-contato-env">
+    <div>
+      <h2>Quer saber mais sobre o Studio Plus II?</h2>
+      <p>Plantas, valores, disponibilidade e visita: fale direto com o corretor, sem intermediário.</p>
+      <small>Maysonnave Imóveis · CRECI/RS 61580</small>
+    </div>
+    <a class="botao botao-cheio cd-botao" href="https://wa.me/5553991276960?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20Studio%20Plus%20II%20e%20gostaria%20de%20saber%20mais." target="_blank" rel="noopener">Falar no WhatsApp</a>
+  </div>
+</section>
+<section class="semelhantes">
+  <div class="env">
+    <h2>Unidades disponíveis</h2>
+    <div class="grade">
+    <div class="cartao-caixa">
+    <button type="button" class="cartao-fav" data-fav="apartamento-a-venda-no-centro-pelotas-rs-mi-115" data-cod="MI-115" title="Guardar nos favoritos" aria-label="Guardar nos favoritos"><span aria-hidden="true">♥</span></button>
+    <a class="cartao" href="../../imovel/apartamento-a-venda-no-centro-pelotas-rs-mi-115/">
+      <div class="cartao-foto">
+        <img src="../../fotos/MI-115-tecimob-115-0-480.webp" data-fotos="../../fotos/MI-115-tecimob-115-1_thumb.jpg|../../fotos/MI-115-tecimob-115-2_thumb.jpg|../../fotos/MI-115-tecimob-115-3_thumb.jpg|../../fotos/MI-115-tecimob-115-4_thumb.jpg|../../fotos/MI-115-tecimob-115-5_thumb.jpg" alt="Apartamento em Centro, Pelotas/RS" loading="lazy" width="480" height="320"><button type="button" class="cartao-seta cartao-ant" aria-label="Foto anterior">&#8249;</button><button type="button" class="cartao-seta cartao-prox" aria-label="Próxima foto">&#8250;</button><span class="cartao-pontos" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span class="cartao-selo">Pronto para morar</span>
+      </div>
+      <div class="cartao-corpo">
+        <div class="cartao-local">Centro · Pelotas</div>
+        <div class="cartao-titulo">
+          <h3>Apartamento em Centro, Pelotas/RS</h3>
+          <span class="cartao-ref">MI-115</span>
+        </div>
+        <div class="cartao-itens"><span><b>1</b> dorm</span><span><b>1</b> banh</span><span><b>37 m²</b> terreno</span></div>
+        <div class="cartao-preco">R$ 290.000</div>
+      </div>
+    </a>
+    </div></div>
+  </div>
+</section>
+<div class="visor" id="visor" hidden role="dialog" aria-modal="true" aria-label="Fotos do empreendimento">
+  <button class="visor-fechar" id="visorFechar" aria-label="Fechar">&#x2715;</button>
+  <button class="visor-seta visor-ant" id="visorAnt" aria-label="Foto anterior">&#x2039;</button>
+  <figure class="visor-palco"><img id="visorImg" alt=""></figure>
+  <button class="visor-seta visor-prox" id="visorProx" aria-label="Próxima foto">&#x203a;</button>
+  <div class="visor-conta" id="visorConta"></div>
+</div>
+<script>
+(() => {
+  const fotos = ["../../fotos/emp-dc764483-emp-dc764483-0.jpg", "../../fotos/emp-dc764483-emp-dc764483-1.jpg", "../../fotos/emp-dc764483-emp-dc764483-2.jpg", "../../fotos/emp-dc764483-emp-dc764483-3.jpg", "../../fotos/emp-dc764483-emp-dc764483-4.jpg", "../../fotos/emp-dc764483-emp-dc764483-5.jpg"];
+  const visor = document.getElementById('visor');
+  const img = document.getElementById('visorImg');
+  const conta = document.getElementById('visorConta');
+  let atual = 0, ultimoFoco = null;
+  function mostrar(i) {
+    atual = (i + fotos.length) % fotos.length;
+    img.src = fotos[atual];
+    img.alt = 'Foto ' + (atual + 1) + ' de ' + fotos.length;
+    conta.textContent = (atual + 1) + ' / ' + fotos.length;
+  }
+  function abrir(i) {
+    ultimoFoco = document.activeElement;
+    mostrar(i);
+    visor.hidden = false;
+    document.body.style.overflow = 'hidden';
+    document.getElementById('visorFechar').focus();
+  }
+  function fechar() {
+    visor.hidden = true;
+    document.body.style.overflow = '';
+    if (ultimoFoco) ultimoFoco.focus();
+  }
+  document.querySelectorAll('[data-visor]').forEach(b => b.addEventListener('click', () => abrir(Number(b.dataset.visor) || 0)));
+  document.getElementById('visorFechar').addEventListener('click', fechar);
+  document.getElementById('visorAnt').addEventListener('click', () => mostrar(atual - 1));
+  document.getElementById('visorProx').addEventListener('click', () => mostrar(atual + 1));
+  visor.addEventListener('click', ev => { if (ev.target === visor) fechar(); });
+  document.addEventListener('keydown', ev => {
+    if (visor.hidden) return;
+    if (ev.key === 'Escape') fechar();
+    if (ev.key === 'ArrowLeft') mostrar(atual - 1);
+    if (ev.key === 'ArrowRight') mostrar(atual + 1);
+  });
+  let x0 = null;
+  visor.addEventListener('touchstart', ev => { x0 = ev.touches[0].clientX; }, {passive: true});
+  visor.addEventListener('touchend', ev => {
+    if (x0 === null) return;
+    const d = ev.changedTouches[0].clientX - x0;
+    if (Math.abs(d) > 45) mostrar(atual + (d < 0 ? 1 : -1));
+    x0 = null;
+  }, {passive: true});
+})();
+</script>
+</main>
+<footer class="rodape"><div class="env">
+  <div>
+    <strong>Maysonnave Imóveis</strong>
+    CRECI/RS 61580<br>Rua XV de Novembro, 666 · loja 67<br>Pelotas, Rio Grande do Sul
+  </div>
+  <div id="contato">
+    <strong>Contato</strong>
+    <a href="https://wa.me/5553991276960?text=Ol%C3%A1%21%20Cheguei%20pelo%20site%20e%20gostaria%20de%20falar%20sobre%20im%C3%B3veis." target="_blank" rel="noopener">Falar no WhatsApp</a><br>
+    <a href="mailto:rodrigomaysonnave@gmail.com">rodrigomaysonnave@gmail.com</a>
+  </div>
+  <div>
+    <strong>Atuação</strong>
+    Compra, venda e avaliação de imóveis<br>
+    Comercial, residencial e rural
+  </div>
+  <div><strong>Redes</strong><div class="rodape-redes"><a class="rodape-rede" href="https://www.instagram.com/rodrigomaysonnave/" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg></a></div></div>
+</div>
+<a class="zap-balao" href="https://wa.me/5553991276960?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20Studio%20Plus%20II%20e%20gostaria%20de%20saber%20mais." target="_blank" rel="noopener" aria-label="WhatsApp (balão)"><svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true" fill="#fff"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.8 2 6.8L3.2 29l6.6-1.7c1.9 1 4 1.6 6.2 1.6 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2 0-3.9-.5-5.6-1.5l-.4-.2-3.9 1 1-3.8-.3-.4c-1.1-1.7-1.7-3.7-1.7-5.7C5.1 10 10 5.2 16 5.2S26.9 10 26.9 15.8 22 26.4 16 26.4z"/><path d="M22 18.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2s0-.5.1-.6l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.8 5 2.8 1.1 3.4.9 4 .8.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg><span>Fale no WhatsApp</span></a>
+<div class="rodape-fim env">© 2026 Maysonnave Imóveis · CRECI/RS 61580</div>
+</footer>
+
+<script>
+(function () {
+  var CHAVE = 'mays_favoritos';
+  function ler() {
+    try { var v = JSON.parse(localStorage.getItem(CHAVE) || '[]'); return Array.isArray(v) ? v : []; }
+    catch (e) { return []; }
+  }
+  function gravar(v) {
+    try { localStorage.setItem(CHAVE, JSON.stringify(v)); } catch (e) {}
+  }
+  function pintar() {
+    var favs = ler();
+    var conta = document.getElementById('favConta');
+    if (conta) conta.textContent = favs.length;
+    var topo = document.querySelector('.nav-favoritos');
+    if (topo) topo.classList.toggle('tem', favs.length > 0);
+    document.querySelectorAll('[data-fav]').forEach(function (b) {
+      var on = favs.indexOf(b.dataset.fav) >= 0;
+      b.classList.toggle('on', on);
+      b.title = on ? 'Tirar dos favoritos' : 'Guardar nos favoritos';
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    document.dispatchEvent(new CustomEvent('favoritos', { detail: favs }));
+  }
+  document.addEventListener('click', function (ev) {
+    var b = ev.target.closest('[data-fav]');
+    if (!b) return;
+    // O coração costuma ficar sobre o cartão, que é um link inteiro.
+    ev.preventDefault(); ev.stopPropagation();
+    var favs = ler(), i = favs.indexOf(b.dataset.fav);
+    if (i >= 0) favs.splice(i, 1); else favs.push(b.dataset.fav);
+    gravar(favs); pintar();
+  });
+  // Duas abas abertas: favoritar numa atualiza a outra sem recarregar.
+  window.addEventListener('storage', function (ev) { if (ev.key === CHAVE) pintar(); });
+  document.addEventListener('DOMContentLoaded', pintar);
+  window.MaysFavoritos = { ler: ler, pintar: pintar };
+})();
+</script>
+
+<script>
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-youtube]');
+  if (!b) return;
+  var id = b.dataset.youtube;
+  if (!id) return;
+  var capa = b.querySelector('.video-capa') || b.closest('.video-capa');
+  if (!capa) return;
+  capa.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
+    '?autoplay=1&rel=0" title="Vídeo" allow="autoplay; encrypted-media; picture-in-picture" ' +
+    'allowfullscreen></iframe>';
+});
+</script>
+
+<script>
+document.querySelectorAll('.cartao-foto').forEach(moldura => {
+  const img = moldura.querySelector('img');
+  if (!img || !img.dataset.fotos) return;
+  const fotos = [img.getAttribute('src')].concat(img.dataset.fotos.split('|'));
+  const pontos = moldura.querySelectorAll('.cartao-pontos i');
+  let i = 0;
+  // A foto de capa da ficha tem `srcset`, e srcset MANDA MAIS que src: trocar
+  // só o src mudava o endereço e o navegador seguia desenhando a candidata
+  // que ele já tinha escolhido, a primeira foto. Da tela, o carrossel parecia
+  // morto — só o fundo borrado acompanhava, denunciando pelas bordas que algo
+  // mudava. O srcset sai enquanto se navega e volta ao chegar de novo na
+  // primeira, que é a única que tem versão em vários tamanhos.
+  const srcset0 = img.getAttribute('srcset'), sizes0 = img.getAttribute('sizes');
+  const responsivo = (ligar) => {
+    if (!srcset0) return;
+    if (ligar) { img.setAttribute('srcset', srcset0); if (sizes0) img.setAttribute('sizes', sizes0); }
+    else { img.removeAttribute('srcset'); img.removeAttribute('sizes'); }
+  };
+  // O fundo borrado que preenche a sobra precisa acompanhar a foto que está
+  // à mostra. Preso na primeira, virar o carrossel deixava a moldura com o
+  // borrão de uma foto e a foto de outra na frente.
+  const temFundo = getComputedStyle(moldura).getPropertyValue('--fundo').trim() !== '';
+  const ir = passo => {
+    i = (i + passo + fotos.length) % fotos.length;
+    responsivo(i === 0);          // antes do src: é ele que decide o que desenha
+    img.src = fotos[i];
+    if (temFundo) moldura.style.setProperty('--fundo', 'url("' + fotos[i] + '")');
+    moldura.dataset.indiceAtual = i;
+    pontos.forEach((p, k) => p.classList.toggle('on', k === i));
+  };
+  moldura.dataset.indiceAtual = 0;
+  pontos.forEach((p, k) => p.classList.toggle('on', k === 0));
+  // A seta vive DENTRO do link do cartão (ou do clique-pra-abrir-visor da
+  // ficha) — sem parar a propagação, o clique navegava/abria em vez de só
+  // trocar a foto.
+  const parar = ev => { ev.preventDefault(); ev.stopPropagation(); };
+  const ant = moldura.querySelector('.cartao-ant'), prox = moldura.querySelector('.cartao-prox');
+  if (ant) ant.addEventListener('click', ev => { parar(ev); ir(-1); });
+  if (prox) prox.addEventListener('click', ev => { parar(ev); ir(1); });
+  // O ponto também troca a foto. Ele parecia botão e não era: quem tentava
+  // clicar nele concluía, com razão, que o carrossel não funcionava.
+  pontos.forEach((p, k) => p.addEventListener('click', ev => { parar(ev); ir(k - i); }));
+  // Arrastar o dedo, igual ao visualizador. Sem isto, no celular a única
+  // forma de passar foto no corpo da página era acertar a seta, e era por
+  // isso que só o visualizador parecia ter carrossel.
+  let x0 = null, arrastou = false;
+  moldura.addEventListener('touchstart', ev => { x0 = ev.touches[0].clientX; arrastou = false; }, {passive: true});
+  moldura.addEventListener('touchend', ev => {
+    if (x0 === null) return;
+    const d = ev.changedTouches[0].clientX - x0;
+    x0 = null;
+    if (Math.abs(d) < 45) return;   // toque curto é clique, não arrasto
+    arrastou = true;
+    ir(d < 0 ? 1 : -1);
+  }, {passive: true});
+  // O arrasto vira clique depois do touchend, e esse clique abriria o
+  // visualizador (na ficha) ou seguiria o link (no cartão). Na fase de
+  // captura dá para engolir antes de chegar em qualquer um dos dois.
+  moldura.addEventListener('click', ev => { if (arrastou) { arrastou = false; parar(ev); } }, true);
+});
+</script>
+</body></html>
