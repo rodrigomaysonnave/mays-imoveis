@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://maysimoveis.com/">
 <meta property="og:image" content="fotos/MI-0009-1788444564260-em4jqu-1400.webp">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="./estilo.css?v=360956b8153f">
+<link rel="stylesheet" href="./estilo.css?v=bf4e48966140">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23241C14'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' font-weight='700' fill='%239B7B5A' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "RealEstateAgent", "name": "Maysonnave Imóveis", "url": "https://maysimoveis.com", "areaServed": {"@type": "City", "name": "Pelotas", "addressRegion": "RS"}, "telephone": "+5553981041499", "sameAs": ["https://www.instagram.com/rodrigomaysonnave/"]}</script>
 <script>
@@ -165,6 +165,20 @@ enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
 <div class="env">
   <form class="busca" id="imoveis" onsubmit="return filtrar(event)">
     <div class="busca-topo">Encontre seu imóvel</div>
+    <div class="busca-ia">
+      <label class="busca-ia-rotulo" for="fPedido">Descreva o imóvel que você procura</label>
+      <div class="busca-ia-linha">
+        <input id="fPedido" type="search" enterkeyhint="search" autocomplete="off" maxlength="300"
+               placeholder="Ex.: casa com pátio no Laranjal até R$ 2 milhões">
+        <button type="button" class="busca-ia-botao" id="btnPedido">Buscar</button>
+      </div>
+      <div class="busca-ia-exemplos">Experimente:
+        <button type="button" data-ex="Apartamento de 2 quartos até R$ 400 mil">2 quartos até R$ 400 mil</button>
+        <button type="button" data-ex="Casa com piscina em condomínio">Casa com piscina</button>
+        <button type="button" data-ex="Apartamento para alugar">Para alugar</button>
+      </div>
+    </div>
+    <div class="busca-ou">Ou use os filtros</div>
     <div class="busca-campos">
       <div><label for="fTipo">Tipo</label>
         <select id="fTipo"><option value="">Todos</option><option value="Apartamento">Apartamento</option><option value="Casa">Casa</option><option value="Sala Comercial">Sala Comercial</option><option value="Terreno">Terreno</option></select></div>
@@ -463,6 +477,8 @@ enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
     <div class="secao-barra"><h2>Resultado da busca</h2>
       <span id="conta">25 disponíveis</span>
       <button type="button" class="btn-limpar" id="btnLimpar">Limpar busca</button></div>
+    <p class="busca-entendi" id="entendi" hidden></p>
+    <div id="condSug" hidden></div>
     <div class="grade" id="grade">
     <div class="cartao-caixa">
     <button type="button" class="cartao-fav" data-fav="loft-a-venda-centro-butui-catolica" data-cod="MI-0009" title="Guardar nos favoritos" aria-label="Guardar nos favoritos"><span aria-hidden="true">♥</span></button>
@@ -915,7 +931,7 @@ enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
     </a>
     </div></div>
     <div class="vazio-site" id="semResultado" hidden>
-      <p>Nenhum imóvel com esses filtros. Ajuste a busca acima.</p></div>
+      <p id="semTexto">Nenhum imóvel com esses filtros. Ajuste a busca acima.</p><a class="botao botao-zap" href="https://wa.me/5553981041499?text=Ol%C3%A1%20Rodrigo%2C%20procurei%20no%20site%20e%20n%C3%A3o%20encontrei%20o%20im%C3%B3vel%20que%20quero.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener">Pedir ajuda ao corretor no WhatsApp</a></div>
   </section>
 
   
@@ -986,8 +1002,12 @@ enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
 const dados = [{"slug": "loft-a-venda-centro-butui-catolica", "tipo": "Apartamento", "bairro": "Centro", "valor": 260000.0, "valor_aluguel": 0, "fin": "venda", "dorm": 1, "cidade": "Pelotas", "txt": "mi-0009 loft á venda no vista do butuí centro pelotas rua santa cruz  apartamento"}, {"slug": "sobrado-lagos-sao-goncalo-5dormitorios-fundolago", "tipo": "Casa", "bairro": "São Gonçalo", "valor": 4200000.0, "valor_aluguel": 0, "fin": "venda", "dorm": 5, "cidade": "Pelotas", "txt": "mi-0010 sobrado semi-mobiliado com fundo para o lago no lagos de são gonçalo são gonçalo pelotas tv. leonel de moura brizola casa"}, {"slug": "imovel-a-venda-mi-0011", "tipo": "Apartamento", "bairro": "Areal", "valor": 1490000.0, "valor_aluguel": 0, "fin": "venda", "dorm": 3, "cidade": "Pelotas", "txt": "mi-0011 apartamento 3 dormitórios no areal, pelotas areal pelotas av. pres. juscelino kubitscheck de oliveira apartamento"}, {"slug": "imovel-a-venda-mi-0012", "tipo": "Apartamento", "bairro": "São Gonçalo", "valor": 280000.0, "valor_aluguel": 0, "fin": "venda", "dorm": 2, "cidade": "Pelotas", "txt": "mi-0012 apartamento 2 dormitórios no são gonçalo são gonçalo pelotas rua elgar carlos, r. elgar hadler apartamento"}, {"slug": "apartamento-a-venda-Urban-Club-0013", "tipo": "Apartamento", "bairro": "Areal", "valor": 398000.0, "valor_aluguel": 0, "fin": "venda", "dorm": 2, "cidade": "Pelotas", "txt": "mi-0013 apartamento 2 dormitórios no smart urban club areal pelotas av. são francisco de paula apartamento"}, {"slug": "casa-a-venda-no-alphaville-pelotas-pelotas-rs-mi-103", "tipo": "Casa", "bairro": "Laranjal", "valor": 1690000.0, "valor_aluguel": 0, "fin": "venda", "dorm": 3, "cidade": "Pelotas", "txt": "mi-103 casa térrea no alphaville pelotas laranjal pelotas avenida adolfo fetter casa"}, {"slug": "casa-a-venda-no-veredas-pelotas-rs-mi-106", "tipo": "Casa", "bairro": "Laranjal", "valor": 2300000.0, "valor_aluguel": 0, "fin": "venda", "dorm": 4, "cidade": "Pelotas", "txt": "mi-106 sobrado no veredas laranjal pelotas avenida adolfo fetter casa"}, {"slug": "apartamento-a-venda-no-acqua-parque-residence-pelotas-rs-mi-107", "tipo": "Apartamento", "bairro": "São Gonçalo", "valor": 260000.0, "valor_aluguel": 0, "fin": "venda", "dorm": 2, "cidade": "Pelotas", "txt": "mi-107 apartamento em são gonçalo, pelotas/rs são gonçalo pelotas avenida bento gonçalves apartamento"}, {"slug": "imovel-a-venda-mi-0014", "tipo": "Sala Comercial", "bairro": "Centro", "valor": 240000.0, "valor_aluguel": 0, "fin": "venda", "dorm": 0, "cidade": "Pelotas", "txt": "mi-0014 centro pelotas rua santa tecla sala comercial"}, {"slug": "apartamento-a-venda-no-tres-vendas-pelotas-rs-mi-0015", "tipo": "Apartamento", "bairro": "Três Vendas", "valor": 990000.0, "valor_aluguel": 0, "fin": "venda", "dorm": 3, "cidade": "Pelotas", "txt": "mi-0015 apartamento 3 dormitórios na av. dom joaquim, pelotas três vendas pelotas avenida dom joaquim apartamento"}, {"slug": "casa-a-venda-no-centro-pelotas-rs-mi-101", "tipo": "Casa", "bairro": "Centro", "valor": 954000.0, "valor_aluguel": 0, "fin": "venda", "dorm": 3, "cidade": "Pelotas", "txt": "mi-101 casa térea no colina do sol centro pelotas rua comendador joaquim dias casa"}, {"slug": "terreno-a-venda-no-lagos-de-sao-goncalo-pelotas-rs-mi-102", "tipo": "Terreno", "bairro": "São Gonçalo", "valor": 1100000.0, "valor_aluguel": 0, "fin": "venda", "dorm": 0, "cidade": "Pelotas", "txt": "mi-102 terreno fundo lago no lagos de são gonçalo são gonçalo pelotas travessa leonel de moura brizola terreno"}, {"slug": "casa-a-venda-no-alphaville-pelotas-pelotas-rs-mi-104", "tipo": "Casa", "bairro": "Laranjal", "valor": 2000000.0, "valor_aluguel": 0, "fin": "venda", "dorm": 3, "cidade": "Pelotas", "txt": "mi-104 sobrado fundo lago no alphaville 2 laranjal pelotas avenida adolfo fetter casa"}, {"slug": "casa-a-venda-no-centro-pelotas-rs-mi-105", "tipo": "Casa", "bairro": "Centro", "valor": 1090000.0, "valor_aluguel": 0, "fin": "venda", "dorm": 3, "cidade": "Pelotas", "txt": "mi-105 sobrado impecável no colina do sol centro pelotas rua professor carlos henrique nogueira casa"}, {"slug": "apartamento-a-venda-no-smart-connection-pelotas-rs-mi-108", "tipo": "Apartamento", "bairro": "Areal", "valor": 350000.0, "valor_aluguel": 0, "fin": "venda", "dorm": 2, "cidade": "Pelotas", "txt": "mi-108 apartamento de 2 dormitórios no smart connection areal pelotas avenida ferreira viana apartamento"}, {"slug": "apartamento-para-alugar-no-acqua-parque-residence-pelotas-rs-mi-109", "tipo": "Apartamento", "bairro": "São Gonçalo", "valor": 0, "valor_aluguel": 2400.0, "fin": "aluguel", "dorm": 2, "cidade": "Pelotas", "txt": "mi-109 apartamento em são gonçalo, pelotas/rs são gonçalo pelotas avenida bento gonçalves apartamento"}, {"slug": "apartamento-para-alugar-no-acqua-parque-residence-pelotas-rs-mi-110", "tipo": "Apartamento", "bairro": "São Gonçalo", "valor": 0, "valor_aluguel": 1800.0, "fin": "aluguel", "dorm": 2, "cidade": "Pelotas", "txt": "mi-110 apartamento em são gonçalo, pelotas/rs são gonçalo pelotas avenida bento gonçalves apartamento"}, {"slug": "apartamento-a-venda-no-acqua-parque-residence-pelotas-rs-mi-111", "tipo": "Apartamento", "bairro": "São Gonçalo", "valor": 250000.0, "valor_aluguel": 0, "fin": "venda", "dorm": 2, "cidade": "Pelotas", "txt": "mi-111 apartamento em são gonçalo, pelotas/rs são gonçalo pelotas avenida bento gonçalves apartamento"}, {"slug": "apartamento-a-venda-no-smart-connection-pelotas-rs-mi-112", "tipo": "Apartamento", "bairro": "Areal", "valor": 359000.0, "valor_aluguel": 0, "fin": "venda", "dorm": 2, "cidade": "Pelotas", "txt": "mi-112 apartamento em areal, pelotas/rs areal pelotas avenida ferreira viana apartamento"}, {"slug": "apartamento-a-venda-no-centro-pelotas-rs-mi-113", "tipo": "Apartamento", "bairro": "Centro", "valor": 240000.0, "valor_aluguel": 0, "fin": "venda", "dorm": 3, "cidade": "Pelotas", "txt": "mi-113 apartamento em centro, pelotas/rs centro pelotas rua quinze de novembro apartamento"}, {"slug": "apartamento-a-venda-no-centro-pelotas-rs-mi-114", "tipo": "Sala Comercial", "bairro": "Centro", "valor": 180000.0, "valor_aluguel": 0, "fin": "venda", "dorm": 0, "cidade": "Pelotas", "txt": "mi-114 sala comercial, centro, pelotas/rs centro pelotas rua andrade neves sala comercial"}, {"slug": "apartamento-a-venda-no-centro-pelotas-rs-mi-115", "tipo": "Apartamento", "bairro": "Centro", "valor": 290000.0, "valor_aluguel": 0, "fin": "venda", "dorm": 1, "cidade": "Pelotas", "txt": "mi-115 apartamento em centro, pelotas/rs centro pelotas rua almirante barroso apartamento"}, {"slug": "apartamento-a-venda-no-centro-pelotas-rs-mi-116", "tipo": "Apartamento", "bairro": "Centro", "valor": 260000.0, "valor_aluguel": 0, "fin": "venda", "dorm": 1, "cidade": "Pelotas", "txt": "mi-116 apartamento em centro, pelotas/rs centro pelotas rua almirante barroso apartamento"}, {"slug": "apartamento-a-venda-no-centro-pelotas-rs-mi-117", "tipo": "Apartamento", "bairro": "Centro", "valor": 159000.0, "valor_aluguel": 0, "fin": "venda", "dorm": 1, "cidade": "Pelotas", "txt": "mi-117 apartamento loft em centro, pelotas/rs centro pelotas rua félix xavier da cunha apartamento"}, {"slug": "terreno-a-venda-no-laranjal-pelotas-rs-mi-120", "tipo": "Terreno", "bairro": "Laranjal", "valor": 119000.0, "valor_aluguel": 0, "fin": "venda", "dorm": 0, "cidade": "Pelotas", "txt": "mi-120 terreno em loteamento em laranjal, pelotas/rs laranjal pelotas rua dois terreno"}];
 let termoBusca = '';
 let cidadeAtiva = '';
+// Guardadas na ordem original: a busca por texto reordena a grade, e o
+// filtro casa cada caixa com `dados` pela posição.
+const caixas = [...document.querySelectorAll('#grade .cartao-caixa')];
 function filtrar(ev) {
   if (ev) ev.preventDefault();
+  sairPedido();
   const t = fTipo.value, b = fBairro.value, m = Number(fMax.value||0),
         d = Number(fDorm.value||0), f = fFin.value;
   // Busca por texto: cada palavra precisa aparecer em algum campo do imóvel,
@@ -996,7 +1016,7 @@ function filtrar(ev) {
   let visiveis = 0;
   // Esconde a CAIXA e não o cartão: o coração fica fora do link, então
   // esconder só o cartão deixaria corações soltos na grade.
-  document.querySelectorAll('#grade .cartao-caixa').forEach((el, idx) => {
+  caixas.forEach((el, idx) => {
     const x = dados[idx];
     const ok = (!t || x.tipo===t) && (!b || x.bairro===b) && (!f || x.fin===f || x.fin==='venda_aluguel') &&
                (!m || ((f==='aluguel' || (!f && x.fin==='aluguel') ? x.valor_aluguel : x.valor) > 0 && (f==='aluguel' || (!f && x.fin==='aluguel') ? x.valor_aluguel : x.valor) <= m)) && (!d || x.dorm>=d) &&
@@ -1005,6 +1025,7 @@ function filtrar(ev) {
     el.hidden = !ok; if (ok) visiveis++;
   });
   conta.textContent = visiveis + (visiveis===1 ? ' disponível' : ' disponíveis');
+  semTexto.textContent = 'Nenhum imóvel com esses filtros. Ajuste a busca acima.';
   semResultado.hidden = visiveis > 0;
 
   // Buscando, a home vira lista de resultado. Sem busca, ela volta a ser a
@@ -1020,6 +1041,7 @@ function limparBusca() {
   ['fTipo','fBairro','fMax','fDorm','fFin'].forEach(i => document.getElementById(i).value = '');
   termoBusca = '';
   cidadeAtiva = '';
+  fPedido.value = '';
   const campo = document.getElementById('qTexto');
   if (campo) campo.value = '';
   history.replaceState(null, '', location.pathname);
@@ -1061,6 +1083,118 @@ document.getElementById('btnLimpar').addEventListener('click', limparBusca);
     // no topo da home sem entender que o filtro já foi aplicado.
     requestAnimationFrame(() => document.getElementById('imoveis').scrollIntoView());
   }
+})();
+
+// ── Busca por texto livre ──────────────────────────────────────────────
+// A IA só traduz o pedido em critérios; quem filtra é a função, com os
+// números do catálogo. Aqui a home mostra os cartões que já estão na página,
+// na ordem que veio: primeiro os exatos, depois os parecidos.
+const URL_BUSCA = 'https://gwhwesvmqvxakvjtsrdn.supabase.co/functions/v1/assistente-site';
+const condsBusca = {"acqua-parque-residence": {"nome": "Acqua Parque Residence", "bairro": "São Gonçalo", "capa": ""}, "alphaville-pelotas": {"nome": "Alphaville Pelotas", "bairro": "Laranjal", "capa": "fotos/emp-734ada01-emp-734ada01-0.jpg"}, "central-park": {"nome": "Central Park", "bairro": "", "capa": ""}, "lagos-de-sao-goncalo": {"nome": "Lagos de São Gonçalo", "bairro": "São Gonçalo", "capa": "fotos/emp-1637856b-emp-1637856b-1.jpg"}, "novo-empreendimento-cd801f": {"nome": "Novo empreendimento", "bairro": "", "capa": ""}, "office-zabaleta": {"nome": "Office Zabaleta", "bairro": "Centro", "capa": "fotos/emp-3309c284-1787251048734-3diswe.jpg"}, "quinta-da-baronesa": {"nome": "Quinta da Baronesa", "bairro": "", "capa": ""}, "reserva-areal": {"nome": "Reserva Areal", "bairro": "", "capa": ""}, "novo-empreendimento-2d1637": {"nome": "Royal Park Zabaleta", "bairro": "Areal", "capa": "fotos/emp-2d16378e-1790689681836-ajtw9b.jpg"}, "smart-connection": {"nome": "Smart Connection", "bairro": "Areal", "capa": ""}, "novo-empreendimento-003bc4": {"nome": "Smart Urban Club", "bairro": "Areal", "capa": "fotos/emp-003bc414-1791413696776-04k9f2.jpg"}, "veredas": {"nome": "Veredas", "bairro": "Laranjal", "capa": "fotos/emp-59b4370f-emp-59b4370f-0.jpg"}, "novo-empreendimento": {"nome": "Vista do butuí ", "bairro": "Centro", "capa": "fotos/emp-80c5c07b-1788528726775-ywmdm8.jpg"}, "zabaleta-milano": {"nome": "Zabaleta Milano", "bairro": "Três Vendas", "capa": "fotos/emp-238b60b8-1793358253619-s57mu8.jpg"}};
+const porSlug = new Map(dados.map((x, i) => [x.slug, caixas[i]]));
+const grade = document.getElementById('grade');
+const separador = document.createElement('div');
+separador.className = 'grade-sep';
+let modoPedido = false;
+
+function sessaoBusca() {
+  try {
+    let s = sessionStorage.getItem('busca-sessao');
+    if (!s) { s = 'busca-' + Math.random().toString(36).slice(2, 12); sessionStorage.setItem('busca-sessao', s); }
+    return s;
+  } catch (e) { return 'busca-sem-sessao'; }
+}
+
+function sairPedido() {
+  if (!modoPedido) return;
+  modoPedido = false;
+  separador.remove();
+  caixas.forEach(c => grade.appendChild(c));
+  entendi.hidden = true;
+  condSug.hidden = true;
+  condSug.innerHTML = '';
+}
+
+function esc(t) {
+  return String(t).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
+}
+
+function mostrarPedido(r, texto) {
+  modoPedido = true;
+  caixas.forEach(c => c.hidden = true);
+  const exatos = (r.exatos || []).map(s => porSlug.get(s)).filter(Boolean);
+  const proximos = (r.proximos || []).map(s => porSlug.get(s)).filter(Boolean);
+  exatos.forEach(c => { c.hidden = false; grade.appendChild(c); });
+  separador.remove();
+  if (proximos.length) {
+    separador.textContent = exatos.length ? 'Parecidos com o que você pediu' : 'Nada exato, mas estes chegam perto';
+    grade.appendChild(separador);
+    proximos.forEach(c => { c.hidden = false; grade.appendChild(c); });
+  }
+
+  const conds = (r.condominios || []).filter(s => condsBusca[s]);
+  condSug.innerHTML = conds.length ? '<h3 class="cond-sug-titulo">Condomínios e lançamentos</h3><div class="cond-sug-grade">' +
+    conds.map(s => {
+      const c = condsBusca[s];
+      return '<a class="cond-sug" href="./condominio/' + s + '/">' +
+        (c.capa ? '<img src="' + esc(c.capa) + '" alt="" loading="lazy">' : '') +
+        '<div><small>Condomínio' + (c.bairro ? ' · ' + esc(c.bairro) : '') + '</small><strong>' + esc(c.nome) + '</strong></div></a>';
+    }).join('') + '</div>' : '';
+  condSug.hidden = !conds.length;
+
+  entendi.innerHTML = r.entendi ? 'Buscando: <b>' + esc(r.entendi) + '</b>' : 'Buscando: <b>' + esc(texto) + '</b>';
+  entendi.hidden = false;
+  const n = exatos.length;
+  conta.textContent = n ? n + (n === 1 ? ' encontrado' : ' encontrados')
+    : proximos.length ? 'nenhum exato' : conds.length ? 'nenhum imóvel avulso' : 'nenhum encontrado';
+  if (r.falhou || r.limite) {
+    semTexto.textContent = 'A busca por texto não respondeu agora. Use os filtros acima ou fale com o corretor.';
+  } else if (!r.entendi) {
+    semTexto.textContent = 'Não entendi o pedido. Diga o tipo de imóvel, o bairro ou a faixa de valor.';
+  } else {
+    semTexto.textContent = 'Não encontrei imóvel com tudo isso. Tente tirar um detalhe ou peça ajuda ao corretor.';
+  }
+  // Pediu um lançamento (o Milano não tem unidade no catálogo): o cartão do
+  // condomínio já é a resposta, sem aviso de "não encontrei" embaixo.
+  semResultado.hidden = exatos.length + proximos.length + conds.length > 0;
+  document.getElementById('vitrines').hidden = true;
+  document.getElementById('destaques').hidden = false;
+}
+
+async function buscarPedido(texto) {
+  texto = (texto || '').trim();
+  if (texto.length < 3) { fPedido.focus(); return; }
+  ['fTipo','fBairro','fMax','fDorm','fFin'].forEach(i => document.getElementById(i).value = '');
+  termoBusca = ''; cidadeAtiva = '';
+  btnPedido.disabled = true; btnPedido.textContent = 'Buscando…';
+  let r = null;
+  try {
+    const ctl = new AbortController();
+    const prazo = setTimeout(() => ctl.abort(), 25000);
+    const resp = await fetch(URL_BUSCA, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: ctl.signal,
+      body: JSON.stringify({ modo: 'busca', sessao: sessaoBusca(), pedido: texto, pagina: location.pathname }),
+    });
+    clearTimeout(prazo);
+    r = await resp.json();
+  } catch (e) { r = null; }
+  btnPedido.disabled = false; btnPedido.textContent = 'Buscar';
+  history.replaceState(null, '', '?pedido=' + encodeURIComponent(texto) + '#imoveis');
+  mostrarPedido(r || { falhou: true }, texto);
+  document.getElementById('destaques').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+btnPedido.addEventListener('click', () => buscarPedido(fPedido.value));
+fPedido.addEventListener('keydown', ev => {
+  if (ev.key === 'Enter') { ev.preventDefault(); buscarPedido(fPedido.value); }
+});
+document.querySelectorAll('.busca-ia-exemplos [data-ex]').forEach(b =>
+  b.addEventListener('click', () => { fPedido.value = b.dataset.ex; buscarPedido(b.dataset.ex); }));
+
+// Link compartilhado com ?pedido=... já abre buscando.
+(function () {
+  const pedido = new URLSearchParams(location.search).get('pedido');
+  if (pedido) { fPedido.value = pedido; buscarPedido(pedido); }
 })();
 
 // A lupa chama isto quando a busca acontece na própria home, sem recarregar.
