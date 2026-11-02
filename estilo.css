@@ -571,5 +571,7 @@ button.video-capa{display:block;width:100%;padding:0;font:inherit;cursor:pointer
 @media (max-width:720px){
   .zap-balao{width:58px;padding:0;justify-content:center;right:14px;bottom:calc(14px + env(safe-area-inset-bottom))}
   .zap-balao span{display:none}
+  /* o balão fica por cima do fim do rodapé (razão social e CNPJ) */
+  .rodape{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
 }
 @media print{.zap-balao{display:none}}
