@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Anuncie seu imóvel | Maysonnave Imóveis</title>
-<meta name="description" content="Cadastre seu imóvel em uma conversa rápida com a Mays. Nossa equipe revisa tudo antes de publicar em maysimoveis.com.">
+<title>Anuncie seu imóvel | Mays Imóveis</title>
+<meta name="description" content="Você conhece seu imóvel. A Mays Imóveis transforma em anúncio: responda algumas perguntas, siga as dicas de foto e nossa equipe prepara o resto.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#2C2416">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,25 +29,28 @@ h1,h2,h3{font-family:Montserrat,Inter,sans-serif;font-weight:800;line-height:1.1
 
 /* Capa */
 .capa{position:fixed;inset:0;z-index:30;background:var(--escuro);color:#F5F0E8;overflow-y:auto;display:flex;flex-direction:column}
-.capa-in{width:min(100%,640px);margin:auto;padding:32px 20px calc(32px + env(safe-area-inset-bottom))}
-.capa img{height:44px;width:auto;margin-bottom:36px;filter:brightness(0) invert(.94)}
-.capa h1{font-size:clamp(32px,8vw,48px);letter-spacing:-.01em}
-.capa h1 em{font-style:normal;color:#C9A985}
-.capa p{margin-top:14px;font-size:18px;color:#D9CFC0}
-.passos{list-style:none;margin:28px 0 32px;display:grid;gap:12px}
+.capa-in{width:min(100%,640px);margin:auto;padding:40px 20px calc(32px + env(safe-area-inset-bottom))}
+.capa img{display:block;width:min(62vw,300px);height:auto;margin:0 auto 40px;filter:brightness(0) invert(.94)}
+.capa h1{font-size:clamp(28px,8.2vw,38px);letter-spacing:-.01em;text-align:center;text-wrap:balance}
+.capa h1 em{display:block;font-style:normal;color:#C9A985;text-wrap:balance}
+.capa p{margin-top:14px;font-size:17px;color:#D9CFC0;text-align:center;text-wrap:balance}
+.passos{list-style:none;width:fit-content;max-width:100%;margin:28px auto 32px;display:grid;gap:12px}
 .passos li{display:flex;gap:14px;align-items:center;font-size:15.5px}
 .passos b{flex:none;width:32px;height:32px;border-radius:50%;background:rgba(201,169,133,.18);color:#E2C9AB;display:grid;place-items:center;font:800 14px Montserrat,sans-serif}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:12px 24px;border-radius:12px;background:var(--marca);color:#fff;font-weight:600;transition:transform .12s,background .12s}
 .btn:hover{background:#6A4F35}.btn:active{transform:scale(.97)}
 .capa .btn{background:#C9A985;color:var(--escuro);width:100%;font-size:17px}
 .capa .btn:hover{background:#DDBF9D}
-.capa small{display:block;margin-top:14px;color:#B3A592;font-size:13px;text-align:center}
+.capa small{display:block;margin-top:14px;color:#B3A592;font-size:13px;text-align:center;text-wrap:balance}
 .capa .btn-2{width:100%;margin-top:10px;min-height:44px;color:#D9CFC0;font-size:14.5px;text-decoration:underline}
 
 /* Moldura */
 .app{height:100dvh;display:grid;grid-template-rows:auto minmax(0,1fr);max-width:1180px;margin:0 auto}
 .topo{display:flex;align-items:center;gap:14px;padding:10px 16px;background:var(--fundo);border-bottom:1px solid var(--linha)}
-.topo img{height:30px;width:auto;flex:none}
+.topo img{height:44px;width:auto;flex:none}
+.forca-rot{white-space:nowrap}
+@media (max-width:380px){.topo{gap:10px;padding:8px 12px}.topo img{height:38px}.forca-rot{font-size:12px}.ver-previa{padding-left:10px;padding-right:10px}}
+@media (max-height:720px){.capa-in{padding-top:20px;padding-bottom:16px}.capa img{width:132px;margin-bottom:18px}.capa h1{font-size:25px}.capa p{font-size:15px;margin-top:10px}.capa .passos{margin:16px auto}.capa .passos li{font-size:14.5px}.capa small{margin-top:10px}}
 .forca{flex:1;min-width:0}
 .forca-rot{display:flex;justify-content:space-between;gap:8px;font-size:12.5px;font-weight:600;color:var(--tinta-2)}
 .forca-rot b{color:var(--marca);font-family:Montserrat,sans-serif;font-weight:800;font-size:14px}
@@ -155,23 +158,23 @@ h1,h2,h3{font-family:Montserrat,Inter,sans-serif;font-weight:800;line-height:1.1
 
 <section class="capa" id="capa">
   <div class="capa-in">
-    <img src="/logo.png" alt="Maysonnave Imóveis">
-    <h1>Seu imóvel anunciado em <em>uma conversa.</em></h1>
-    <p>A Mays faz as perguntas, você responde pelo celular e a nossa equipe revisa tudo antes de publicar.</p>
+    <img src="logo.png" alt="Mays Imóveis">
+    <h1>Você conhece seu imóvel. <em>Nós transformamos em anúncio.</em></h1>
+    <p>Sem escrever texto de anúncio e sem contratar fotógrafo. Responda algumas perguntas, siga as dicas de foto e a equipe da Mays Imóveis prepara o resto.</p>
     <ul class="passos">
-      <li><b>1</b> Conte como é o imóvel</li>
-      <li><b>2</b> Fotografe cada ambiente com a ajuda da Mays</li>
-      <li><b>3</b> Nós revisamos e entramos em contato</li>
+      <li><b>1</b> Conte o que seu imóvel tem de melhor</li>
+      <li><b>2</b> Fotografe seguindo nossas dicas</li>
+      <li><b>3</b> Só publicamos com o seu ok</li>
     </ul>
-    <button class="btn" id="comecar">Começar agora</button>
+    <button class="btn" id="comecar">Montar meu anúncio</button>
     <button class="btn-2" id="recomecar" hidden>Prefiro começar do zero</button>
-    <small>Leva cerca de 5 minutos. Se precisar parar, seu progresso fica salvo neste aparelho.</small>
+    <small>Leva cerca de 5 minutos. Se precisar parar, continue depois neste aparelho.</small>
   </div>
 </section>
 
 <div class="app" id="app">
   <header class="topo">
-    <img src="/logo.png" alt="Maysonnave Imóveis">
+    <img src="logo.png" alt="Mays Imóveis">
     <div class="forca" role="status" aria-label="Força do anúncio">
       <div class="forca-rot"><span id="forcaNome">Força do anúncio</span><b id="forcaNum">0%</b></div>
       <div class="forca-trilho"><span id="forcaBarra"></span></div>
@@ -432,7 +435,7 @@ h1,h2,h3{font-family:Montserrat,Inter,sans-serif;font-weight:800;line-height:1.1
   const primeiro = () => (D.nome || '').split(' ')[0];
 
   async function secContato() {
-    await mays('Oi! Eu sou a Mays, da Maysonnave Imóveis. Vou te ajudar a deixar seu imóvel pronto para anunciar.');
+    await mays('Oi! Aqui é a Mays Imóveis. Vou te ajudar a deixar seu imóvel pronto para anunciar.');
     await mays('Seus dados ficam só com a nossa equipe e servem para analisar e anunciar o imóvel.', ['Ver a política de privacidade', '/privacidade/']);
     await opcoes([['Combinado, vamos lá', true, 'forte']]);
     await mays('Para começar, qual é o seu nome completo?');
