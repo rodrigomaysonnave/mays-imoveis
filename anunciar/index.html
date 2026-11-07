@@ -1,0 +1,945 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Anuncie seu imóvel | Maysonnave Imóveis</title>
+<meta name="description" content="Cadastre seu imóvel em uma conversa rápida com a Mays. Nossa equipe revisa tudo antes de publicar em maysimoveis.com.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#2C2416">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --fundo:#F5F0E8;--cartao:#FFFDF9;--bege:#EDE8DF;--linha:#DDD3C4;
+  --tinta:#2C2416;--tinta-2:#6B5C4A;--marca:#7D5F41;--marca-2:#9B7B5A;
+  --escuro:#2C2416;--ok:#4F7A52;--erro:#A5402F;
+  --sombra:0 2px 12px rgba(44,36,22,.08);--raio:14px;
+}
+html,body{height:100%}
+body{background:var(--fundo);color:var(--tinta);font:400 16px/1.5 Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  -webkit-font-smoothing:antialiased;overflow:hidden}
+[hidden]{display:none!important}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+:focus-visible{outline:2px solid var(--marca);outline-offset:2px}
+h1,h2,h3{font-family:Montserrat,Inter,sans-serif;font-weight:800;line-height:1.15}
+
+/* Capa */
+.capa{position:fixed;inset:0;z-index:30;background:var(--escuro);color:#F5F0E8;overflow-y:auto;display:flex;flex-direction:column}
+.capa-in{width:min(100%,640px);margin:auto;padding:32px 20px calc(32px + env(safe-area-inset-bottom))}
+.capa img{height:44px;width:auto;margin-bottom:36px;filter:brightness(0) invert(.94)}
+.capa h1{font-size:clamp(32px,8vw,48px);letter-spacing:-.01em}
+.capa h1 em{font-style:normal;color:#C9A985}
+.capa p{margin-top:14px;font-size:18px;color:#D9CFC0}
+.passos{list-style:none;margin:28px 0 32px;display:grid;gap:12px}
+.passos li{display:flex;gap:14px;align-items:center;font-size:15.5px}
+.passos b{flex:none;width:32px;height:32px;border-radius:50%;background:rgba(201,169,133,.18);color:#E2C9AB;display:grid;place-items:center;font:800 14px Montserrat,sans-serif}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:12px 24px;border-radius:12px;background:var(--marca);color:#fff;font-weight:600;transition:transform .12s,background .12s}
+.btn:hover{background:#6A4F35}.btn:active{transform:scale(.97)}
+.capa .btn{background:#C9A985;color:var(--escuro);width:100%;font-size:17px}
+.capa .btn:hover{background:#DDBF9D}
+.capa small{display:block;margin-top:14px;color:#B3A592;font-size:13px;text-align:center}
+.capa .btn-2{width:100%;margin-top:10px;min-height:44px;color:#D9CFC0;font-size:14.5px;text-decoration:underline}
+
+/* Moldura */
+.app{height:100dvh;display:grid;grid-template-rows:auto minmax(0,1fr);max-width:1180px;margin:0 auto}
+.topo{display:flex;align-items:center;gap:14px;padding:10px 16px;background:var(--fundo);border-bottom:1px solid var(--linha)}
+.topo img{height:30px;width:auto;flex:none}
+.forca{flex:1;min-width:0}
+.forca-rot{display:flex;justify-content:space-between;gap:8px;font-size:12.5px;font-weight:600;color:var(--tinta-2)}
+.forca-rot b{color:var(--marca);font-family:Montserrat,sans-serif;font-weight:800;font-size:14px}
+.forca-trilho{height:9px;border-radius:9px;background:var(--bege);overflow:hidden;margin-top:4px}
+.forca-trilho span{display:block;height:100%;width:0;border-radius:9px;background:linear-gradient(90deg,var(--marca-2),var(--marca));transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.ver-previa{flex:none;min-height:40px;padding:0 12px;border:1px solid var(--linha);border-radius:10px;background:var(--cartao);font-size:13.5px;font-weight:600;color:var(--marca)}
+.corpo{display:grid;grid-template-columns:minmax(0,1fr);min-height:0}
+.conversa{display:grid;grid-template-rows:minmax(0,1fr) auto;min-height:0}
+.fala{overflow-y:auto;padding:18px 16px 10px;display:flex;flex-direction:column;gap:8px;scroll-behavior:smooth}
+.fala::before{content:'';margin-top:auto}
+.m{max-width:min(86%,520px);padding:11px 15px;border-radius:var(--raio);box-shadow:var(--sombra);animation:surge .28s ease-out both;overflow-wrap:anywhere}
+.m-mays{align-self:flex-start;background:var(--cartao);border-bottom-left-radius:4px}
+.m-eu{align-self:flex-end;background:var(--marca);color:#fff;border-bottom-right-radius:4px;margin:4px 0}
+.m-eu img{display:block;width:210px;max-width:100%;border-radius:9px}
+.m-eu img+span{display:block;margin-top:6px;font-size:14px}
+.m a{color:var(--marca);font-weight:600}
+.pontos{display:inline-flex;gap:4px;padding:4px 0}
+.pontos i{width:7px;height:7px;border-radius:50%;background:var(--marca-2);animation:pula 1s infinite}
+.pontos i:nth-child(2){animation-delay:.15s}.pontos i:nth-child(3){animation-delay:.3s}
+.dica{align-self:flex-start;max-width:min(92%,520px);background:var(--bege);border-left:3px solid var(--marca-2);border-radius:8px;padding:10px 13px;font-size:14.5px;animation:surge .28s ease-out both}
+.dica b{display:block;font-family:Montserrat,sans-serif;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--marca);margin-bottom:2px}
+.resumo{align-self:stretch;max-width:520px;background:var(--cartao);border-radius:var(--raio);box-shadow:var(--sombra);padding:14px 16px;font-size:14.5px;animation:surge .28s ease-out both}
+.resumo div{display:flex;justify-content:space-between;gap:14px;padding:6px 0;border-bottom:1px solid var(--bege)}
+.resumo div:last-child{border:0}
+.resumo span{color:var(--tinta-2);flex:none}.resumo b{text-align:right;font-weight:600;overflow-wrap:anywhere}
+
+/* Área de resposta */
+.resposta{padding:10px 16px calc(12px + env(safe-area-inset-bottom));background:var(--fundo);border-top:1px solid var(--linha);min-height:12px}
+.resposta:empty{padding:6px;border-top-color:transparent}
+.chips{display:flex;flex-wrap:wrap;gap:8px;max-height:38dvh;overflow-y:auto}
+.chip{min-height:46px;padding:9px 16px;border-radius:12px;background:var(--cartao);border:1.5px solid var(--marca-2);color:var(--marca);font-weight:600;font-size:15px;text-align:center;transition:transform .12s,background .12s}
+.chip:hover{background:var(--bege)}.chip:active{transform:scale(.96)}
+.chip.forte{background:var(--marca);border-color:var(--marca);color:#fff}
+.chip.forte:hover{background:#6A4F35}
+.chip.leve{border-color:var(--linha);color:var(--tinta-2);font-weight:500}
+.linha-campo{display:flex;gap:8px;align-items:flex-end}
+.linha-campo input,.linha-campo textarea{flex:1;min-width:0;min-height:50px;padding:12px 14px;border-radius:12px;border:1.5px solid var(--linha);background:var(--cartao);font-size:16px;resize:none}
+.linha-campo input:focus,.linha-campo textarea:focus{outline:0;border-color:var(--marca)}
+.enviar{flex:none;width:50px;height:50px;border-radius:12px;background:var(--marca);color:#fff;font-size:20px;display:grid;place-items:center}
+.enviar:hover{background:#6A4F35}
+.aviso-erro{color:var(--erro);font-size:13.5px;font-weight:500;margin-top:6px}
+.medidor{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:var(--tinta-2);margin-top:6px}
+.abaixo{margin-top:8px}
+.steppers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:10px}
+.stp{display:flex;flex-direction:column;gap:4px;min-width:0;background:var(--cartao);border-radius:12px;padding:8px;font-size:14px;font-weight:500;text-align:center}
+.stp div{display:flex;align-items:center;justify-content:space-between;gap:4px}
+.stp button{width:40px;height:40px;border-radius:10px;background:var(--bege);color:var(--marca);font-size:20px;font-weight:600}
+.stp output{min-width:22px;text-align:center;font:800 16px Montserrat,sans-serif}
+.area-rot{font-size:14px;font-weight:500;margin-bottom:6px}
+.foto-acoes{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.foto-acoes .chip{width:100%}
+.foto-acoes .largo{grid-column:1/-1}
+
+/* Prévia do anúncio */
+.previa{display:none;padding:18px 16px;overflow-y:auto;border-left:1px solid var(--linha)}
+.previa h2,#folhaCorpo h2{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-2);margin-bottom:10px}
+#folhaCorpo>h2:first-child{display:none}
+.card{background:var(--cartao);border-radius:var(--raio);box-shadow:var(--sombra);overflow:hidden}
+.card-foto{aspect-ratio:4/3;background:var(--bege);display:grid;place-items:center;color:var(--tinta-2);font-size:14px;position:relative}
+.card-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card-selo{position:absolute;top:10px;left:10px;z-index:1;background:var(--escuro);color:#F5F0E8;font-size:12px;font-weight:600;padding:3px 9px;border-radius:7px}
+.card-txt{padding:13px 15px 15px}
+.card-txt h3{font-size:17px}
+.card-txt .preco{font:800 19px Montserrat,sans-serif;color:var(--marca);margin-top:5px}
+.card-txt .sub{font-size:13.5px;color:var(--tinta-2);margin-top:4px}
+.card-txt .desc{font-size:14px;margin-top:8px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.selos{margin-top:18px}
+.selos ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px}
+.selos li{display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--bege);border-radius:10px;font-size:13px;font-weight:600;color:#A99A86}
+.selos li i{flex:none;width:22px;height:22px;border-radius:50%;background:var(--linha);display:grid;place-items:center;font-style:normal;font-size:12px;color:#fff}
+.selos li.tem{color:var(--tinta);background:var(--cartao);box-shadow:var(--sombra)}
+.selos li.tem i{background:var(--marca)}
+.folha{position:fixed;inset:0;z-index:20;background:rgba(44,36,22,.55);display:flex;align-items:flex-end}
+.folha-in{width:100%;max-height:88dvh;overflow-y:auto;background:var(--fundo);border-radius:18px 18px 0 0;padding:16px 16px calc(18px + env(safe-area-inset-bottom));animation:sobe .25s ease-out both}
+.folha-topo{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-weight:600}
+.folha-topo button{min-height:40px;padding:0 10px;color:var(--marca);font-weight:600}
+
+/* Conquista */
+.toast{position:fixed;left:50%;top:70px;z-index:25;transform:translateX(-50%);width:max-content;max-width:calc(100% - 32px);display:flex;align-items:center;gap:10px;background:var(--escuro);color:#F5F0E8;padding:10px 16px;border-radius:12px;box-shadow:0 8px 28px rgba(44,36,22,.3);font-size:14px;animation:cai .35s cubic-bezier(.2,.9,.3,1.2) both}
+.toast i{flex:none;width:26px;height:26px;border-radius:50%;background:#C9A985;color:var(--escuro);display:grid;place-items:center;font-style:normal;font-weight:800}
+.toast b{display:block;font-family:Montserrat,sans-serif;font-size:13.5px}
+.confete{position:fixed;top:-14px;z-index:40;width:9px;height:14px;border-radius:2px;pointer-events:none;animation:chuva linear forwards}
+
+@keyframes surge{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes sobe{from{transform:translateY(30px);opacity:0}to{transform:none;opacity:1}}
+@keyframes cai{from{opacity:0;transform:translate(-50%,-14px) scale(.96)}to{opacity:1;transform:translate(-50%,0)}}
+@keyframes pula{0%,60%,100%{transform:none;opacity:.5}30%{transform:translateY(-4px);opacity:1}}
+@keyframes chuva{to{transform:translateY(105dvh) rotate(540deg);opacity:.85}}
+
+@media (min-width:900px){
+  .corpo{grid-template-columns:minmax(0,1fr) 380px}
+  .previa{display:block}
+  .ver-previa{display:none}
+  .topo{padding:12px 20px}
+  .fala{padding:22px 24px 12px}
+  .resposta{padding:12px 24px 14px}
+  .steppers{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<section class="capa" id="capa">
+  <div class="capa-in">
+    <img src="/logo.png" alt="Maysonnave Imóveis">
+    <h1>Seu imóvel anunciado em <em>uma conversa.</em></h1>
+    <p>A Mays faz as perguntas, você responde pelo celular e a nossa equipe revisa tudo antes de publicar.</p>
+    <ul class="passos">
+      <li><b>1</b> Conte como é o imóvel</li>
+      <li><b>2</b> Fotografe cada ambiente com a ajuda da Mays</li>
+      <li><b>3</b> Nós revisamos e entramos em contato</li>
+    </ul>
+    <button class="btn" id="comecar">Começar agora</button>
+    <button class="btn-2" id="recomecar" hidden>Prefiro começar do zero</button>
+    <small>Leva cerca de 5 minutos. Se precisar parar, seu progresso fica salvo neste aparelho.</small>
+  </div>
+</section>
+
+<div class="app" id="app">
+  <header class="topo">
+    <img src="/logo.png" alt="Maysonnave Imóveis">
+    <div class="forca" role="status" aria-label="Força do anúncio">
+      <div class="forca-rot"><span id="forcaNome">Força do anúncio</span><b id="forcaNum">0%</b></div>
+      <div class="forca-trilho"><span id="forcaBarra"></span></div>
+    </div>
+    <button class="ver-previa" id="verPrevia">Ver anúncio</button>
+  </header>
+  <main class="corpo">
+    <section class="conversa">
+      <div class="fala" id="fala" aria-live="polite"></div>
+      <div class="resposta" id="resposta"></div>
+    </section>
+    <aside class="previa" id="previa"></aside>
+  </main>
+</div>
+
+<div class="folha" id="folha" hidden>
+  <div class="folha-in">
+    <div class="folha-topo"><span>Seu anúncio até agora</span><button id="fecharFolha">Fechar</button></div>
+    <div id="folhaCorpo"></div>
+  </div>
+</div>
+
+<input type="file" id="arqCamera" accept="image/*" capture="environment" hidden>
+<input type="file" id="arqGaleria" accept="image/*" hidden>
+<input type="text" id="site" name="site" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:1px;width:1px">
+
+<script>
+(() => {
+  'use strict';
+  const API = 'https://gwhwesvmqvxakvjtsrdn.supabase.co/functions/v1/anuncio-proprietario';
+  const WHATS = '5553981041499';
+  const CHAVE = 'mays_anuncio_token';
+  const $ = id => document.getElementById(id);
+  const rapido = !!window.__rapido || matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const espera = ms => new Promise(r => setTimeout(r, rapido ? 0 : ms));
+
+  const lerToken = () => { try { return localStorage.getItem(CHAVE); } catch (e) { return null; } };
+  const gravarToken = t => { try { t ? localStorage.setItem(CHAVE, t) : localStorage.removeItem(CHAVE); } catch (e) { /* segue sem retomar */ } };
+
+  let token = lerToken();
+  const D = {};
+  let fotos = [];
+  const conquistas = new Set();
+
+  // ── Servidor ─────────────────────────────────────────────────────────
+  async function api(acao, corpo) {
+    const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ acao, token, ...corpo }) });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) { const e = new Error(j.erro || 'Falha de conexão'); e.status = r.status; throw e; }
+    return j;
+  }
+
+  // Grava em segundo plano; o que não subiu fica guardado para a próxima tentativa
+  let pendente = {}, gravando = Promise.resolve();
+  function descarregar() {
+    gravando = gravando.then(async () => {
+      if (!token || !Object.keys(pendente).length) return;
+      const lote = pendente; pendente = {};
+      try { await api('salvar', { dados: lote }); }
+      catch (e) { pendente = { ...lote, ...pendente }; throw e; }
+    }).catch(e => { if (e.status === 400) throw e; });
+    return gravando;
+  }
+  function guardar(dados) {
+    Object.assign(D, dados); Object.assign(pendente, dados);
+    atualizar();
+    pendente.forca = forca();
+    descarregar();
+  }
+
+  // ── Força e conquistas ───────────────────────────────────────────────
+  const SELOS = [
+    ['inicio', 'Primeiro passo'], ['imovel', 'Bem descrito'], ['endereco', 'No mapa'],
+    ['estrutura', 'Ficha técnica'], ['valores', 'Preço definido'], ['fotos', 'Fotógrafo'], ['pronto', 'Pronto para análise'],
+  ];
+  const semQuartos = () => /Terreno|Campo/.test(D.tipo || '');
+  const temCondominio = () => /Apartamento|condomínio|Sala/.test(D.tipo || '');
+
+  function forca() {
+    let n = 0;
+    if (D.nome && D.whatsapp) n += 10;
+    if (D.email) n += 5;
+    if (D.tipo && D.finalidade) n += 10;
+    if (D.descricao) n += D.descricao.length >= 80 ? 10 : 5;
+    if (D.bairro && D.endereco) n += 15;
+    if (D.area_total || D.area_util) n += 15;
+    if (D.valor != null || D.valor_aluguel != null || D.valores_ok) n += 10;
+    n += Math.min(fotos.length, 5) * 4;
+    if (D.declara_proprietario) n += 5;
+    return n;
+  }
+  const faixa = n => n >= 100 ? 'Anúncio completo' : n >= 75 ? 'Anúncio forte' : n >= 40 ? 'Ganhando força' : 'Força do anúncio';
+
+  const dinheiro = v => Number(v).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+  function montarPrevia(alvo) {
+    alvo.textContent = '';
+    const h = document.createElement('h2'); h.textContent = 'Seu anúncio'; alvo.append(h);
+    const card = document.createElement('article'); card.className = 'card';
+    const foto = document.createElement('div'); foto.className = 'card-foto';
+    if (fotos[0]) { const i = new Image(); i.src = fotos[0].url; i.alt = ''; foto.append(i); }
+    else foto.textContent = 'As fotos aparecem aqui';
+    if (D.finalidade) {
+      const s = document.createElement('span'); s.className = 'card-selo';
+      s.textContent = { venda: 'Venda', aluguel: 'Aluguel', venda_aluguel: 'Venda e aluguel' }[D.finalidade];
+      foto.append(s);
+    }
+    const txt = document.createElement('div'); txt.className = 'card-txt';
+    const add = (cls, tag, t) => { if (!t) return; const e = document.createElement(tag); e.className = cls; e.textContent = t; txt.append(e); };
+    add('', 'h3', `${D.tipo || 'Seu imóvel'}${D.bairro ? ' no ' + D.bairro : ''}`);
+    add('preco', 'div', D.valor ? dinheiro(D.valor) : D.valor_aluguel ? `${dinheiro(D.valor_aluguel)}/mês` : '');
+    const area = D.area_util || D.area_total;
+    add('sub', 'div', [area && `${area} m²`, D.dormitorios && `${D.dormitorios} dorm.`, D.banheiros && `${D.banheiros} banh.`, D.vagas && `${D.vagas} vaga${D.vagas > 1 ? 's' : ''}`].filter(Boolean).join(' · '));
+    add('sub', 'div', [D.cidade, D.uf].filter(Boolean).join('/'));
+    add('desc', 'p', D.descricao);
+    card.append(foto, txt); alvo.append(card);
+    const sel = document.createElement('div'); sel.className = 'selos';
+    const h2 = document.createElement('h2'); h2.textContent = `Conquistas ${conquistas.size}/${SELOS.length}`;
+    const ul = document.createElement('ul');
+    SELOS.forEach(([k, r]) => {
+      const li = document.createElement('li'); li.className = conquistas.has(k) ? 'tem' : '';
+      const i = document.createElement('i'); i.textContent = conquistas.has(k) ? '✓' : '';
+      li.append(i, r); ul.append(li);
+    });
+    sel.append(h2, ul); alvo.append(sel);
+  }
+  function atualizar() {
+    const n = forca();
+    $('forcaNum').textContent = `${n}%`;
+    $('forcaBarra').style.width = `${n}%`;
+    $('forcaNome').textContent = faixa(n);
+    montarPrevia($('previa'));
+    if (!$('folha').hidden) montarPrevia($('folhaCorpo'));
+  }
+  function conquista(chave, silencioso) {
+    if (conquistas.has(chave)) return;
+    conquistas.add(chave); atualizar();
+    if (silencioso) return;
+    const r = SELOS.find(s => s[0] === chave)[1];
+    const t = document.createElement('div'); t.className = 'toast'; t.setAttribute('role', 'status');
+    const i = document.createElement('i'); i.textContent = '✓';
+    const s = document.createElement('span'); s.textContent = 'Conquista desbloqueada';
+    const b = document.createElement('b'); b.textContent = r; s.prepend(b);
+    t.append(i, s); document.body.append(t);
+    setTimeout(() => t.remove(), 2600);
+  }
+
+  // ── Conversa ─────────────────────────────────────────────────────────
+  const fala = $('fala'), resp = $('resposta');
+  const rolar = () => { fala.scrollTop = fala.scrollHeight; };
+  new ResizeObserver(rolar).observe(fala);
+
+  async function mays(texto, link) {
+    const m = document.createElement('div'); m.className = 'm m-mays';
+    m.innerHTML = '<span class="pontos"><i></i><i></i><i></i></span>';
+    fala.append(m); rolar();
+    await espera(320 + Math.min(texto.length * 9, 750));
+    m.textContent = texto;
+    if (link) { const a = document.createElement('a'); a.href = link[1]; a.target = '_blank'; a.rel = 'noopener'; a.textContent = link[0]; m.append(' ', a); }
+    rolar();
+  }
+  function eu(texto, imagem) {
+    const m = document.createElement('div'); m.className = 'm m-eu';
+    if (imagem) { const i = new Image(); i.src = imagem; i.alt = ''; i.onload = rolar; m.append(i); }
+    if (texto) { const s = document.createElement('span'); s.textContent = texto; m.append(s); }
+    fala.append(m); rolar();
+  }
+  function dica(titulo, texto) {
+    const d = document.createElement('div'); d.className = 'dica';
+    const b = document.createElement('b'); b.textContent = titulo;
+    d.append(b, texto); fala.append(d); rolar();
+  }
+
+  // Botões de resposta. Cada opção: [rótulo, valor, classe]
+  function opcoes(lista) {
+    return new Promise(ok => {
+      resp.textContent = '';
+      const c = document.createElement('div'); c.className = 'chips';
+      lista.forEach(([rot, valor, cls]) => {
+        const b = document.createElement('button'); b.type = 'button';
+        b.className = `chip ${cls || ''}`; b.textContent = rot;
+        b.onclick = () => { resp.textContent = ''; eu(rot); ok(valor === undefined ? rot : valor); };
+        c.append(b);
+      });
+      resp.append(c);
+    });
+  }
+
+  // Campo de texto. `valida` devolve a mensagem de erro; `pular` = [rótulo, valor]
+  function campo(o) {
+    return new Promise(ok => {
+      resp.textContent = '';
+      const linha = document.createElement('div'); linha.className = 'linha-campo';
+      const entrada = document.createElement(o.longo ? 'textarea' : 'input');
+      if (o.longo) entrada.rows = 3;
+      entrada.placeholder = o.dica || ''; entrada.value = o.valor || '';
+      entrada.setAttribute('aria-label', o.rotulo || o.dica || 'Sua resposta');
+      if (o.modo) entrada.inputMode = o.modo;
+      if (o.tipo) entrada.type = o.tipo;
+      if (o.auto) entrada.autocomplete = o.auto;
+      if (o.max) entrada.maxLength = o.max;
+      const botao = document.createElement('button'); botao.type = 'button'; botao.className = 'enviar';
+      botao.textContent = '➤'; botao.setAttribute('aria-label', 'Enviar resposta');
+      linha.append(entrada, botao); resp.append(linha);
+      const erro = document.createElement('div'); erro.className = 'aviso-erro'; erro.hidden = true; resp.append(erro);
+      let medidor = null;
+      if (o.medidor) { medidor = document.createElement('div'); medidor.className = 'medidor'; resp.append(medidor); }
+      const mede = () => { if (medidor) medidor.textContent = o.medidor(entrada.value); };
+      mede();
+      if (o.mascara) entrada.addEventListener('input', () => { entrada.value = o.mascara(entrada.value); });
+      entrada.addEventListener('input', () => { erro.hidden = true; mede(); });
+      const enviar = () => {
+        const v = entrada.value.trim();
+        const msg = o.valida ? o.valida(v) : (v ? '' : 'Escreva sua resposta para continuar.');
+        if (msg) { erro.textContent = msg; erro.hidden = false; entrada.focus(); return; }
+        resp.textContent = ''; eu(o.oculto ? o.oculto(v) : v); ok(v);
+      };
+      botao.onclick = enviar;
+      entrada.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); enviar(); } });
+      if (o.pular) {
+        const p = document.createElement('div'); p.className = 'chips abaixo';
+        const b = document.createElement('button'); b.type = 'button'; b.className = 'chip leve'; b.textContent = o.pular[0];
+        b.onclick = () => { resp.textContent = ''; eu(o.pular[0]); ok(o.pular[1]); };
+        p.append(b); resp.append(p);
+      }
+      entrada.focus({ preventScroll: true });
+    });
+  }
+
+  // ── Máscaras e validações ────────────────────────────────────────────
+  const digitos = v => String(v).replace(/\D/g, '');
+  const mWhats = v => { const d = digitos(v).slice(0, 11); return d.length > 7 ? `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}` : d.length > 2 ? `(${d.slice(0, 2)}) ${d.slice(2)}` : d; };
+  const mCep = v => { const d = digitos(v).slice(0, 8); return d.length > 5 ? `${d.slice(0, 5)}-${d.slice(5)}` : d; };
+  const mCpf = v => { const d = digitos(v).slice(0, 11); return d.replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d{1,2})$/, '$1-$2'); };
+  const mData = v => { const d = digitos(v).slice(0, 8); return d.length > 4 ? `${d.slice(0, 2)}/${d.slice(2, 4)}/${d.slice(4)}` : d.length > 2 ? `${d.slice(0, 2)}/${d.slice(2)}` : d; };
+  const mReais = v => { const d = digitos(v).slice(0, 11); return d ? 'R$ ' + Number(d).toLocaleString('pt-BR') : ''; };
+  const reais = v => Number(digitos(v));
+  function cpfOk(v) {
+    const c = digitos(v);
+    if (c.length !== 11 || /^(\d)\1{10}$/.test(c)) return false;
+    for (const n of [9, 10]) {
+      let s = 0;
+      for (let i = 0; i < n; i++) s += Number(c[i]) * (n + 1 - i);
+      if ((s * 10) % 11 % 10 !== Number(c[n])) return false;
+    }
+    return true;
+  }
+  function dataIso(v) {
+    const m = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(v);
+    if (!m) return null;
+    const d = new Date(Number(m[3]), Number(m[2]) - 1, Number(m[1]));
+    if (d.getMonth() !== Number(m[2]) - 1) return null;
+    const idade = (Date.now() - d) / 31557600000;
+    return idade >= 18 && idade < 120 ? `${m[3]}-${m[2]}-${m[1]}` : null;
+  }
+
+  // ── Roteiro ──────────────────────────────────────────────────────────
+  const primeiro = () => (D.nome || '').split(' ')[0];
+
+  async function secContato() {
+    await mays('Oi! Eu sou a Mays, da Maysonnave Imóveis. Vou te ajudar a deixar seu imóvel pronto para anunciar.');
+    await mays('Seus dados ficam só com a nossa equipe e servem para analisar e anunciar o imóvel.', ['Ver a política de privacidade', '/privacidade/']);
+    await opcoes([['Combinado, vamos lá', true, 'forte']]);
+    await mays('Para começar, qual é o seu nome completo?');
+    const n = await campo({ dica: 'Nome e sobrenome', auto: 'name', max: 200,
+      valida: v => v.split(/\s+/).length >= 2 ? '' : 'Escreva nome e sobrenome.' });
+    const [nome, ...resto] = n.split(/\s+/);
+    Object.assign(D, { nome, sobrenome: resto.join(' ') });
+    await mays(`Prazer, ${nome}! Qual é o seu WhatsApp? É por ele que a gente vai falar com você.`);
+    const w = await campo({ dica: '(53) 99999-9999', modo: 'tel', auto: 'tel', mascara: mWhats,
+      valida: v => digitos(v).length >= 10 ? '' : 'Confira o número com DDD.' });
+    D.whatsapp = digitos(w);
+    let criado = false;
+    while (!criado) {
+      try {
+        const r = await api('iniciar', { aceite: true, site: $('site').value, origem: document.referrer || location.search,
+          dados: { nome: D.nome, sobrenome: D.sobrenome, whatsapp: D.whatsapp } });
+        token = r.token; gravarToken(token); criado = true;
+      } catch (e) {
+        await mays(e.status === 429 ? e.message : 'Não consegui salvar agora. Confira a sua internet.');
+        await opcoes([['Tentar de novo', true, 'forte']]);
+      }
+    }
+    atualizar();
+    await mays('Salvei! A partir de agora, se você precisar parar, é só voltar nesta página neste aparelho.');
+  }
+
+  async function secEmail(refazer) {
+    if (D.email && !refazer) return;
+    await mays('E o seu e-mail?');
+    const e = await campo({ dica: 'voce@email.com', tipo: 'email', modo: 'email', auto: 'email', max: 160,
+      valida: v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) ? '' : 'Confira o e-mail.' });
+    guardar({ email: e });
+    conquista('inicio');
+  }
+
+  const TIPOS = ['Apartamento', 'Casa', 'Casa em condomínio', 'Terreno', 'Sala Comercial', 'Loja', 'Galpão', 'Chácara', 'Campo', 'Prédio Comercial', 'Terreno Comercial'];
+
+  async function secImovel(refazer) {
+    if (!D.finalidade || refazer) {
+      await mays(`Agora vamos ao imóvel, ${primeiro()}. Você quer vender ou alugar?`);
+      guardar({ finalidade: await opcoes([['Vender', 'venda'], ['Alugar', 'aluguel'], ['Os dois', 'venda_aluguel']]) });
+    }
+    if (!D.tipo || refazer) {
+      await mays('Que tipo de imóvel é?');
+      guardar({ tipo: await opcoes(TIPOS.map(t => [t])) });
+    }
+    if (!D.descricao || refazer) {
+      await mays(`Me conta sobre esse ${D.tipo.toLowerCase()} como se estivesse falando com um amigo. O que ele tem de melhor?`);
+      dica('Ajuda a vender', 'Sol da manhã, reforma recente, vista, vizinhança, móveis que ficam. O detalhe que só você conhece vale muito.');
+      const t = await campo({ longo: true, dica: 'Escreva aqui…', max: 2000, valor: D.descricao || '', rotulo: 'Descrição do imóvel',
+        valida: v => v.length >= 20 ? '' : 'Conte um pouco mais, pelo menos uma frase.',
+        medidor: v => v.length >= 80 ? 'Ótima descrição!' : `Mais ${80 - v.length} letras e sua descrição fica forte` });
+      guardar({ descricao: t });
+      await mays(t.length >= 80 ? 'Adorei, isso ajuda muito. Nossa equipe ainda vai deixar o texto com cara de anúncio.' : 'Anotado! Nossa equipe pode completar esse texto depois com você.');
+    }
+    conquista('imovel');
+  }
+
+  async function secEndereco(refazer) {
+    if (D.endereco && D.bairro && !refazer) return conquista('endereco');
+    await mays('Onde ele fica? Me passa o CEP que eu procuro o resto.');
+    const cep = await campo({ dica: '96000-000', modo: 'numeric', mascara: mCep, auto: 'off', pular: ['Não sei o CEP', ''],
+      valida: v => digitos(v).length === 8 ? '' : 'O CEP tem 8 números.' });
+    let achou = null;
+    if (cep) {
+      try {
+        const c = await (await fetch(`https://viacep.com.br/ws/${digitos(cep)}/json/`)).json();
+        if (!c.erro && c.logradouro) achou = c;
+      } catch (e) { /* segue digitando */ }
+    }
+    if (achou) {
+      await mays(`Achei: ${achou.logradouro}, ${achou.bairro}, ${achou.localidade}/${achou.uf}. É aí mesmo?`);
+      if (!await opcoes([['Sim, é aí', true, 'forte'], ['Não é', false]])) achou = null;
+    } else if (cep) await mays('Não encontrei esse CEP, sem problema. Vamos por partes.');
+    if (achou) guardar({ cep: digitos(cep), endereco: achou.logradouro, bairro: achou.bairro, cidade: achou.localidade, uf: achou.uf });
+    else {
+      await mays('Qual é a rua?');
+      const endereco = await campo({ dica: 'Rua ou avenida', auto: 'off', max: 160 });
+      await mays('Qual é o bairro?');
+      const bairro = await campo({ dica: 'Bairro', auto: 'off', max: 80 });
+      await mays('E a cidade?');
+      const cidade = await campo({ dica: 'Cidade', auto: 'off', max: 80, valor: 'Pelotas' });
+      guardar({ cep: digitos(cep) || null, endereco, bairro, cidade, uf: cidade.toLowerCase() === 'pelotas' ? 'RS' : null });
+    }
+    await mays('Qual é o número?');
+    guardar({ numero: await campo({ dica: 'Número', auto: 'off', max: 20, pular: ['Sem número', 'S/N'] }) });
+    if (/Apartamento|Sala|condomínio/.test(D.tipo)) {
+      await mays('Tem complemento? Apartamento, bloco, sala ou nome do condomínio.');
+      const c = await campo({ dica: 'Ex.: Apto 302, Bloco B', auto: 'off', max: 80, pular: ['Não tem', ''] });
+      if (c) guardar({ complemento: c });
+    }
+    await mays(`${D.bairro}, boa! Já está no mapa.`);
+    conquista('endereco');
+  }
+
+  function cartaoEstrutura() {
+    return new Promise(ok => {
+      resp.textContent = '';
+      const itens = [['dormitorios', 'Dormitórios'], ['suites', 'Suítes'], ['banheiros', 'Banheiros'], ['vagas', 'Vagas']];
+      const v = Object.fromEntries(itens.map(([k]) => [k, D[k] || 0]));
+      const g = document.createElement('div'); g.className = 'steppers';
+      itens.forEach(([k, rot]) => {
+        const c = document.createElement('div'); c.className = 'stp';
+        const s = document.createElement('span'); s.textContent = rot;
+        const w = document.createElement('div');
+        const menos = document.createElement('button'), mais = document.createElement('button'), n = document.createElement('output');
+        menos.type = mais.type = 'button'; menos.textContent = '−'; mais.textContent = '+'; n.textContent = v[k];
+        menos.setAttribute('aria-label', `Menos ${rot}`); mais.setAttribute('aria-label', `Mais ${rot}`);
+        menos.onclick = () => { v[k] = Math.max(0, v[k] - 1); n.textContent = v[k]; guardar({ [k]: v[k] }); };
+        mais.onclick = () => { v[k] = Math.min(30, v[k] + 1); n.textContent = v[k]; guardar({ [k]: v[k] }); };
+        w.append(menos, n, mais); c.append(s, w); g.append(c);
+      });
+      const pronto = document.createElement('button'); pronto.type = 'button'; pronto.className = 'chip forte'; pronto.style.width = '100%';
+      pronto.textContent = 'Pronto';
+      pronto.onclick = () => {
+        resp.textContent = '';
+        eu(itens.filter(([k]) => v[k]).map(([k, r]) => `${v[k]} ${r.toLowerCase()}`).join(', ') || 'Nenhum desses');
+        ok();
+      };
+      resp.append(g, pronto);
+    });
+  }
+
+  async function secEstrutura(refazer) {
+    if ((D.area_util || D.area_total) && !refazer) return conquista('estrutura');
+    if (!semQuartos()) {
+      await mays('Agora a parte divertida: toque no + e no − para montar o imóvel.');
+      await cartaoEstrutura();
+    }
+    await mays(semQuartos() ? 'Qual é o tamanho da área, em metros quadrados?' : 'Quantos metros quadrados ele tem de área útil?');
+    const a = await campo({ dica: 'Ex.: 85', modo: 'decimal', auto: 'off', max: 12, oculto: v => `${v} m²`,
+      valida: v => Number(v.replace(',', '.')) > 0 ? '' : 'Digite só o número.', pular: ['Não sei ao certo', ''] });
+    const n = a ? Number(a.replace(',', '.')) : null;
+    guardar(semQuartos() ? { area_total: n } : { area_util: n });
+    conquista('estrutura');
+  }
+
+  async function secValores(refazer) {
+    if (D.valores_ok && !refazer) return conquista('valores');
+    const pedeValor = async (pergunta, chave) => {
+      await mays(pergunta);
+      const v = await campo({ dica: 'R$ 0', modo: 'numeric', auto: 'off', mascara: mReais,
+        valida: x => reais(x) > 0 ? '' : 'Digite o valor.', pular: ['Quero que vocês avaliem', ''] });
+      guardar({ [chave]: v ? reais(v) : null });
+      if (!v) await mays('Perfeito, nossa equipe avalia com base no mercado e conversa com você.');
+    };
+    if (D.finalidade !== 'aluguel') await pedeValor('Por quanto você quer vender?', 'valor');
+    if (D.finalidade !== 'venda') await pedeValor('E qual é o valor do aluguel por mês?', 'valor_aluguel');
+    if (temCondominio()) {
+      await mays('Quanto é o condomínio por mês?');
+      const c = await campo({ dica: 'R$ 0', modo: 'numeric', auto: 'off', mascara: mReais, valida: x => reais(x) > 0 ? '' : 'Digite o valor.', pular: ['Não tem ou não sei', ''] });
+      if (c) guardar({ condominio: reais(c) });
+    }
+    if (D.finalidade !== 'aluguel') {
+      await mays('O imóvel está quitado?');
+      guardar({ quitado: await opcoes([['Sim', true], ['Ainda não', false]]) });
+      await mays('Aceita financiamento?');
+      guardar({ aceita_financiamento: await opcoes([['Sim', true], ['Não', false]]) });
+      await mays('E permuta, aceitaria?');
+      guardar({ aceita_permuta: await opcoes([['Sim', true], ['Não', false]]) });
+    }
+    D.valores_ok = true; atualizar();
+    conquista('valores');
+  }
+
+  // ── Fotos ────────────────────────────────────────────────────────────
+  const DEITADO = 'Deite o celular.';
+  const MISSOES_RESIDENCIA = [
+    ['Fachada', `${DEITADO} Afaste-se até caber o imóvel inteiro e prefira a luz do dia.`],
+    ['Sala', `${DEITADO} Fique num canto, na altura do peito, e pegue o máximo do ambiente. Se for pequena, use a lente 0.5x.`],
+    ['Cozinha', `${DEITADO} Abra as cortinas, acenda as luzes e deixe a bancada livre.`],
+    ['Quarto principal', `${DEITADO} Fotografe da porta, com a cama arrumada. Em quarto pequeno, use a lente 0.5x.`],
+    ['Banheiro', 'Tampa fechada e toalhas guardadas. Fique na porta e use a lente 0.5x se tiver no seu celular.'],
+    ['Área externa ou vista', `${DEITADO} Sacada, pátio, churrasqueira ou a vista da janela: mostre o que encanta.`],
+  ];
+  const MISSOES_TERRENO = [
+    ['Frente do terreno', `${DEITADO} Fique do outro lado da rua para mostrar toda a testada.`],
+    ['Vista geral', `${DEITADO} Fique em um canto e aponte para o canto oposto.`],
+    ['Rua de acesso', `${DEITADO} Mostre a rua e a vizinhança.`],
+  ];
+  const MISSOES_COMERCIAL = [
+    ['Fachada', `${DEITADO} Afaste-se até caber a entrada inteira.`],
+    ['Ambiente principal', `${DEITADO} Fique num canto e use a lente 0.5x se tiver no seu celular.`],
+    ['Banheiro', 'Fique na porta e deixe o ambiente arrumado.'],
+  ];
+  const missoes = () => semQuartos() ? MISSOES_TERRENO : /Sala|Loja|Galpão|Prédio/.test(D.tipo) ? MISSOES_COMERCIAL : MISSOES_RESIDENCIA;
+
+  function carregarImagem(arquivo) {
+    return new Promise((ok, falha) => {
+      const url = URL.createObjectURL(arquivo), i = new Image();
+      i.onload = () => ok(i); i.onerror = () => falha(new Error('imagem')); i.src = url;
+    });
+  }
+  // Reduz no aparelho para subir rápido no 4G e já mede luz e orientação
+  async function preparar(arquivo) {
+    const img = await carregarImagem(arquivo);
+    const lado = 2400, f = Math.min(1, lado / Math.max(img.naturalWidth, img.naturalHeight));
+    const tela = document.createElement('canvas');
+    tela.width = Math.round(img.naturalWidth * f); tela.height = Math.round(img.naturalHeight * f);
+    tela.getContext('2d').drawImage(img, 0, 0, tela.width, tela.height);
+    const mini = document.createElement('canvas'); mini.width = mini.height = 24;
+    const c = mini.getContext('2d', { willReadFrequently: true }); c.drawImage(tela, 0, 0, 24, 24);
+    const px = c.getImageData(0, 0, 24, 24).data; let soma = 0;
+    for (let i = 0; i < px.length; i += 4) soma += px[i] * .3 + px[i + 1] * .59 + px[i + 2] * .11;
+    const blob = await new Promise(ok => tela.toBlob(ok, 'image/jpeg', .86));
+    return { blob, vertical: tela.height > tela.width, escura: soma / 576 < 62 };
+  }
+  async function subir(p, ambiente) {
+    const r = await api('foto', { ambiente });
+    const envio = await fetch(r.envio, { method: 'PUT', headers: { 'Content-Type': 'image/jpeg' }, body: p.blob });
+    if (!envio.ok) { await api('foto_remover', { id: r.id }).catch(() => null); throw new Error('envio'); }
+    const f = { id: r.id, ambiente, url: URL.createObjectURL(p.blob) };
+    fotos.push(f); atualizar(); pendente.forca = forca(); descarregar();
+    return f;
+  }
+  function escolherArquivo() {
+    return new Promise(ok => {
+      resp.textContent = '';
+      const g = document.createElement('div'); g.className = 'foto-acoes';
+      const botao = (rot, cls, fn) => { const b = document.createElement('button'); b.type = 'button'; b.className = `chip ${cls}`; b.textContent = rot; b.onclick = fn; g.append(b); };
+      const abrir = entrada => () => {
+        entrada.value = '';
+        entrada.onchange = () => { if (entrada.files[0]) { resp.textContent = ''; ok(entrada.files[0]); } };
+        entrada.click();
+      };
+      botao('Tirar foto agora', 'forte', abrir($('arqCamera')));
+      botao('Escolher da galeria', '', abrir($('arqGaleria')));
+      botao('Pular esta', 'leve largo', () => { resp.textContent = ''; eu('Pular esta'); ok(null); });
+      resp.append(g);
+    });
+  }
+
+  async function missao(ambiente, dicaTexto) {
+    for (;;) {
+      await mays(`Missão: ${ambiente}.`);
+      dica('Como fotografar', dicaTexto);
+      const arq = await escolherArquivo();
+      if (!arq) return;
+      let p;
+      try { p = await preparar(arq); }
+      catch (e) { await mays('Não consegui abrir essa imagem. Tente uma foto em JPG ou tire agora pela câmera.'); continue; }
+      const previa = URL.createObjectURL(p.blob);
+      eu(ambiente, previa);
+      let f;
+      try { f = await subir(p, ambiente); }
+      catch (e) { await mays(e.message === 'envio' ? 'A foto não subiu. Confira a internet e tente de novo.' : e.message); continue; }
+      const avisos = [];
+      if (p.escura) avisos.push('ficou um pouco escura, vale abrir as cortinas ou acender as luzes');
+      if (p.vertical) avisos.push('ficou em pé, e deitada mostra mais do ambiente');
+      if (!avisos.length) { await mays(`Ótima foto! Missão cumprida. Já são ${fotos.length}.`); return; }
+      await mays(`Boa! Só um toque: ${avisos.join(' e ')}. Quer tirar de novo?`);
+      if (await opcoes([['Manter esta', false], ['Tirar de novo', true, 'forte']])) {
+        await api('foto_remover', { id: f.id }).catch(() => null);
+        fotos = fotos.filter(x => x.id !== f.id); atualizar();
+        continue;
+      }
+      return;
+    }
+  }
+
+  async function secFotos(refazer) {
+    const falta = missoes().filter(([a]) => refazer || !fotos.some(f => f.ambiente === a));
+    if (falta.length) {
+      await mays(`Chegou a melhor parte, ${primeiro()}: as fotos são o que mais chama visita. Vamos fazer ${falta.length === 1 ? '1 missão' : `${falta.length} missões`}, um ambiente de cada vez.`);
+      dica('Antes de começar', 'Abra cortinas, acenda as luzes, guarde objetos pessoais e limpe a lente do celular.');
+      const go = await opcoes([['Estou pronto', true, 'forte'], ['Mando as fotos depois', false, 'leve']]);
+      if (go) for (const [a, t] of falta) await missao(a, t);
+      else await mays('Sem problema. Nossa equipe combina as fotos com você depois.');
+    }
+    if (fotos.length) {
+      await mays('Quer mandar mais alguma foto de um ambiente especial?');
+      while (await opcoes([['Mandar mais uma', true], ['Por agora é isso', false, 'forte']])) await missao('Outro ambiente', 'Pode ser outro quarto, a garagem, a área de serviço ou um detalhe bonito.');
+      conquista('fotos');
+    }
+  }
+
+  async function secDados(refazer) {
+    if (D.declara_proprietario && D.cpf && !refazer) return;
+    await mays(`Estamos quase lá, ${primeiro()}! Agora preciso de alguns dados seus para a análise. Eles não aparecem no anúncio.`);
+    await mays('Qual é o seu CPF?');
+    const c = await campo({ dica: '000.000.000-00', modo: 'numeric', auto: 'off', mascara: mCpf, oculto: v => `CPF terminado em ${digitos(v).slice(-2)}`,
+      valida: v => cpfOk(v) ? '' : 'Esse CPF não parece certo. Confira os números.' });
+    guardar({ cpf: digitos(c) });
+    await mays('Sua data de nascimento?');
+    const n = await campo({ dica: 'dd/mm/aaaa', modo: 'numeric', auto: 'off', mascara: mData, oculto: () => 'Data informada',
+      valida: v => dataIso(v) ? '' : 'Confira a data. Precisa ser maior de 18 anos.' });
+    guardar({ nascimento: dataIso(n) });
+    await mays('E o seu endereço residencial?');
+    const mesmo = [D.endereco, D.numero, D.bairro, D.cidade].filter(Boolean).join(', ');
+    const r = await campo({ dica: 'Rua, número, bairro e cidade', auto: 'street-address', max: 240, oculto: () => 'Endereço informado', pular: ['É o mesmo do imóvel', mesmo] });
+    guardar({ endereco_residencial: r });
+    await mays('Você confirma que é o proprietário ou tem autorização para anunciar este imóvel?');
+    guardar({ declara_proprietario: await opcoes([['Confirmo', true, 'forte']]) });
+    await mays('Depois de publicado, quer receber todo mês um resumo com os acessos do seu anúncio?');
+    guardar({ aceita_relatorio: await opcoes([['Quero receber', true, 'forte'], ['Não, obrigado', false]]) });
+  }
+
+  function resumo() {
+    const linhas = [
+      ['Imóvel', [D.tipo, D.finalidade && { venda: 'venda', aluguel: 'aluguel', venda_aluguel: 'venda e aluguel' }[D.finalidade]].filter(Boolean).join(' para ')],
+      ['Endereço', [D.endereco, D.numero, D.complemento, D.bairro, D.cidade].filter(Boolean).join(', ')],
+      ['Tamanho', (D.area_util || D.area_total) ? `${D.area_util || D.area_total} m²` : 'A confirmar'],
+      ['Valor', D.valor ? dinheiro(D.valor) : D.valor_aluguel ? `${dinheiro(D.valor_aluguel)}/mês` : 'Avaliar com a equipe'],
+      ['Fotos', String(fotos.length)],
+    ];
+    const r = document.createElement('div'); r.className = 'resumo';
+    linhas.forEach(([k, v]) => {
+      const d = document.createElement('div'), s = document.createElement('span'), b = document.createElement('b');
+      s.textContent = k; b.textContent = v || 'A confirmar'; d.append(s, b); r.append(d);
+    });
+    fala.append(r); rolar();
+  }
+
+  function confete() {
+    if (rapido) return;
+    const cores = ['#7D5F41', '#C9A985', '#EDE8DF', '#4F7A52', '#2C2416'];
+    for (let i = 0; i < 46; i++) {
+      const c = document.createElement('i'); c.className = 'confete';
+      c.style.left = `${Math.random() * 100}%`; c.style.background = cores[i % cores.length];
+      c.style.animationDuration = `${1.6 + Math.random() * 1.6}s`; c.style.animationDelay = `${Math.random() * .4}s`;
+      document.body.append(c); setTimeout(() => c.remove(), 3800);
+    }
+  }
+
+  async function revisar() {
+    for (;;) {
+      await mays(`Prontinho, ${primeiro()}! Seu anúncio está com força de ${forca()}%. Confira o resumo:`);
+      resumo();
+      const a = await opcoes([['Enviar para análise', 'enviar', 'forte'], ['Corrigir algo', 'corrigir']]);
+      if (a === 'enviar') return;
+      await mays('Claro! O que você quer corrigir?');
+      const s = await opcoes([['O imóvel', 'imovel'], ['Endereço', 'endereco'], ['Estrutura', 'estrutura'], ['Valores', 'valores'], ['Fotos', 'fotos'], ['Voltar', 'voltar', 'leve']]);
+      if (s === 'imovel') await secImovel(true);
+      if (s === 'endereco') await secEndereco(true);
+      if (s === 'estrutura') await secEstrutura(true);
+      if (s === 'valores') await secValores(true);
+      if (s === 'fotos') await secFotos(true);
+    }
+  }
+
+  async function concluir() {
+    for (;;) {
+      try {
+        await descarregar();
+        if (Object.keys(pendente).length) throw new Error('pendente');
+        await api('enviar');
+        break;
+      } catch (e) {
+        await mays(e.status === 409 ? 'Este cadastro já foi enviado.' : 'Não consegui enviar agora. Confira a sua internet e tente de novo.');
+        if (e.status === 409) break;
+        await opcoes([['Tentar de novo', true, 'forte']]);
+      }
+    }
+    gravarToken(null);
+    conquista('pronto');
+    confete();
+    await mays(`Enviado, ${primeiro()}! Seu imóvel já está na fila de análise.`);
+    await mays('Vamos revisar as informações e falar com você pelo WhatsApp antes de publicar qualquer coisa.');
+    const a = document.createElement('a'); a.className = 'chip forte';
+    a.style.cssText = 'display:flex;align-items:center;justify-content:center;text-decoration:none';
+    a.href = `https://wa.me/${WHATS}?text=${encodeURIComponent('Olá! Acabei de cadastrar meu imóvel no site.')}`;
+    a.target = '_blank'; a.rel = 'noopener'; a.textContent = 'Falar com a equipe no WhatsApp';
+    resp.textContent = ''; resp.append(a);
+    try { window.maysMedir && window.maysMedir('formulario', 'Anuncie seu imóvel'); } catch (e) { /* medição não pode travar */ }
+  }
+
+  async function roteiro(retomando) {
+    if (retomando) await mays(`Que bom te ver de volta, ${primeiro()}! Vamos continuar de onde parou.`);
+    else await secContato();
+    await secEmail();
+    await secImovel();
+    await secEndereco();
+    await secEstrutura();
+    await secValores();
+    await secFotos();
+    await secDados();
+    await revisar();
+    await concluir();
+  }
+
+  // ── Início ───────────────────────────────────────────────────────────
+  $('verPrevia').onclick = () => { montarPrevia($('folhaCorpo')); $('folha').hidden = false; };
+  $('fecharFolha').onclick = () => { $('folha').hidden = true; };
+  $('folha').onclick = e => { if (e.target === $('folha')) $('folha').hidden = true; };
+
+  async function comecar() {
+    $('capa').hidden = true;
+    let retomando = false;
+    if (token) {
+      try {
+        const r = await api('retomar');
+        if (r.situacao === 'rascunho') {
+          Object.assign(D, Object.fromEntries(Object.entries(r.dados).filter(([, v]) => v !== null)));
+          fotos = r.fotos.filter(f => f.url);
+          retomando = !!D.nome;
+          if (D.email) conquistas.add('inicio');
+          if (D.descricao) conquistas.add('imovel');
+          if (D.endereco) conquistas.add('endereco');
+          if (D.area_util || D.area_total) conquistas.add('estrutura');
+          if (D.aceita_permuta != null || (D.finalidade === 'aluguel' && D.valor_aluguel != null)) { D.valores_ok = true; conquistas.add('valores'); }
+        } else { token = null; gravarToken(null); }
+      } catch (e) { if (e.status === 404) { token = null; gravarToken(null); } }
+    }
+    atualizar();
+    roteiro(retomando);
+  }
+  if (token) {
+    $('comecar').textContent = 'Continuar meu anúncio';
+    $('recomecar').hidden = false;
+  }
+  $('comecar').onclick = comecar;
+  $('recomecar').onclick = () => { token = null; gravarToken(null); comecar(); };
+  atualizar();
+})();
+</script>
+<script>
+(function () {
+'use strict';
+try {
+var w = window, d = document, n = navigator, L = location;
+if (L.protocol === 'file:' || w.maysMedir) return;
+var ls = null;
+try { ls = w.localStorage; ls.setItem('_m', '1'); ls.removeItem('_m'); } catch (e) { ls = null; }
+var ler = function (k) { try { return ls ? ls.getItem(k) : null; } catch (e) { return null; } };
+var gravar = function (k, v) { try { if (ls) { if (v === null) ls.removeItem(k); else ls.setItem(k, v); } } catch (e) {} };
+var q = new URLSearchParams(L.search);
+if (q.has('nao-contar')) gravar('mays_nao_contar', '1');
+if (q.has('contar')) gravar('mays_nao_contar', null);
+w.maysMedir = function () {};
+if (ler('mays_nao_contar') || n.webdriver ||
+/bot|crawl|spider|slurp|headless|lighthouse|pagespeed|preview|facebookexternalhit|embedly/i.test(n.userAgent)) return;
+var sorteio = function () {
+var a = new Uint8Array(12), s = '';
+w.crypto.getRandomValues(a);
+for (var i = 0; i < a.length; i++) s += (a[i] % 36).toString(36);
+return s;
+};
+var base = L.hostname.replace(/^www\./, '');
+var ref = d.referrer || '', refHost = '';
+try { refHost = ref ? new URL(ref).hostname.replace(/^www\./, '') : ''; } catch (e) {}
+var externo = !!refHost && refHost !== base && refHost.slice(-base.length - 1) !== '.' + base;
+var utm = {}, temUtm = false, clique = null;
+['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) {
+var v = q.get(k); if (v) { utm[k] = v.slice(0, 150); temUtm = true; }
+});
+['gclid', 'gbraid', 'wbraid', 'fbclid', 'msclkid', 'ttclid'].some(function (k) {
+if (q.has(k)) { clique = k; return true; } return false;
+});
+var agora = Date.now(), s = null, entrada = false;
+try { s = JSON.parse(ler('mays_sessao') || 'null'); } catch (e) {}
+var nova = (externo || temUtm || clique) ? { r: externo ? ref.slice(0, 300) : null, u: utm, c: clique } : null;
+var assinatura = nova ? JSON.stringify([refHost, utm, clique]) : null;
+if (!s || !s.id || agora - (s.ult || 0) > 1800000 || (nova && assinatura !== s.sig)) {
+s = { id: sorteio(), sig: assinatura, a: nova || { r: null, u: {}, c: null } };
+entrada = true;
+}
+var visitante = ler('mays_visitante');
+if (!/^[a-z0-9]{8,32}$/.test(visitante || '')) { visitante = sorteio(); gravar('mays_visitante', visitante); }
+var ua = n.userAgent;
+var disp = (/iPad|Tablet/i.test(ua) || (/Android/i.test(ua) && !/Mobile/i.test(ua)) ||
+(/Macintosh/.test(ua) && n.maxTouchPoints > 1)) ? 'tablet'
+: (/Mobi|iPhone|iPod|Android/i.test(ua) ? 'celular' : 'computador');
+var lead = q.get('lead');
+if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(lead || '')) lead = null;
+var caminho = (L.pathname.replace(/index\.html$/, '') || '/').slice(0, 300);
+var enviar = function (tipo, alvo) {
+s.ult = Date.now(); gravar('mays_sessao', JSON.stringify(s));
+var a = s.a || {}, u = a.u || {};
+var corpo = JSON.stringify({
+tipo: tipo, visitante: visitante, sessao: s.id,
+entrada: tipo === 'pagina' && entrada,
+caminho: caminho, titulo: (d.title || '').slice(0, 200) || null,
+referencia: a.r || null, clique: a.c || null,
+utm_source: u.utm_source || null, utm_medium: u.utm_medium || null,
+utm_campaign: u.utm_campaign || null, utm_content: u.utm_content || null,
+utm_term: u.utm_term || null, dispositivo: disp,
+alvo: alvo ? String(alvo).replace(/\s+/g, ' ').trim().slice(0, 150) || null : null,
+lead_campanha: tipo === 'pagina' ? lead : null
+});
+if (tipo === 'pagina') entrada = false;
+var mandar = function (manter) {
+return fetch('https://gwhwesvmqvxakvjtsrdn.supabase.co/rest/v1/visita_site', {
+method: 'POST', keepalive: manter, body: corpo,
+headers: { apikey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd3aHdlc3ZtcXZ4YWt2anRzcmRuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY2MjI3MjMsImV4cCI6MjEwMjE5ODcyM30.-8YOH8sLts-lK-u6ALcbnlQHhVOsgZrKQWg5B3DhjRE', 'Content-Type': 'application/json', Prefer: 'return=minimal' }
+});
+};
+try { mandar(true).catch(function () { mandar(false).catch(function () {}); }); } catch (e) {}
+};
+w.maysMedir = enviar;
+var pagina = function () { setTimeout(function () { enviar('pagina'); }, 0); };
+if (d.readyState === 'complete') pagina(); else w.addEventListener('load', pagina);
+d.addEventListener('click', function (ev) {
+var el = ev.target && ev.target.closest ? ev.target.closest('a[href]') : null;
+if (!el) return;
+var h = el.getAttribute('href') || '';
+var rot = el.getAttribute('aria-label') || el.getAttribute('title') || el.textContent || '';
+if (/wa\.me\/|api\.whatsapp\.com|^whatsapp:/i.test(h)) enviar('whatsapp', rot);
+else if (/^tel:/i.test(h)) enviar('telefone', rot);
+}, true);
+d.addEventListener('submit', function (ev) {
+var f = ev.target;
+if (!f || f.id === 'formLead' || f.getAttribute('role') === 'search' ||
+/(^|\s)busca(\s|$)/.test(f.className || '')) return;
+enviar('formulario', f.getAttribute('aria-label') || f.id || 'Formulário');
+}, true);
+} catch (e) {}
+})();
+</script>
+</body>
+</html>
