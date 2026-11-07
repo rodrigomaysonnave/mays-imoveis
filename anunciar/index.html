@@ -160,10 +160,10 @@ h1,h2,h3{font-family:Montserrat,Inter,sans-serif;font-weight:800;line-height:1.1
   <div class="capa-in">
     <img src="logo.png" alt="Mays Imóveis">
     <h1>Você conhece seu imóvel. <em>Nós transformamos em anúncio.</em></h1>
-    <p>Sem escrever texto de anúncio e sem contratar fotógrafo. Responda algumas perguntas, siga as dicas de foto e a equipe da Mays Imóveis prepara o resto.</p>
+    <p>Sem escrever texto de anúncio e sem contratar fotógrafo. Responda às perguntas da Dash, nossa assistente, siga as dicas de foto e a equipe da Mays Imóveis prepara o resto.</p>
     <ul class="passos">
       <li><b>1</b> Conte o que seu imóvel tem de melhor</li>
-      <li><b>2</b> Fotografe seguindo nossas dicas</li>
+      <li><b>2</b> Fotografe com as dicas da Dash</li>
       <li><b>3</b> Só publicamos com o seu ok</li>
     </ul>
     <button class="btn" id="comecar">Montar meu anúncio</button>
@@ -435,7 +435,7 @@ h1,h2,h3{font-family:Montserrat,Inter,sans-serif;font-weight:800;line-height:1.1
   const primeiro = () => (D.nome || '').split(' ')[0];
 
   async function secContato() {
-    await mays('Oi! Aqui é a Mays Imóveis. Vou te ajudar a deixar seu imóvel pronto para anunciar.');
+    await mays('Oi! Eu sou a Dash, assistente da Mays Imóveis. Vou te ajudar a deixar seu imóvel pronto para anunciar.');
     await mays('Seus dados ficam só com a nossa equipe e servem para analisar e anunciar o imóvel.', ['Ver a política de privacidade', '/privacidade/']);
     await opcoes([['Combinado, vamos lá', true, 'forte']]);
     await mays('Para começar, qual é o seu nome completo?');
