@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Porto Belo · 4 unidades Pastorio | Maysonnave Imóveis</title>
+<meta name="description" content="Quatro apartamentos de permuta em Meraki, Domum e Porto Belo Tower, da Pastorio Construtora, em Porto Belo/SC. 93 a 127 m², 2 e 3 suítes.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F0E8; --alt:#EDE8DF; --cara:#9B7B5A; --cara-d:#7E6246; --text:#2C2416;
+  --dark:#1E1913; --dark2:#2C2416; --muted:#6E6352; --line:rgba(44,36,22,0.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.eyebrow{font-family:Montserrat,sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--cara)}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:600;line-height:1.15}
+h2{font-size:clamp(1.8rem,3.6vw,2.7rem);margin:12px 0 18px}
+.lead{font-size:1.08rem;color:var(--muted);max-width:680px}
+.btn{display:inline-block;background:var(--cara);color:#F5F0E8;font-family:Montserrat,sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;padding:16px 28px;border-radius:6px;border:0;cursor:pointer;transition:background .2s}
+.btn:hover{background:var(--cara-d)}
+.btn-ghost{background:transparent;border:1px solid rgba(245,240,232,0.5);color:#F5F0E8}
+.btn-ghost:hover{background:rgba(245,240,232,0.1)}
+
+/* header */
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,box-shadow .3s}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+header img{height:50px;filter:brightness(0) invert(1)}
+header.solid{background:rgba(30,25,19,0.94);box-shadow:0 2px 12px rgba(0,0,0,0.2)}
+header a.hcta{font-family:Montserrat,sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:#F5F0E8;text-decoration:none;border:1px solid rgba(245,240,232,0.45);padding:10px 16px;border-radius:6px}
+
+/* hero */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;color:#F5F0E8;background:#1E1913}
+.hero .bg{position:absolute;inset:0;background:url(img/meraki-aerea.jpg) center/cover no-repeat}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,12,0.55) 0%,rgba(20,16,12,0.25) 35%,rgba(20,16,12,0.88) 100%)}
+.hero .wrap{position:relative;padding-bottom:72px;padding-top:120px;width:100%}
+.hero .eyebrow{color:#F0DCC0;text-shadow:0 1px 8px rgba(0,0,0,0.6)}
+.unit-head h2{max-width:760px}
+.hero h1{font-size:clamp(2.2rem,5.6vw,4.4rem);max-width:900px;margin:16px 0 20px}
+.hero h1 em{font-style:italic;color:#E2C9A8}
+.hero p.sub{font-size:1.1rem;max-width:640px;opacity:0.9;margin-bottom:30px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:36px}
+.chips span{font-family:Montserrat,sans-serif;font-weight:600;font-size:0.74rem;letter-spacing:0.06em;padding:8px 14px;border-radius:40px;background:rgba(245,240,232,0.12);border:1px solid rgba(245,240,232,0.25)}
+
+/* index cards */
+.units-index{background:var(--bg);padding:90px 0 70px}
+.idx-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
+.idx{background:#FBF8F3;border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(44,36,22,0.08);text-decoration:none;display:flex;flex-direction:column;transition:transform .2s}
+.idx:hover{transform:translateY(-4px)}
+.idx img{height:170px;object-fit:cover;width:100%}
+.idx .b{padding:18px 18px 22px}
+.idx .emp{font-family:Montserrat,sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--cara)}
+.idx .num{font-family:Montserrat,sans-serif;font-weight:900;font-size:2.1rem;line-height:1.1;margin:6px 0 4px}
+.idx .sp{font-size:0.9rem;color:var(--muted)}
+
+/* numbers */
+.numbers{background:var(--dark);color:#F5F0E8;padding:90px 0}
+.numbers .eyebrow{color:#C9A982}
+.num-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:46px}
+.num-grid .n{font-family:Montserrat,sans-serif;font-weight:900;font-size:clamp(2.6rem,5vw,3.8rem);line-height:1;color:#E2C9A8}
+.num-grid .n small{font-size:0.45em;font-weight:700}
+.num-grid p{margin-top:12px;font-size:0.92rem;opacity:0.78;max-width:240px}
+.num-grid div{border-top:1px solid rgba(245,240,232,0.18);padding-top:22px}
+
+/* context */
+.context{padding:100px 0;background:var(--alt)}
+.ctx-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:start}
+.ctx-grid img{border-radius:10px;box-shadow:0 2px 12px rgba(44,36,22,0.1)}
+.ctx-grid p{margin-bottom:16px;color:var(--muted)}
+.quote{background:var(--cara);color:#F5F0E8;border-radius:10px;padding:30px 32px;margin-top:26px;font-family:'Playfair Display',serif;font-size:1.25rem;font-style:italic;line-height:1.5}
+
+/* unit sections */
+.unit{padding:100px 0}
+.unit.light{background:var(--bg)}
+.unit.dark{background:var(--dark2);color:#F5F0E8}
+.unit.dark .eyebrow{color:#C9A982}
+.unit.dark .lead,.unit.dark .muted{color:rgba(245,240,232,0.75)}
+.unit-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:40px}
+.unit-head .big{font-family:Montserrat,sans-serif;font-weight:900;font-size:clamp(3.4rem,8vw,6rem);line-height:0.9;letter-spacing:-0.02em;color:var(--cara)}
+.unit.dark .unit-head .big{color:#E2C9A8}
+.unit-head .big span{display:block;font-size:0.2em;letter-spacing:0.2em;font-weight:700;margin-bottom:8px;text-transform:uppercase}
+.unit-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:start}
+.specs{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--line);margin:8px 0 26px}
+.unit.dark .specs{border-color:rgba(245,240,232,0.16)}
+.specs div{padding:16px 0;border-bottom:1px solid var(--line)}
+.unit.dark .specs div{border-color:rgba(245,240,232,0.16)}
+.specs .k{font-size:0.72rem;font-family:Montserrat,sans-serif;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;opacity:0.6}
+.specs .v{font-family:Montserrat,sans-serif;font-weight:800;font-size:1.3rem;margin-top:2px}
+.feat{list-style:none;margin:0 0 26px}
+.feat li{padding:7px 0 7px 22px;position:relative;font-size:0.96rem}
+.feat li::before{content:"";position:absolute;left:0;top:16px;width:10px;height:2px;background:var(--cara)}
+.addr{font-size:0.88rem;opacity:0.72}
+.planta{background:#FBF8F3;border-radius:10px;padding:18px;box-shadow:0 2px 12px rgba(44,36,22,0.08);cursor:zoom-in}
+.planta img{margin:0 auto;max-height:560px;width:auto}
+.planta .cap{font-size:0.78rem;color:var(--muted);margin-top:10px;text-align:center}
+.gal{display:grid;grid-template-columns:2fr 1fr 1fr;grid-auto-rows:200px;gap:12px;margin-top:44px}
+.gal img{width:100%;height:100%;object-fit:cover;border-radius:8px;cursor:zoom-in}
+.gal img:first-child{grid-row:span 2}
+.gal figure{position:relative;margin:0;overflow:hidden;border-radius:8px}
+.gal figure:first-child{grid-row:span 2}
+.gal figcaption{position:absolute;left:10px;bottom:10px;font-family:Montserrat,sans-serif;font-weight:700;font-size:0.64rem;letter-spacing:0.12em;text-transform:uppercase;background:rgba(30,25,19,0.72);color:#F5F0E8;padding:5px 9px;border-radius:4px;pointer-events:none}
+.loc{display:grid;grid-template-columns:1.3fr 1fr;gap:36px;align-items:center;margin-top:50px}
+.loc img{border-radius:10px;cursor:zoom-in}
+.tag{display:inline-block;font-family:Montserrat,sans-serif;font-weight:700;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;padding:6px 12px;border-radius:40px;background:rgba(155,123,90,0.15);color:var(--cara-d);margin:0 6px 8px 0}
+.unit.dark .tag{background:rgba(226,201,168,0.14);color:#E2C9A8}
+
+/* objections */
+.obj{background:var(--alt);padding:100px 0}
+.obj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:40px}
+.obj-grid div{background:#FBF8F3;border-radius:10px;padding:30px;box-shadow:0 2px 12px rgba(44,36,22,0.06)}
+.obj-grid h3{font-size:1.3rem;margin-bottom:12px}
+.obj-grid p{color:var(--muted);font-size:0.95rem}
+
+/* broker + cta */
+.broker{background:var(--bg);padding:80px 0}
+.broker .wrap{display:flex;gap:36px;align-items:center;max-width:860px}
+.broker img{width:150px;height:150px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.broker h3{font-size:1.6rem;margin:6px 0 10px}
+.broker p{color:var(--muted)}
+.cta-final{background:var(--dark);color:#F5F0E8;padding:100px 0}
+.cta-final .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.cta-final .eyebrow{color:#C9A982}
+.cta-final p{opacity:0.8;margin-bottom:14px}
+.cta-final .scarcity{border-left:3px solid var(--cara);padding-left:16px;font-weight:500;opacity:1;color:#E2C9A8}
+.lead-form{background:#F5F0E8;color:var(--text);border-radius:12px;padding:34px}
+.lead-form h3{font-size:1.5rem;margin-bottom:6px}
+.lead-form .sub{font-size:0.9rem;color:var(--muted);margin-bottom:18px}
+.lead-form label{display:block;font-family:Montserrat,sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;margin:14px 0 6px}
+.lead-form input,.lead-form select{width:100%;padding:14px;border:1px solid rgba(44,36,22,0.2);border-radius:6px;background:#FBF8F3;font:inherit;color:var(--text)}
+.lead-form .btn{width:100%;margin-top:22px}
+.lead-form .wa{display:block;text-align:center;margin-top:14px;font-size:0.82rem;color:var(--muted)}
+
+footer{background:#141110;color:#968C79;padding:52px 16px;text-align:center;font-size:0.8rem}
+footer img{height:48px;margin:0 auto 20px;filter:brightness(0) invert(1);opacity:0.85}
+footer p{margin:0 auto 6px;max-width:760px}
+footer .legal{font-size:0.68rem;opacity:0.6;margin-top:16px;line-height:1.7}
+
+#lightbox{position:fixed;inset:0;background:rgba(15,12,9,0.94);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+#lightbox.open{display:flex}
+#lightbox img{max-width:100%;max-height:92vh;border-radius:6px;background:#F5F0E8}
+#lightbox button{position:absolute;top:16px;right:20px;background:none;border:0;color:#fff;font-size:2rem;cursor:pointer}
+.float-wa{position:fixed;right:18px;bottom:18px;z-index:60;background:#25D366;color:#fff;font-family:Montserrat,sans-serif;font-weight:700;font-size:0.8rem;text-decoration:none;padding:14px 20px;border-radius:40px;box-shadow:0 4px 18px rgba(0,0,0,0.25);opacity:0;transform:translateY(20px);pointer-events:none;transition:all .3s}
+.float-wa.show{opacity:1;transform:none;pointer-events:auto}
+
+@media (max-width:960px){
+  .idx-grid{grid-template-columns:repeat(2,1fr)}
+  .num-grid{grid-template-columns:repeat(2,1fr)}
+  .ctx-grid,.unit-grid,.loc,.cta-final .wrap{grid-template-columns:1fr}
+  .obj-grid{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .wrap{padding:0 16px}
+  .idx-grid{grid-template-columns:1fr}
+  .idx img{height:190px}
+  .num-grid{grid-template-columns:1fr 1fr;gap:22px}
+  .gal{grid-template-columns:1fr 1fr;grid-auto-rows:130px}
+  .gal figure:first-child{grid-column:span 2;grid-row:span 2}
+  .unit,.context,.obj,.cta-final,.numbers{padding:70px 0}
+  .broker .wrap{flex-direction:column;text-align:center}
+  .lead-form{padding:24px}
+  header a.hcta{padding:8px 12px;font-size:0.66rem}
+  header img{height:32px}
+  .planta img{max-height:440px}
+}
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap">
+    <img src="img/logo.png" alt="Maysonnave Imóveis">
+    <a class="hcta" href="#contato">Receber valores</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="bg" role="img" aria-label="Vista aérea de Porto Belo com a enseada ao fundo"></div>
+  <div class="wrap">
+    <p class="eyebrow">Porto Belo · Santa Catarina · Pastorio Construtora</p>
+    <h1>Quatro apartamentos na enseada de Porto Belo, <em>fora da tabela da construtora.</em></h1>
+    <p class="sub">Unidades de permuta em três empreendimentos da Pastorio: Meraki, Domum e Porto Belo Tower. De 93 a 127 m² privativos, 2 e 3 suítes, entregas previstas entre 2029 e 2031.</p>
+    <div class="ctas">
+      <a class="btn" href="#contato">Receber plantas e valores das 4 unidades</a>
+      <a class="btn btn-ghost" href="#unidades">Ver as unidades</a>
+    </div>
+    <div class="chips">
+      <span>Meraki 1404</span><span>Domum 1901</span><span>Domum 1404</span><span>Porto Belo Tower 701</span>
+    </div>
+  </div>
+</section>
+
+<section class="units-index" id="unidades">
+  <div class="wrap">
+    <p class="eyebrow">As unidades</p>
+    <h2>Quatro plantas, três endereços, uma negociação direta.</h2>
+    <p class="lead">Cada unidade foi identificada na tabela oficial da Pastorio e no book do empreendimento. Toque para ver planta, imagens e localização.</p>
+    <div class="idx-grid">
+      <a class="idx" href="#meraki-1404"><img src="img/meraki-sacada.jpg" alt="Sacada do Meraki"><div class="b"><div class="emp">Meraki Future Living</div><div class="num">1404</div><div class="sp">93,50 m² · 2 suítes · 21º pavimento</div></div></a>
+      <a class="idx" href="#domum-1901"><img src="img/domum-torre.jpg" alt="Torre do Domum" style="object-position:center 30%"><div class="b"><div class="emp">Domum Morada</div><div class="num">1901</div><div class="sp">117 m² · 3 suítes · 19º pavimento</div></div></a>
+      <a class="idx" href="#domum-1404"><img src="img/domum-poolhouse.jpg" alt="Pool house do Domum"><div class="b"><div class="emp">Domum Morada</div><div class="num">1404</div><div class="sp">104 m² · 3 suítes · 14º pavimento</div></div></a>
+      <a class="idx" href="#tower-701"><img src="img/pbt-rooftop.jpg" alt="Rooftop do Porto Belo Tower"><div class="b"><div class="emp">Porto Belo Tower</div><div class="num">701</div><div class="sp">126,71 m² · 3 suítes · 13º pavimento</div></div></a>
+    </div>
+  </div>
+</section>
+
+<section class="numbers">
+  <div class="wrap">
+    <p class="eyebrow">Os números que sustentam a decisão</p>
+    <h2 style="max-width:760px">O que a tabela da construtora não oferece mais, esta página oferece.</h2>
+    <div class="num-grid">
+      <div><div class="n">0</div><p>unidades disponíveis do Porto Belo Tower na tabela da Pastorio (DWV, atualização de 30/09/2026). A 701 só se compra por aqui.</p></div>
+      <div><div class="n">350<small> m</small></div><p>do Domum até o mar, segundo o book do empreendimento, no Perequê.</p></div>
+      <div><div class="n">3</div><p>empreendimentos da Pastorio já entregues com obra 100% concluída em Porto Belo e Itapema.</p></div>
+      <div><div class="n">30</div><p>pavimentos no Porto Belo Tower, com Ocean Rooftop e piscina de borda infinita no topo.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="context">
+  <div class="wrap ctx-grid">
+    <img src="img/pbt-localizacao.jpg" alt="Vista aérea de Porto Belo com Meia Praia, Itapema e Balneário Camboriú ao fundo" data-zoom>
+    <div>
+      <p class="eyebrow">Por que Porto Belo</p>
+      <h2>A mesma baía de Itapema e Balneário Camboriú, com outra densidade.</h2>
+      <p>Porto Belo fica entre Itapema e Bombinhas, ligada pela BR-101 e pela Avenida Governador Celso Ramos, que leva ao Caixa D'Aço e às praias de Bombinhas. Os três empreendimentos estão no Perequê e na Vila Nova, a parte mais completa da cidade, perto de comércio, escola e praia.</p>
+      <p>A Pastorio é construtora e incorporadora local, com dez empreendimentos na região e três já entregues: Ilha de Belize, Ilha de Sardenha e San Andrés.</p>
+      <div class="quote">Da varanda em Porto Belo se enxerga Itapema e Balneário Camboriú. A diferença está na escala da cidade em que você mora.</div>
+    </div>
+  </div>
+</section>
+
+<!-- MERAKI 1404 -->
+<section class="unit dark" id="meraki-1404">
+  <div class="wrap">
+    <div class="unit-head">
+      <div>
+        <p class="eyebrow">Meraki Future Living · Perequê</p>
+        <h2>Apartamento alto, living integrado e sacada com churrasqueira.</h2>
+      </div>
+      <div class="big"><span>Unidade</span>1404</div>
+    </div>
+    <div class="unit-grid">
+      <div>
+        <div class="specs">
+          <div><div class="k">Área privativa</div><div class="v">93,50 m²</div></div>
+          <div><div class="k">Suítes</div><div class="v">2</div></div>
+          <div><div class="k">Pavimento</div><div class="v">21º de 27</div></div>
+          <div><div class="k">Vaga</div><div class="v">1 dupla</div></div>
+          <div><div class="k">Planta</div><div class="v">Tipo 04</div></div>
+          <div><div class="k">Entrega prevista</div><div class="v">Dez/2031</div></div>
+        </div>
+        <ul class="feat">
+          <li>Living integrado de 33,33 m² com cozinha em ilha</li>
+          <li>Suíte principal de 15,54 m² e segunda suíte de 11,44 m²</li>
+          <li>Sacada de 8,39 m² com churrasqueira, lavabo</li>
+          <li>Fechadura eletrônica, aquecimento a gás, espera para ar-condicionado</li>
+          <li>Lazer de 794 m² no 6º pavimento: piscina, solarium, pool house, academia, pub</li>
+        </ul>
+        <p class="addr">Av. Luiz Voltolini, 102 · Perequê · Porto Belo/SC · 4 apartamentos por andar, 3 elevadores · Início de obra previsto para dez/2026</p>
+      </div>
+      <div class="planta" data-zoom-wrap><img src="img/meraki-planta-tipo04.jpg" alt="Planta Tipo 04 do Meraki, 93,50 m²"><p class="cap">Planta Tipo 04 · 93,50 m² · perspectiva ilustrativa · toque para ampliar</p></div>
+    </div>
+    <div class="gal">
+      <figure><img src="img/meraki-living.jpg" alt="Living do Meraki" loading="lazy"><figcaption>Living decorado</figcaption></figure>
+      <figure><img src="img/meraki-suite.jpg" alt="Suíte do Meraki" loading="lazy"><figcaption>Suíte</figcaption></figure>
+      <figure><img src="img/meraki-piscina.jpg" alt="Piscina do Meraki" loading="lazy"><figcaption>Piscina</figcaption></figure>
+      <figure><img src="img/meraki-solarium.jpg" alt="Solarium do Meraki" loading="lazy"><figcaption>Solarium</figcaption></figure>
+      <figure><img src="img/meraki-gourmet.jpg" alt="Espaço gourmet do Meraki" loading="lazy"><figcaption>Gourmet</figcaption></figure>
+    </div>
+    <div class="loc">
+      <img src="img/meraki-aerea.jpg" alt="Vista aérea do Meraki em Porto Belo" data-zoom loading="lazy">
+      <div>
+        <p class="eyebrow">Localização</p>
+        <h3 style="font-size:1.6rem;margin:10px 0 12px">Na avenida, com a baía no horizonte.</h3>
+        <p class="muted">Esquina da Av. Luiz Voltolini, no Perequê. A torre de 27 pavimentos começa os apartamentos no 8º andar, acima do lazer, o que coloca a 1404 entre os andares altos do prédio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOMUM 1901 -->
+<section class="unit light" id="domum-1901">
+  <div class="wrap">
+    <div class="unit-head">
+      <div>
+        <p class="eyebrow">Domum Morada · Perequê · 350 m do mar</p>
+        <h2>Três suítes de canto, no 19º andar de uma torre com 1.100 m² de lazer.</h2>
+      </div>
+      <div class="big"><span>Unidade</span>1901</div>
+    </div>
+    <div class="unit-grid">
+      <div>
+        <div class="specs">
+          <div><div class="k">Área privativa</div><div class="v">117 m²</div></div>
+          <div><div class="k">Suítes</div><div class="v">3</div></div>
+          <div><div class="k">Pavimento</div><div class="v">19º</div></div>
+          <div><div class="k">Vagas</div><div class="v">2</div></div>
+          <div><div class="k">Planta</div><div class="v">Tipo 01</div></div>
+          <div><div class="k">Entrega prevista</div><div class="v">Dez/2030</div></div>
+        </div>
+        <ul class="feat">
+          <li>Cozinha e jantar integrados de 20,15 m², estar de 14,98 m²</li>
+          <li>Suíte principal de 15,20 m² e duas suítes de 12,94 m²</li>
+          <li>Varanda com churrasqueira a carvão e sistema anti-fumaça, lavabo</li>
+          <li>Carregador para carro elétrico, portaria com reconhecimento facial</li>
+          <li>SPA com piscina aquecida coberta, sauna, beach tennis, fire place</li>
+        </ul>
+        <p class="addr">Rua Francisca F. Moraes · Balneário Perequê · Porto Belo/SC · 5 apartamentos por andar, 3 elevadores · Arquitetura Rabelo Bervasi</p>
+      </div>
+      <div class="planta"><img src="img/domum-planta-tipo01.jpg" alt="Planta Tipo 01 do Domum, 117 m²"><p class="cap">Planta Tipo 01 · 117 m² · perspectiva ilustrativa · toque para ampliar</p></div>
+    </div>
+    <div class="gal">
+      <figure><img src="img/domum-fachada.jpg" alt="Fachada do Domum" loading="lazy"><figcaption>Fachada</figcaption></figure>
+      <figure><img src="img/domum-spa.jpg" alt="SPA do Domum" loading="lazy"><figcaption>SPA</figcaption></figure>
+      <figure><img src="img/domum-poolhouse.jpg" alt="Pool house do Domum" loading="lazy"><figcaption>Pool house</figcaption></figure>
+      <figure><img src="img/domum-hall.jpg" alt="Hall do Domum" loading="lazy"><figcaption>Hall</figcaption></figure>
+      <figure><img src="img/domum-jogos.jpg" alt="Sala de jogos do Domum" loading="lazy"><figcaption>Jogos</figcaption></figure>
+    </div>
+    <div class="loc">
+      <img src="img/domum-localizacao.jpg" alt="Localização do Domum com Praia do Perequê e Caixa D'Aço" data-zoom loading="lazy">
+      <div>
+        <p class="eyebrow">Localização</p>
+        <h3 style="font-size:1.6rem;margin:10px 0 12px">A praia a pé, o Caixa D'Aço à vista.</h3>
+        <p style="color:var(--muted)">350 metros separam o Domum da Praia do Perequê. Do alto, a vista se abre para a enseada, com Itapema e Meia Praia ao fundo. O prédio tem box de praia e entrada própria para banhistas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOMUM 1404 -->
+<section class="unit dark" id="domum-1404">
+  <div class="wrap">
+    <div class="unit-head">
+      <div>
+        <p class="eyebrow">Domum Morada · Perequê · 350 m do mar</p>
+        <h2>Três suítes em planta linear, com duas varandas.</h2>
+      </div>
+      <div class="big"><span>Unidade</span>1404</div>
+    </div>
+    <div class="unit-grid">
+      <div>
+        <div class="specs">
+          <div><div class="k">Área privativa</div><div class="v">104,01 m²</div></div>
+          <div><div class="k">Suítes</div><div class="v">3</div></div>
+          <div><div class="k">Pavimento</div><div class="v">14º</div></div>
+          <div><div class="k">Vagas</div><div class="v">2</div></div>
+          <div><div class="k">Planta</div><div class="v">Tipo 04</div></div>
+          <div><div class="k">Entrega prevista</div><div class="v">Dez/2030</div></div>
+        </div>
+        <ul class="feat">
+          <li>Cozinha e estar integrados de 20,13 m² com bancada</li>
+          <li>Suíte principal de 15,27 m², suítes de 11,04 m² e 9,40 m²</li>
+          <li>Duas varandas: 5,15 m² na área social e 5,64 m² na suíte principal</li>
+          <li>Fechadura eletrônica, espera para automação, aquecimento a gás</li>
+          <li>Mesmo lazer de 1.100 m² do Domum, com áreas comuns entregues mobiliadas</li>
+        </ul>
+        <p class="addr">Rua Francisca F. Moraes · Balneário Perequê · Porto Belo/SC · Mesma torre da unidade 1901</p>
+      </div>
+      <div class="planta"><img src="img/domum-planta-tipo04.jpg" alt="Planta Tipo 04 do Domum, 104,01 m²"><p class="cap">Planta Tipo 04 · 104,01 m² · perspectiva ilustrativa · toque para ampliar</p></div>
+    </div>
+    <div class="gal">
+      <figure><img src="img/domum-torre.jpg" alt="Torre do Domum ao entardecer" loading="lazy" style="object-position:center 25%"><figcaption>A torre</figcaption></figure>
+      <figure><img src="img/domum-academia.jpg" alt="Academia do Domum" loading="lazy"><figcaption>Academia</figcaption></figure>
+      <figure><img src="img/domum-poolhouse.jpg" alt="Pool house do Domum" loading="lazy"><figcaption>Pool house</figcaption></figure>
+      <figure><img src="img/domum-spa.jpg" alt="SPA do Domum" loading="lazy"><figcaption>SPA</figcaption></figure>
+      <figure><img src="img/domum-jogos.jpg" alt="Sala de jogos do Domum" loading="lazy"><figcaption>Jogos</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- TOWER 701 -->
+<section class="unit light" id="tower-701">
+  <div class="wrap">
+    <div class="unit-head">
+      <div>
+        <p class="eyebrow">Porto Belo Tower Vertical Home · Vila Nova</p>
+        <h2>A maior planta de três suítes de um prédio sem unidades à venda.</h2>
+      </div>
+      <div class="big"><span>Unidade</span>701</div>
+    </div>
+    <div class="unit-grid">
+      <div>
+        <div class="specs">
+          <div><div class="k">Área privativa</div><div class="v">126,71 m²</div></div>
+          <div><div class="k">Suítes</div><div class="v">3</div></div>
+          <div><div class="k">Pavimento</div><div class="v">13º de 30</div></div>
+          <div><div class="k">Vagas</div><div class="v">2</div></div>
+          <div><div class="k">Planta</div><div class="v">Tipo 01</div></div>
+          <div><div class="k">Entrega prevista</div><div class="v">Nov/2029</div></div>
+        </div>
+        <ul class="feat">
+          <li>Obra em andamento desde nov/2023, 17% concluída</li>
+          <li>Cozinha de 21,28 m² e sala de estar de 18,20 m²</li>
+          <li>Suíte principal de 19,98 m², suítes de 13,79 m² e 12,37 m²</li>
+          <li>Varanda gourmet de 6,34 m² com churrasqueira e segunda varanda de 5,50 m²</li>
+          <li>Ocean Rooftop: piscina de borda infinita, deck molhado, pub, sauna e academia</li>
+        </ul>
+        <p class="addr">Rua Sebastião Manoel Jaques, 292 · Vila Nova · Porto Belo/SC · Próximo à Av. Governador Celso Ramos</p>
+      </div>
+      <div class="planta"><img src="img/pbt-planta-tipo01.jpg" alt="Planta Tipo 01 do Porto Belo Tower, 126,71 m²"><p class="cap">Planta Tipo 01 · 126,71 m² · perspectiva ilustrativa · toque para ampliar</p></div>
+    </div>
+    <div class="gal">
+      <figure><img src="img/pbt-rooftop.jpg" alt="Ocean Rooftop do Porto Belo Tower" loading="lazy"><figcaption>Ocean Rooftop</figcaption></figure>
+      <figure><img src="img/pbt-living.jpg" alt="Living decorado do Porto Belo Tower" loading="lazy"><figcaption>Living decorado</figcaption></figure>
+      <figure><img src="img/pbt-sacada.jpg" alt="Varanda gourmet com vista para a baía" loading="lazy"><figcaption>Varanda gourmet</figcaption></figure>
+      <figure><img src="img/pbt-pub.jpg" alt="Pub gourmet do rooftop" loading="lazy"><figcaption>Pub gourmet</figcaption></figure>
+      <figure><img src="img/pbt-academia.jpg" alt="Academia com vista para o mar" loading="lazy"><figcaption>Academia</figcaption></figure>
+    </div>
+    <div class="loc">
+      <img src="img/pbt-fachada.jpg" alt="Fachada do Porto Belo Tower" data-zoom loading="lazy" style="max-height:520px;width:auto;margin:0 auto">
+      <div>
+        <p class="eyebrow">Escassez real</p>
+        <h3 style="font-size:1.6rem;margin:10px 0 12px">Na tabela da Pastorio, todas as 108 unidades constam como reservadas.</h3>
+        <p style="color:var(--muted)">A atualização de 30/09/2026 na DWV, plataforma de vendas usada pela construtora, registra zero unidades disponíveis no Porto Belo Tower. A 701 é uma unidade de permuta: hoje, é um dos poucos caminhos para entrar neste prédio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="obj">
+  <div class="wrap">
+    <p class="eyebrow">Antes de decidir</p>
+    <h2>As três perguntas que todo comprador na planta deveria fazer.</h2>
+    <div class="obj-grid">
+      <div><h3>Quando fica pronto?</h3><p>Datas previstas pela incorporadora: Porto Belo Tower em nov/2029, com obra iniciada em 2023. Domum em dez/2030 e Meraki em dez/2031, ambos com início previsto para dez/2026. Você acompanha o avanço da obra pelo relatório da construtora.</p></div>
+      <div><h3>Como funciona a permuta?</h3><p>São unidades de permuta: pertencem ao titular, não ao estoque de vendas da Pastorio. A negociação é direta com ele, e a documentação da unidade e do empreendimento é apresentada para conferência antes de qualquer sinal.</p></div>
+      <div><h3>Por que agora?</h3><p>Na planta, o pagamento se distribui ao longo da obra. Quem entra antes da estrutura subir negocia o metro quadrado da fase inicial e recebe o apartamento novo, já com o prédio pronto ao redor. Domum e Meraki ainda nem começaram a obra.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="broker">
+  <div class="wrap">
+    <img src="img/corretor-rodrigo.jpg" alt="Rodrigo Maysonnave Fernandes, corretor de imóveis" loading="lazy">
+    <div>
+      <p class="eyebrow">Quem atende você</p>
+      <h3>Rodrigo Maysonnave</h3>
+      <p>Corretor de imóveis e perito avaliador, CRECI-RS 61.580. Atendimento direto do primeiro contato à assinatura: plantas, comparativo entre as quatro unidades e simulação de pagamento enviados pelo WhatsApp.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final" id="contato">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Valores e condições</p>
+      <h2>Receba o comparativo das quatro unidades.</h2>
+      <p>Valores e forma de pagamento são informados no atendimento, de acordo com a unidade de interesse. Você recebe planta em alta, localização e a condição de cada uma.</p>
+      <p class="scarcity">São quatro unidades, uma de cada planta. Quando uma for vendida, ela sai desta página.</p>
+    </div>
+    <form class="lead-form" id="leadForm">
+      <h3>Quero os valores</h3>
+      <p class="sub">Preencha e fale direto com o corretor no WhatsApp.</p>
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" required placeholder="Seu nome completo" autocomplete="name">
+      <label for="telefone">Telefone / WhatsApp</label>
+      <input type="tel" id="telefone" required placeholder="(00) 9xxxx-xxxx" autocomplete="tel">
+      <label for="unidade">Unidade de interesse</label>
+      <select id="unidade">
+        <option>Todas as quatro</option>
+        <option>Meraki 1404 · 93,50 m² · 2 suítes</option>
+        <option>Domum 1901 · 117 m² · 3 suítes</option>
+        <option>Domum 1404 · 104 m² · 3 suítes</option>
+        <option>Porto Belo Tower 701 · 126,71 m² · 3 suítes</option>
+      </select>
+      <button type="submit" class="btn">Receber valores no WhatsApp</button>
+      <a class="wa" href="https://wa.me/5553981041499?text=Ol%C3%A1%2C%20quero%20os%20valores%20das%20unidades%20da%20Pastorio%20em%20Porto%20Belo.">ou fale direto pelo WhatsApp, sem preencher</a>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <img src="img/logo.png" alt="Maysonnave Imóveis">
+  <p>Vendas: Maysonnave Imóveis · Rodrigo Maysonnave Fernandes · CRECI-RS 61.580 · (53) 98104-1499</p>
+  <p>Empreendimentos: Meraki Future Living, Domum Morada e Porto Belo Tower · Incorporação e construção: Pastorio Construtora e Incorporadora · Porto Belo/SC</p>
+  <p class="legal">Unidades de permuta, comercializadas pelo titular e não pela incorporadora. Imagens, perspectivas e plantas são ilustrativas e foram extraídas do material de divulgação da Pastorio: mobiliário, decoração e revestimentos representados não integram a unidade. Áreas privativas, pavimentos e prazos conforme tabelas e books da incorporadora e a plataforma DWV (consulta em 24/11/2026), sujeitos a confirmação no memorial descritivo e no registro de incorporação. Valores e condições sob consulta.</p>
+</footer>
+
+<div id="lightbox" role="dialog" aria-label="Imagem ampliada"><button aria-label="Fechar">&#10005;</button><img src="" alt=""></div>
+<a class="float-wa" id="floatWa" href="https://wa.me/5553981041499?text=Ol%C3%A1%2C%20quero%20informa%C3%A7%C3%B5es%20sobre%20as%20unidades%20da%20Pastorio%20em%20Porto%20Belo.">Falar no WhatsApp</a>
+
+<script>
+var hd=document.getElementById('top'),fw=document.getElementById('floatWa');
+window.addEventListener('scroll',function(){var y=window.scrollY;hd.classList.toggle('solid',y>80);fw.classList.toggle('show',y>window.innerHeight*0.9);});
+var lb=document.getElementById('lightbox'),li=lb.querySelector('img');
+document.querySelectorAll('.gal img,.planta img,[data-zoom]').forEach(function(im){im.addEventListener('click',function(){li.src=im.src;li.alt=im.alt;lb.classList.add('open');document.body.style.overflow='hidden';});});
+function cl(){lb.classList.remove('open');li.src='';document.body.style.overflow='';}
+lb.addEventListener('click',function(e){if(e.target!==li)cl();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')cl();});
+document.getElementById('leadForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var msg='Olá, quero os valores das unidades da Pastorio em Porto Belo.\nUnidade: '+document.getElementById('unidade').value+'\nNome: '+document.getElementById('nome').value.trim()+'\nTelefone: '+document.getElementById('telefone').value.trim();
+  var url='https://wa.me/5553981041499?text='+encodeURIComponent(msg);
+  if(window.innerWidth<768){location.href=url;}else{window.open(url,'_blank');}
+});
+</script>
+</body>
+</html>
