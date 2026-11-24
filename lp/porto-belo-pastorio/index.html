@@ -143,6 +143,24 @@ footer img{height:48px;margin:0 auto 20px;filter:brightness(0) invert(1);opacity
 footer p{margin:0 auto 6px;max-width:760px}
 footer .legal{font-size:0.68rem;opacity:0.6;margin-top:16px;line-height:1.7}
 
+
+/* pavimento + orientação + mapa */
+.ori{display:grid;grid-template-columns:1.35fr 1fr;gap:32px;margin-top:50px;align-items:start}
+.ori .pav{background:#FBF8F3;border-radius:10px;padding:14px;box-shadow:0 2px 12px rgba(44,36,22,0.08);cursor:zoom-in}
+.ori .pav img{margin:0 auto;max-height:620px;width:auto}
+.ori .pav .cap{font-size:0.76rem;color:var(--muted);margin-top:8px;text-align:center}
+.sun{list-style:none;margin:14px 0 18px}
+.sun li{padding:10px 0;border-bottom:1px solid var(--line);font-size:0.95rem}
+.unit.dark .sun li{border-color:rgba(245,240,232,0.16)}
+.sun b{font-family:Montserrat,sans-serif;font-weight:800;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--cara);display:block;margin-bottom:2px}
+.unit.dark .sun b{color:#E2C9A8}
+.map{border-radius:10px;overflow:hidden;height:240px;background:var(--alt);margin-bottom:12px}
+.map iframe{width:100%;height:100%;border:0;display:block}
+.btn-map{display:inline-block;font-family:Montserrat,sans-serif;font-weight:700;font-size:0.74rem;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;padding:12px 18px;border-radius:6px;border:1px solid var(--cara);color:var(--cara)}
+.unit.dark .btn-map{color:#E2C9A8;border-color:#E2C9A8}
+.note{font-size:0.78rem;opacity:0.7;margin-top:12px}
+@media (max-width:960px){.ori{grid-template-columns:1fr}}
+@media (max-width:600px){.ori .pav img{max-height:none;width:100%}.map{height:220px}}
 #lightbox{position:fixed;inset:0;background:rgba(15,12,9,0.94);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
 #lightbox.open{display:flex}
 #lightbox img{max-width:100%;max-height:92vh;border-radius:6px;background:#F5F0E8}
@@ -268,6 +286,16 @@ footer .legal{font-size:0.68rem;opacity:0.6;margin-top:16px;line-height:1.7}
       </div>
       <div class="planta" data-zoom-wrap><img src="img/meraki-planta-tipo04.jpg" alt="Planta Tipo 04 do Meraki, 93,50 m²"><p class="cap">Planta Tipo 04 · 93,50 m² · perspectiva ilustrativa · toque para ampliar</p></div>
     </div>
+    <div class="ori">
+      <div class="pav"><img src="img/meraki-pav-1404.jpg" alt="Pavimento tipo do Meraki com a unidade 1404 destacada" loading="lazy"><p class="cap">Pavimento tipo · unidade 1404 em destaque · toque para ampliar</p></div>
+      <div>
+        <p class="eyebrow">Posição no andar e sol</p>
+        <ul class="sun"><li><b>Posição</b>Ponta oeste do andar, na ala oposta à Av. Luiz Voltolini, afastada da avenida</li><li><b>Suítes e living</b>Janelas para o oeste-noroeste: sol da tarde o ano todo</li><li><b>Sacada</b>Voltada para o sul-sudoeste, sombreada na maior parte do dia, o que deixa a churrasqueira confortável no verão</li></ul>
+        <div class="map"><iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa" src="https://maps.google.com/maps?q=-27.1592172,-48.5809983&z=17&output=embed"></iframe></div>
+        <a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=-27.1592172%2C-48.5809983" target="_blank" rel="noopener">Abrir no Google Maps</a>
+        <p class="note">Terreno entre a Av. Luiz Voltolini e a R. Antônio L. Brito, no Perequê. Norte medido sobre a imagem de satélite e o traçado das ruas.</p>
+      </div>
+    </div>
     <div class="gal">
       <figure><img src="img/meraki-living.jpg" alt="Living do Meraki" loading="lazy"><figcaption>Living decorado</figcaption></figure>
       <figure><img src="img/meraki-suite.jpg" alt="Suíte do Meraki" loading="lazy"><figcaption>Suíte</figcaption></figure>
@@ -316,6 +344,16 @@ footer .legal{font-size:0.68rem;opacity:0.6;margin-top:16px;line-height:1.7}
         <p class="addr">Rua Francisca F. Moraes · Balneário Perequê · Porto Belo/SC · 5 apartamentos por andar, 3 elevadores · Arquitetura Rabelo Bervasi</p>
       </div>
       <div class="planta"><img src="img/domum-planta-tipo01.jpg" alt="Planta Tipo 01 do Domum, 117 m²"><p class="cap">Planta Tipo 01 · 117 m² · perspectiva ilustrativa · toque para ampliar</p></div>
+    </div>
+    <div class="ori">
+      <div class="pav"><img src="img/domum-pav-1901.jpg" alt="Pavimento tipo do Domum com a unidade 1901 destacada" loading="lazy"><p class="cap">Pavimento tipo · unidade 1901 em destaque · toque para ampliar</p></div>
+      <div>
+        <p class="eyebrow">Posição no andar e sol</p>
+        <ul class="sun"><li><b>Posição</b>Apartamento de canto, de frente para a Rua Francisca F. Moraes</li><li><b>Varanda e suítes 2 e 3</b>Voltadas para a rua, a noroeste: sol da tarde, mais intenso no inverno</li><li><b>Suíte principal</b>Na lateral sudoeste, com luz do fim de tarde</li></ul>
+        <div class="map"><iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa" src="https://maps.google.com/maps?ll=-27.15785,-48.56925&z=17&output=embed"></iframe></div>
+        <a class="btn-map" href="https://www.google.com/maps/@-27.15785,-48.56925,18z" target="_blank" rel="noopener">Abrir no Google Maps</a>
+        <p class="note">Terreno no lado sudeste da Rua Francisca F. Moraes, no Perequê, a 350 m da praia. A obra ainda não começou, por isso o mapa mostra o trecho da rua, sem marcador.</p>
+      </div>
     </div>
     <div class="gal">
       <figure><img src="img/domum-fachada.jpg" alt="Fachada do Domum" loading="lazy"><figcaption>Fachada</figcaption></figure>
@@ -366,6 +404,16 @@ footer .legal{font-size:0.68rem;opacity:0.6;margin-top:16px;line-height:1.7}
       </div>
       <div class="planta"><img src="img/domum-planta-tipo04.jpg" alt="Planta Tipo 04 do Domum, 104,01 m²"><p class="cap">Planta Tipo 04 · 104,01 m² · perspectiva ilustrativa · toque para ampliar</p></div>
     </div>
+    <div class="ori">
+      <div class="pav"><img src="img/domum-pav-1404.jpg" alt="Pavimento tipo do Domum com a unidade 1404 destacada" loading="lazy"><p class="cap">Pavimento tipo · unidade 1404 em destaque · toque para ampliar</p></div>
+      <div>
+        <p class="eyebrow">Posição no andar e sol</p>
+        <ul class="sun"><li><b>Posição</b>Fundos do terreno, canto leste, afastado da rua</li><li><b>Varandas e suítes</b>Voltadas para o sudeste: sol da manhã</li><li><b>Suíte principal</b>Com face também para o nordeste, a que recebe o sol da manhã o ano todo</li></ul>
+        <div class="map"><iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa" src="https://maps.google.com/maps?ll=-27.15785,-48.56925&z=17&output=embed"></iframe></div>
+        <a class="btn-map" href="https://www.google.com/maps/@-27.15785,-48.56925,18z" target="_blank" rel="noopener">Abrir no Google Maps</a>
+        <p class="note">Mesma torre da unidade 1901, na Rua Francisca F. Moraes, Perequê.</p>
+      </div>
+    </div>
     <div class="gal">
       <figure><img src="img/domum-torre.jpg" alt="Torre do Domum ao entardecer" loading="lazy" style="object-position:center 25%"><figcaption>A torre</figcaption></figure>
       <figure><img src="img/domum-academia.jpg" alt="Academia do Domum" loading="lazy"><figcaption>Academia</figcaption></figure>
@@ -406,6 +454,16 @@ footer .legal{font-size:0.68rem;opacity:0.6;margin-top:16px;line-height:1.7}
         <p class="addr">Rua Sebastião Manoel Jaques, 292 · Vila Nova · Porto Belo/SC · Próximo à Av. Governador Celso Ramos</p>
       </div>
       <div class="planta"><img src="img/pbt-planta-tipo01.jpg" alt="Planta Tipo 01 do Porto Belo Tower, 126,71 m²"><p class="cap">Planta Tipo 01 · 126,71 m² · perspectiva ilustrativa · toque para ampliar</p></div>
+    </div>
+    <div class="ori">
+      <div class="pav"><img src="img/pbt-pav-701.jpg" alt="Pavimento tipo do Porto Belo Tower com a unidade 701 destacada" loading="lazy"><p class="cap">Pavimento tipo · unidade 701 em destaque · toque para ampliar</p></div>
+      <div>
+        <p class="eyebrow">Posição no andar e sol</p>
+        <ul class="sun"><li><b>Posição</b>Ponta do andar, com três fachadas livres: cozinha e varanda gourmet numa extremidade, suítes na outra</li><li><b>Ventilação</b>Planta em L com janelas em lados opostos, o que favorece a ventilação cruzada</li><li><b>Orientação solar</b>Em confirmação com a construtora: o book não indica o norte da planta</li></ul>
+        <div class="map"><iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa" src="https://maps.google.com/maps?q=-27.1597354,-48.5616427&z=17&output=embed"></iframe></div>
+        <a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=-27.1597354%2C-48.5616427" target="_blank" rel="noopener">Abrir no Google Maps</a>
+        <p class="note">Obra em andamento na Rua Sebastião Manoel Jaques, 292, esquina com a R. Maria L. Nunes, Vila Nova.</p>
+      </div>
     </div>
     <div class="gal">
       <figure><img src="img/pbt-rooftop.jpg" alt="Ocean Rooftop do Porto Belo Tower" loading="lazy"><figcaption>Ocean Rooftop</figcaption></figure>
@@ -491,7 +549,7 @@ footer .legal{font-size:0.68rem;opacity:0.6;margin-top:16px;line-height:1.7}
 var hd=document.getElementById('top'),fw=document.getElementById('floatWa');
 window.addEventListener('scroll',function(){var y=window.scrollY;hd.classList.toggle('solid',y>80);fw.classList.toggle('show',y>window.innerHeight*0.9);});
 var lb=document.getElementById('lightbox'),li=lb.querySelector('img');
-document.querySelectorAll('.gal img,.planta img,[data-zoom]').forEach(function(im){im.addEventListener('click',function(){li.src=im.src;li.alt=im.alt;lb.classList.add('open');document.body.style.overflow='hidden';});});
+document.querySelectorAll('.gal img,.planta img,.pav img,[data-zoom]').forEach(function(im){im.addEventListener('click',function(){li.src=im.src;li.alt=im.alt;lb.classList.add('open');document.body.style.overflow='hidden';});});
 function cl(){lb.classList.remove('open');li.src='';document.body.style.overflow='';}
 lb.addEventListener('click',function(e){if(e.target!==li)cl();});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')cl();});
